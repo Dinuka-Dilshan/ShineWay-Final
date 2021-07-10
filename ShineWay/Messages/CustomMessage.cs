@@ -68,5 +68,10 @@ namespace ShineWay.Messages
             myRgbColor = Color.FromArgb(r, g, b);
             return myRgbColor;
         }
+
+        private void label_message_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

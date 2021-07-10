@@ -69,11 +69,12 @@ namespace ShineWay.Messages
             this.label_message.AutoSize = true;
             this.label_message.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_message.Location = new System.Drawing.Point(128, 46);
+            this.label_message.Location = new System.Drawing.Point(138, 40);
             this.label_message.Name = "label_message";
             this.label_message.Size = new System.Drawing.Size(357, 23);
             this.label_message.TabIndex = 2;
             this.label_message.Text = "Username or Passsword is incorrect!";
+            this.label_message.Click += new System.EventHandler(this.label_message_Click);
             // 
             // pb_icon
             // 
@@ -91,7 +92,7 @@ namespace ShineWay.Messages
             this.btn_btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_btn1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_btn1.ForeColor = System.Drawing.Color.White;
-            this.btn_btn1.Location = new System.Drawing.Point(236, 109);
+            this.btn_btn1.Location = new System.Drawing.Point(208, 109);
             this.btn_btn1.Name = "btn_btn1";
             this.btn_btn1.Size = new System.Drawing.Size(94, 42);
             this.btn_btn1.TabIndex = 4;
@@ -104,7 +105,7 @@ namespace ShineWay.Messages
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(442, 170);
+            this.ClientSize = new System.Drawing.Size(507, 170);
             this.Controls.Add(this.label_message);
             this.Controls.Add(this.btn_btn1);
             this.Controls.Add(this.pb_icon);
