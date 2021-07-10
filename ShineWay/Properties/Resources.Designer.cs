@@ -83,6 +83,16 @@ namespace ShineWay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bookingdatagridviewpanel {
+            get {
+                object obj = ResourceManager.GetObject("bookingdatagridviewpanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bookmark {
             get {
                 object obj = ResourceManager.GetObject("bookmark", resourceCulture);
@@ -96,6 +106,16 @@ namespace ShineWay.Properties {
         internal static System.Drawing.Bitmap BrowseLeft {
             get {
                 object obj = ResourceManager.GetObject("BrowseLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap datagridviewpanel {
+            get {
+                object obj = ResourceManager.GetObject("datagridviewpanel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
