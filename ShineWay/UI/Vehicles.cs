@@ -175,5 +175,15 @@ namespace ShineWay.UI
             txt_StartingOdo.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
 
         }
+
+        private void combo_Packagetype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combo_Packagetype_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
