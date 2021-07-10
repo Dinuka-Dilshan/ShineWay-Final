@@ -1,0 +1,818 @@
+﻿
+namespace ShineWay.UI
+{
+    partial class Booking
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.combo_packageType = new System.Windows.Forms.ComboBox();
+            this.date_endDate = new System.Windows.Forms.DateTimePicker();
+            this.date_startingDate = new System.Windows.Forms.DateTimePicker();
+            this.txt_bookingId = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.txt_description = new System.Windows.Forms.TextBox();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.txt_advancedPayment = new System.Windows.Forms.TextBox();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.txt_licenseNumber = new System.Windows.Forms.TextBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.txt_customerNic = new System.Windows.Forms.TextBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pb_btnUpdatePrint = new System.Windows.Forms.PictureBox();
+            this.pb_btnReset = new System.Windows.Forms.PictureBox();
+            this.txt_vehicleRegNumber = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.txt_depositAmount = new System.Windows.Forms.TextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_startingOdometer = new System.Windows.Forms.TextBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdatePrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.pictureBox17);
+            this.panel2.Controls.Add(this.pictureBox5);
+            this.panel2.Controls.Add(this.txt_search);
+            this.panel2.Controls.Add(this.pictureBox16);
+            this.panel2.Controls.Add(this.pictureBox15);
+            this.panel2.Location = new System.Drawing.Point(908, 21);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(876, 827);
+            this.panel2.TabIndex = 27;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackColor = System.Drawing.Color.White;
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Location = new System.Drawing.Point(100, 182);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(688, 569);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox17.TabIndex = 2;
+            this.pictureBox17.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(588, 6);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 4;
+            this.pictureBox5.TabStop = false;
+            // 
+            // txt_search
+            // 
+            this.txt_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_search.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_search.Location = new System.Drawing.Point(166, 77);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(230, 25);
+            this.txt_search.TabIndex = 3;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.White;
+            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
+            this.pictureBox16.Location = new System.Drawing.Point(101, 66);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(323, 47);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox16.TabIndex = 1;
+            this.pictureBox16.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
+            this.pictureBox15.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(863, 811);
+            this.pictureBox15.TabIndex = 0;
+            this.pictureBox15.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.combo_packageType);
+            this.panel1.Controls.Add(this.date_endDate);
+            this.panel1.Controls.Add(this.date_startingDate);
+            this.panel1.Controls.Add(this.txt_bookingId);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictureBox26);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.pictureBox24);
+            this.panel1.Controls.Add(this.txt_description);
+            this.panel1.Controls.Add(this.pictureBox25);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.pictureBox22);
+            this.panel1.Controls.Add(this.txt_advancedPayment);
+            this.panel1.Controls.Add(this.pictureBox23);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.pictureBox20);
+            this.panel1.Controls.Add(this.txt_licenseNumber);
+            this.panel1.Controls.Add(this.pictureBox21);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.pictureBox18);
+            this.panel1.Controls.Add(this.txt_customerNic);
+            this.panel1.Controls.Add(this.pictureBox19);
+            this.panel1.Controls.Add(this.pb_btnUpdatePrint);
+            this.panel1.Controls.Add(this.pb_btnReset);
+            this.panel1.Controls.Add(this.txt_vehicleRegNumber);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.pictureBox12);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.txt_depositAmount);
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txt_startingOdometer);
+            this.panel1.Controls.Add(this.pictureBox13);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.pictureBox7);
+            this.panel1.Controls.Add(this.pictureBox10);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.pictureBox8);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pictureBox14);
+            this.panel1.Location = new System.Drawing.Point(11, 21);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(891, 827);
+            this.panel1.TabIndex = 28;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // combo_packageType
+            // 
+            this.combo_packageType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.combo_packageType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.combo_packageType.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.combo_packageType.FormattingEnabled = true;
+            this.combo_packageType.Items.AddRange(new object[] {
+            "Weekly Basis",
+            "Monthly Basis"});
+            this.combo_packageType.Location = new System.Drawing.Point(367, 503);
+            this.combo_packageType.Name = "combo_packageType";
+            this.combo_packageType.Size = new System.Drawing.Size(169, 29);
+            this.combo_packageType.TabIndex = 54;
+            this.combo_packageType.Text = "Daily Basis";
+            // 
+            // date_endDate
+            // 
+            this.date_endDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.date_endDate.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date_endDate.Location = new System.Drawing.Point(367, 440);
+            this.date_endDate.Margin = new System.Windows.Forms.Padding(0);
+            this.date_endDate.Name = "date_endDate";
+            this.date_endDate.Size = new System.Drawing.Size(370, 30);
+            this.date_endDate.TabIndex = 53;
+            // 
+            // date_startingDate
+            // 
+            this.date_startingDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.date_startingDate.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date_startingDate.Location = new System.Drawing.Point(367, 315);
+            this.date_startingDate.Margin = new System.Windows.Forms.Padding(0);
+            this.date_startingDate.Name = "date_startingDate";
+            this.date_startingDate.Size = new System.Drawing.Size(370, 30);
+            this.date_startingDate.TabIndex = 52;
+            // 
+            // txt_bookingId
+            // 
+            this.txt_bookingId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_bookingId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_bookingId.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_bookingId.Location = new System.Drawing.Point(376, 66);
+            this.txt_bookingId.Name = "txt_bookingId";
+            this.txt_bookingId.Size = new System.Drawing.Size(430, 23);
+            this.txt_bookingId.TabIndex = 51;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(367, 51);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox26
+            // 
+            this.pictureBox26.BackColor = System.Drawing.Color.White;
+            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
+            this.pictureBox26.Location = new System.Drawing.Point(56, 56);
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox26.TabIndex = 48;
+            this.pictureBox26.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label11.Location = new System.Drawing.Point(104, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 27);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "Booking ID";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label10.Location = new System.Drawing.Point(104, 688);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(138, 27);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "Description";
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.BackColor = System.Drawing.Color.White;
+            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
+            this.pictureBox24.Location = new System.Drawing.Point(56, 673);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox24.TabIndex = 46;
+            this.pictureBox24.TabStop = false;
+            // 
+            // txt_description
+            // 
+            this.txt_description.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_description.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_description.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_description.Location = new System.Drawing.Point(376, 688);
+            this.txt_description.Name = "txt_description";
+            this.txt_description.Size = new System.Drawing.Size(430, 23);
+            this.txt_description.TabIndex = 45;
+            // 
+            // pictureBox25
+            // 
+            this.pictureBox25.BackColor = System.Drawing.Color.White;
+            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
+            this.pictureBox25.Location = new System.Drawing.Point(367, 673);
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox25.TabIndex = 44;
+            this.pictureBox25.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label9.Location = new System.Drawing.Point(104, 626);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(236, 27);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "Advanced Payment";
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.BackColor = System.Drawing.Color.White;
+            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
+            this.pictureBox22.Location = new System.Drawing.Point(56, 611);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox22.TabIndex = 42;
+            this.pictureBox22.TabStop = false;
+            // 
+            // txt_advancedPayment
+            // 
+            this.txt_advancedPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_advancedPayment.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_advancedPayment.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_advancedPayment.Location = new System.Drawing.Point(376, 626);
+            this.txt_advancedPayment.Name = "txt_advancedPayment";
+            this.txt_advancedPayment.Size = new System.Drawing.Size(430, 23);
+            this.txt_advancedPayment.TabIndex = 41;
+            // 
+            // pictureBox23
+            // 
+            this.pictureBox23.BackColor = System.Drawing.Color.White;
+            this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
+            this.pictureBox23.Location = new System.Drawing.Point(367, 611);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox23.TabIndex = 40;
+            this.pictureBox23.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label8.Location = new System.Drawing.Point(104, 257);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(193, 27);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "License Number";
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.BackColor = System.Drawing.Color.White;
+            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
+            this.pictureBox20.Location = new System.Drawing.Point(56, 242);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox20.TabIndex = 38;
+            this.pictureBox20.TabStop = false;
+            // 
+            // txt_licenseNumber
+            // 
+            this.txt_licenseNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_licenseNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_licenseNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_licenseNumber.Location = new System.Drawing.Point(376, 257);
+            this.txt_licenseNumber.Name = "txt_licenseNumber";
+            this.txt_licenseNumber.Size = new System.Drawing.Size(430, 23);
+            this.txt_licenseNumber.TabIndex = 37;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.BackColor = System.Drawing.Color.White;
+            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
+            this.pictureBox21.Location = new System.Drawing.Point(367, 242);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox21.TabIndex = 36;
+            this.pictureBox21.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label7.Location = new System.Drawing.Point(104, 193);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(167, 27);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Customer NIC";
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BackColor = System.Drawing.Color.White;
+            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
+            this.pictureBox18.Location = new System.Drawing.Point(56, 178);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox18.TabIndex = 34;
+            this.pictureBox18.TabStop = false;
+            // 
+            // txt_customerNic
+            // 
+            this.txt_customerNic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_customerNic.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_customerNic.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_customerNic.Location = new System.Drawing.Point(376, 193);
+            this.txt_customerNic.Name = "txt_customerNic";
+            this.txt_customerNic.Size = new System.Drawing.Size(430, 23);
+            this.txt_customerNic.TabIndex = 33;
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.BackColor = System.Drawing.Color.White;
+            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
+            this.pictureBox19.Location = new System.Drawing.Point(367, 178);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox19.TabIndex = 32;
+            this.pictureBox19.TabStop = false;
+            // 
+            // pb_btnUpdatePrint
+            // 
+            this.pb_btnUpdatePrint.Image = global::ShineWay.Properties.Resources.update_print;
+            this.pb_btnUpdatePrint.Location = new System.Drawing.Point(473, 747);
+            this.pb_btnUpdatePrint.Name = "pb_btnUpdatePrint";
+            this.pb_btnUpdatePrint.Size = new System.Drawing.Size(150, 42);
+            this.pb_btnUpdatePrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_btnUpdatePrint.TabIndex = 30;
+            this.pb_btnUpdatePrint.TabStop = false;
+            this.pb_btnUpdatePrint.Click += new System.EventHandler(this.pb_btnUpdatePrint_Click);
+            this.pb_btnUpdatePrint.MouseLeave += new System.EventHandler(this.pb_btnUpdatePrint_MouseLeave);
+            this.pb_btnUpdatePrint.MouseHover += new System.EventHandler(this.pb_btnUpdatePrint_MouseHover);
+            // 
+            // pb_btnReset
+            // 
+            this.pb_btnReset.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnReset.Image")));
+            this.pb_btnReset.Location = new System.Drawing.Point(214, 745);
+            this.pb_btnReset.Name = "pb_btnReset";
+            this.pb_btnReset.Size = new System.Drawing.Size(140, 42);
+            this.pb_btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_btnReset.TabIndex = 27;
+            this.pb_btnReset.TabStop = false;
+            this.pb_btnReset.Click += new System.EventHandler(this.pb_btnReset_Click);
+            this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
+            this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
+            // 
+            // txt_vehicleRegNumber
+            // 
+            this.txt_vehicleRegNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_vehicleRegNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_vehicleRegNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_vehicleRegNumber.Location = new System.Drawing.Point(376, 132);
+            this.txt_vehicleRegNumber.Name = "txt_vehicleRegNumber";
+            this.txt_vehicleRegNumber.Size = new System.Drawing.Size(430, 23);
+            this.txt_vehicleRegNumber.TabIndex = 26;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(367, 117);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label6.Location = new System.Drawing.Point(104, 566);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(191, 27);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Deposit Amount";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(56, 551);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox12.TabIndex = 23;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(56, 122);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // txt_depositAmount
+            // 
+            this.txt_depositAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_depositAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_depositAmount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_depositAmount.Location = new System.Drawing.Point(376, 566);
+            this.txt_depositAmount.Name = "txt_depositAmount";
+            this.txt_depositAmount.Size = new System.Drawing.Size(430, 23);
+            this.txt_depositAmount.TabIndex = 22;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.White;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(56, 365);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 11;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label1.Location = new System.Drawing.Point(104, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 27);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Vehicle Reg. Number";
+            // 
+            // txt_startingOdometer
+            // 
+            this.txt_startingOdometer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_startingOdometer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_startingOdometer.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_startingOdometer.Location = new System.Drawing.Point(376, 380);
+            this.txt_startingOdometer.Name = "txt_startingOdometer";
+            this.txt_startingOdometer.Size = new System.Drawing.Size(430, 23);
+            this.txt_startingOdometer.TabIndex = 10;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.White;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(367, 551);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox13.TabIndex = 21;
+            this.pictureBox13.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label3.Location = new System.Drawing.Point(104, 380);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(216, 27);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Starting Odometer";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label5.Location = new System.Drawing.Point(104, 505);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 27);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Package Type";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(367, 365);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox7.TabIndex = 9;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.White;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(56, 490);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox10.TabIndex = 19;
+            this.pictureBox10.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label2.Location = new System.Drawing.Point(104, 318);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 27);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Starting Date";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(56, 303);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(56, 428);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox8.TabIndex = 15;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label4.Location = new System.Drawing.Point(104, 443);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(112, 27);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "End Date";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(16, 3);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(856, 814);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox14.TabIndex = 0;
+            this.pictureBox14.TabStop = false;
+            // 
+            // Booking
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Name = "Booking";
+            this.Size = new System.Drawing.Size(1800, 900);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdatePrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.TextBox txt_licenseNumber;
+        private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.TextBox txt_customerNic;
+        private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.PictureBox pb_btnUpdatePrint;
+        private System.Windows.Forms.PictureBox pb_btnReset;
+        private System.Windows.Forms.TextBox txt_vehicleRegNumber;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox txt_depositAmount;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_startingOdometer;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.DateTimePicker date_startingDate;
+        private System.Windows.Forms.TextBox txt_bookingId;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox26;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox24;
+        private System.Windows.Forms.TextBox txt_description;
+        private System.Windows.Forms.PictureBox pictureBox25;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox22;
+        private System.Windows.Forms.TextBox txt_advancedPayment;
+        private System.Windows.Forms.PictureBox pictureBox23;
+        private System.Windows.Forms.DateTimePicker date_endDate;
+        private System.Windows.Forms.ComboBox combo_packageType;
+        private System.Windows.Forms.PictureBox pictureBox5;
+    }
+}
