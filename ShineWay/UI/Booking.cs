@@ -51,5 +51,20 @@ namespace ShineWay.UI
         {
             //update & print button code goes here
         }
+
+        private void pb_btnSubmitPrint_MouseHover(object sender, EventArgs e)
+        {
+            pb_btnSubmitPrint.Image = ShineWay.Properties.Resources.submit_printHover;
+        }
+
+        private void pb_btnSubmitPrint_MouseLeave(object sender, EventArgs e)
+        {
+            pb_btnSubmitPrint.Image = ShineWay.Properties.Resources.submit_print;
+        }
+
+        private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
