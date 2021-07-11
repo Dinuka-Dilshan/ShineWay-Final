@@ -274,6 +274,7 @@ namespace ShineWay.UI
             this.pb_btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pb_btnExit.TabIndex = 10;
             this.pb_btnExit.TabStop = false;
+            this.pb_btnExit.Tag = "Logout";
             this.pb_btnExit.Click += new System.EventHandler(this.pb_btnExit_Click);
             this.pb_btnExit.MouseLeave += new System.EventHandler(this.pb_btnExit_MouseLeave);
             this.pb_btnExit.MouseHover += new System.EventHandler(this.pb_btnExit_MouseHover);
