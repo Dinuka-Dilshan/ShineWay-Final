@@ -139,7 +139,7 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
@@ -293,7 +293,7 @@ namespace ShineWay.UI
 
         private void txt_description_Leave(object sender, EventArgs e)
         {
-            bool description = Validates.ValidateDescription(txt_description.Text);
+            bool description = Validates.ValidDescription(txt_description.Text);
 
             if (description == false)
             {

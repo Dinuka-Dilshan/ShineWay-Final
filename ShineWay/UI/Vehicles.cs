@@ -255,7 +255,7 @@ namespace ShineWay.UI
 
         private void txt_ownerCondition_Leave(object sender, EventArgs e)
         {
-            bool isValidOwnerCondition = Validates.ValidateDescription(txt_ownerCondition.Text);
+            bool isValidOwnerCondition = Validates.ValidDescription(txt_ownerCondition.Text);
 
             if(isValidOwnerCondition == true)
             {
