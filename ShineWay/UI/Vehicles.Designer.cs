@@ -43,8 +43,6 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pb_btnDelete = new System.Windows.Forms.PictureBox();
-            this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
             this.pb_btnAdd = new System.Windows.Forms.Label();
             this.pb_btnReset = new System.Windows.Forms.Label();
             this.msktxt_startingOdo = new System.Windows.Forms.MaskedTextBox();
@@ -110,6 +108,8 @@ namespace ShineWay.UI
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pb_btnUpdate = new System.Windows.Forms.Label();
+            this.pb_btnDelete = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
@@ -120,8 +120,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
@@ -356,30 +354,6 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
-            // 
-            // pb_btnDelete
-            // 
-            this.pb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnDelete.Image")));
-            this.pb_btnDelete.Location = new System.Drawing.Point(679, 749);
-            this.pb_btnDelete.Name = "pb_btnDelete";
-            this.pb_btnDelete.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnDelete.TabIndex = 83;
-            this.pb_btnDelete.TabStop = false;
-            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
-            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
-            // 
-            // pb_btnUpdate
-            // 
-            this.pb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnUpdate.Image")));
-            this.pb_btnUpdate.Location = new System.Drawing.Point(465, 749);
-            this.pb_btnUpdate.Name = "pb_btnUpdate";
-            this.pb_btnUpdate.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnUpdate.TabIndex = 31;
-            this.pb_btnUpdate.TabStop = false;
-            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
-            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
             // 
             // pb_btnAdd
             // 
@@ -1139,6 +1113,28 @@ namespace ShineWay.UI
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
             // 
+            // pb_btnUpdate
+            // 
+            this.pb_btnUpdate.BackColor = System.Drawing.Color.White;
+            this.pb_btnUpdate.Image = global::ShineWay.Properties.Resources.update;
+            this.pb_btnUpdate.Location = new System.Drawing.Point(461, 745);
+            this.pb_btnUpdate.Name = "pb_btnUpdate";
+            this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnUpdate.TabIndex = 84;
+            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
+            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
+            // 
+            // pb_btnDelete
+            // 
+            this.pb_btnDelete.BackColor = System.Drawing.Color.White;
+            this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
+            this.pb_btnDelete.Location = new System.Drawing.Point(672, 745);
+            this.pb_btnDelete.Name = "pb_btnDelete";
+            this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnDelete.TabIndex = 85;
+            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
+            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
+            // 
             // Vehicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1161,8 +1157,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
@@ -1270,9 +1264,9 @@ namespace ShineWay.UI
         private System.Windows.Forms.MaskedTextBox msktxt_startingOdo;
         private System.Windows.Forms.Label pb_btnReset;
         private System.Windows.Forms.Label pb_btnAdd;
-        private System.Windows.Forms.PictureBox pb_btnUpdate;
-        private System.Windows.Forms.PictureBox pb_btnDelete;
         private System.Windows.Forms.Label pb_BtnBrowseOverallView;
         private System.Windows.Forms.Label pictureBox31;
+        private System.Windows.Forms.Label pb_btnDelete;
+        private System.Windows.Forms.Label pb_btnUpdate;
     }
 }
