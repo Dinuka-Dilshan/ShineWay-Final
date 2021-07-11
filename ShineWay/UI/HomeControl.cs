@@ -2,11 +2,15 @@
 using ShineWay.DataBase;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ShineWay.Classes;
+using System.Collections.Generic;
 
 namespace ShineWay.UI
 {
     public partial class HomeControl : UserControl
     {
+        List<Vehicle> vehicles = new List<Vehicle>();
+
         public HomeControl()
         {
             InitializeComponent();
@@ -44,12 +48,14 @@ namespace ShineWay.UI
             String searchKeyValue = txt_search.Text;
             String query = "SELECT `Vehicle_num`, `Brand`, `Model`,`Owner_Condi`, `Rent_price`,`Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Wedding_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' ";
 
+            List<Vehicle> vehicles = new List<Vehicle>();
 
             MySqlDataReader reader = DbConnection.Read(query);
             while (reader.Read())
             {
                 while (reader.HasRows)
                 {
+
                     label1.Text = reader[1].ToString();
                 }
                 
