@@ -200,6 +200,20 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
+            /*
+            try
+            {
+                DbConnection.readData("insert into customer (Cus_NIC , Licen_num, First_name , Last_name , Tel_num, Email , Cus_Address) Values" +
+                "('" + txt_nicNumber.Text + "','" + txt_licenseNumber.Text + "','" + txt_customerName.Text + "','" + textBox7.Text + "','" + txt_telephoneNumber.Text + "','"
+                + txt_email.Text + "','" + txt_address.Text + "')");
+
+                MessageBox.Show("Added Sucessfully", "SAVED!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }*/
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
