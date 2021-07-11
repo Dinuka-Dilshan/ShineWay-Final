@@ -551,6 +551,8 @@ namespace ShineWay.UI
             this.combo_type.Name = "combo_type";
             this.combo_type.Size = new System.Drawing.Size(151, 31);
             this.combo_type.TabIndex = 60;
+            this.combo_type.SelectedIndexChanged += new System.EventHandler(this.combo_Packagetype_SelectedIndexChanged);
+            this.combo_type.TextChanged += new System.EventHandler(this.combo_Packagetype_TextChanged);
             // 
             // label13
             // 
