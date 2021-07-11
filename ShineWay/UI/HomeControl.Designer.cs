@@ -38,7 +38,6 @@ namespace ShineWay.UI
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.pb10 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -49,11 +48,7 @@ namespace ShineWay.UI
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pb_vehicle = new System.Windows.Forms.PictureBox();
             this.label_VehicleNumber = new System.Windows.Forms.Label();
             this.label_brand = new System.Windows.Forms.Label();
             this.label_dailyRental = new System.Windows.Forms.Label();
@@ -89,7 +84,7 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_vehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
@@ -178,21 +173,12 @@ namespace ShineWay.UI
             // 
             this.pb10.BackColor = System.Drawing.Color.White;
             this.pb10.Image = ((System.Drawing.Image)(resources.GetObject("pb10.Image")));
-            this.pb10.Location = new System.Drawing.Point(293, 507);
+            this.pb10.Location = new System.Drawing.Point(250, 514);
             this.pb10.Name = "pb10";
             this.pb10.Size = new System.Drawing.Size(300, 300);
             this.pb10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb10.TabIndex = 9;
             this.pb10.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::ShineWay.Properties.Resources.bookmark;
-            this.label1.Location = new System.Drawing.Point(680, 526);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 31);
-            this.label1.TabIndex = 10;
             // 
             // label11
             // 
@@ -200,7 +186,7 @@ namespace ShineWay.UI
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(733, 507);
+            this.label11.Location = new System.Drawing.Point(646, 514);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(153, 22);
@@ -213,7 +199,7 @@ namespace ShineWay.UI
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(736, 570);
+            this.label12.Location = new System.Drawing.Point(646, 578);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(61, 22);
@@ -226,7 +212,7 @@ namespace ShineWay.UI
             this.label15.BackColor = System.Drawing.Color.White;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(736, 630);
+            this.label15.Location = new System.Drawing.Point(646, 638);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 22);
@@ -239,7 +225,7 @@ namespace ShineWay.UI
             this.label16.BackColor = System.Drawing.Color.White;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label16.Location = new System.Drawing.Point(736, 690);
+            this.label16.Location = new System.Drawing.Point(646, 698);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(117, 22);
@@ -252,7 +238,7 @@ namespace ShineWay.UI
             this.label17.BackColor = System.Drawing.Color.White;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label17.Location = new System.Drawing.Point(736, 750);
+            this.label17.Location = new System.Drawing.Point(646, 759);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(122, 22);
@@ -263,9 +249,9 @@ namespace ShineWay.UI
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(724, 517);
+            this.pictureBox5.Location = new System.Drawing.Point(636, 524);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(250, 50);
+            this.pictureBox5.Size = new System.Drawing.Size(350, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox5.TabIndex = 27;
             this.pictureBox5.TabStop = false;
@@ -274,9 +260,9 @@ namespace ShineWay.UI
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(724, 577);
+            this.pictureBox6.Location = new System.Drawing.Point(636, 584);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(250, 50);
+            this.pictureBox6.Size = new System.Drawing.Size(350, 50);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox6.TabIndex = 28;
             this.pictureBox6.TabStop = false;
@@ -285,9 +271,9 @@ namespace ShineWay.UI
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.White;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(724, 637);
+            this.pictureBox10.Location = new System.Drawing.Point(636, 644);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(250, 50);
+            this.pictureBox10.Size = new System.Drawing.Size(350, 50);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox10.TabIndex = 30;
             this.pictureBox10.TabStop = false;
@@ -296,9 +282,9 @@ namespace ShineWay.UI
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.White;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(724, 697);
+            this.pictureBox11.Location = new System.Drawing.Point(636, 704);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(250, 50);
+            this.pictureBox11.Size = new System.Drawing.Size(350, 50);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox11.TabIndex = 31;
             this.pictureBox11.TabStop = false;
@@ -307,110 +293,70 @@ namespace ShineWay.UI
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(724, 757);
+            this.pictureBox12.Location = new System.Drawing.Point(636, 764);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(250, 50);
+            this.pictureBox12.Size = new System.Drawing.Size(350, 50);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox12.TabIndex = 32;
             this.pictureBox12.TabStop = false;
             // 
-            // label2
+            // pb_vehicle
             // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Image = global::ShineWay.Properties.Resources.bookmark;
-            this.label2.Location = new System.Drawing.Point(680, 589);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 31);
-            this.label2.TabIndex = 33;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Image = global::ShineWay.Properties.Resources.bookmark;
-            this.label4.Location = new System.Drawing.Point(680, 647);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 31);
-            this.label4.TabIndex = 35;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Image = global::ShineWay.Properties.Resources.bookmark;
-            this.label5.Location = new System.Drawing.Point(680, 711);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 31);
-            this.label5.TabIndex = 36;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Image = global::ShineWay.Properties.Resources.bookmark;
-            this.label6.Location = new System.Drawing.Point(680, 766);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 31);
-            this.label6.TabIndex = 37;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Location = new System.Drawing.Point(298, 512);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(290, 290);
-            this.pictureBox9.TabIndex = 38;
-            this.pictureBox9.TabStop = false;
+            this.pb_vehicle.Location = new System.Drawing.Point(255, 519);
+            this.pb_vehicle.Name = "pb_vehicle";
+            this.pb_vehicle.Size = new System.Drawing.Size(290, 290);
+            this.pb_vehicle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_vehicle.TabIndex = 38;
+            this.pb_vehicle.TabStop = false;
             // 
             // label_VehicleNumber
             // 
-            this.label_VehicleNumber.AutoSize = true;
             this.label_VehicleNumber.BackColor = System.Drawing.Color.White;
             this.label_VehicleNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_VehicleNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_VehicleNumber.Location = new System.Drawing.Point(749, 533);
+            this.label_VehicleNumber.Location = new System.Drawing.Point(773, 539);
             this.label_VehicleNumber.Name = "label_VehicleNumber";
-            this.label_VehicleNumber.Size = new System.Drawing.Size(0, 21);
+            this.label_VehicleNumber.Size = new System.Drawing.Size(200, 20);
             this.label_VehicleNumber.TabIndex = 39;
             // 
             // label_brand
             // 
-            this.label_brand.AutoSize = true;
             this.label_brand.BackColor = System.Drawing.Color.White;
             this.label_brand.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_brand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_brand.Location = new System.Drawing.Point(749, 599);
+            this.label_brand.Location = new System.Drawing.Point(773, 599);
             this.label_brand.Name = "label_brand";
-            this.label_brand.Size = new System.Drawing.Size(0, 21);
+            this.label_brand.Size = new System.Drawing.Size(200, 20);
             this.label_brand.TabIndex = 40;
             // 
             // label_dailyRental
             // 
-            this.label_dailyRental.AutoSize = true;
             this.label_dailyRental.BackColor = System.Drawing.Color.White;
             this.label_dailyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_dailyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_dailyRental.Location = new System.Drawing.Point(749, 652);
+            this.label_dailyRental.Location = new System.Drawing.Point(773, 659);
             this.label_dailyRental.Name = "label_dailyRental";
-            this.label_dailyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_dailyRental.Size = new System.Drawing.Size(200, 20);
             this.label_dailyRental.TabIndex = 41;
             // 
             // label_weeklyRental
             // 
-            this.label_weeklyRental.AutoSize = true;
             this.label_weeklyRental.BackColor = System.Drawing.Color.White;
             this.label_weeklyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_weeklyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_weeklyRental.Location = new System.Drawing.Point(749, 712);
+            this.label_weeklyRental.Location = new System.Drawing.Point(773, 719);
             this.label_weeklyRental.Name = "label_weeklyRental";
-            this.label_weeklyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_weeklyRental.Size = new System.Drawing.Size(200, 20);
             this.label_weeklyRental.TabIndex = 42;
             // 
             // label_monthlyRental
             // 
-            this.label_monthlyRental.AutoSize = true;
             this.label_monthlyRental.BackColor = System.Drawing.Color.White;
             this.label_monthlyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_monthlyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_monthlyRental.Location = new System.Drawing.Point(749, 776);
+            this.label_monthlyRental.Location = new System.Drawing.Point(773, 779);
             this.label_monthlyRental.Name = "label_monthlyRental";
-            this.label_monthlyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_monthlyRental.Size = new System.Drawing.Size(200, 20);
             this.label_monthlyRental.TabIndex = 43;
             // 
             // btn_next
@@ -457,7 +403,7 @@ namespace ShineWay.UI
             this.btn_clipBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_clipBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_clipBoard.Image = global::ShineWay.Properties.Resources.clipboard;
-            this.btn_clipBoard.Location = new System.Drawing.Point(980, 530);
+            this.btn_clipBoard.Location = new System.Drawing.Point(1001, 534);
             this.btn_clipBoard.Name = "btn_clipBoard";
             this.btn_clipBoard.Size = new System.Drawing.Size(29, 29);
             this.btn_clipBoard.TabIndex = 44;
@@ -475,6 +421,7 @@ namespace ShineWay.UI
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox13.TabIndex = 45;
             this.pictureBox13.TabStop = false;
+            this.pictureBox13.Visible = false;
             // 
             // pictureBox14
             // 
@@ -504,6 +451,7 @@ namespace ShineWay.UI
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox16.TabIndex = 47;
             this.pictureBox16.TabStop = false;
+            this.pictureBox16.Visible = false;
             // 
             // pictureBox17
             // 
@@ -524,6 +472,7 @@ namespace ShineWay.UI
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox18.TabIndex = 49;
             this.pictureBox18.TabStop = false;
+            this.pictureBox18.Visible = false;
             // 
             // label3
             // 
@@ -531,7 +480,7 @@ namespace ShineWay.UI
             this.label3.BackColor = System.Drawing.SystemColors.Window;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(275, 350);
+            this.label3.Location = new System.Drawing.Point(256, 350);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 22);
@@ -542,7 +491,7 @@ namespace ShineWay.UI
             // 
             this.pictureBox19.BackColor = System.Drawing.Color.White;
             this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
-            this.pictureBox19.Location = new System.Drawing.Point(266, 360);
+            this.pictureBox19.Location = new System.Drawing.Point(245, 360);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(250, 50);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -555,7 +504,7 @@ namespace ShineWay.UI
             this.label7.BackColor = System.Drawing.SystemColors.Window;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(771, 350);
+            this.label7.Location = new System.Drawing.Point(765, 350);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 22);
@@ -566,7 +515,7 @@ namespace ShineWay.UI
             // 
             this.pictureBox20.BackColor = System.Drawing.Color.White;
             this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(749, 360);
+            this.pictureBox20.Location = new System.Drawing.Point(753, 360);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(250, 50);
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -579,7 +528,7 @@ namespace ShineWay.UI
             this.label8.BackColor = System.Drawing.SystemColors.Window;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(1253, 350);
+            this.label8.Location = new System.Drawing.Point(1279, 350);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 22);
@@ -590,7 +539,7 @@ namespace ShineWay.UI
             // 
             this.pictureBox21.BackColor = System.Drawing.Color.White;
             this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
-            this.pictureBox21.Location = new System.Drawing.Point(1244, 360);
+            this.pictureBox21.Location = new System.Drawing.Point(1268, 360);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(250, 50);
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -603,7 +552,7 @@ namespace ShineWay.UI
             this.label9.BackColor = System.Drawing.SystemColors.Window;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(293, 376);
+            this.label9.Location = new System.Drawing.Point(272, 376);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 22);
@@ -616,7 +565,7 @@ namespace ShineWay.UI
             this.label10.BackColor = System.Drawing.SystemColors.Window;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(776, 376);
+            this.label10.Location = new System.Drawing.Point(780, 376);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(111, 22);
@@ -629,7 +578,7 @@ namespace ShineWay.UI
             this.label13.BackColor = System.Drawing.SystemColors.Window;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(1276, 376);
+            this.label13.Location = new System.Drawing.Point(1297, 376);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(111, 22);
@@ -663,7 +612,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.label_dailyRental);
             this.Controls.Add(this.label_brand);
             this.Controls.Add(this.label_VehicleNumber);
-            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pb_vehicle);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -672,13 +621,8 @@ namespace ShineWay.UI
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pb10);
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.pictureBox8);
@@ -701,7 +645,7 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_vehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
@@ -726,7 +670,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.PictureBox pb10;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
@@ -737,11 +680,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pb_vehicle;
         private System.Windows.Forms.Label label_VehicleNumber;
         private System.Windows.Forms.Label label_brand;
         private System.Windows.Forms.Label label_dailyRental;

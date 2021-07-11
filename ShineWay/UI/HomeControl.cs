@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using ShineWay.Classes;
 using System.Collections.Generic;
 using ShineWay.Messages;
+using System.Drawing;
 
 namespace ShineWay.UI
 {
@@ -40,6 +41,15 @@ namespace ShineWay.UI
                 label_monthlyRental.Text = vehicles[0].getMonthlyRental();
                 label_weeklyRental.Text = vehicles[0].getWeeklyRental();
 
+                try
+                {
+                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + ".jpg");
+                }
+                catch (Exception ex)
+                {
+                    pb_vehicle.Image = ShineWay.Properties.Resources.noImage;
+                }
+
                 if (txt_search.Text.Equals(""))
                 {
                     clearText();
@@ -68,6 +78,7 @@ namespace ShineWay.UI
 
         private void btn_next_Click(object sender, EventArgs e)
         {
+            
             vehicleIndex++;
 
             try
@@ -77,6 +88,15 @@ namespace ShineWay.UI
                 label_dailyRental.Text = vehicles[vehicleIndex].getDailyRental();
                 label_monthlyRental.Text = vehicles[vehicleIndex].getMonthlyRental();
                 label_weeklyRental.Text = vehicles[vehicleIndex].getWeeklyRental();
+                try
+                {
+                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + ".jpg");
+                }
+                catch (Exception ex)
+                {
+                    pb_vehicle.Image = ShineWay.Properties.Resources.noImage;
+                    //image not found
+                }
             }
             catch (Exception ex)
             {
@@ -99,6 +119,16 @@ namespace ShineWay.UI
                 label_dailyRental.Text = vehicles[vehicleIndex].getDailyRental();
                 label_monthlyRental.Text = vehicles[vehicleIndex].getMonthlyRental();
                 label_weeklyRental.Text = vehicles[vehicleIndex].getWeeklyRental();
+                try
+                {
+                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\"+ vehicles[vehicleIndex].getVehicleNumber() + ".jpg");
+                }
+                catch (Exception ex)
+                {
+                    pb_vehicle.Image = ShineWay.Properties.Resources.noImage;
+                    //image not found
+                }
+
             }
             catch (Exception ex)
             {
@@ -107,6 +137,8 @@ namespace ShineWay.UI
                 message.convertToOkButton();
                 message.ShowDialog();
             }
+
+
         }
 
         private void btn_previous_MouseHover(object sender, EventArgs e)
@@ -174,6 +206,7 @@ namespace ShineWay.UI
             label_dailyRental.Text = "";
             label_monthlyRental.Text = "";
             label_weeklyRental.Text = "";
+            pb_vehicle.Image =null;
         }
 
         private void btn_clipBoard_Click(object sender, EventArgs e)
