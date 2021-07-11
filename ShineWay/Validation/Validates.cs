@@ -11,14 +11,14 @@ namespace ShineWay.Validation
     {
         public static string validateName = "^[A-Za-z]{3,}$";
         public static string validateNEWCustomerNIC = "^[0-9]{4}[01235678]{1}[0-9]{7}$";
-        public static string validateOLDCustomerNIC = "^[0-9]{3}[01235678]{1}[0-9]{5}[VX]{0,1}$";
+        public static string validateOLDCustomerNIC = "^[0-9]{2}[01235678]{1}[0-9]{6}[VX]{1}$";
         public static string validateMobileNumber = "^[0]{1}[1-9]{9}$";
         public static string validateEmail = "^[a-zA-Z1-9_-+]{1,}[@][a-zA-Z][.][a-zA-Z]{2,3}([a-zA-Z]{2,3}){0,1}$";
 
         public static string validateBookingID = "^[0-9]{1,}$";
         public static string validateVehiclenumber1 = "^[A-Z]{2,3}[-][0-9]{4}$";
         public static string validateVehiclenumber2 = "^[0-9]{2,3}[-][0-9]{4}$";
-        public static string validateLicensenumber = "^[A-Z]{1}[1-9]{7,9}$";
+        public static string validateLicensenumber = "^[A-Z]{1}[1-9]{7,8}[A-Z]{0,1}$";
         public static string validateOdometer = "^[0-9]{5,6}$";
         public static string validatePackagetype = "^(Daily Basis|Monthly Basis|Weekly Basis)$";
 
@@ -26,8 +26,8 @@ namespace ShineWay.Validation
         public static string validateEndOdometer = "^[0-9]{5,6}$";
 
 
-        public static string validateAmount = "^[0-9]{0,10}$";
-        public static string validateDescription = "^[A-Za-z0-9&-_=+]{0,190}$";
+        public static string validateAmount = "^[0-9.]{0,10}$";
+        public static string validateDescription = "^[A-Za-z0-9&-_= +]{0,160}$";
 
 
         public static bool ValidBookingID(string bookingID)
