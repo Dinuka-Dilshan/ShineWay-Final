@@ -215,7 +215,7 @@ namespace ShineWay.UI
             this.maskedTextBox1.Mask = "000-0000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.PromptChar = ' ';
-            this.maskedTextBox1.Size = new System.Drawing.Size(501, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(429, 20);
             this.maskedTextBox1.TabIndex = 33;
             // 
             // pictureBox3
