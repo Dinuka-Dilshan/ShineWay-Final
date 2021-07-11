@@ -61,6 +61,7 @@ namespace ShineWay.UI
             this.label_monthlyRental = new System.Windows.Forms.Label();
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_previous = new System.Windows.Forms.Button();
+            this.btn_clipBoard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -424,10 +425,27 @@ namespace ShineWay.UI
             this.btn_previous.MouseLeave += new System.EventHandler(this.btn_previous_MouseLeave);
             this.btn_previous.MouseHover += new System.EventHandler(this.btn_previous_MouseHover);
             // 
+            // btn_clipBoard
+            // 
+            this.btn_clipBoard.BackColor = System.Drawing.Color.White;
+            this.btn_clipBoard.FlatAppearance.BorderSize = 0;
+            this.btn_clipBoard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_clipBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_clipBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_clipBoard.Image = global::ShineWay.Properties.Resources.clipboard;
+            this.btn_clipBoard.Location = new System.Drawing.Point(980, 530);
+            this.btn_clipBoard.Name = "btn_clipBoard";
+            this.btn_clipBoard.Size = new System.Drawing.Size(29, 29);
+            this.btn_clipBoard.TabIndex = 44;
+            this.btn_clipBoard.TabStop = false;
+            this.btn_clipBoard.UseVisualStyleBackColor = false;
+            this.btn_clipBoard.Click += new System.EventHandler(this.btn_clipBoard_Click);
+            // 
             // HomeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_clipBoard);
             this.Controls.Add(this.btn_previous);
             this.Controls.Add(this.btn_next);
             this.Controls.Add(this.label_monthlyRental);
@@ -512,5 +530,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_monthlyRental;
         private System.Windows.Forms.Button btn_next;
         private System.Windows.Forms.Button btn_previous;
+        private System.Windows.Forms.Button btn_clipBoard;
     }
 }

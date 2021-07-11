@@ -39,10 +39,16 @@ namespace ShineWay.UI
                 label_dailyRental.Text = vehicles[0].getDailyRental();
                 label_monthlyRental.Text = vehicles[0].getMonthlyRental();
                 label_weeklyRental.Text = vehicles[0].getWeeklyRental();
+
+                if (txt_search.Text.Equals(""))
+                {
+                    clearText();
+                    vehicles.Clear();
+                }
             }
             catch (Exception ex)
             {
-                
+                clearText();
             }
             
 
@@ -123,6 +129,7 @@ namespace ShineWay.UI
                     CustomMessage message = new CustomMessage("Enter a keyword to search!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                     message.convertToOkButton();
                     message.ShowDialog();
+                    clearText();
                 }
                 else
                 {
@@ -151,9 +158,49 @@ namespace ShineWay.UI
                         CustomMessage message = new CustomMessage("No search results found!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
                         message.convertToOkButton();
                         message.ShowDialog();
+                        vehicles.Clear();
+                        clearText();
                     }
                 }
             }
+        }
+
+
+
+        private void clearText()
+        {
+            label_VehicleNumber.Text = "";
+            label_brand.Text = "";
+            label_dailyRental.Text = "";
+            label_monthlyRental.Text = "";
+            label_weeklyRental.Text = "";
+        }
+
+        private void btn_clipBoard_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(label_VehicleNumber.Text);
+                Welcome message = new Welcome("Copied to clipboard!");
+                message.setWidth(370);
+                message.setIcon(ShineWay.Properties.Resources.tick);
+                message.setInterval(1000);
+                message.setImageBounds(120, 120, 12, 12);
+                message.hideCloseButton();
+                message.Show();
+            
+            }catch(Exception exe)
+            {
+                
+                Welcome message = new Welcome("Nothing to Copy!");
+                message.setWidth(320);
+                message.setIcon(ShineWay.Properties.Resources.information);
+                message.setInterval(1000);
+                message.setImageBounds(120, 120, 12, 12);
+                message.hideCloseButton();
+                message.Show();
+            }
+           
         }
     }
 }
