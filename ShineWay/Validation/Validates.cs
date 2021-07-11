@@ -27,7 +27,7 @@ namespace ShineWay.Validation
 
 
         public static string validateAmount = "^[0-9]{0,10}$";
-        public static string validateDescription = "^[A-Za-z0-9&-_=+]{0,190}$";
+        public static string validateDescription = "^[A-Za-z0-9&-_=+]{0,160}$";
 
 
         public static bool ValidBookingID(string bookingID)
