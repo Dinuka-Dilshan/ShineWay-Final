@@ -80,6 +80,7 @@ namespace ShineWay.UI
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(100, 104);
             this.btn_Home.TabIndex = 1;
+            this.btn_Home.TabStop = false;
             this.btn_Home.Text = "&Home";
             this.btn_Home.UseVisualStyleBackColor = false;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
@@ -95,6 +96,7 @@ namespace ShineWay.UI
             this.btnBooking.Name = "btnBooking";
             this.btnBooking.Size = new System.Drawing.Size(100, 104);
             this.btnBooking.TabIndex = 2;
+            this.btnBooking.TabStop = false;
             this.btnBooking.Text = "&Booking";
             this.btnBooking.UseVisualStyleBackColor = false;
             this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
@@ -110,6 +112,7 @@ namespace ShineWay.UI
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(100, 104);
             this.btnCustomer.TabIndex = 3;
+            this.btnCustomer.TabStop = false;
             this.btnCustomer.Text = "&Customer";
             this.btnCustomer.UseVisualStyleBackColor = false;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
@@ -125,6 +128,7 @@ namespace ShineWay.UI
             this.btn_vehicleOwner.Name = "btn_vehicleOwner";
             this.btn_vehicleOwner.Size = new System.Drawing.Size(100, 104);
             this.btn_vehicleOwner.TabIndex = 4;
+            this.btn_vehicleOwner.TabStop = false;
             this.btn_vehicleOwner.Text = "&Vehicle Owners";
             this.btn_vehicleOwner.UseVisualStyleBackColor = false;
             this.btn_vehicleOwner.Click += new System.EventHandler(this.btn_vehicleOwner_Click);
@@ -140,6 +144,7 @@ namespace ShineWay.UI
             this.btnVehicles.Name = "btnVehicles";
             this.btnVehicles.Size = new System.Drawing.Size(100, 104);
             this.btnVehicles.TabIndex = 5;
+            this.btnVehicles.TabStop = false;
             this.btnVehicles.Text = "V&ehicles";
             this.btnVehicles.UseVisualStyleBackColor = false;
             this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
@@ -155,6 +160,7 @@ namespace ShineWay.UI
             this.btn_payments.Name = "btn_payments";
             this.btn_payments.Size = new System.Drawing.Size(100, 104);
             this.btn_payments.TabIndex = 6;
+            this.btn_payments.TabStop = false;
             this.btn_payments.Text = "&Payments";
             this.btn_payments.UseVisualStyleBackColor = false;
             this.btn_payments.Click += new System.EventHandler(this.btn_payments_Click);
@@ -170,6 +176,7 @@ namespace ShineWay.UI
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(100, 104);
             this.btnUsers.TabIndex = 7;
+            this.btnUsers.TabStop = false;
             this.btnUsers.Text = "&Users";
             this.btnUsers.UseVisualStyleBackColor = false;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
@@ -185,6 +192,7 @@ namespace ShineWay.UI
             this.btn_ownerPayments.Name = "btn_ownerPayments";
             this.btn_ownerPayments.Size = new System.Drawing.Size(100, 104);
             this.btn_ownerPayments.TabIndex = 8;
+            this.btn_ownerPayments.TabStop = false;
             this.btn_ownerPayments.Text = "&Owner Payments";
             this.btn_ownerPayments.UseVisualStyleBackColor = false;
             this.btn_ownerPayments.Click += new System.EventHandler(this.btn_ownerPayments_Click_1);
