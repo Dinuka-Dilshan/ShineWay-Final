@@ -87,6 +87,40 @@ namespace ShineWay.UI
         private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
         {
             // update actions
+
+            if (txt_bookingId.ForeColor == Color.Green &&
+                       txt_vehicleRegNumber.ForeColor == Color.Green &&
+                       txt_customerNic.ForeColor == Color.Green &&
+                       txt_licenseNumber.ForeColor == Color.Green &&
+                       date_startingDate.Value <= date_endDate.Value &&
+                       txt_startingOdometer.ForeColor == Color.Green &&
+                       combo_packageType.ForeColor == Color.Green &&
+                       txt_depositAmount.ForeColor == Color.Green &&
+                       txt_advancedPayment.ForeColor == Color.Green &&
+                       txt_description.ForeColor == Color.Green
+               )
+            {
+                try
+                {
+                    CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updates", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+
+                    //   MySqlDataReader reader1 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+
+
+                }
+                catch (Exception ex)
+                {
+                    //  MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                CustomMessage errormessege1 = new CustomMessage("Unsuccessfull Update!\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                errormessege1.convertToOkButton();
+                errormessege1.ShowDialog();
+            }
         }
 
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
@@ -120,7 +154,7 @@ namespace ShineWay.UI
             }
             else
             {
-                CustomMessage errormessege1 = new CustomMessage("Booking Unsuccessfull!\n\n Enter correct values", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                CustomMessage errormessege1 = new CustomMessage("Booking Unsuccessfull!\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
                 errormessege1.convertToOkButton();
                 errormessege1.ShowDialog();
             }
