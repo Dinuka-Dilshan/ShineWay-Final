@@ -60,6 +60,7 @@ namespace ShineWay.UI
             this.txt_userName.Name = "txt_userName";
             this.txt_userName.Size = new System.Drawing.Size(324, 29);
             this.txt_userName.TabIndex = 0;
+            this.txt_userName.TextChanged += new System.EventHandler(this.txt_userName_TextChanged);
             this.txt_userName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_userName_KeyDown);
             // 
             // txt_password
