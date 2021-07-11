@@ -37,6 +37,8 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_btnAdd = new System.Windows.Forms.Label();
+            this.pb_btnReset = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,8 +64,6 @@ namespace ShineWay.UI
             this.txt_ownerName = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pb_btnReset = new System.Windows.Forms.Label();
-            this.pb_btnAdd = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -183,6 +183,28 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
+            // 
+            // pb_btnAdd
+            // 
+            this.pb_btnAdd.BackColor = System.Drawing.Color.White;
+            this.pb_btnAdd.Image = global::ShineWay.Properties.Resources.add;
+            this.pb_btnAdd.Location = new System.Drawing.Point(283, 696);
+            this.pb_btnAdd.Name = "pb_btnAdd";
+            this.pb_btnAdd.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnAdd.TabIndex = 40;
+            this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
+            this.pb_btnAdd.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
+            // 
+            // pb_btnReset
+            // 
+            this.pb_btnReset.BackColor = System.Drawing.Color.White;
+            this.pb_btnReset.Image = global::ShineWay.Properties.Resources.reset;
+            this.pb_btnReset.Location = new System.Drawing.Point(104, 696);
+            this.pb_btnReset.Name = "pb_btnReset";
+            this.pb_btnReset.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnReset.TabIndex = 39;
+            this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
+            this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
             // 
             // maskedTextBox1
             // 
@@ -467,28 +489,6 @@ namespace ShineWay.UI
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
-            // 
-            // pb_btnReset
-            // 
-            this.pb_btnReset.BackColor = System.Drawing.Color.White;
-            this.pb_btnReset.Image = global::ShineWay.Properties.Resources.reset;
-            this.pb_btnReset.Location = new System.Drawing.Point(104, 696);
-            this.pb_btnReset.Name = "pb_btnReset";
-            this.pb_btnReset.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnReset.TabIndex = 39;
-            this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
-            this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
-            // 
-            // pb_btnAdd
-            // 
-            this.pb_btnAdd.BackColor = System.Drawing.Color.White;
-            this.pb_btnAdd.Image = global::ShineWay.Properties.Resources.add;
-            this.pb_btnAdd.Location = new System.Drawing.Point(280, 700);
-            this.pb_btnAdd.Name = "pb_btnAdd";
-            this.pb_btnAdd.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnAdd.TabIndex = 40;
-            this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
-            this.pb_btnAdd.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
             // 
             // VehicleOwner
             // 
