@@ -64,6 +64,7 @@ namespace ShineWay.Validation
         public static bool ValidEndOdoMeter(string endODO)
         {
             return Regex.IsMatch(endODO, validateEndOdometer);
+        }
 
         public static bool ValidLicensenumber(string licensenumber)
         {
