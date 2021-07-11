@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using ShineWay.DataBase;
+using ShineWay.Validation;
+using ShineWay.Messages;
 
 namespace ShineWay.UI
 {
     public partial class Payment : UserControl
     {
+        DataBase.DbConnection ObjDb = new DataBase.DbConnection();
         public Payment()
         {
             InitializeComponent();
@@ -45,8 +50,202 @@ namespace ShineWay.UI
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
             //submit & reset button code goes here
+            try
+            {
+                DbConnection.Read("INSERT INTO `payment`(`Booking_ID`, `Cust_NIC`, `Vehicle_num`, `Status`, `End_date`, `End_ODO`, `Amount`, `Discount`, `Sub_Amount`) VALUES" + "('" + txt_bookingId.Text + "','" + txt_vehicleRegNumber.Text + "','" + txt_customerNic.Text + "','" + combo_status.Text + "','" + date_endDate.Text + "','" + txt_endingOdometer.Text + "','" + txt_amount.Text + "','" + txt_discount.Text + "','" + txt_subAmount.Text + "')");
+
+                
+                MessageBox.Show("Added Sucessfully", "SAVED!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-    
+        private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_bookingId_MouseLeave(object sender, EventArgs e)
+        { 
+            bool bookingid = Validates.ValidBookingID(txt_bookingId.Text);
+            if (bookingid == false)
+            {
+                txt_bookingId.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_bookingId.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void txt_vehicleRegNumber_MouseLeave(object sender, EventArgs e)
+        {
+            bool vehiclenumb1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text);
+            bool vehiclenumb2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text);
+            if (vehiclenumb1 == true || vehiclenumb2 == true)
+            {
+                txt_vehicleRegNumber.ForeColor = Color.Black;
+            }
+            else
+            {
+                txt_vehicleRegNumber.ForeColor = Color.Red;
+            }
+        }
+
+        private void txt_customerNic_MouseLeave(object sender, EventArgs e)
+        {
+            bool customernic1 = Validates.ValidCustomerNewNIC(txt_customerNic.Text);
+            bool customernic2 = Validates.ValidCustomerOldNIC(txt_customerNic.Text);
+            if (customernic1 == true || customernic2 == true)
+            {
+                txt_customerNic.ForeColor = Color.Black;
+            }
+            else
+            {
+                txt_customerNic.ForeColor = Color.Red;
+            }
+        }
+
+        private void txt_endingOdometer_MouseLeave(object sender, EventArgs e)
+        {
+            bool endodo = Validates.ValidEndOdoMeter(txt_endingOdometer.Text);
+            if (endodo == false)
+            {
+                txt_endingOdometer.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_endingOdometer.ForeColor = Color.Black;
+            }
+        }
+
+        private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_bookingId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                txt_vehicleRegNumber.Focus();
+                e.SuppressKeyPress = true; 
+            }
+            else if (e.KeyCode.Equals(Keys.Up))
+            {
+                txt_vehicleRegNumber.Focus();
+            }
+            else if (e.KeyCode.Equals(Keys.Down))
+            {
+                txt_vehicleRegNumber.Focus();
+            }
+        }
+
+        private void txt_vehicleRegNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                txt_customerNic.Focus();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode.Equals(Keys.Up))
+            {
+                txt_customerNic.Focus();
+            }
+            else if (e.KeyCode.Equals(Keys.Down))
+            {
+                txt_customerNic.Focus();
+            }
+        }
+
+        private void txt_customerNic_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                combo_status.Focus();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode.Equals(Keys.Up))
+            {
+                combo_status.Focus();
+            }
+            else if (e.KeyCode.Equals(Keys.Down))
+            {
+                combo_status.Focus();
+            }
+        }
+
+        private void combo_status_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                date_endDate.Focus();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode.Equals(Keys.Up))
+            {
+                date_endDate.Focus();
+            }
+            else if (e.KeyCode.Equals(Keys.Down))
+            {
+                date_endDate.Focus();
+            }
+        }
+
+        private void date_endDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                txt_endingOdometer.Focus();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode.Equals(Keys.Up))
+            {
+                txt_endingOdometer.Focus();
+            }
+            else if (e.KeyCode.Equals(Keys.Down))
+            {
+                txt_endingOdometer.Focus();
+            }
+        }
+
+        private void txt_endingOdometer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                txt_discount.Focus();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode.Equals(Keys.Up))
+            {
+                txt_discount.Focus();
+            }
+            else if (e.KeyCode.Equals(Keys.Down))
+            {
+                txt_discount.Focus();
+            }
+        }
+
+        private void txt_discount_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                pb_btnSubmitPrint_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode.Equals(Keys.Up))
+            {
+                txt_bookingId.Focus();
+            }
+            else if (e.KeyCode.Equals(Keys.Down))
+            {
+                txt_bookingId.Focus();
+            }
+        }
     }
 }

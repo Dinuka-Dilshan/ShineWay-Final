@@ -21,8 +21,14 @@ namespace ShineWay.Validation
         public static string validateLicensenumber = "^[A-Z]{1}[1-9]{7,9}$";
         public static string validateOdometer = "^[0-9]{5,6}$";
         public static string validatePackagetype = "^(Daily Basis|Monthly Basis|Weekly Basis)$";
+
+
+        public static string validateEndOdometer = "^[0-9]{5,6}$";
+
+
         public static string validateAmount = "^[0-9]{0,10}$";
         public static string validateDescription = "^[A-Za-z0-9&-_=+]{0,190}$";
+
 
         public static bool ValidBookingID(string bookingID)
         {
@@ -54,6 +60,11 @@ namespace ShineWay.Validation
             return Regex.IsMatch(customernic, validateOLDCustomerNIC);
         }
 
+
+        public static bool ValidEndOdoMeter(string endODO)
+        {
+            return Regex.IsMatch(endODO, validateEndOdometer);
+
         public static bool ValidLicensenumber(string licensenumber)
         {
             return Regex.IsMatch(licensenumber, validateLicensenumber);
@@ -72,6 +83,7 @@ namespace ShineWay.Validation
         public static bool ValidateDescription(string discription)
         {
             return Regex.IsMatch(discription, validateDescription);
+
         }
 
     }
