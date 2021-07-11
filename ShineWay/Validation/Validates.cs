@@ -93,6 +93,10 @@ namespace ShineWay.Validation
             return Regex.IsMatch(status, validateStatus);
 
         }
+        public static bool validMobileNumber(string mobileNo)
+        {
+            return Regex.IsMatch(mobileNo, validateMobileNumber);
+        }
 
 
     }
