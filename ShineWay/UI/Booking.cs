@@ -284,5 +284,20 @@ namespace ShineWay.UI
         {
             combo_packageType.ForeColor = Color.Green;
         }
+
+        private void txt_vehicleRegNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_bookingId_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

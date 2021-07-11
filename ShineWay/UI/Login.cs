@@ -192,5 +192,10 @@ namespace ShineWay.UI
         {
             label_forgotPassword.ForeColor = System.Drawing.Color.FromArgb(64,64,64);
         }
+
+        private void txt_userName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
