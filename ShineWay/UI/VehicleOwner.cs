@@ -176,7 +176,7 @@ namespace ShineWay.UI
 
         private void txt_address_Leave(object sender, EventArgs e)
         {
-            bool validaddress = Validates.ValidDescription(txt_address.Text);
+            bool validaddress = Validates.ValidateDescription(txt_address.Text);
 
             if (validaddress == false)
             {

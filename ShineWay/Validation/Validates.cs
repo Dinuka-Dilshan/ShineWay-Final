@@ -123,7 +123,7 @@ namespace ShineWay.Validation
             return Regex.IsMatch(amount, validateAmount);
         }
         
-        public static bool ValidDescription(string discription)
+        public static bool ValidateDescription(string discription)
         {
             return Regex.IsMatch(discription, validateDescription);
         }

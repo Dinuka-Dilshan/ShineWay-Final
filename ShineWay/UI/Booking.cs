@@ -293,7 +293,7 @@ namespace ShineWay.UI
 
         private void txt_description_Leave(object sender, EventArgs e)
         {
-            bool description = Validates.ValidDescription(txt_description.Text);
+            bool description = Validates.ValidateDescription(txt_description.Text);
 
             if (description == false)
             {
