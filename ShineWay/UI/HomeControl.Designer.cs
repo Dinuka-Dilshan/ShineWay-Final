@@ -147,6 +147,7 @@ namespace ShineWay.UI
             this.txt_search.Size = new System.Drawing.Size(246, 21);
             this.txt_search.TabIndex = 0;
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
+            this.txt_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyDown);
             // 
             // pb10
             // 
@@ -396,7 +397,7 @@ namespace ShineWay.UI
             this.btn_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_next.Image = global::ShineWay.Properties.Resources.next;
-            this.btn_next.Location = new System.Drawing.Point(1379, 738);
+            this.btn_next.Location = new System.Drawing.Point(1379, 694);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(146, 48);
             this.btn_next.TabIndex = 1;
@@ -414,7 +415,7 @@ namespace ShineWay.UI
             this.btn_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_previous.Image = global::ShineWay.Properties.Resources.previous;
-            this.btn_previous.Location = new System.Drawing.Point(1219, 738);
+            this.btn_previous.Location = new System.Drawing.Point(1219, 694);
             this.btn_previous.Name = "btn_previous";
             this.btn_previous.Size = new System.Drawing.Size(146, 48);
             this.btn_previous.TabIndex = 2;
