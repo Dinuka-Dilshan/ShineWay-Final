@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ShineWay.Classes;
 using System.Collections.Generic;
+using ShineWay.Messages;
 
 namespace ShineWay.UI
 {
@@ -23,20 +24,29 @@ namespace ShineWay.UI
             String searchKeyValue = txt_search.Text;
             String query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`, `Wedding_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%'";
             vehicles.Clear();
-            
 
-            MySqlDataReader reader = DbConnection.Read(query);
-            while (reader.Read())
+            try
             {
-               vehicles.Add(new Vehicle(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
-                
-            }
+                MySqlDataReader reader = DbConnection.Read(query);
+                while (reader.Read())
+                {
+                    vehicles.Add(new Vehicle(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
 
-            label_VehicleNumber.Text = vehicles[0].getVehicleNumber();
-            label_brand.Text = vehicles[0].getBrand();
-            label_dailyRental.Text = vehicles[0].getDailyRental();
-            label_monthlyRental.Text = vehicles[0].getMonthlyRental();
-            label_weeklyRental.Text = vehicles[0].getWeeklyRental();
+                }
+
+                label_VehicleNumber.Text = vehicles[0].getVehicleNumber();
+                label_brand.Text = vehicles[0].getBrand();
+                label_dailyRental.Text = vehicles[0].getDailyRental();
+                label_monthlyRental.Text = vehicles[0].getMonthlyRental();
+                label_weeklyRental.Text = vehicles[0].getWeeklyRental();
+            }
+            catch (Exception ex)
+            {
+                CustomMessage message = new CustomMessage("No records found!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+            }
+            
 
         }
 
