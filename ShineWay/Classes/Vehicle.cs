@@ -11,7 +11,7 @@ namespace ShineWay.Classes
         private String monthlyRental;
 
 
-        Vehicle(String vehicleNumber, String brand, String dailyRental, String weeklyRental, String monthlyRental)
+        public Vehicle(String vehicleNumber, String brand, String dailyRental, String weeklyRental, String monthlyRental)
         {
             this.vehicleNumber = vehicleNumber;
             this.brand = brand;

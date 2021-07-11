@@ -56,6 +56,11 @@ namespace ShineWay.UI
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label_VehicleNumber = new System.Windows.Forms.Label();
+            this.label_brand = new System.Windows.Forms.Label();
+            this.label_dailyRental = new System.Windows.Forms.Label();
+            this.label_weeklyRental = new System.Windows.Forms.Label();
+            this.label_monthlyRental = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -122,6 +127,7 @@ namespace ShineWay.UI
             this.pb_btnNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pb_btnNext.TabIndex = 4;
             this.pb_btnNext.TabStop = false;
+            this.pb_btnNext.Click += new System.EventHandler(this.pb_btnNext_Click);
             this.pb_btnNext.MouseLeave += new System.EventHandler(this.pb_btnNext_MouseLeave);
             this.pb_btnNext.MouseHover += new System.EventHandler(this.pb_btnNext_MouseHover);
             // 
@@ -134,6 +140,7 @@ namespace ShineWay.UI
             this.pb_btnPrevious.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pb_btnPrevious.TabIndex = 5;
             this.pb_btnPrevious.TabStop = false;
+            this.pb_btnPrevious.Click += new System.EventHandler(this.pb_btnPrevious_Click);
             this.pb_btnPrevious.MouseLeave += new System.EventHandler(this.pb_btnPrevious_MouseLeave);
             this.pb_btnPrevious.MouseHover += new System.EventHandler(this.pb_btnPrevious_MouseHover);
             // 
@@ -354,10 +361,70 @@ namespace ShineWay.UI
             this.pictureBox9.TabIndex = 38;
             this.pictureBox9.TabStop = false;
             // 
+            // label_VehicleNumber
+            // 
+            this.label_VehicleNumber.AutoSize = true;
+            this.label_VehicleNumber.BackColor = System.Drawing.Color.White;
+            this.label_VehicleNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_VehicleNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_VehicleNumber.Location = new System.Drawing.Point(749, 533);
+            this.label_VehicleNumber.Name = "label_VehicleNumber";
+            this.label_VehicleNumber.Size = new System.Drawing.Size(0, 21);
+            this.label_VehicleNumber.TabIndex = 39;
+            // 
+            // label_brand
+            // 
+            this.label_brand.AutoSize = true;
+            this.label_brand.BackColor = System.Drawing.Color.White;
+            this.label_brand.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_brand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_brand.Location = new System.Drawing.Point(749, 599);
+            this.label_brand.Name = "label_brand";
+            this.label_brand.Size = new System.Drawing.Size(0, 21);
+            this.label_brand.TabIndex = 40;
+            // 
+            // label_dailyRental
+            // 
+            this.label_dailyRental.AutoSize = true;
+            this.label_dailyRental.BackColor = System.Drawing.Color.White;
+            this.label_dailyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_dailyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_dailyRental.Location = new System.Drawing.Point(749, 652);
+            this.label_dailyRental.Name = "label_dailyRental";
+            this.label_dailyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_dailyRental.TabIndex = 41;
+            // 
+            // label_weeklyRental
+            // 
+            this.label_weeklyRental.AutoSize = true;
+            this.label_weeklyRental.BackColor = System.Drawing.Color.White;
+            this.label_weeklyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_weeklyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_weeklyRental.Location = new System.Drawing.Point(749, 712);
+            this.label_weeklyRental.Name = "label_weeklyRental";
+            this.label_weeklyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_weeklyRental.TabIndex = 42;
+            // 
+            // label_monthlyRental
+            // 
+            this.label_monthlyRental.AutoSize = true;
+            this.label_monthlyRental.BackColor = System.Drawing.Color.White;
+            this.label_monthlyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_monthlyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_monthlyRental.Location = new System.Drawing.Point(749, 776);
+            this.label_monthlyRental.Name = "label_monthlyRental";
+            this.label_monthlyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_monthlyRental.TabIndex = 43;
+            // 
             // HomeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label_monthlyRental);
+            this.Controls.Add(this.label_weeklyRental);
+            this.Controls.Add(this.label_dailyRental);
+            this.Controls.Add(this.label_brand);
+            this.Controls.Add(this.label_VehicleNumber);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -434,5 +501,10 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label_VehicleNumber;
+        private System.Windows.Forms.Label label_brand;
+        private System.Windows.Forms.Label label_dailyRental;
+        private System.Windows.Forms.Label label_weeklyRental;
+        private System.Windows.Forms.Label label_monthlyRental;
     }
 }
