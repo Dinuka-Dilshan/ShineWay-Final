@@ -75,6 +75,9 @@ namespace ShineWay.UI
             catch (Exception ex)
             {
                 vehicleIndex--;
+                CustomMessage message = new CustomMessage("No more results. Go Back!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
             }
         }
 
@@ -94,6 +97,9 @@ namespace ShineWay.UI
             catch (Exception ex)
             {
                 vehicleIndex++;
+                CustomMessage message = new CustomMessage("No more results Go Next!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
             }
         }
 
@@ -129,10 +135,11 @@ namespace ShineWay.UI
                     label_dailyRental.Text = vehicles[0].getDailyRental();
                     label_monthlyRental.Text = vehicles[0].getMonthlyRental();
                     label_weeklyRental.Text = vehicles[0].getWeeklyRental();
+                    e.SuppressKeyPress = true; //to remove the 'ding' sound
                 }
                 catch (Exception ex)
                 {
-                    CustomMessage message = new CustomMessage("No records found!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
+                    CustomMessage message = new CustomMessage("No search results found!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
                     message.convertToOkButton();
                     message.ShowDialog();
                 }
