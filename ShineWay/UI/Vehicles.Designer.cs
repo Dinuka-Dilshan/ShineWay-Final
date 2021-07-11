@@ -43,6 +43,8 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.msktxt_startingOdo = new System.Windows.Forms.MaskedTextBox();
+            this.txt_ownerNIC = new System.Windows.Forms.MaskedTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -61,7 +63,6 @@ namespace ShineWay.UI
             this.combo_type = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.txt_StartingOdo = new System.Windows.Forms.TextBox();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
@@ -82,7 +83,6 @@ namespace ShineWay.UI
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.txt_ownerNIC = new System.Windows.Forms.TextBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pb_btnDelete = new System.Windows.Forms.PictureBox();
             this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
@@ -292,6 +292,8 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.msktxt_startingOdo);
+            this.panel1.Controls.Add(this.txt_ownerNIC);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label17);
@@ -310,7 +312,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.combo_type);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.pictureBox29);
-            this.panel1.Controls.Add(this.txt_StartingOdo);
             this.panel1.Controls.Add(this.pictureBox30);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.pictureBox27);
@@ -331,7 +332,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.pictureBox20);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox18);
-            this.panel1.Controls.Add(this.txt_ownerNIC);
             this.panel1.Controls.Add(this.pictureBox19);
             this.panel1.Controls.Add(this.pb_btnDelete);
             this.panel1.Controls.Add(this.pb_btnUpdate);
@@ -363,6 +363,30 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
+            // 
+            // msktxt_startingOdo
+            // 
+            this.msktxt_startingOdo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.msktxt_startingOdo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.msktxt_startingOdo.Location = new System.Drawing.Point(378, 699);
+            this.msktxt_startingOdo.Mask = "000009";
+            this.msktxt_startingOdo.Name = "msktxt_startingOdo";
+            this.msktxt_startingOdo.PromptChar = ' ';
+            this.msktxt_startingOdo.Size = new System.Drawing.Size(422, 20);
+            this.msktxt_startingOdo.TabIndex = 18;
+            this.msktxt_startingOdo.Leave += new System.EventHandler(this.msktxt_startingOdo_Leave);
+            // 
+            // txt_ownerNIC
+            // 
+            this.txt_ownerNIC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_ownerNIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_ownerNIC.Location = new System.Drawing.Point(378, 366);
+            this.txt_ownerNIC.Mask = ">000000000A99";
+            this.txt_ownerNIC.Name = "txt_ownerNIC";
+            this.txt_ownerNIC.PromptChar = ' ';
+            this.txt_ownerNIC.Size = new System.Drawing.Size(373, 20);
+            this.txt_ownerNIC.TabIndex = 7;
+            this.txt_ownerNIC.Leave += new System.EventHandler(this.txt_ownerNIC_Leave);
             // 
             // label18
             // 
@@ -457,7 +481,8 @@ namespace ShineWay.UI
             this.txt_Monthlykm.Name = "txt_Monthlykm";
             this.txt_Monthlykm.PlaceholderText = "  Monthly";
             this.txt_Monthlykm.Size = new System.Drawing.Size(101, 23);
-            this.txt_Monthlykm.TabIndex = 72;
+            this.txt_Monthlykm.TabIndex = 16;
+            this.txt_Monthlykm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Monthlykm_KeyPress);
             // 
             // txt_Weeklykm
             // 
@@ -468,7 +493,8 @@ namespace ShineWay.UI
             this.txt_Weeklykm.Name = "txt_Weeklykm";
             this.txt_Weeklykm.PlaceholderText = "    Weekly";
             this.txt_Weeklykm.Size = new System.Drawing.Size(101, 23);
-            this.txt_Weeklykm.TabIndex = 71;
+            this.txt_Weeklykm.TabIndex = 15;
+            this.txt_Weeklykm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Weeklykm_KeyPress);
             // 
             // txt_Dailykm
             // 
@@ -479,7 +505,8 @@ namespace ShineWay.UI
             this.txt_Dailykm.Name = "txt_Dailykm";
             this.txt_Dailykm.PlaceholderText = "    Daily";
             this.txt_Dailykm.Size = new System.Drawing.Size(101, 23);
-            this.txt_Dailykm.TabIndex = 70;
+            this.txt_Dailykm.TabIndex = 14;
+            this.txt_Dailykm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Dailykm_KeyPress);
             // 
             // txt_ExtrakmPrice
             // 
@@ -490,7 +517,8 @@ namespace ShineWay.UI
             this.txt_ExtrakmPrice.Name = "txt_ExtrakmPrice";
             this.txt_ExtrakmPrice.PlaceholderText = "  Extra Km";
             this.txt_ExtrakmPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_ExtrakmPrice.TabIndex = 65;
+            this.txt_ExtrakmPrice.TabIndex = 13;
+            this.txt_ExtrakmPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ExtrakmPrice_KeyPress);
             // 
             // txt_MonthlyPrice
             // 
@@ -501,7 +529,8 @@ namespace ShineWay.UI
             this.txt_MonthlyPrice.Name = "txt_MonthlyPrice";
             this.txt_MonthlyPrice.PlaceholderText = "  Monthly";
             this.txt_MonthlyPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_MonthlyPrice.TabIndex = 64;
+            this.txt_MonthlyPrice.TabIndex = 12;
+            this.txt_MonthlyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_MonthlyPrice_KeyPress);
             // 
             // txt_WeeklyPrice
             // 
@@ -512,7 +541,8 @@ namespace ShineWay.UI
             this.txt_WeeklyPrice.Name = "txt_WeeklyPrice";
             this.txt_WeeklyPrice.PlaceholderText = "    Weekly";
             this.txt_WeeklyPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_WeeklyPrice.TabIndex = 63;
+            this.txt_WeeklyPrice.TabIndex = 11;
+            this.txt_WeeklyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_WeeklyPrice_KeyPress);
             // 
             // msktxt_vehicleRegNumber
             // 
@@ -520,11 +550,13 @@ namespace ShineWay.UI
             this.msktxt_vehicleRegNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.msktxt_vehicleRegNumber.ForeColor = System.Drawing.Color.Black;
             this.msktxt_vehicleRegNumber.Location = new System.Drawing.Point(378, 29);
-            this.msktxt_vehicleRegNumber.Mask = ">AAa-0000";
+            this.msktxt_vehicleRegNumber.Mask = ">AAC#0000";
             this.msktxt_vehicleRegNumber.Name = "msktxt_vehicleRegNumber";
+            this.msktxt_vehicleRegNumber.PromptChar = ' ';
             this.msktxt_vehicleRegNumber.Size = new System.Drawing.Size(430, 20);
-            this.msktxt_vehicleRegNumber.TabIndex = 62;
+            this.msktxt_vehicleRegNumber.TabIndex = 1;
             this.msktxt_vehicleRegNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.msktxt_vehicleRegNumber.Leave += new System.EventHandler(this.msktxt_vehicleRegNumber_Leave);
             // 
             // date_registeredDate
             // 
@@ -536,11 +568,13 @@ namespace ShineWay.UI
             this.date_registeredDate.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             this.date_registeredDate.Name = "date_registeredDate";
             this.date_registeredDate.Size = new System.Drawing.Size(369, 32);
-            this.date_registeredDate.TabIndex = 61;
+            this.date_registeredDate.TabIndex = 8;
             // 
             // combo_type
             // 
             this.combo_type.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.combo_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.combo_type.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.combo_type.FormattingEnabled = true;
             this.combo_type.Items.AddRange(new object[] {
@@ -550,7 +584,7 @@ namespace ShineWay.UI
             this.combo_type.Location = new System.Drawing.Point(369, 190);
             this.combo_type.Name = "combo_type";
             this.combo_type.Size = new System.Drawing.Size(151, 31);
-            this.combo_type.TabIndex = 60;
+            this.combo_type.TabIndex = 4;
             this.combo_type.SelectedIndexChanged += new System.EventHandler(this.combo_Packagetype_SelectedIndexChanged);
             this.combo_type.TextChanged += new System.EventHandler(this.combo_Packagetype_TextChanged);
             // 
@@ -576,16 +610,6 @@ namespace ShineWay.UI
             this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox29.TabIndex = 58;
             this.pictureBox29.TabStop = false;
-            // 
-            // txt_StartingOdo
-            // 
-            this.txt_StartingOdo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_StartingOdo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_StartingOdo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_StartingOdo.Location = new System.Drawing.Point(378, 699);
-            this.txt_StartingOdo.Name = "txt_StartingOdo";
-            this.txt_StartingOdo.Size = new System.Drawing.Size(430, 23);
-            this.txt_StartingOdo.TabIndex = 57;
             // 
             // pictureBox30
             // 
@@ -623,13 +647,14 @@ namespace ShineWay.UI
             // 
             // txt_OwnerPayment
             // 
-            this.txt_OwnerPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_OwnerPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
             this.txt_OwnerPayment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OwnerPayment.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_OwnerPayment.Location = new System.Drawing.Point(378, 640);
             this.txt_OwnerPayment.Name = "txt_OwnerPayment";
             this.txt_OwnerPayment.Size = new System.Drawing.Size(430, 23);
-            this.txt_OwnerPayment.TabIndex = 53;
+            this.txt_OwnerPayment.TabIndex = 17;
+            this.txt_OwnerPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OwnerPayment_KeyPress);
             // 
             // pictureBox28
             // 
@@ -708,8 +733,9 @@ namespace ShineWay.UI
             this.txt_DailyPrice.Name = "txt_DailyPrice";
             this.txt_DailyPrice.PlaceholderText = "    Daily";
             this.txt_DailyPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_DailyPrice.TabIndex = 45;
+            this.txt_DailyPrice.TabIndex = 10;
             this.txt_DailyPrice.TextChanged += new System.EventHandler(this.txt_DailyPrice_TextChanged);
+            this.txt_DailyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DailyPrice_KeyPress);
             // 
             // pictureBox25
             // 
@@ -754,7 +780,8 @@ namespace ShineWay.UI
             this.txt_ownerCondition.Multiline = true;
             this.txt_ownerCondition.Name = "txt_ownerCondition";
             this.txt_ownerCondition.Size = new System.Drawing.Size(430, 37);
-            this.txt_ownerCondition.TabIndex = 41;
+            this.txt_ownerCondition.TabIndex = 9;
+            this.txt_ownerCondition.Leave += new System.EventHandler(this.txt_ownerCondition_Leave);
             // 
             // pictureBox23
             // 
@@ -812,16 +839,6 @@ namespace ShineWay.UI
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox18.TabIndex = 34;
             this.pictureBox18.TabStop = false;
-            // 
-            // txt_ownerNIC
-            // 
-            this.txt_ownerNIC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_ownerNIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_ownerNIC.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_ownerNIC.Location = new System.Drawing.Point(378, 366);
-            this.txt_ownerNIC.Name = "txt_ownerNIC";
-            this.txt_ownerNIC.Size = new System.Drawing.Size(430, 23);
-            this.txt_ownerNIC.TabIndex = 33;
             // 
             // pictureBox19
             // 
@@ -937,7 +954,7 @@ namespace ShineWay.UI
             this.txt_chasisNumber.Location = new System.Drawing.Point(378, 309);
             this.txt_chasisNumber.Name = "txt_chasisNumber";
             this.txt_chasisNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_chasisNumber.TabIndex = 22;
+            this.txt_chasisNumber.TabIndex = 6;
             // 
             // pictureBox6
             // 
@@ -970,7 +987,7 @@ namespace ShineWay.UI
             this.txt_model.Location = new System.Drawing.Point(378, 145);
             this.txt_model.Name = "txt_model";
             this.txt_model.Size = new System.Drawing.Size(430, 23);
-            this.txt_model.TabIndex = 10;
+            this.txt_model.TabIndex = 3;
             // 
             // pictureBox13
             // 
@@ -1049,7 +1066,7 @@ namespace ShineWay.UI
             this.txt_engineNumber.Location = new System.Drawing.Point(378, 251);
             this.txt_engineNumber.Name = "txt_engineNumber";
             this.txt_engineNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_engineNumber.TabIndex = 18;
+            this.txt_engineNumber.TabIndex = 5;
             // 
             // pictureBox5
             // 
@@ -1092,7 +1109,7 @@ namespace ShineWay.UI
             this.txt_brand.Location = new System.Drawing.Point(378, 87);
             this.txt_brand.Name = "txt_brand";
             this.txt_brand.Size = new System.Drawing.Size(430, 23);
-            this.txt_brand.TabIndex = 6;
+            this.txt_brand.TabIndex = 2;
             // 
             // pictureBox14
             // 
@@ -1205,7 +1222,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.TextBox txt_ownerNIC;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.PictureBox pb_btnDelete;
         private System.Windows.Forms.PictureBox pb_btnUpdate;
@@ -1235,7 +1251,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox29;
-        private System.Windows.Forms.TextBox txt_StartingOdo;
         private System.Windows.Forms.PictureBox pictureBox30;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox27;
@@ -1264,5 +1279,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.TextBox txt_ExtrakmPrice;
         private System.Windows.Forms.TextBox txt_MonthlyPrice;
         private System.Windows.Forms.TextBox txt_WeeklyPrice;
+        private System.Windows.Forms.MaskedTextBox txt_ownerNIC;
+        private System.Windows.Forms.MaskedTextBox msktxt_startingOdo;
     }
 }

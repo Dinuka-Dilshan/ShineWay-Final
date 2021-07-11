@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using ShineWay.DataBase;
 using MySql.Data.MySqlClient;
 using System.IO;
+using ShineWay.Validation;
+using ShineWay.Messages;
 
 namespace ShineWay.UI
 {
@@ -60,30 +62,50 @@ namespace ShineWay.UI
             pb_btnDelete.Image = ShineWay.Properties.Resources.delete;
         }
      
+
+        //Insert Button
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            if(msktxt_vehicleRegNumber.ForeColor == Color.Red && txt_ownerNIC.ForeColor == Color.Red && msktxt_startingOdo.ForeColor == Color.Red)
             {
-                MemoryStream ms = new MemoryStream();
-                pb_overallViewimg.Image.Save(ms, pb_overallViewimg.Image.RawFormat);
-                pb_InsideViewimg.Image.Save(ms, pb_InsideViewimg.Image.RawFormat);
-                Byte[] img = ms.ToArray();
-
-                MySqlDataReader rd1 = DbConnection.Read("INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`," +
-                    " `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`," +
-                    " `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) VALUES ('"+msktxt_vehicleRegNumber.Text+"','"+txt_brand.Text+"','"+txt_model.Text+"'," +
-                    "'"+combo_type.Text+"','"+txt_engineNumber.Text+"','"+txt_chasisNumber.Text+"','"+txt_ownerNIC.Text+"','"+date_registeredDate.Text+"','"+txt_ownerCondition.Text+"'" +
-                    ",'"+txt_DailyPrice.Text+"','"+txt_Dailykm.Text+"','"+txt_WeeklyPrice.Text+"','"+txt_Weeklykm.Text+"','"+txt_MonthlyPrice.Text+"'," +
-                    "'"+txt_Monthlykm.Text+"','"+txt_OwnerPayment.Text+"','"+txt_StartingOdo.Text+"','"+pb_InsideViewimg.Image+"','"+pb_overallViewimg.Image+"')");
-
-                MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessage errmsg = new CustomMessage("Please enter correct values!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errmsg.convertToOkButton();
+                errmsg.ShowDialog();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Vehicle not added!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                try
+                {
+                    MemoryStream ms = new MemoryStream();
+                    pb_overallViewimg.Image.Save(ms, pb_overallViewimg.Image.RawFormat);
+                    pb_InsideViewimg.Image.Save(ms, pb_InsideViewimg.Image.RawFormat);
+                    Byte[] img = ms.ToArray();
+
+                    MySqlDataReader rd1 = DbConnection.Read("INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`," +
+                        " `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`," +
+                        " `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) VALUES ('" + msktxt_vehicleRegNumber.Text + "','" + txt_brand.Text + "','" + txt_model.Text + "'," +
+                        "'" + combo_type.Text + "','" + txt_engineNumber.Text + "','" + txt_chasisNumber.Text + "','" + txt_ownerNIC.Text + "','" + date_registeredDate.Text + "','" + txt_ownerCondition.Text + "'" +
+                        ",'" + txt_DailyPrice.Text + "','" + txt_Dailykm.Text + "','" + txt_WeeklyPrice.Text + "','" + txt_Weeklykm.Text + "','" + txt_MonthlyPrice.Text + "'," +
+                        "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
+
+                    //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    addmsg.convertToOkButton();
+                    addmsg.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    // MessageBox.Show("Vehicle not added!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CustomMessage addmsgerr = new CustomMessage("Vehicle not added!", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                    addmsgerr.convertToOkButton();
+                    addmsgerr.ShowDialog();
+                }
             }
+          
         }
 
+        //To fill datagrid view
         public void FillDataGridView()
         {
             MySqlDataReader rd = DbConnection.Read("SELECT * FROM `vehicle`");
@@ -172,7 +194,7 @@ namespace ShineWay.UI
             txt_MonthlyPrice.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
             txt_Monthlykm.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
             txt_OwnerPayment.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
-            txt_StartingOdo.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
+            msktxt_startingOdo.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
 
         }
 
@@ -184,6 +206,117 @@ namespace ShineWay.UI
         private void combo_Packagetype_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void msktxt_vehicleRegNumber_Leave(object sender, EventArgs e)
+        {
+            bool isValidVehicleRegNo1 = Validates.ValidVehiclenumber1(msktxt_vehicleRegNumber.Text);
+            bool isValidVehicleRegNo2 = Validates.ValidVehiclenumber2(msktxt_vehicleRegNumber.Text);
+
+            if (isValidVehicleRegNo1 == true || isValidVehicleRegNo2 == true)
+            {
+                msktxt_vehicleRegNumber.ForeColor = Color.Black;
+            }
+            else
+            {
+                msktxt_vehicleRegNumber.ForeColor = Color.Red;
+            }
+         
+        }
+
+        private void txt_ownerNIC_Leave(object sender, EventArgs e)
+        {
+            bool isValidOwnerNic1 = Validates.ValidCustomerNewNIC(txt_ownerNIC.Text);
+            bool isValidOwnerNic2 = Validates.ValidCustomerOldNIC(txt_ownerNIC.Text);
+
+            if(isValidOwnerNic1 == true || isValidOwnerNic2 == true)
+            {
+                txt_ownerNIC.ForeColor = Color.Black;
+            }
+            else
+            {
+                txt_ownerNIC.ForeColor = Color.Red;
+            }
+        }
+
+        private void msktxt_startingOdo_Leave(object sender, EventArgs e)
+        {
+            bool isValidStartingOdo = Validates.ValidOdometer(msktxt_startingOdo.Text);
+
+            if(isValidStartingOdo == true)
+            {
+                msktxt_startingOdo.ForeColor = Color.Black;
+            }
+            else
+            {
+                msktxt_startingOdo.ForeColor = Color.Red;
+            }
+        }
+
+        private void txt_ownerCondition_Leave(object sender, EventArgs e)
+        {
+            bool isValidOwnerCondition = Validates.ValidateDescription(txt_ownerCondition.Text);
+
+            if(isValidOwnerCondition == true)
+            {
+                txt_ownerCondition.ForeColor = Color.Black;
+            }
+            else
+            {
+                txt_ownerCondition.ForeColor = Color.Red;
+                CustomMessage errormessege = new CustomMessage("Maxium lenght of description is\n 200 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errormessege.convertToOkButton();
+                errormessege.ShowDialog();
+
+            }
+        }
+
+        private void txt_OwnerPayment_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
+        }
+
+        private void txt_DailyPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
+        }
+
+        private void txt_WeeklyPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
+        }
+
+        private void txt_MonthlyPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
+        }
+
+        private void txt_ExtrakmPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
+        }
+
+        private void txt_Dailykm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txt_Weeklykm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txt_Monthlykm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

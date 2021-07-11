@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,6 +64,7 @@ namespace ShineWay.Validation
         public static bool ValidEndOdoMeter(string endODO)
         {
             return Regex.IsMatch(endODO, validateEndOdometer);
+        }
 
         public static bool ValidLicensenumber(string licensenumber)
         {
