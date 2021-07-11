@@ -20,7 +20,9 @@ namespace ShineWay.UI
             InitializeComponent();
             setUserControl(homeControl1, btn_Home);
             label_userType.Text = userType;
-            new Welcome("Nice to see yoo " + userName.Split(" ")[0] + "!").Show();
+            Welcome message =new Welcome("Nice to see yoo " + userName.Split(" ")[0] + "!");
+            message.hideCloseButton();
+            message.Show();
             StartTimer();
         }
 
