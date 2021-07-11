@@ -18,6 +18,8 @@ namespace ShineWay.UI
         public Booking()
         {
             InitializeComponent();
+           date_startingDate.MinDate = DateTime.Now;
+           date_endDate.MinDate = DateTime.Now;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -76,8 +78,8 @@ namespace ShineWay.UI
              txt_depositAmount.Text = "";
              txt_advancedPayment.Text = "";
              txt_description.Text = "";
-             date_startingDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-             date_endDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+             date_startingDate.Value = DateTime.Now;
+             date_endDate.Value = DateTime.Now;
 
             
         }
@@ -93,9 +95,8 @@ namespace ShineWay.UI
                         txt_vehicleRegNumber.ForeColor == Color.Green &&
                         txt_customerNic.ForeColor == Color.Green &&
                         txt_licenseNumber.ForeColor == Color.Green &&
-                        //date_startingDate..ForeColor == Color.Green &&
+                        date_startingDate.Value <= date_endDate.Value &&
                         txt_startingOdometer.ForeColor == Color.Green &&
-                        //date_endDate.ForeColor == Color.Green &&
                         combo_packageType.ForeColor == Color.Green &&
                         txt_depositAmount.ForeColor == Color.Green &&
                         txt_advancedPayment.ForeColor == Color.Green &&
@@ -285,17 +286,51 @@ namespace ShineWay.UI
             combo_packageType.ForeColor = Color.Green;
         }
 
-        private void txt_vehicleRegNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
 
-        private void txt_bookingId_MouseLeave(object sender, EventArgs e)
+        private void txt_vehicleRegNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_customerNic_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_licenseNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_startingOdometer_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            
+        }
+
+        private void date_endDate_Leave(object sender, EventArgs e)
+        {
+            if (date_startingDate.Value > date_endDate.Value)
+            {
+                /////////////////////////////
+            }
+        }
+
+        private void date_startingDate_Leave(object sender, EventArgs e)
+        {
+            date_endDate.MinDate = date_startingDate.Value;
+          
+        }
+
+        private void combo_packageType_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
