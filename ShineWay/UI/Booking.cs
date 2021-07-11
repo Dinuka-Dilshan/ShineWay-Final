@@ -327,10 +327,7 @@ namespace ShineWay.UI
 
         private void combo_packageType_Leave(object sender, EventArgs e)
         {
-            /*if (date_endDate.Value - date_startingDate.Value == 7)
-            {
-
-            }*/
+           
         }
 
         private void label4_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@ namespace ShineWay.Validation
         public static string validateEndOdometer = "^[0-9]{5,6}$";
 
 
-        public static string validateAmount = "^[0-9.]{0,10}$";
+        public static string validateAmount = "^[0-9]{0,10}[.]{1}[0-9]{2}$";
         public static string validateDescription = "^[A-Za-z0-9&-_= +]{0,160}$";
 
 
