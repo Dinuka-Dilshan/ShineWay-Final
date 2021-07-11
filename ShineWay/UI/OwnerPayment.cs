@@ -160,11 +160,49 @@ namespace ShineWay.UI
             }
             else
             {
-                CustomMessage errormessege1 = new CustomMessage("Unsuccessfull Record!\n\n Enter correct values", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                CustomMessage errormessege1 = new CustomMessage("Unsuccessfull Record!\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
                 errormessege1.convertToOkButton();
                 errormessege1.ShowDialog();
             }
         }
+
+        private void pb_btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (txt_paymentID.ForeColor == Color.Green && txt_ownerNIC.ForeColor == Color.Green && txt_VehicleNumber.ForeColor == Color.Green && txt_OwnerPayment.ForeColor == Color.Green)
+            {
+                try
+                {
+                    CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+                    
+                }
+                catch (Exception ex)
+                {
+                    //  MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                CustomMessage errormessege2 = new CustomMessage("Cannot Update\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                errormessege2.convertToOkButton();
+                errormessege2.ShowDialog();
+            }
+        }
+
+        private void pb_btnDelete_Click(object sender, EventArgs e)
+        {
+                CustomMessage deletemessege = new CustomMessage("Deleted!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
+                deletemessege.convertToOkButton();
+                deletemessege.ShowDialog();
+
+                //delete code
+        }
+
+        private void txt_OwnerPayment_Enter(object sender, EventArgs e)
+        {
+            txt_OwnerPayment.TextAlign = HorizontalAlignment.Left;
+        }
     }
-    
+
 }
