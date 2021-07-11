@@ -43,6 +43,10 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_btnDelete = new System.Windows.Forms.PictureBox();
+            this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
+            this.pb_btnAdd = new System.Windows.Forms.PictureBox();
+            this.pb_btnReset = new System.Windows.Forms.PictureBox();
             this.msktxt_startingOdo = new System.Windows.Forms.MaskedTextBox();
             this.txt_ownerNIC = new System.Windows.Forms.MaskedTextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -84,10 +88,6 @@ namespace ShineWay.UI
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pb_btnDelete = new System.Windows.Forms.PictureBox();
-            this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
-            this.pb_btnAdd = new System.Windows.Forms.PictureBox();
-            this.pb_btnReset = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -122,6 +122,10 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
@@ -135,10 +139,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -292,6 +292,10 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.pb_btnDelete);
+            this.panel1.Controls.Add(this.pb_btnUpdate);
+            this.panel1.Controls.Add(this.pb_btnAdd);
+            this.panel1.Controls.Add(this.pb_btnReset);
             this.panel1.Controls.Add(this.msktxt_startingOdo);
             this.panel1.Controls.Add(this.txt_ownerNIC);
             this.panel1.Controls.Add(this.label18);
@@ -333,10 +337,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox18);
             this.panel1.Controls.Add(this.pictureBox19);
-            this.panel1.Controls.Add(this.pb_btnDelete);
-            this.panel1.Controls.Add(this.pb_btnUpdate);
-            this.panel1.Controls.Add(this.pb_btnAdd);
-            this.panel1.Controls.Add(this.pb_btnReset);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
@@ -363,6 +363,55 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
+            // 
+            // pb_btnDelete
+            // 
+            this.pb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnDelete.Image")));
+            this.pb_btnDelete.Location = new System.Drawing.Point(660, 749);
+            this.pb_btnDelete.Name = "pb_btnDelete";
+            this.pb_btnDelete.Size = new System.Drawing.Size(140, 42);
+            this.pb_btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_btnDelete.TabIndex = 81;
+            this.pb_btnDelete.TabStop = false;
+            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
+            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
+            // 
+            // pb_btnUpdate
+            // 
+            this.pb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnUpdate.Image")));
+            this.pb_btnUpdate.Location = new System.Drawing.Point(463, 749);
+            this.pb_btnUpdate.Name = "pb_btnUpdate";
+            this.pb_btnUpdate.Size = new System.Drawing.Size(140, 42);
+            this.pb_btnUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_btnUpdate.TabIndex = 80;
+            this.pb_btnUpdate.TabStop = false;
+            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
+            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
+            // 
+            // pb_btnAdd
+            // 
+            this.pb_btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnAdd.Image")));
+            this.pb_btnAdd.Location = new System.Drawing.Point(274, 749);
+            this.pb_btnAdd.Name = "pb_btnAdd";
+            this.pb_btnAdd.Size = new System.Drawing.Size(140, 42);
+            this.pb_btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_btnAdd.TabIndex = 79;
+            this.pb_btnAdd.TabStop = false;
+            this.pb_btnAdd.Click += new System.EventHandler(this.pb_btnAdd_Click);
+            this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
+            this.pb_btnAdd.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
+            // 
+            // pb_btnReset
+            // 
+            this.pb_btnReset.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnReset.Image")));
+            this.pb_btnReset.Location = new System.Drawing.Point(80, 749);
+            this.pb_btnReset.Name = "pb_btnReset";
+            this.pb_btnReset.Size = new System.Drawing.Size(140, 42);
+            this.pb_btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_btnReset.TabIndex = 29;
+            this.pb_btnReset.TabStop = false;
+            this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
+            this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
             // 
             // msktxt_startingOdo
             // 
@@ -561,6 +610,7 @@ namespace ShineWay.UI
             // date_registeredDate
             // 
             this.date_registeredDate.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date_registeredDate.CustomFormat = "";
             this.date_registeredDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.date_registeredDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_registeredDate.Location = new System.Drawing.Point(369, 411);
@@ -647,7 +697,7 @@ namespace ShineWay.UI
             // 
             // txt_OwnerPayment
             // 
-            this.txt_OwnerPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.txt_OwnerPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_OwnerPayment.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_OwnerPayment.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_OwnerPayment.Location = new System.Drawing.Point(378, 640);
@@ -850,55 +900,6 @@ namespace ShineWay.UI
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox19.TabIndex = 32;
             this.pictureBox19.TabStop = false;
-            // 
-            // pb_btnDelete
-            // 
-            this.pb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnDelete.Image")));
-            this.pb_btnDelete.Location = new System.Drawing.Point(649, 749);
-            this.pb_btnDelete.Name = "pb_btnDelete";
-            this.pb_btnDelete.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnDelete.TabIndex = 31;
-            this.pb_btnDelete.TabStop = false;
-            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
-            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
-            // 
-            // pb_btnUpdate
-            // 
-            this.pb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnUpdate.Image")));
-            this.pb_btnUpdate.Location = new System.Drawing.Point(469, 749);
-            this.pb_btnUpdate.Name = "pb_btnUpdate";
-            this.pb_btnUpdate.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnUpdate.TabIndex = 30;
-            this.pb_btnUpdate.TabStop = false;
-            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
-            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
-            // 
-            // pb_btnAdd
-            // 
-            this.pb_btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnAdd.Image")));
-            this.pb_btnAdd.Location = new System.Drawing.Point(285, 749);
-            this.pb_btnAdd.Name = "pb_btnAdd";
-            this.pb_btnAdd.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnAdd.TabIndex = 29;
-            this.pb_btnAdd.TabStop = false;
-            this.pb_btnAdd.Click += new System.EventHandler(this.pb_btnAdd_Click);
-            this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
-            this.pb_btnAdd.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
-            // 
-            // pb_btnReset
-            // 
-            this.pb_btnReset.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnReset.Image")));
-            this.pb_btnReset.Location = new System.Drawing.Point(100, 749);
-            this.pb_btnReset.Name = "pb_btnReset";
-            this.pb_btnReset.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnReset.TabIndex = 27;
-            this.pb_btnReset.TabStop = false;
-            this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
-            this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
             // 
             // pictureBox2
             // 
@@ -1166,6 +1167,10 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
@@ -1179,10 +1184,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -1223,10 +1224,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.PictureBox pb_btnDelete;
-        private System.Windows.Forms.PictureBox pb_btnUpdate;
-        private System.Windows.Forms.PictureBox pb_btnAdd;
-        private System.Windows.Forms.PictureBox pb_btnReset;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox12;
@@ -1281,5 +1278,9 @@ namespace ShineWay.UI
         private System.Windows.Forms.TextBox txt_WeeklyPrice;
         private System.Windows.Forms.MaskedTextBox txt_ownerNIC;
         private System.Windows.Forms.MaskedTextBox msktxt_startingOdo;
+        private System.Windows.Forms.PictureBox pb_btnReset;
+        private System.Windows.Forms.PictureBox pb_btnAdd;
+        private System.Windows.Forms.PictureBox pb_btnUpdate;
+        private System.Windows.Forms.PictureBox pb_btnDelete;
     }
 }
