@@ -24,6 +24,7 @@ namespace ShineWay.Validation
 
 
         public static string validateEndOdometer = "^[0-9]{5,6}$";
+        public static string validateStatus = "^(Ongoing|Canceled|Completed)$";
 
 
         public static string validateAmount = "^[0-9]{0,10}$";
@@ -86,6 +87,13 @@ namespace ShineWay.Validation
             return Regex.IsMatch(discription, validateDescription);
 
         }
+
+        public static bool ValidateStatus(string status)
+        {
+            return Regex.IsMatch(status, validateStatus);
+
+        }
+
 
     }
 }
