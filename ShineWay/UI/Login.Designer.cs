@@ -34,45 +34,43 @@ namespace ShineWay.UI
             this.txt_password = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pb_loginBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Close = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_showPassword = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label_forgotPassword = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_loginBtn)).BeginInit();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_login = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_userName
             // 
-            this.txt_userName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_userName.BackColor = System.Drawing.Color.White;
             this.txt_userName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_userName.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_userName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_userName.Location = new System.Drawing.Point(231, 332);
+            this.txt_userName.Location = new System.Drawing.Point(223, 321);
             this.txt_userName.Margin = new System.Windows.Forms.Padding(0);
             this.txt_userName.Name = "txt_userName";
             this.txt_userName.Size = new System.Drawing.Size(324, 29);
             this.txt_userName.TabIndex = 0;
-            this.txt_userName.TextChanged += new System.EventHandler(this.txt_userName_TextChanged);
             this.txt_userName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_userName_KeyDown);
             // 
             // txt_password
             // 
-            this.txt_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_password.BackColor = System.Drawing.Color.White;
             this.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_password.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_password.Location = new System.Drawing.Point(234, 434);
+            this.txt_password.Location = new System.Drawing.Point(226, 413);
             this.txt_password.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(284, 29);
+            this.txt_password.Size = new System.Drawing.Size(303, 29);
             this.txt_password.TabIndex = 1;
             this.txt_password.UseSystemPasswordChar = true;
             this.txt_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_password_KeyDown);
@@ -80,38 +78,25 @@ namespace ShineWay.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(219, 280);
+            this.label1.Location = new System.Drawing.Point(226, 297);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 19);
+            this.label1.Size = new System.Drawing.Size(100, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(219, 383);
+            this.label2.Location = new System.Drawing.Point(226, 389);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 19);
+            this.label2.Size = new System.Drawing.Size(92, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
-            // 
-            // pb_loginBtn
-            // 
-            this.pb_loginBtn.Image = global::ShineWay.Properties.Resources.loginbtn;
-            this.pb_loginBtn.Location = new System.Drawing.Point(291, 504);
-            this.pb_loginBtn.Name = "pb_loginBtn";
-            this.pb_loginBtn.Size = new System.Drawing.Size(190, 47);
-            this.pb_loginBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_loginBtn.TabIndex = 4;
-            this.pb_loginBtn.TabStop = false;
-            this.pb_loginBtn.Click += new System.EventHandler(this.pb_loginBtn_Click);
-            this.pb_loginBtn.MouseLeave += new System.EventHandler(this.pb_loginBtn_MouseLeave);
-            this.pb_loginBtn.MouseHover += new System.EventHandler(this.pb_loginBtn_MouseHover);
             // 
             // pictureBox1
             // 
@@ -147,44 +132,34 @@ namespace ShineWay.UI
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(279, 230);
+            this.label3.Location = new System.Drawing.Point(279, 238);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 34);
             this.label3.TabIndex = 7;
             this.label3.Text = "Welcome Back!";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(219, 323);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(353, 47);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(217, 425);
+            this.pictureBox3.Location = new System.Drawing.Point(211, 399);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(353, 47);
+            this.pictureBox3.Size = new System.Drawing.Size(354, 54);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
             // btn_showPassword
             // 
-            this.btn_showPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btn_showPassword.BackColor = System.Drawing.Color.White;
             this.btn_showPassword.FlatAppearance.BorderSize = 0;
-            this.btn_showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.btn_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btn_showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_showPassword.Image = global::ShineWay.Properties.Resources.eye;
-            this.btn_showPassword.Location = new System.Drawing.Point(524, 431);
+            this.btn_showPassword.Location = new System.Drawing.Point(525, 410);
             this.btn_showPassword.Name = "btn_showPassword";
             this.btn_showPassword.Size = new System.Drawing.Size(31, 32);
-            this.btn_showPassword.TabIndex = 10;
+            this.btn_showPassword.TabIndex = 0;
             this.btn_showPassword.TabStop = false;
             this.btn_showPassword.UseVisualStyleBackColor = false;
             this.btn_showPassword.Click += new System.EventHandler(this.btn_showPassword_Click);
@@ -205,7 +180,7 @@ namespace ShineWay.UI
             this.label_forgotPassword.AutoSize = true;
             this.label_forgotPassword.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_forgotPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_forgotPassword.Location = new System.Drawing.Point(328, 475);
+            this.label_forgotPassword.Location = new System.Drawing.Point(321, 470);
             this.label_forgotPassword.Name = "label_forgotPassword";
             this.label_forgotPassword.Size = new System.Drawing.Size(118, 16);
             this.label_forgotPassword.TabIndex = 11;
@@ -214,34 +189,60 @@ namespace ShineWay.UI
             this.label_forgotPassword.MouseLeave += new System.EventHandler(this.label_forgotPassword_MouseLeave);
             this.label_forgotPassword.MouseHover += new System.EventHandler(this.label_forgotPassword_MouseHover);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(211, 309);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(354, 54);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 12;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btn_login
+            // 
+            this.btn_login.AutoSize = true;
+            this.btn_login.FlatAppearance.BorderSize = 0;
+            this.btn_login.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_login.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_login.Image = global::ShineWay.Properties.Resources.loginbtn;
+            this.btn_login.Location = new System.Drawing.Point(283, 501);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(196, 53);
+            this.btn_login.TabIndex = 3;
+            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            this.btn_login.MouseLeave += new System.EventHandler(this.btn_login_MouseLeave);
+            this.btn_login.MouseHover += new System.EventHandler(this.btn_login_MouseHover);
+            // 
             // form_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 596);
+            this.Controls.Add(this.btn_login);
+            this.Controls.Add(this.txt_password);
+            this.Controls.Add(this.txt_userName);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label_forgotPassword);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_showPassword);
-            this.Controls.Add(this.txt_password);
-            this.Controls.Add(this.txt_userName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pb_loginBtn);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            ((System.ComponentModel.ISupportInitialize)(this.pb_loginBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,14 +254,14 @@ namespace ShineWay.UI
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pb_loginBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btn_showPassword;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_forgotPassword;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btn_login;
     }
 }

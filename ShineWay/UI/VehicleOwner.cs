@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShineWay.Validation;
 
 namespace ShineWay.UI
 {
@@ -56,5 +57,27 @@ namespace ShineWay.UI
         {
             pb_btnDelete.Image = ShineWay.Properties.Resources.delete;
         }
+
+        private void txt_nicNumber_MouseLeave(object sender, EventArgs e)
+        {
+            bool isNameValid = Validates.ValidCustomerNewNIC(txt_nicNumber.Text);
+        }
+
+        private void txt_email_MouseLeave(object sender, EventArgs e)
+        {
+            System.Text.RegularExpressions.Regex rEmail = new System.Text.RegularExpressions.Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (txt_email.Text.Length > 0)
+            {
+                if (!rEmail.IsMatch(txt_email.Text))
+                {
+                    MessageBox.Show("Invalid email address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+                    MessageBox.Show("Valid email address");
+                }
+            }
+            }
     }
 }
