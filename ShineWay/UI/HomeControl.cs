@@ -17,32 +17,6 @@ namespace ShineWay.UI
             InitializeComponent();
         }
 
-        private void pb_btnNext_MouseHover(object sender, EventArgs e)
-        {
-            pb_btnNext.Image = ShineWay.Properties.Resources.nextHover;
-        }
-
-        private void pb_btnNext_MouseLeave(object sender, EventArgs e)
-        {
-            pb_btnNext.Image = ShineWay.Properties.Resources.next;
-        }
-
-        private void pb_btnPrevious_MouseHover(object sender, EventArgs e)
-        {
-            pb_btnPrevious.Image = ShineWay.Properties.Resources.previousHover;
-        }
-
-        private void pb_btnPrevious_MouseLeave(object sender, EventArgs e)
-        {
-            pb_btnPrevious.Image = ShineWay.Properties.Resources.previous;
-        }
-
-        private void txt_search_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-        
-        
-        }
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
@@ -66,7 +40,19 @@ namespace ShineWay.UI
 
         }
 
-        private void pb_btnNext_Click(object sender, EventArgs e)
+
+        private void btn_next_MouseHover(object sender, EventArgs e)
+        {
+            btn_next.Image = ShineWay.Properties.Resources.nextHover;
+        }
+
+        private void btn_next_MouseLeave(object sender, EventArgs e)
+        {
+            btn_next.Image = ShineWay.Properties.Resources.next;
+        }
+
+
+        private void btn_next_Click(object sender, EventArgs e)
         {
             vehicleIndex++;
 
@@ -77,30 +63,40 @@ namespace ShineWay.UI
                 label_dailyRental.Text = vehicles[vehicleIndex].getDailyRental();
                 label_monthlyRental.Text = vehicles[vehicleIndex].getMonthlyRental();
                 label_weeklyRental.Text = vehicles[vehicleIndex].getWeeklyRental();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 vehicleIndex--;
             }
-            
         }
 
-        private void pb_btnPrevious_Click(object sender, EventArgs e)
+        private void btn_previous_Click(object sender, EventArgs e)
         {
             vehicleIndex--;
-            
+
             try
             {
-                
+
                 label_VehicleNumber.Text = vehicles[vehicleIndex].getVehicleNumber();
                 label_brand.Text = vehicles[vehicleIndex].getBrand();
                 label_dailyRental.Text = vehicles[vehicleIndex].getDailyRental();
                 label_monthlyRental.Text = vehicles[vehicleIndex].getMonthlyRental();
                 label_weeklyRental.Text = vehicles[vehicleIndex].getWeeklyRental();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 vehicleIndex++;
             }
-            
+        }
+
+        private void btn_previous_MouseHover(object sender, EventArgs e)
+        {
+            btn_previous.Image = ShineWay.Properties.Resources.previousHover;
+        }
+
+        private void btn_previous_MouseLeave(object sender, EventArgs e)
+        {
+            btn_previous.Image = ShineWay.Properties.Resources.previous;
         }
     }
 }
