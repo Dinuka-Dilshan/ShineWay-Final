@@ -117,31 +117,41 @@ namespace ShineWay.UI
         {
             if(e.KeyCode == Keys.Enter)
             {
-                String searchKeyValue = txt_search.Text;
-                String query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`, `Wedding_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
-                vehicles.Clear();
 
-                try
+                if (txt_search.Text.Equals(""))
                 {
-                    MySqlDataReader reader = DbConnection.Read(query);
-                    while (reader.Read())
-                    {
-                        vehicles.Add(new Vehicle(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
-
-                    }
-
-                    label_VehicleNumber.Text = vehicles[0].getVehicleNumber();
-                    label_brand.Text = vehicles[0].getBrand();
-                    label_dailyRental.Text = vehicles[0].getDailyRental();
-                    label_monthlyRental.Text = vehicles[0].getMonthlyRental();
-                    label_weeklyRental.Text = vehicles[0].getWeeklyRental();
-                    e.SuppressKeyPress = true; //to remove the 'ding' sound
-                }
-                catch (Exception ex)
-                {
-                    CustomMessage message = new CustomMessage("No search results found!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
+                    CustomMessage message = new CustomMessage("Enter a keyword to search!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                     message.convertToOkButton();
                     message.ShowDialog();
+                }
+                else
+                {
+                    String searchKeyValue = txt_search.Text;
+                    String query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`, `Wedding_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
+                    vehicles.Clear();
+
+                    try
+                    {
+                        MySqlDataReader reader = DbConnection.Read(query);
+                        while (reader.Read())
+                        {
+                            vehicles.Add(new Vehicle(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
+
+                        }
+
+                        label_VehicleNumber.Text = vehicles[0].getVehicleNumber();
+                        label_brand.Text = vehicles[0].getBrand();
+                        label_dailyRental.Text = vehicles[0].getDailyRental();
+                        label_monthlyRental.Text = vehicles[0].getMonthlyRental();
+                        label_weeklyRental.Text = vehicles[0].getWeeklyRental();
+                        e.SuppressKeyPress = true; //to remove the 'ding' sound
+                    }
+                    catch (Exception ex)
+                    {
+                        CustomMessage message = new CustomMessage("No search results found!", "Error", ShineWay.Properties.Resources.EmptyResults, DialogResult.OK);
+                        message.convertToOkButton();
+                        message.ShowDialog();
+                    }
                 }
             }
         }
