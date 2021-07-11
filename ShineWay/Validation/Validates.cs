@@ -22,6 +22,8 @@ namespace ShineWay.Validation
         public static string validateOdometer = "^[0-9]{5,6}$";
         public static string validatePackagetype = "^(Daily Basis|Monthly Basis|Weekly Basis)$";
 
+        public static string validateEndOdometer = "^[0-9]{5,6}$";
+
 
         public static bool ValidBookingID(string bookingID)
         {
@@ -51,6 +53,11 @@ namespace ShineWay.Validation
         public static bool ValidCustomerOldNIC(string customernic)
         {
             return Regex.IsMatch(customernic, validateOLDCustomerNIC);
+        }
+
+        public static bool ValidEndOdoMeter(string endODO)
+        {
+            return Regex.IsMatch(endODO, validateEndOdometer);
         }
 
     }

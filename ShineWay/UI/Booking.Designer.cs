@@ -415,6 +415,7 @@ namespace ShineWay.UI
             this.txt_vehicleRegNumber.PromptChar = ' ';
             this.txt_vehicleRegNumber.Size = new System.Drawing.Size(417, 23);
             this.txt_vehicleRegNumber.TabIndex = 57;
+            this.txt_vehicleRegNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_vehicleRegNumber_MaskInputRejected);
             // 
             // txt_bookingId
             // 
@@ -426,6 +427,8 @@ namespace ShineWay.UI
             this.txt_bookingId.PromptChar = ' ';
             this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
             this.txt_bookingId.TabIndex = 56;
+            this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
+            this.txt_bookingId.MouseLeave += new System.EventHandler(this.txt_bookingId_MouseLeave);
             // 
             // combo_packageType
             // 
