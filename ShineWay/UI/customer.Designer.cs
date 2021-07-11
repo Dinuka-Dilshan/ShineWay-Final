@@ -432,7 +432,7 @@ namespace ShineWay.UI
             this.txt_nicNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_nicNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_nicNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nicNumber.Location = new System.Drawing.Point(376, 197);
+            this.txt_nicNumber.Location = new System.Drawing.Point(379, 195);
             this.txt_nicNumber.Name = "txt_nicNumber";
             this.txt_nicNumber.Size = new System.Drawing.Size(430, 23);
             this.txt_nicNumber.TabIndex = 26;
