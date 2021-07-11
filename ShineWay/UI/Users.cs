@@ -67,6 +67,7 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
+
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -87,22 +88,13 @@ namespace ShineWay.UI
         private void txt_NIC_MouseLeave(object sender, EventArgs e)
         {
 
+
+
         }
 
         private void txt_telephoneNumber_MouseLeave(object sender, EventArgs e)
         {
-            bool isValidTeleNo = Validates.validMobileNumber(txt_telephoneNumber.Text);
-            if(isValidTeleNo == true)
-            {
-                txt_telephoneNumber.ForeColor = Color.Black;
-            }
-            else
-            {
-                txt_telephoneNumber.ForeColor = Color.Red;
-                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n Telephone Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errmsg.convertToOkButton();
-                errmsg.ShowDialog();
-            }
+            
 
         }
 
@@ -119,6 +111,22 @@ namespace ShineWay.UI
             {
                 txt_NIC.ForeColor = Color.Red;
                 CustomMessage errmsg = new CustomMessage("Please Enter Correct \n NIC Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errmsg.convertToOkButton();
+                errmsg.ShowDialog();
+            }
+        }
+
+        private void txt_telephoneNumber_Leave(object sender, EventArgs e)
+        {
+            bool isValidTeleNo = Validates.validMobileNumber(txt_telephoneNumber.Text);
+            if (isValidTeleNo == true)
+            {
+                txt_telephoneNumber.ForeColor = Color.Black;
+            }
+            else
+            {
+                txt_telephoneNumber.ForeColor = Color.Red;
+                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n Telephone Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
                 errmsg.convertToOkButton();
                 errmsg.ShowDialog();
             }
