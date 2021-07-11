@@ -34,8 +34,6 @@ namespace ShineWay.UI
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pb_btnNext = new System.Windows.Forms.PictureBox();
-            this.pb_btnPrevious = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.txt_search = new System.Windows.Forms.TextBox();
@@ -56,12 +54,17 @@ namespace ShineWay.UI
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label_VehicleNumber = new System.Windows.Forms.Label();
+            this.label_brand = new System.Windows.Forms.Label();
+            this.label_dailyRental = new System.Windows.Forms.Label();
+            this.label_weeklyRental = new System.Windows.Forms.Label();
+            this.label_monthlyRental = new System.Windows.Forms.Label();
+            this.btn_next = new System.Windows.Forms.Button();
+            this.btn_previous = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnNext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnPrevious)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb10)).BeginInit();
@@ -113,30 +116,6 @@ namespace ShineWay.UI
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             // 
-            // pb_btnNext
-            // 
-            this.pb_btnNext.Image = global::ShineWay.Properties.Resources.next;
-            this.pb_btnNext.Location = new System.Drawing.Point(1219, 690);
-            this.pb_btnNext.Name = "pb_btnNext";
-            this.pb_btnNext.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnNext.TabIndex = 4;
-            this.pb_btnNext.TabStop = false;
-            this.pb_btnNext.MouseLeave += new System.EventHandler(this.pb_btnNext_MouseLeave);
-            this.pb_btnNext.MouseHover += new System.EventHandler(this.pb_btnNext_MouseHover);
-            // 
-            // pb_btnPrevious
-            // 
-            this.pb_btnPrevious.Image = global::ShineWay.Properties.Resources.previous;
-            this.pb_btnPrevious.Location = new System.Drawing.Point(1379, 690);
-            this.pb_btnPrevious.Name = "pb_btnPrevious";
-            this.pb_btnPrevious.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnPrevious.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnPrevious.TabIndex = 5;
-            this.pb_btnPrevious.TabStop = false;
-            this.pb_btnPrevious.MouseLeave += new System.EventHandler(this.pb_btnPrevious_MouseLeave);
-            this.pb_btnPrevious.MouseHover += new System.EventHandler(this.pb_btnPrevious_MouseHover);
-            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
@@ -166,7 +145,7 @@ namespace ShineWay.UI
             this.txt_search.Location = new System.Drawing.Point(1261, 577);
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(246, 21);
-            this.txt_search.TabIndex = 8;
+            this.txt_search.TabIndex = 0;
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyDown);
             // 
@@ -354,10 +333,108 @@ namespace ShineWay.UI
             this.pictureBox9.TabIndex = 38;
             this.pictureBox9.TabStop = false;
             // 
+            // label_VehicleNumber
+            // 
+            this.label_VehicleNumber.AutoSize = true;
+            this.label_VehicleNumber.BackColor = System.Drawing.Color.White;
+            this.label_VehicleNumber.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_VehicleNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_VehicleNumber.Location = new System.Drawing.Point(749, 533);
+            this.label_VehicleNumber.Name = "label_VehicleNumber";
+            this.label_VehicleNumber.Size = new System.Drawing.Size(0, 21);
+            this.label_VehicleNumber.TabIndex = 39;
+            // 
+            // label_brand
+            // 
+            this.label_brand.AutoSize = true;
+            this.label_brand.BackColor = System.Drawing.Color.White;
+            this.label_brand.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_brand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_brand.Location = new System.Drawing.Point(749, 599);
+            this.label_brand.Name = "label_brand";
+            this.label_brand.Size = new System.Drawing.Size(0, 21);
+            this.label_brand.TabIndex = 40;
+            // 
+            // label_dailyRental
+            // 
+            this.label_dailyRental.AutoSize = true;
+            this.label_dailyRental.BackColor = System.Drawing.Color.White;
+            this.label_dailyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_dailyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_dailyRental.Location = new System.Drawing.Point(749, 652);
+            this.label_dailyRental.Name = "label_dailyRental";
+            this.label_dailyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_dailyRental.TabIndex = 41;
+            // 
+            // label_weeklyRental
+            // 
+            this.label_weeklyRental.AutoSize = true;
+            this.label_weeklyRental.BackColor = System.Drawing.Color.White;
+            this.label_weeklyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_weeklyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_weeklyRental.Location = new System.Drawing.Point(749, 712);
+            this.label_weeklyRental.Name = "label_weeklyRental";
+            this.label_weeklyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_weeklyRental.TabIndex = 42;
+            // 
+            // label_monthlyRental
+            // 
+            this.label_monthlyRental.AutoSize = true;
+            this.label_monthlyRental.BackColor = System.Drawing.Color.White;
+            this.label_monthlyRental.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_monthlyRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_monthlyRental.Location = new System.Drawing.Point(749, 776);
+            this.label_monthlyRental.Name = "label_monthlyRental";
+            this.label_monthlyRental.Size = new System.Drawing.Size(0, 21);
+            this.label_monthlyRental.TabIndex = 43;
+            // 
+            // btn_next
+            // 
+            this.btn_next.AutoSize = true;
+            this.btn_next.BackColor = System.Drawing.Color.White;
+            this.btn_next.FlatAppearance.BorderSize = 0;
+            this.btn_next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next.Image = global::ShineWay.Properties.Resources.next;
+            this.btn_next.Location = new System.Drawing.Point(1379, 694);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(146, 48);
+            this.btn_next.TabIndex = 1;
+            this.btn_next.UseVisualStyleBackColor = false;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            this.btn_next.MouseLeave += new System.EventHandler(this.btn_next_MouseLeave);
+            this.btn_next.MouseHover += new System.EventHandler(this.btn_next_MouseHover);
+            // 
+            // btn_previous
+            // 
+            this.btn_previous.AutoSize = true;
+            this.btn_previous.BackColor = System.Drawing.Color.White;
+            this.btn_previous.FlatAppearance.BorderSize = 0;
+            this.btn_previous.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_previous.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_previous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_previous.Image = global::ShineWay.Properties.Resources.previous;
+            this.btn_previous.Location = new System.Drawing.Point(1219, 694);
+            this.btn_previous.Name = "btn_previous";
+            this.btn_previous.Size = new System.Drawing.Size(146, 48);
+            this.btn_previous.TabIndex = 2;
+            this.btn_previous.UseVisualStyleBackColor = false;
+            this.btn_previous.Click += new System.EventHandler(this.btn_previous_Click);
+            this.btn_previous.MouseLeave += new System.EventHandler(this.btn_previous_MouseLeave);
+            this.btn_previous.MouseHover += new System.EventHandler(this.btn_previous_MouseHover);
+            // 
             // HomeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_previous);
+            this.Controls.Add(this.btn_next);
+            this.Controls.Add(this.label_monthlyRental);
+            this.Controls.Add(this.label_weeklyRental);
+            this.Controls.Add(this.label_dailyRental);
+            this.Controls.Add(this.label_brand);
+            this.Controls.Add(this.label_VehicleNumber);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -377,8 +454,6 @@ namespace ShineWay.UI
             this.Controls.Add(this.pb10);
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pb_btnPrevious);
-            this.Controls.Add(this.pb_btnNext);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -390,8 +465,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnNext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnPrevious)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb10)).EndInit();
@@ -412,8 +485,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pb_btnNext;
-        private System.Windows.Forms.PictureBox pb_btnPrevious;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.TextBox txt_search;
@@ -434,5 +505,12 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label_VehicleNumber;
+        private System.Windows.Forms.Label label_brand;
+        private System.Windows.Forms.Label label_dailyRental;
+        private System.Windows.Forms.Label label_weeklyRental;
+        private System.Windows.Forms.Label label_monthlyRental;
+        private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.Button btn_previous;
     }
 }
