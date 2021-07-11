@@ -145,7 +145,7 @@ namespace ShineWay.UI
             this.txt_search.Location = new System.Drawing.Point(1261, 577);
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(246, 21);
-            this.txt_search.TabIndex = 8;
+            this.txt_search.TabIndex = 0;
             this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // pb10
@@ -399,7 +399,7 @@ namespace ShineWay.UI
             this.btn_next.Location = new System.Drawing.Point(1379, 738);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(146, 48);
-            this.btn_next.TabIndex = 44;
+            this.btn_next.TabIndex = 1;
             this.btn_next.UseVisualStyleBackColor = false;
             this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             this.btn_next.MouseLeave += new System.EventHandler(this.btn_next_MouseLeave);
@@ -417,7 +417,7 @@ namespace ShineWay.UI
             this.btn_previous.Location = new System.Drawing.Point(1219, 738);
             this.btn_previous.Name = "btn_previous";
             this.btn_previous.Size = new System.Drawing.Size(146, 48);
-            this.btn_previous.TabIndex = 45;
+            this.btn_previous.TabIndex = 2;
             this.btn_previous.UseVisualStyleBackColor = false;
             this.btn_previous.Click += new System.EventHandler(this.btn_previous_Click);
             this.btn_previous.MouseLeave += new System.EventHandler(this.btn_previous_MouseLeave);
