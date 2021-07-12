@@ -49,9 +49,9 @@ namespace ShineWay.UI
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_telephoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.txt_address = new System.Windows.Forms.TextBox();
             this.txt_licenseNumber = new System.Windows.Forms.TextBox();
-            this.txt_telephoneNumber = new System.Windows.Forms.TextBox();
             this.pb_btnDelete = new System.Windows.Forms.PictureBox();
             this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
             this.pb_btnAdd = new System.Windows.Forms.PictureBox();
@@ -302,9 +302,9 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.txt_telephoneNumber);
             this.panel1.Controls.Add(this.txt_address);
             this.panel1.Controls.Add(this.txt_licenseNumber);
-            this.panel1.Controls.Add(this.txt_telephoneNumber);
             this.panel1.Controls.Add(this.pb_btnDelete);
             this.panel1.Controls.Add(this.pb_btnUpdate);
             this.panel1.Controls.Add(this.pb_btnAdd);
@@ -337,6 +337,19 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 25;
             // 
+            // txt_telephoneNumber
+            // 
+            this.txt_telephoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_telephoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_telephoneNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_telephoneNumber.Location = new System.Drawing.Point(376, 455);
+            this.txt_telephoneNumber.Mask = "0000000000";
+            this.txt_telephoneNumber.Name = "txt_telephoneNumber";
+            this.txt_telephoneNumber.PromptChar = ' ';
+            this.txt_telephoneNumber.Size = new System.Drawing.Size(433, 23);
+            this.txt_telephoneNumber.TabIndex = 3;
+            this.txt_telephoneNumber.ValidatingType = typeof(int);
+            // 
             // txt_address
             // 
             this.txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
@@ -358,17 +371,6 @@ namespace ShineWay.UI
             this.txt_licenseNumber.Size = new System.Drawing.Size(430, 23);
             this.txt_licenseNumber.TabIndex = 1;
             this.txt_licenseNumber.Leave += new System.EventHandler(this.txt_licenseNumber_Leave);
-            // 
-            // txt_telephoneNumber
-            // 
-            this.txt_telephoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_telephoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_telephoneNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_telephoneNumber.Location = new System.Drawing.Point(376, 460);
-            this.txt_telephoneNumber.Name = "txt_telephoneNumber";
-            this.txt_telephoneNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_telephoneNumber.TabIndex = 3;
-            this.txt_telephoneNumber.Leave += new System.EventHandler(this.txt_telephoneNumber_Leave);
             // 
             // pb_btnDelete
             // 
@@ -616,7 +618,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.TextBox txt_;
         private System.Windows.Forms.TextBox txt_licenseNumber;
-        private System.Windows.Forms.TextBox txt_telephoneNumber;
         private System.Windows.Forms.TextBox txt_address;
+        private System.Windows.Forms.MaskedTextBox txt_telephoneNumber;
     }
 }
