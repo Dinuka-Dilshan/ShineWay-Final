@@ -196,7 +196,7 @@ namespace ShineWay.UI
             this.txt_telephoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_telephoneNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_telephoneNumber.Location = new System.Drawing.Point(388, 455);
-            this.txt_telephoneNumber.Mask = "000-0000000";
+            this.txt_telephoneNumber.Mask = "0000000000";
             this.txt_telephoneNumber.Name = "txt_telephoneNumber";
             this.txt_telephoneNumber.PromptChar = ' ';
             this.txt_telephoneNumber.Size = new System.Drawing.Size(360, 23);
@@ -224,6 +224,7 @@ namespace ShineWay.UI
             this.pb_btnDelete.Name = "pb_btnDelete";
             this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
             this.pb_btnDelete.TabIndex = 89;
+            this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click_1);
             this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
             this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
             // 
@@ -235,6 +236,7 @@ namespace ShineWay.UI
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 46);
             this.label8.TabIndex = 88;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // pb_btnAdd
             // 
@@ -256,6 +258,7 @@ namespace ShineWay.UI
             this.pb_btnReset.Name = "pb_btnReset";
             this.pb_btnReset.Size = new System.Drawing.Size(147, 46);
             this.pb_btnReset.TabIndex = 7;
+            this.pb_btnReset.Click += new System.EventHandler(this.pb_btnReset_Click_1);
             this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
             this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
             // 
@@ -490,6 +493,7 @@ namespace ShineWay.UI
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(430, 23);
             this.txt_name.TabIndex = 1;
+            this.txt_name.Leave += new System.EventHandler(this.txt_name_Leave);
             // 
             // pictureBox5
             // 
