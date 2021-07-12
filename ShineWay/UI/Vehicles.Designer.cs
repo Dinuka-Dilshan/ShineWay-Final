@@ -43,6 +43,8 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pb_btnDelete = new System.Windows.Forms.Label();
+            this.pb_btnUpdate = new System.Windows.Forms.Label();
             this.pb_btnAdd = new System.Windows.Forms.Label();
             this.pb_btnReset = new System.Windows.Forms.Label();
             this.msktxt_startingOdo = new System.Windows.Forms.MaskedTextBox();
@@ -108,8 +110,6 @@ namespace ShineWay.UI
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pb_btnUpdate = new System.Windows.Forms.Label();
-            this.pb_btnDelete = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
@@ -355,6 +355,30 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
             // 
+            // pb_btnDelete
+            // 
+            this.pb_btnDelete.BackColor = System.Drawing.Color.White;
+            this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
+            this.pb_btnDelete.Location = new System.Drawing.Point(672, 745);
+            this.pb_btnDelete.Name = "pb_btnDelete";
+            this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnDelete.TabIndex = 85;
+            this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click);
+            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
+            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
+            // 
+            // pb_btnUpdate
+            // 
+            this.pb_btnUpdate.BackColor = System.Drawing.Color.White;
+            this.pb_btnUpdate.Image = global::ShineWay.Properties.Resources.update;
+            this.pb_btnUpdate.Location = new System.Drawing.Point(461, 745);
+            this.pb_btnUpdate.Name = "pb_btnUpdate";
+            this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnUpdate.TabIndex = 84;
+            this.pb_btnUpdate.Click += new System.EventHandler(this.pb_btnUpdate_Click);
+            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
+            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
+            // 
             // pb_btnAdd
             // 
             this.pb_btnAdd.BackColor = System.Drawing.Color.White;
@@ -535,6 +559,7 @@ namespace ShineWay.UI
             this.txt_ExtrakmPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_ExtrakmPrice.TabIndex = 12;
             this.txt_ExtrakmPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ExtrakmPrice_KeyPress);
+            this.txt_ExtrakmPrice.Leave += new System.EventHandler(this.txt_ExtrakmPrice_Leave);
             // 
             // txt_MonthlyPrice
             // 
@@ -547,6 +572,7 @@ namespace ShineWay.UI
             this.txt_MonthlyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_MonthlyPrice.TabIndex = 11;
             this.txt_MonthlyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_MonthlyPrice_KeyPress);
+            this.txt_MonthlyPrice.Leave += new System.EventHandler(this.txt_MonthlyPrice_Leave);
             // 
             // txt_WeeklyPrice
             // 
@@ -559,6 +585,7 @@ namespace ShineWay.UI
             this.txt_WeeklyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_WeeklyPrice.TabIndex = 10;
             this.txt_WeeklyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_WeeklyPrice_KeyPress);
+            this.txt_WeeklyPrice.Leave += new System.EventHandler(this.txt_WeeklyPrice_Leave);
             // 
             // msktxt_vehicleRegNumber
             // 
@@ -583,7 +610,7 @@ namespace ShineWay.UI
             this.date_registeredDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_registeredDate.Location = new System.Drawing.Point(369, 411);
             this.date_registeredDate.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
-            this.date_registeredDate.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.date_registeredDate.MinDate = new System.DateTime(2021, 7, 12, 0, 0, 0, 0);
             this.date_registeredDate.Name = "date_registeredDate";
             this.date_registeredDate.Size = new System.Drawing.Size(369, 32);
             this.date_registeredDate.TabIndex = 7;
@@ -754,6 +781,7 @@ namespace ShineWay.UI
             this.txt_DailyPrice.TabIndex = 9;
             this.txt_DailyPrice.TextChanged += new System.EventHandler(this.txt_DailyPrice_TextChanged);
             this.txt_DailyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DailyPrice_KeyPress);
+            this.txt_DailyPrice.Leave += new System.EventHandler(this.txt_DailyPrice_Leave);
             // 
             // pictureBox25
             // 
@@ -1112,28 +1140,6 @@ namespace ShineWay.UI
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
-            // 
-            // pb_btnUpdate
-            // 
-            this.pb_btnUpdate.BackColor = System.Drawing.Color.White;
-            this.pb_btnUpdate.Image = global::ShineWay.Properties.Resources.update;
-            this.pb_btnUpdate.Location = new System.Drawing.Point(461, 745);
-            this.pb_btnUpdate.Name = "pb_btnUpdate";
-            this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnUpdate.TabIndex = 84;
-            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
-            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
-            // 
-            // pb_btnDelete
-            // 
-            this.pb_btnDelete.BackColor = System.Drawing.Color.White;
-            this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
-            this.pb_btnDelete.Location = new System.Drawing.Point(672, 745);
-            this.pb_btnDelete.Name = "pb_btnDelete";
-            this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnDelete.TabIndex = 85;
-            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
-            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
             // 
             // Vehicles
             // 
