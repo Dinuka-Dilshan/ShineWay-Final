@@ -294,17 +294,21 @@ namespace ShineWay.UI
             // 
             // txt_subAmount
             // 
+            this.txt_subAmount.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.txt_subAmount.Location = new System.Drawing.Point(393, 677);
             this.txt_subAmount.Name = "txt_subAmount";
             this.txt_subAmount.Size = new System.Drawing.Size(317, 25);
             this.txt_subAmount.TabIndex = 64;
+            this.txt_subAmount.Text = "Automatically Calculate";
             // 
             // txt_amount
             // 
+            this.txt_amount.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.txt_amount.Location = new System.Drawing.Point(393, 556);
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.Size = new System.Drawing.Size(317, 25);
             this.txt_amount.TabIndex = 63;
+            this.txt_amount.Text = "Automatically Calculate";
             // 
             // txt_endingOdometer
             // 
@@ -317,7 +321,7 @@ namespace ShineWay.UI
             this.txt_endingOdometer.Size = new System.Drawing.Size(415, 23);
             this.txt_endingOdometer.TabIndex = 62;
             this.txt_endingOdometer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_endingOdometer_KeyDown);
-            this.txt_endingOdometer.MouseLeave += new System.EventHandler(this.txt_endingOdometer_MouseLeave);
+            this.txt_endingOdometer.Leave += new System.EventHandler(this.txt_endingOdometer_Leave_1);
             // 
             // txt_discount
             // 
@@ -330,6 +334,7 @@ namespace ShineWay.UI
             this.txt_discount.Size = new System.Drawing.Size(415, 23);
             this.txt_discount.TabIndex = 61;
             this.txt_discount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_discount_KeyDown);
+            this.txt_discount.Leave += new System.EventHandler(this.txt_discount_Leave);
             // 
             // txt_vehicleRegNumber
             // 
@@ -343,7 +348,7 @@ namespace ShineWay.UI
             this.txt_vehicleRegNumber.Size = new System.Drawing.Size(415, 23);
             this.txt_vehicleRegNumber.TabIndex = 60;
             this.txt_vehicleRegNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_vehicleRegNumber_KeyDown);
-            this.txt_vehicleRegNumber.MouseLeave += new System.EventHandler(this.txt_vehicleRegNumber_MouseLeave);
+            this.txt_vehicleRegNumber.Leave += new System.EventHandler(this.txt_vehicleRegNumber_Leave_1);
             // 
             // txt_customerNic
             // 
@@ -356,7 +361,7 @@ namespace ShineWay.UI
             this.txt_customerNic.Size = new System.Drawing.Size(415, 23);
             this.txt_customerNic.TabIndex = 59;
             this.txt_customerNic.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_customerNic_KeyDown);
-            this.txt_customerNic.MouseLeave += new System.EventHandler(this.txt_customerNic_MouseLeave);
+            this.txt_customerNic.Leave += new System.EventHandler(this.txt_customerNic_Leave_1);
             // 
             // txt_bookingId
             // 
@@ -370,7 +375,7 @@ namespace ShineWay.UI
             this.txt_bookingId.TabIndex = 58;
             this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
             this.txt_bookingId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_bookingId_KeyDown);
-            this.txt_bookingId.MouseLeave += new System.EventHandler(this.txt_bookingId_MouseLeave);
+            this.txt_bookingId.Leave += new System.EventHandler(this.txt_bookingId_Leave);
             // 
             // pictureBox5
             // 
@@ -390,13 +395,14 @@ namespace ShineWay.UI
             this.combo_status.FormattingEnabled = true;
             this.combo_status.Items.AddRange(new object[] {
             "Ongoing",
-            "Cancel",
-            "Complete"});
+            "Canceled",
+            "Completed"});
             this.combo_status.Location = new System.Drawing.Point(374, 384);
             this.combo_status.Name = "combo_status";
             this.combo_status.Size = new System.Drawing.Size(180, 31);
             this.combo_status.TabIndex = 55;
             this.combo_status.KeyDown += new System.Windows.Forms.KeyEventHandler(this.combo_status_KeyDown);
+            this.combo_status.Leave += new System.EventHandler(this.combo_status_Leave);
             // 
             // date_endDate
             // 

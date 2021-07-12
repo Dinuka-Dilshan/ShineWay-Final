@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShineWay.Validation;
+using ShineWay.Messages;
 
 namespace ShineWay.UI
 {
@@ -39,12 +41,12 @@ namespace ShineWay.UI
 
         private void pb_btnUpdate_MouseHover(object sender, EventArgs e)
         {
-            pb_btnUpdate.Image = ShineWay.Properties.Resources.updateHover;
+            pb_btnDelete.Image = ShineWay.Properties.Resources.updateHover;
         }
 
         private void pb_btnUpdate_MouseLeave(object sender, EventArgs e)
         {
-            pb_btnUpdate.Image = ShineWay.Properties.Resources.update;
+            pb_btnDelete.Image = ShineWay.Properties.Resources.update;
         }
 
         private void pb_btnDelete_MouseHover(object sender, EventArgs e)
@@ -65,6 +67,7 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
+
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -75,6 +78,58 @@ namespace ShineWay.UI
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             //delete button code goes here
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_NIC_MouseLeave(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void txt_telephoneNumber_MouseLeave(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void txt_NIC_Leave(object sender, EventArgs e)
+        {
+            bool isValidOwnerNic1 = Validates.ValidCustomerNewNIC(txt_NIC.Text);
+            bool isValidOwnerNic2 = Validates.ValidCustomerOldNIC(txt_NIC.Text);
+
+            if (isValidOwnerNic1 == true || isValidOwnerNic2 == true)
+            {
+                txt_NIC.ForeColor = Color.Black;
+            }
+            else
+            {
+                txt_NIC.ForeColor = Color.Red;
+                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n NIC Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errmsg.convertToOkButton();
+                errmsg.ShowDialog();
+            }
+        }
+
+        private void txt_telephoneNumber_Leave(object sender, EventArgs e)
+        {
+            bool isValidTeleNo = Validates.validMobileNumber(txt_telephoneNumber.Text);
+            if (isValidTeleNo == true)
+            {
+                txt_telephoneNumber.ForeColor = Color.Black;
+            }
+            else
+            {
+                txt_telephoneNumber.ForeColor = Color.Red;
+                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n Telephone Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errmsg.convertToOkButton();
+                errmsg.ShowDialog();
+            }
         }
     }
 }

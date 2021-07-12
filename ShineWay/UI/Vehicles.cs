@@ -220,6 +220,9 @@ namespace ShineWay.UI
             else
             {
                 msktxt_vehicleRegNumber.ForeColor = Color.Red;
+                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n Vehicle Register No!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errmsg.convertToOkButton();
+                errmsg.ShowDialog();
             }
          
         }
@@ -236,21 +239,15 @@ namespace ShineWay.UI
             else
             {
                 txt_ownerNIC.ForeColor = Color.Red;
+                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n NIC Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errmsg.convertToOkButton();
+                errmsg.ShowDialog();
             }
         }
 
         private void msktxt_startingOdo_Leave(object sender, EventArgs e)
         {
-            bool isValidStartingOdo = Validates.ValidOdometer(msktxt_startingOdo.Text);
-
-            if(isValidStartingOdo == true)
-            {
-                msktxt_startingOdo.ForeColor = Color.Black;
-            }
-            else
-            {
-                msktxt_startingOdo.ForeColor = Color.Red;
-            }
+           
         }
 
         private void txt_ownerCondition_Leave(object sender, EventArgs e)
@@ -264,7 +261,7 @@ namespace ShineWay.UI
             else
             {
                 txt_ownerCondition.ForeColor = Color.Red;
-                CustomMessage errormessege = new CustomMessage("Maxium lenght of description is\n 200 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
+                CustomMessage errormessege = new CustomMessage("Maximum length of description is\n 200 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
                 errormessege.convertToOkButton();
                 errormessege.ShowDialog();
 
@@ -317,6 +314,23 @@ namespace ShineWay.UI
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void msktxt_startingOdo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void pb_BtnBrowseOverallView_MouseHover_1(object sender, EventArgs e)
+        {
+           // pb_btnReset.Image = ShineWay.Properties.Resources.
+        }
+
+        private void pb_btnReset_Click(object sender, EventArgs e)
+        {
+            msktxt_vehicleRegNumber.Text = txt_brand.Text = txt_model.Text = txt_engineNumber.Text = txt_chasisNumber.Text = txt_ownerNIC.Text = txt_ownerCondition.Text= txt_DailyPrice.Text = txt_WeeklyPrice.Text = txt_MonthlyPrice.Text = txt_ExtrakmPrice.Text = txt_Dailykm.Text = txt_Weeklykm.Text = txt_Monthlykm.Text = txt_OwnerPayment.Text = msktxt_startingOdo.Text  = string.Empty;
+            pb_overallViewimg.Image = pb_InsideViewimg.Image = null;
         }
     }
 }
