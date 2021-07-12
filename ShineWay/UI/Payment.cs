@@ -45,6 +45,14 @@ namespace ShineWay.UI
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             //reset button code goes here
+            txt_bookingId.Text = "";
+            txt_vehicleRegNumber.Text = "";
+            txt_customerNic.Text = "";
+            combo_status.Text = null;
+            date_endDate.Value = DateTime.Now;
+            txt_endingOdometer.Text = "";
+            txt_discount.Text = "";
+            
         }
 
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
@@ -274,14 +282,15 @@ namespace ShineWay.UI
 
         private void txt_discount_Leave(object sender, EventArgs e)
         {
-            bool discount = Validates.ValidAmount(txt_discount.Text);
-            if (discount == false)
+            bool discount1 = Validates.ValidDiscount1(txt_discount.Text);
+            bool discount2 = Validates.ValidDiscount2(txt_discount.Text);
+            if (discount1 == true || discount2 == true)
             {
-                txt_discount.ForeColor = Color.Red;
+                txt_discount.ForeColor = Color.Green;
             }
             else
             {
-                txt_discount.ForeColor = Color.Green;
+                txt_discount.ForeColor = Color.Red;
             }
         }
     }
