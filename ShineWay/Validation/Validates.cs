@@ -11,9 +11,12 @@ namespace ShineWay.Validation
     {
         public static string validateName = "^[A-Za-z]{3,}$";
         public static string validateNEWCustomerNIC = "^[0-9]{4}[01235678]{1}[0-9]{7}$";
+
+        public static string validateMobileNumber = "^[0]{1}[0-9]{9}$";
+        public static string validateEmail = "^[0-9A-Za-z]{1,}[@]{1}[0-9A-Za-z]{3,}[.]{1}[a-z]{2,3}$";
         public static string validateOLDCustomerNIC = "^[0-9]{2}[01235678]{1}[0-9]{6}[VX]{1}$";
-        public static string validateMobileNumber = "^[0]{1}[1-9]{9}$";
-        public static string validateEmail = "^[a-zA-Z1-9_-+]{1,}[@][a-zA-Z][.][a-zA-Z]{2,3}([a-zA-Z]{2,3}){0,1}$";
+
+
 
         public static string validateBookingID = "^[0-9]{1,}$";
         public static string validateVehiclenumber1 = "^[A-Z]{2,3}[-][0-9]{4}$";
@@ -30,6 +33,20 @@ namespace ShineWay.Validation
         public static string validateAmount = "^[0-9]{0,10}[.]{1}[0-9]{2}$";
         public static string validateDescription = "^[A-Za-z0-9&-_= +]{0,160}$";
 
+        public static bool ValidEmail(string email)
+        {
+            return Regex.IsMatch(email, validateEmail);
+        }
+
+        public static bool ValidName(string cusname)
+        {
+            return Regex.IsMatch(cusname, validateName);
+        }
+
+        public static bool ValidMobile(string mobilenumber)
+        {
+            return Regex.IsMatch(mobilenumber, validateMobileNumber);
+        }
 
         public static bool ValidBookingID(string bookingID)
         {
@@ -97,6 +114,7 @@ namespace ShineWay.Validation
         {
             return Regex.IsMatch(mobileNo, validateMobileNumber);
         }
+
 
 
     }
