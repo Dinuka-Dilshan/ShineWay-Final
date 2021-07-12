@@ -53,6 +53,7 @@ namespace ShineWay.UI
             this.label_userType = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label_time = new System.Windows.Forms.Label();
+            this.btn_reports = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_buttonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -320,11 +321,28 @@ namespace ShineWay.UI
             this.label_time.Size = new System.Drawing.Size(0, 21);
             this.label_time.TabIndex = 20;
             // 
+            // btn_reports
+            // 
+            this.btn_reports.BackColor = System.Drawing.Color.White;
+            this.btn_reports.FlatAppearance.BorderSize = 0;
+            this.btn_reports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reports.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_reports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_reports.Location = new System.Drawing.Point(971, 0);
+            this.btn_reports.Name = "btn_reports";
+            this.btn_reports.Size = new System.Drawing.Size(100, 104);
+            this.btn_reports.TabIndex = 21;
+            this.btn_reports.TabStop = false;
+            this.btn_reports.Text = "&Reports";
+            this.btn_reports.UseVisualStyleBackColor = false;
+            this.btn_reports.Click += new System.EventHandler(this.btn_reports_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1909, 1033);
+            this.Controls.Add(this.btn_reports);
             this.Controls.Add(this.label_time);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label_userType);
@@ -387,5 +405,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_userType;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label_time;
+        private System.Windows.Forms.Button btn_reports;
     }
 }
