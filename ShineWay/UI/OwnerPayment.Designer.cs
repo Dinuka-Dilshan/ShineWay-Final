@@ -120,10 +120,10 @@ namespace ShineWay.UI
             // 
             this.pb_btnDelete.BackColor = System.Drawing.Color.White;
             this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
-            this.pb_btnDelete.Location = new System.Drawing.Point(646, 696);
+            this.pb_btnDelete.Location = new System.Drawing.Point(644, 696);
             this.pb_btnDelete.Name = "pb_btnDelete";
             this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnDelete.TabIndex = 41;
+            this.pb_btnDelete.TabIndex = 9;
             this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click);
             this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
             this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
@@ -132,10 +132,10 @@ namespace ShineWay.UI
             // 
             this.pb_btnUpdate.BackColor = System.Drawing.Color.White;
             this.pb_btnUpdate.Image = global::ShineWay.Properties.Resources.update;
-            this.pb_btnUpdate.Location = new System.Drawing.Point(470, 696);
+            this.pb_btnUpdate.Location = new System.Drawing.Point(464, 696);
             this.pb_btnUpdate.Name = "pb_btnUpdate";
             this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnUpdate.TabIndex = 40;
+            this.pb_btnUpdate.TabIndex = 8;
             this.pb_btnUpdate.Click += new System.EventHandler(this.pb_btnUpdate_Click);
             this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
             this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
@@ -144,10 +144,10 @@ namespace ShineWay.UI
             // 
             this.pb_btnAdd.BackColor = System.Drawing.Color.White;
             this.pb_btnAdd.Image = global::ShineWay.Properties.Resources.add;
-            this.pb_btnAdd.Location = new System.Drawing.Point(285, 696);
+            this.pb_btnAdd.Location = new System.Drawing.Point(284, 696);
             this.pb_btnAdd.Name = "pb_btnAdd";
             this.pb_btnAdd.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnAdd.TabIndex = 39;
+            this.pb_btnAdd.TabIndex = 6;
             this.pb_btnAdd.Click += new System.EventHandler(this.pb_btnAdd_Click);
             this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
             this.pb_btnAdd.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
@@ -159,7 +159,7 @@ namespace ShineWay.UI
             this.pb_btnReset.Location = new System.Drawing.Point(104, 696);
             this.pb_btnReset.Name = "pb_btnReset";
             this.pb_btnReset.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnReset.TabIndex = 38;
+            this.pb_btnReset.TabIndex = 7;
             this.pb_btnReset.Click += new System.EventHandler(this.pb_btnReset_Click_1);
             this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
             this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
@@ -173,7 +173,7 @@ namespace ShineWay.UI
             this.txt_OwnerPayment.Name = "txt_OwnerPayment";
             this.txt_OwnerPayment.PromptChar = ' ';
             this.txt_OwnerPayment.Size = new System.Drawing.Size(415, 23);
-            this.txt_OwnerPayment.TabIndex = 37;
+            this.txt_OwnerPayment.TabIndex = 3;
             this.txt_OwnerPayment.Enter += new System.EventHandler(this.txt_OwnerPayment_Enter);
             this.txt_OwnerPayment.Leave += new System.EventHandler(this.txt_OwnerPayment_Leave);
             // 
@@ -187,7 +187,7 @@ namespace ShineWay.UI
             this.txt_VehicleNumber.Name = "txt_VehicleNumber";
             this.txt_VehicleNumber.PromptChar = ' ';
             this.txt_VehicleNumber.Size = new System.Drawing.Size(415, 23);
-            this.txt_VehicleNumber.TabIndex = 36;
+            this.txt_VehicleNumber.TabIndex = 2;
             this.txt_VehicleNumber.Leave += new System.EventHandler(this.txt_VehicleNumber_Leave);
             // 
             // txt_ownerNIC
@@ -200,7 +200,7 @@ namespace ShineWay.UI
             this.txt_ownerNIC.Name = "txt_ownerNIC";
             this.txt_ownerNIC.PromptChar = ' ';
             this.txt_ownerNIC.Size = new System.Drawing.Size(415, 23);
-            this.txt_ownerNIC.TabIndex = 35;
+            this.txt_ownerNIC.TabIndex = 1;
             this.txt_ownerNIC.Leave += new System.EventHandler(this.txt_ownerNIC_Leave);
             // 
             // txt_paymentID
@@ -213,7 +213,7 @@ namespace ShineWay.UI
             this.txt_paymentID.Name = "txt_paymentID";
             this.txt_paymentID.PromptChar = ' ';
             this.txt_paymentID.Size = new System.Drawing.Size(415, 23);
-            this.txt_paymentID.TabIndex = 34;
+            this.txt_paymentID.TabIndex = 0;
             this.txt_paymentID.Leave += new System.EventHandler(this.txt_paymentID_Leave);
             // 
             // label1
@@ -247,7 +247,7 @@ namespace ShineWay.UI
             this.date_OwnerPayment.Location = new System.Drawing.Point(367, 541);
             this.date_OwnerPayment.Name = "date_OwnerPayment";
             this.date_OwnerPayment.Size = new System.Drawing.Size(365, 32);
-            this.date_OwnerPayment.TabIndex = 33;
+            this.date_OwnerPayment.TabIndex = 5;
             // 
             // pictureBox2
             // 

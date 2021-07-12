@@ -37,20 +37,24 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+
+            this.pb_btnDelete = new System.Windows.Forms.Label();
+            this.pb_btnUpdate = new System.Windows.Forms.Label();
+            this.lbl_salutation = new System.Windows.Forms.Label();
+            this.txt_address = new System.Windows.Forms.MaskedTextBox();
+            this.txt_email = new System.Windows.Forms.MaskedTextBox();
+            this.txt_telephone = new System.Windows.Forms.MaskedTextBox();
+            this.txt_ownerName = new System.Windows.Forms.MaskedTextBox();
+            this.txt_nicNumber = new System.Windows.Forms.MaskedTextBox();
             this.pb_btnAdd = new System.Windows.Forms.Label();
             this.pb_btnReset = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.combo_userSalutation = new System.Windows.Forms.ComboBox();
-            this.pb_btnDelete = new System.Windows.Forms.PictureBox();
-            this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
-            this.txt_nicNumber = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.txt_address = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,10 +62,8 @@ namespace ShineWay.UI
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_email = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.txt_ownerName = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
@@ -71,8 +73,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -127,7 +127,7 @@ namespace ShineWay.UI
             this.textBox1.Location = new System.Drawing.Point(165, 76);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 25);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 9;
             // 
             // pictureBox16
             // 
@@ -152,20 +152,22 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pb_btnAdd);
-            this.panel1.Controls.Add(this.pb_btnReset);
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.combo_userSalutation);
             this.panel1.Controls.Add(this.pb_btnDelete);
             this.panel1.Controls.Add(this.pb_btnUpdate);
+            this.panel1.Controls.Add(this.lbl_salutation);
+            this.panel1.Controls.Add(this.txt_address);
+            this.panel1.Controls.Add(this.txt_email);
+            this.panel1.Controls.Add(this.txt_telephone);
+            this.panel1.Controls.Add(this.txt_ownerName);
             this.panel1.Controls.Add(this.txt_nicNumber);
+            this.panel1.Controls.Add(this.pb_btnAdd);
+            this.panel1.Controls.Add(this.pb_btnReset);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
-            this.panel1.Controls.Add(this.txt_address);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox13);
             this.panel1.Controls.Add(this.label3);
@@ -173,10 +175,8 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox10);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txt_email);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox11);
-            this.panel1.Controls.Add(this.txt_ownerName);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox14);
             this.panel1.Location = new System.Drawing.Point(18, 21);
@@ -184,14 +184,115 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
             // 
+
+            // pb_btnDelete
+            // 
+            this.pb_btnDelete.BackColor = System.Drawing.Color.White;
+            this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
+            this.pb_btnDelete.Location = new System.Drawing.Point(650, 691);
+            this.pb_btnDelete.Name = "pb_btnDelete";
+            this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnDelete.TabIndex = 8;
+            this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click);
+            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
+            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
+            // 
+            // pb_btnUpdate
+            // 
+            this.pb_btnUpdate.BackColor = System.Drawing.Color.White;
+            this.pb_btnUpdate.Image = global::ShineWay.Properties.Resources.update;
+            this.pb_btnUpdate.Location = new System.Drawing.Point(462, 691);
+            this.pb_btnUpdate.Name = "pb_btnUpdate";
+            this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnUpdate.TabIndex = 7;
+            this.pb_btnUpdate.Click += new System.EventHandler(this.pb_btnUpdate_Click);
+            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
+            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
+            // 
+            // lbl_salutation
+            // 
+            this.lbl_salutation.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_salutation.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_salutation.ForeColor = System.Drawing.Color.Black;
+            this.lbl_salutation.Location = new System.Drawing.Point(377, 291);
+            this.lbl_salutation.Name = "lbl_salutation";
+            this.lbl_salutation.Size = new System.Drawing.Size(75, 23);
+            this.lbl_salutation.TabIndex = 46;
+            // 
+            // txt_address
+            // 
+            this.txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_address.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_address.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_address.Location = new System.Drawing.Point(386, 556);
+            this.txt_address.Mask = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+    "aaaaaaaaaaaaaaaaaaaaa";
+            this.txt_address.Name = "txt_address";
+            this.txt_address.PromptChar = ' ';
+            this.txt_address.Size = new System.Drawing.Size(410, 23);
+            this.txt_address.TabIndex = 4;
+            this.txt_address.Leave += new System.EventHandler(this.txt_address_Leave);
+            // 
+            // txt_email
+            // 
+            this.txt_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_email.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_email.Location = new System.Drawing.Point(386, 466);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.PromptChar = ' ';
+            this.txt_email.Size = new System.Drawing.Size(407, 23);
+            this.txt_email.TabIndex = 3;
+            this.txt_email.Leave += new System.EventHandler(this.txt_email_Leave);
+            // 
+            // txt_telephone
+            // 
+            this.txt_telephone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_telephone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_telephone.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_telephone.Location = new System.Drawing.Point(386, 372);
+            this.txt_telephone.Mask = "0000000000";
+            this.txt_telephone.Name = "txt_telephone";
+            this.txt_telephone.PromptChar = ' ';
+            this.txt_telephone.Size = new System.Drawing.Size(407, 23);
+            this.txt_telephone.TabIndex = 2;
+            this.txt_telephone.Leave += new System.EventHandler(this.txt_telephone_Leave);
+            // 
+            // txt_ownerName
+            // 
+            this.txt_ownerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_ownerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_ownerName.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_ownerName.Location = new System.Drawing.Point(473, 291);
+            this.txt_ownerName.Mask = ">L<????????????????????????????????????????????????????????????";
+            this.txt_ownerName.Name = "txt_ownerName";
+            this.txt_ownerName.PromptChar = ' ';
+            this.txt_ownerName.Size = new System.Drawing.Size(320, 23);
+            this.txt_ownerName.TabIndex = 1;
+            this.txt_ownerName.Leave += new System.EventHandler(this.txt_ownerName_Leave);
+            // 
+            // txt_nicNumber
+            // 
+            this.txt_nicNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_nicNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_nicNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_nicNumber.Location = new System.Drawing.Point(386, 196);
+            this.txt_nicNumber.Mask = ">000000000A99";
+            this.txt_nicNumber.Name = "txt_nicNumber";
+            this.txt_nicNumber.PromptChar = ' ';
+            this.txt_nicNumber.Size = new System.Drawing.Size(410, 23);
+            this.txt_nicNumber.TabIndex = 0;
+            this.txt_nicNumber.Leave += new System.EventHandler(this.txt_nicNumber_Leave);
+            // 
             // pb_btnAdd
             // 
             this.pb_btnAdd.BackColor = System.Drawing.Color.White;
             this.pb_btnAdd.Image = global::ShineWay.Properties.Resources.add;
-            this.pb_btnAdd.Location = new System.Drawing.Point(283, 696);
+            this.pb_btnAdd.Location = new System.Drawing.Point(274, 691);
             this.pb_btnAdd.Name = "pb_btnAdd";
             this.pb_btnAdd.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnAdd.TabIndex = 40;
+            this.pb_btnAdd.TabIndex = 5;
+            this.pb_btnAdd.Click += new System.EventHandler(this.pb_btnAdd_Click);
             this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
             this.pb_btnAdd.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
             // 
@@ -199,24 +300,14 @@ namespace ShineWay.UI
             // 
             this.pb_btnReset.BackColor = System.Drawing.Color.White;
             this.pb_btnReset.Image = global::ShineWay.Properties.Resources.reset;
-            this.pb_btnReset.Location = new System.Drawing.Point(104, 696);
+            this.pb_btnReset.Location = new System.Drawing.Point(86, 691);
             this.pb_btnReset.Name = "pb_btnReset";
             this.pb_btnReset.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnReset.TabIndex = 39;
+            this.pb_btnReset.TabIndex = 6;
+            this.pb_btnReset.Click += new System.EventHandler(this.pb_btnReset_Click);
             this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
             this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.maskedTextBox1.Location = new System.Drawing.Point(376, 375);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.maskedTextBox1.Mask = "000-0000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.PromptChar = ' ';
-            this.maskedTextBox1.Size = new System.Drawing.Size(429, 20);
-            this.maskedTextBox1.TabIndex = 33;
+
             // 
             // pictureBox3
             // 
@@ -240,56 +331,6 @@ namespace ShineWay.UI
             this.label1.Size = new System.Drawing.Size(149, 27);
             this.label1.TabIndex = 4;
             this.label1.Text = "NIC Number";
-            // 
-            // combo_userSalutation
-            // 
-            this.combo_userSalutation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.combo_userSalutation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.combo_userSalutation.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.combo_userSalutation.FormattingEnabled = true;
-            this.combo_userSalutation.Items.AddRange(new object[] {
-            "Mr.",
-            "Ms.",
-            "Miss."});
-            this.combo_userSalutation.Location = new System.Drawing.Point(376, 285);
-            this.combo_userSalutation.Name = "combo_userSalutation";
-            this.combo_userSalutation.Size = new System.Drawing.Size(76, 29);
-            this.combo_userSalutation.TabIndex = 32;
-            // 
-            // pb_btnDelete
-            // 
-            this.pb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnDelete.Image")));
-            this.pb_btnDelete.Location = new System.Drawing.Point(653, 700);
-            this.pb_btnDelete.Name = "pb_btnDelete";
-            this.pb_btnDelete.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnDelete.TabIndex = 31;
-            this.pb_btnDelete.TabStop = false;
-            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
-            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
-            // 
-            // pb_btnUpdate
-            // 
-            this.pb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnUpdate.Image")));
-            this.pb_btnUpdate.Location = new System.Drawing.Point(473, 700);
-            this.pb_btnUpdate.Name = "pb_btnUpdate";
-            this.pb_btnUpdate.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnUpdate.TabIndex = 30;
-            this.pb_btnUpdate.TabStop = false;
-            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
-            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
-            // 
-            // txt_nicNumber
-            // 
-            this.txt_nicNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_nicNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_nicNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nicNumber.Location = new System.Drawing.Point(376, 197);
-            this.txt_nicNumber.Name = "txt_nicNumber";
-            this.txt_nicNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_nicNumber.TabIndex = 26;
-            this.txt_nicNumber.MouseLeave += new System.EventHandler(this.txt_nicNumber_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -335,16 +376,6 @@ namespace ShineWay.UI
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox12.TabIndex = 23;
             this.pictureBox12.TabStop = false;
-            // 
-            // txt_address
-            // 
-            this.txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_address.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_address.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_address.Location = new System.Drawing.Point(376, 556);
-            this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(430, 23);
-            this.txt_address.TabIndex = 22;
             // 
             // pictureBox6
             // 
@@ -426,17 +457,6 @@ namespace ShineWay.UI
             this.label2.TabIndex = 8;
             this.label2.Text = "Owner Name";
             // 
-            // txt_email
-            // 
-            this.txt_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_email.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(376, 465);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(430, 23);
-            this.txt_email.TabIndex = 18;
-            this.txt_email.MouseLeave += new System.EventHandler(this.txt_email_MouseLeave);
-            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
@@ -458,16 +478,6 @@ namespace ShineWay.UI
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox11.TabIndex = 17;
             this.pictureBox11.TabStop = false;
-            // 
-            // txt_ownerName
-            // 
-            this.txt_ownerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_ownerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_ownerName.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_ownerName.Location = new System.Drawing.Point(458, 291);
-            this.txt_ownerName.Name = "txt_ownerName";
-            this.txt_ownerName.Size = new System.Drawing.Size(347, 23);
-            this.txt_ownerName.TabIndex = 6;
             // 
             // pictureBox5
             // 
@@ -507,8 +517,6 @@ namespace ShineWay.UI
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -532,15 +540,11 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pb_btnDelete;
-        private System.Windows.Forms.PictureBox pb_btnUpdate;
-        private System.Windows.Forms.TextBox txt_nicNumber;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox13;
@@ -549,16 +553,20 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.TextBox txt_ownerName;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.ComboBox combo_userSalutation;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label pb_btnReset;
         private System.Windows.Forms.Label pb_btnAdd;
+        private System.Windows.Forms.MaskedTextBox txt_ownerName;
+        private System.Windows.Forms.MaskedTextBox txt_nicNumber;
+        private System.Windows.Forms.MaskedTextBox txt_address;
+        private System.Windows.Forms.MaskedTextBox txt_email;
+        private System.Windows.Forms.MaskedTextBox txt_telephone;
+        private System.Windows.Forms.Label lbl_salutation;
+        private System.Windows.Forms.Label pb_btnDelete;
+        private System.Windows.Forms.Label pb_btnUpdate;
     }
 }
