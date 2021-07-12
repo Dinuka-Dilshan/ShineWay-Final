@@ -106,7 +106,7 @@ namespace ShineWay.UI
             if (validcustomernic1 == true || validcustomernic2 == true)
             {
                 bool IsMaleN = Validates.ValidCustomermaleNewNIC(txt_nicNumber.Text);
-                bool IsMaleO = Validates.ValidCustomermaleNewNIC(txt_nicNumber.Text);
+                bool IsMaleO = Validates.ValidCustomermaleOldNIC(txt_nicNumber.Text);
                 if (IsMaleN == true || IsMaleO == true)
                 {
                     lbl_salutation.Text = "Mr";
