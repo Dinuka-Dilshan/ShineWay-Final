@@ -90,7 +90,7 @@ namespace ShineWay.UI
                         "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
 
                     //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     addmsg.convertToOkButton();
                     addmsg.ShowDialog();
                 }
@@ -400,7 +400,7 @@ namespace ShineWay.UI
 
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
-            CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.delete, DialogResult.OK);
+            CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
             addmsg.convertToOkButton();
             addmsg.ShowDialog();
         }
