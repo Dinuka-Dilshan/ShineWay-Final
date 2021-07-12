@@ -23,7 +23,7 @@ namespace ShineWay.UI
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             String searchKeyValue = txt_search.Text;
-            String query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`, `Wedding_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
+            String query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
             vehicles.Clear();
 
             try
