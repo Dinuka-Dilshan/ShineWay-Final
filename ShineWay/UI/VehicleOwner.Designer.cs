@@ -37,6 +37,7 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+
             this.pb_btnDelete = new System.Windows.Forms.Label();
             this.pb_btnUpdate = new System.Windows.Forms.Label();
             this.lbl_salutation = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@ namespace ShineWay.UI
             this.txt_nicNumber = new System.Windows.Forms.MaskedTextBox();
             this.pb_btnAdd = new System.Windows.Forms.Label();
             this.pb_btnReset = new System.Windows.Forms.Label();
+
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -182,6 +184,7 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
             // 
+
             // pb_btnDelete
             // 
             this.pb_btnDelete.BackColor = System.Drawing.Color.White;
@@ -304,6 +307,7 @@ namespace ShineWay.UI
             this.pb_btnReset.Click += new System.EventHandler(this.pb_btnReset_Click);
             this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
             this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
+
             // 
             // pictureBox3
             // 
