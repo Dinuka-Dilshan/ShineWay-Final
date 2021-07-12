@@ -314,5 +314,10 @@ namespace ShineWay.UI
                 txt_customerName.ForeColor = Color.Green;
             }
         }
+
+        private void pictureBox3_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

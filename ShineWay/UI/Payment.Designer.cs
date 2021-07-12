@@ -298,7 +298,7 @@ namespace ShineWay.UI
             this.txt_subAmount.Location = new System.Drawing.Point(393, 677);
             this.txt_subAmount.Name = "txt_subAmount";
             this.txt_subAmount.Size = new System.Drawing.Size(317, 25);
-            this.txt_subAmount.TabIndex = 64;
+            this.txt_subAmount.TabIndex = 9;
             this.txt_subAmount.Text = "Automatically Calculate";
             // 
             // txt_amount
@@ -307,7 +307,7 @@ namespace ShineWay.UI
             this.txt_amount.Location = new System.Drawing.Point(393, 556);
             this.txt_amount.Name = "txt_amount";
             this.txt_amount.Size = new System.Drawing.Size(317, 25);
-            this.txt_amount.TabIndex = 63;
+            this.txt_amount.TabIndex = 7;
             this.txt_amount.Text = "Automatically Calculate";
             // 
             // txt_endingOdometer
@@ -319,7 +319,7 @@ namespace ShineWay.UI
             this.txt_endingOdometer.Name = "txt_endingOdometer";
             this.txt_endingOdometer.PromptChar = ' ';
             this.txt_endingOdometer.Size = new System.Drawing.Size(415, 23);
-            this.txt_endingOdometer.TabIndex = 62;
+            this.txt_endingOdometer.TabIndex = 6;
             this.txt_endingOdometer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_endingOdometer_KeyDown);
             this.txt_endingOdometer.Leave += new System.EventHandler(this.txt_endingOdometer_Leave_1);
             // 
@@ -332,7 +332,7 @@ namespace ShineWay.UI
             this.txt_discount.Name = "txt_discount";
             this.txt_discount.PromptChar = ' ';
             this.txt_discount.Size = new System.Drawing.Size(415, 23);
-            this.txt_discount.TabIndex = 61;
+            this.txt_discount.TabIndex = 8;
             this.txt_discount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_discount_KeyDown);
             this.txt_discount.Leave += new System.EventHandler(this.txt_discount_Leave);
             // 
@@ -346,7 +346,7 @@ namespace ShineWay.UI
             this.txt_vehicleRegNumber.Name = "txt_vehicleRegNumber";
             this.txt_vehicleRegNumber.PromptChar = ' ';
             this.txt_vehicleRegNumber.Size = new System.Drawing.Size(415, 23);
-            this.txt_vehicleRegNumber.TabIndex = 60;
+            this.txt_vehicleRegNumber.TabIndex = 1;
             this.txt_vehicleRegNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_vehicleRegNumber_KeyDown);
             this.txt_vehicleRegNumber.Leave += new System.EventHandler(this.txt_vehicleRegNumber_Leave_1);
             // 
@@ -359,7 +359,7 @@ namespace ShineWay.UI
             this.txt_customerNic.Name = "txt_customerNic";
             this.txt_customerNic.PromptChar = ' ';
             this.txt_customerNic.Size = new System.Drawing.Size(415, 23);
-            this.txt_customerNic.TabIndex = 59;
+            this.txt_customerNic.TabIndex = 3;
             this.txt_customerNic.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_customerNic_KeyDown);
             this.txt_customerNic.Leave += new System.EventHandler(this.txt_customerNic_Leave_1);
             // 
@@ -372,7 +372,7 @@ namespace ShineWay.UI
             this.txt_bookingId.Name = "txt_bookingId";
             this.txt_bookingId.PromptChar = ' ';
             this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
-            this.txt_bookingId.TabIndex = 58;
+            this.txt_bookingId.TabIndex = 0;
             this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
             this.txt_bookingId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_bookingId_KeyDown);
             this.txt_bookingId.Leave += new System.EventHandler(this.txt_bookingId_Leave);
@@ -400,7 +400,7 @@ namespace ShineWay.UI
             this.combo_status.Location = new System.Drawing.Point(374, 384);
             this.combo_status.Name = "combo_status";
             this.combo_status.Size = new System.Drawing.Size(180, 31);
-            this.combo_status.TabIndex = 55;
+            this.combo_status.TabIndex = 4;
             this.combo_status.KeyDown += new System.Windows.Forms.KeyEventHandler(this.combo_status_KeyDown);
             this.combo_status.Leave += new System.EventHandler(this.combo_status_Leave);
             // 
@@ -414,7 +414,7 @@ namespace ShineWay.UI
             this.date_endDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_endDate.Name = "date_endDate";
             this.date_endDate.Size = new System.Drawing.Size(370, 30);
-            this.date_endDate.TabIndex = 52;
+            this.date_endDate.TabIndex = 5;
             this.date_endDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.date_endDate_KeyDown);
             // 
             // pictureBox1
