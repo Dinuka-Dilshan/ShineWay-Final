@@ -18,6 +18,8 @@ namespace ShineWay.UI
         public Booking()
         {
             InitializeComponent();
+           date_startingDate.MinDate = DateTime.Now;
+           date_endDate.MinDate = DateTime.Now;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -76,8 +78,8 @@ namespace ShineWay.UI
              txt_depositAmount.Text = "";
              txt_advancedPayment.Text = "";
              txt_description.Text = "";
-             date_startingDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-             date_endDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+             date_startingDate.Value = DateTime.Now;
+             date_endDate.Value = DateTime.Now;
 
             
         }
@@ -85,26 +87,22 @@ namespace ShineWay.UI
         private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
         {
             // update actions
-        }
 
-        private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
-        {
-                if (    txt_bookingId.ForeColor==Color.Green &&
-                        txt_vehicleRegNumber.ForeColor == Color.Green &&
-                        txt_customerNic.ForeColor == Color.Green &&
-                        txt_licenseNumber.ForeColor == Color.Green &&
-                        //date_startingDate..ForeColor == Color.Green &&
-                        txt_startingOdometer.ForeColor == Color.Green &&
-                        //date_endDate.ForeColor == Color.Green &&
-                        combo_packageType.ForeColor == Color.Green &&
-                        txt_depositAmount.ForeColor == Color.Green &&
-                        txt_advancedPayment.ForeColor == Color.Green &&
-                        txt_description.ForeColor == Color.Green 
-                )
+            if (txt_bookingId.ForeColor == Color.Green &&
+                       txt_vehicleRegNumber.ForeColor == Color.Green &&
+                       txt_customerNic.ForeColor == Color.Green &&
+                       txt_licenseNumber.ForeColor == Color.Green &&
+                       date_startingDate.Value <= date_endDate.Value &&
+                       txt_startingOdometer.ForeColor == Color.Green &&
+                       combo_packageType.ForeColor == Color.Green &&
+                       txt_depositAmount.ForeColor == Color.Green &&
+                       txt_advancedPayment.ForeColor == Color.Green &&
+                       txt_description.ForeColor == Color.Green
+               )
             {
                 try
                 {
-                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updates", ShineWay.Properties.Resources.tick, DialogResult.OK);
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
@@ -119,7 +117,44 @@ namespace ShineWay.UI
             }
             else
             {
-                CustomMessage errormessege1 = new CustomMessage("Booking Unsuccessfull!\n\n Enter correct values", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                CustomMessage errormessege1 = new CustomMessage("Unsuccessfull Update!\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                errormessege1.convertToOkButton();
+                errormessege1.ShowDialog();
+            }
+        }
+
+        private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
+        {
+                if (    txt_bookingId.ForeColor==Color.Green &&
+                        txt_vehicleRegNumber.ForeColor == Color.Green &&
+                        txt_customerNic.ForeColor == Color.Green &&
+                        txt_licenseNumber.ForeColor == Color.Green &&
+                        date_startingDate.Value <= date_endDate.Value &&
+                        txt_startingOdometer.ForeColor == Color.Green &&
+                        combo_packageType.ForeColor == Color.Green &&
+                        txt_depositAmount.ForeColor == Color.Green &&
+                        txt_advancedPayment.ForeColor == Color.Green &&
+                        txt_description.ForeColor == Color.Green 
+                )
+            {
+                try
+                {
+                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+
+                    //   MySqlDataReader reader1 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+
+
+                }
+                catch (Exception ex)
+                {
+                    //  MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                CustomMessage errormessege1 = new CustomMessage("Booking Unsuccessfull!\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
                 errormessege1.convertToOkButton();
                 errormessege1.ShowDialog();
             }
@@ -285,17 +320,51 @@ namespace ShineWay.UI
             combo_packageType.ForeColor = Color.Green;
         }
 
-        private void txt_vehicleRegNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
 
-        private void txt_bookingId_MouseLeave(object sender, EventArgs e)
+        private void txt_vehicleRegNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_customerNic_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_licenseNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txt_startingOdometer_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            
+        }
+
+        private void date_endDate_Leave(object sender, EventArgs e)
+        {
+            if (date_startingDate.Value > date_endDate.Value)
+            {
+                /////////////////////////////
+            }
+        }
+
+        private void date_startingDate_Leave(object sender, EventArgs e)
+        {
+            date_endDate.MinDate = date_startingDate.Value;
+          
+        }
+
+        private void combo_packageType_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

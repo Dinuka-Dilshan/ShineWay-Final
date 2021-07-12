@@ -123,6 +123,16 @@ namespace ShineWay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap correct {
+            get {
+                object obj = ResourceManager.GetObject("correct", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap datagridviewpanel {
             get {
                 object obj = ResourceManager.GetObject("datagridviewpanel", resourceCulture);
@@ -326,6 +336,16 @@ namespace ShineWay.Properties {
         internal static System.Drawing.Bitmap nextHover {
             get {
                 object obj = ResourceManager.GetObject("nextHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap noImage {
+            get {
+                object obj = ResourceManager.GetObject("noImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
