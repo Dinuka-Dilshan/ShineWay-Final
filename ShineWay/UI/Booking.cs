@@ -134,7 +134,12 @@ namespace ShineWay.UI
                         combo_packageType.ForeColor == Color.Green &&
                         txt_depositAmount.ForeColor == Color.Green &&
                         txt_advancedPayment.ForeColor == Color.Green &&
-                        txt_description.ForeColor == Color.Green 
+                        txt_description.ForeColor == Color.Green &&
+                        txt_bookingId.Text != "" &&
+                        txt_vehicleRegNumber.Text != "" &&
+                        txt_customerNic.Text != "" &&
+                        date_startingDate.Text != "" &&
+                        combo_packageType.Text != "" 
                 )
             {
                 try

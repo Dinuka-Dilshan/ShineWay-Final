@@ -90,7 +90,7 @@ namespace ShineWay.UI
                         "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
 
                     //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     addmsg.convertToOkButton();
                     addmsg.ShowDialog();
                 }
@@ -270,19 +270,19 @@ namespace ShineWay.UI
 
         private void txt_OwnerPayment_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-                e.Handled = true;
+          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            e.Handled = true;
         }
 
         private void txt_DailyPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-                e.Handled = true;
+          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+              e.Handled = true;
         }
 
         private void txt_WeeklyPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+         if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
         }
 
@@ -294,14 +294,14 @@ namespace ShineWay.UI
 
         private void txt_ExtrakmPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-                e.Handled = true;
+          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+               e.Handled = true;
         }
 
         private void txt_Dailykm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-                e.Handled = true;
+           if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+               e.Handled = true;
         }
 
         private void txt_Weeklykm_KeyPress(object sender, KeyPressEventArgs e)
@@ -312,14 +312,14 @@ namespace ShineWay.UI
 
         private void txt_Monthlykm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-                e.Handled = true;
+           if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+              e.Handled = true;
         }
 
         private void msktxt_startingOdo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-                e.Handled = true;
+          //  if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+          //      e.Handled = true;
         }
 
         private void pb_BtnBrowseOverallView_MouseHover_1(object sender, EventArgs e)
@@ -331,6 +331,78 @@ namespace ShineWay.UI
         {
             msktxt_vehicleRegNumber.Text = txt_brand.Text = txt_model.Text = txt_engineNumber.Text = txt_chasisNumber.Text = txt_ownerNIC.Text = txt_ownerCondition.Text= txt_DailyPrice.Text = txt_WeeklyPrice.Text = txt_MonthlyPrice.Text = txt_ExtrakmPrice.Text = txt_Dailykm.Text = txt_Weeklykm.Text = txt_Monthlykm.Text = txt_OwnerPayment.Text = msktxt_startingOdo.Text  = string.Empty;
             pb_overallViewimg.Image = pb_InsideViewimg.Image = null;
+        }
+
+        private void txt_DailyPrice_Leave(object sender, EventArgs e)
+        {
+        /*    bool isValiddailyPrice = Validates.ValidAmount(txt_DailyPrice.Text);
+
+            if (isValiddailyPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void txt_WeeklyPrice_Leave(object sender, EventArgs e)
+        {
+         /*   bool isValidWeeklyPrice = Validates.ValidAmount(txt_WeeklyPrice.Text);
+
+            if (isValidWeeklyPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void txt_MonthlyPrice_Leave(object sender, EventArgs e)
+        {
+           /* bool isValidMonthlyPrice = Validates.ValidAmount(txt_MonthlyPrice.Text);
+            if (isValidMonthlyPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void txt_ExtrakmPrice_Leave(object sender, EventArgs e)
+        {
+           /* bool isValidExtraKmPrice = Validates.ValidAmount(txt_ExtrakmPrice.Text);
+            if (isValidExtraKmPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void pb_btnUpdate_Click(object sender, EventArgs e)
+        {
+            CustomMessage addmsg = new CustomMessage("Vehicle Updated Successfully!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
+            addmsg.convertToOkButton();
+            addmsg.ShowDialog();
+        }
+
+        private void pb_btnDelete_Click(object sender, EventArgs e)
+        {
+            CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
+            addmsg.convertToOkButton();
+            addmsg.ShowDialog();
         }
     }
 }

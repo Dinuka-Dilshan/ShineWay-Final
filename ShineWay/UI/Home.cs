@@ -126,7 +126,7 @@ namespace ShineWay.UI
 
         private void pb_btnExit_MouseHover(object sender, EventArgs e)
         {
-            pb_btnExit.Image = ShineWay.Properties.Resources.logout;
+            pb_btnExit.Image = ShineWay.Properties.Resources.logoutRed;
         }
 
         private void pb_btnExit_MouseLeave(object sender, EventArgs e)
