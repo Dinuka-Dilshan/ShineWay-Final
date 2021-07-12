@@ -139,7 +139,7 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
