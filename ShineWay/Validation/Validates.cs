@@ -24,9 +24,10 @@ namespace ShineWay.Validation
 
 
         public static string validateEndOdometer = "^[0-9]{5,6}$";
+        public static string validateStatus = "^(Ongoing|Canceled|Completed)$";
 
 
-        public static string validateAmount = "^[0-9.]{0,10}$";
+        public static string validateAmount = "^[0-9]{0,10}[.]{1}[0-9]{2}$";
         public static string validateDescription = "^[A-Za-z0-9&-_= +]{0,160}$";
 
 
@@ -86,6 +87,17 @@ namespace ShineWay.Validation
             return Regex.IsMatch(discription, validateDescription);
 
         }
+
+        public static bool ValidateStatus(string status)
+        {
+            return Regex.IsMatch(status, validateStatus);
+
+        }
+        public static bool validMobileNumber(string mobileNo)
+        {
+            return Regex.IsMatch(mobileNo, validateMobileNumber);
+        }
+
 
     }
 }
