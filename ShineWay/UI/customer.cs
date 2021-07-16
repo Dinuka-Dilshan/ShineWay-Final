@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using ShineWay.Validation;
+//using ShineWay.dbConnection;
 
 namespace ShineWay.UI
 {
@@ -202,7 +204,21 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
-            
+            try
+            {
+                DataBase.DbConnection.Read("insert into customer (Cus_NIC , Licen_num, Cus_name, Tel_num, Email , Cus_Address) Values" +
+                "('" + txt_nicNumber.Text + "','" + txt_licenseNumber.Text + "','" + txt_customerName.Text + "','" + txt_telephoneNumber.Text + "','" + txt_email.Text + "','"
+                + txt_address.Text + "')");
+
+                MessageBox.Show("Added Sucessfully", "SAVED!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ClearData();
+                //DisplayData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
