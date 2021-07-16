@@ -31,17 +31,30 @@ namespace ShineWay.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pb_btnUpdatePrint = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_subAmount = new System.Windows.Forms.Label();
+            this.txt_amount = new System.Windows.Forms.Label();
+            this.txt_endingOdometer = new System.Windows.Forms.MaskedTextBox();
+            this.txt_discount = new System.Windows.Forms.MaskedTextBox();
+            this.txt_vehicleRegNumber = new System.Windows.Forms.MaskedTextBox();
+            this.txt_customerNic = new System.Windows.Forms.MaskedTextBox();
+            this.txt_bookingId = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txt_amount = new System.Windows.Forms.TextBox();
             this.combo_status = new System.Windows.Forms.ComboBox();
             this.date_endDate = new System.Windows.Forms.DateTimePicker();
-            this.txt_bookingId = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -49,33 +62,29 @@ namespace ShineWay.UI
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.txt_customerNic = new System.Windows.Forms.TextBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pb_btnSubmitPrint = new System.Windows.Forms.PictureBox();
             this.pb_btnReset = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.txt_vehicleRegNumber = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.txt_subAmount = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_endingOdometer = new System.Windows.Forms.TextBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_discount = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -105,6 +114,8 @@ namespace ShineWay.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pb_btnUpdatePrint);
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.pictureBox17);
             this.panel2.Controls.Add(this.pictureBox21);
             this.panel2.Controls.Add(this.txt_search);
@@ -114,6 +125,75 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 27;
+            // 
+            // pb_btnUpdatePrint
+            // 
+            this.pb_btnUpdatePrint.BackColor = System.Drawing.Color.White;
+            this.pb_btnUpdatePrint.Image = global::ShineWay.Properties.Resources.update_print;
+            this.pb_btnUpdatePrint.Location = new System.Drawing.Point(425, 764);
+            this.pb_btnUpdatePrint.Name = "pb_btnUpdatePrint";
+            this.pb_btnUpdatePrint.Size = new System.Drawing.Size(160, 44);
+            this.pb_btnUpdatePrint.TabIndex = 67;
+            this.pb_btnUpdatePrint.Click += new System.EventHandler(this.pb_btnUpdatePrint_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            this.dataGridView1.Location = new System.Drawing.Point(100, 182);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(688, 569);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Booking ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Customer NIC";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Vehicle Reg. Num.";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Status";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "End Date";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Ending ODO";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
             // 
             // pictureBox17
             // 
@@ -169,11 +249,16 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Controls.Add(this.txt_subAmount);
             this.panel1.Controls.Add(this.txt_amount);
+            this.panel1.Controls.Add(this.txt_endingOdometer);
+            this.panel1.Controls.Add(this.txt_discount);
+            this.panel1.Controls.Add(this.txt_vehicleRegNumber);
+            this.panel1.Controls.Add(this.txt_customerNic);
+            this.panel1.Controls.Add(this.txt_bookingId);
+            this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.combo_status);
             this.panel1.Controls.Add(this.date_endDate);
-            this.panel1.Controls.Add(this.txt_bookingId);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox26);
             this.panel1.Controls.Add(this.label11);
@@ -181,27 +266,22 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.pictureBox20);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox18);
-            this.panel1.Controls.Add(this.txt_customerNic);
             this.panel1.Controls.Add(this.pictureBox19);
             this.panel1.Controls.Add(this.pb_btnSubmitPrint);
             this.panel1.Controls.Add(this.pb_btnReset);
             this.panel1.Controls.Add(this.pictureBox9);
-            this.panel1.Controls.Add(this.txt_vehicleRegNumber);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
             this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.txt_subAmount);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txt_endingOdometer);
             this.panel1.Controls.Add(this.pictureBox13);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox10);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txt_discount);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox8);
             this.panel1.Controls.Add(this.pictureBox11);
@@ -211,6 +291,91 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 29;
+            // 
+            // txt_subAmount
+            // 
+            this.txt_subAmount.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.txt_subAmount.Location = new System.Drawing.Point(393, 677);
+            this.txt_subAmount.Name = "txt_subAmount";
+            this.txt_subAmount.Size = new System.Drawing.Size(317, 25);
+            this.txt_subAmount.TabIndex = 9;
+            this.txt_subAmount.Text = "Automatically Calculate";
+            // 
+            // txt_amount
+            // 
+            this.txt_amount.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.txt_amount.Location = new System.Drawing.Point(393, 556);
+            this.txt_amount.Name = "txt_amount";
+            this.txt_amount.Size = new System.Drawing.Size(317, 25);
+            this.txt_amount.TabIndex = 7;
+            this.txt_amount.Text = "Automatically Calculate";
+            // 
+            // txt_endingOdometer
+            // 
+            this.txt_endingOdometer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_endingOdometer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_endingOdometer.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_endingOdometer.Location = new System.Drawing.Point(393, 499);
+            this.txt_endingOdometer.Name = "txt_endingOdometer";
+            this.txt_endingOdometer.PromptChar = ' ';
+            this.txt_endingOdometer.Size = new System.Drawing.Size(415, 23);
+            this.txt_endingOdometer.TabIndex = 6;
+            this.txt_endingOdometer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_endingOdometer_KeyDown);
+            this.txt_endingOdometer.Leave += new System.EventHandler(this.txt_endingOdometer_Leave_1);
+            // 
+            // txt_discount
+            // 
+            this.txt_discount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_discount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_discount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_discount.Location = new System.Drawing.Point(393, 616);
+            this.txt_discount.Name = "txt_discount";
+            this.txt_discount.PromptChar = ' ';
+            this.txt_discount.Size = new System.Drawing.Size(415, 23);
+            this.txt_discount.TabIndex = 8;
+            this.txt_discount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_discount_KeyDown);
+            this.txt_discount.Leave += new System.EventHandler(this.txt_discount_Leave);
+            // 
+            // txt_vehicleRegNumber
+            // 
+            this.txt_vehicleRegNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_vehicleRegNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_vehicleRegNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_vehicleRegNumber.Location = new System.Drawing.Point(393, 263);
+            this.txt_vehicleRegNumber.Mask = ">AAC-0000";
+            this.txt_vehicleRegNumber.Name = "txt_vehicleRegNumber";
+            this.txt_vehicleRegNumber.PromptChar = ' ';
+            this.txt_vehicleRegNumber.Size = new System.Drawing.Size(415, 23);
+            this.txt_vehicleRegNumber.TabIndex = 1;
+            this.txt_vehicleRegNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_vehicleRegNumber_KeyDown);
+            this.txt_vehicleRegNumber.Leave += new System.EventHandler(this.txt_vehicleRegNumber_Leave_1);
+            // 
+            // txt_customerNic
+            // 
+            this.txt_customerNic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_customerNic.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_customerNic.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_customerNic.Location = new System.Drawing.Point(393, 332);
+            this.txt_customerNic.Name = "txt_customerNic";
+            this.txt_customerNic.PromptChar = ' ';
+            this.txt_customerNic.Size = new System.Drawing.Size(415, 23);
+            this.txt_customerNic.TabIndex = 3;
+            this.txt_customerNic.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_customerNic_KeyDown);
+            this.txt_customerNic.Leave += new System.EventHandler(this.txt_customerNic_Leave_1);
+            // 
+            // txt_bookingId
+            // 
+            this.txt_bookingId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_bookingId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_bookingId.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_bookingId.Location = new System.Drawing.Point(393, 192);
+            this.txt_bookingId.Name = "txt_bookingId";
+            this.txt_bookingId.PromptChar = ' ';
+            this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
+            this.txt_bookingId.TabIndex = 0;
+            this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
+            this.txt_bookingId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_bookingId_KeyDown);
+            this.txt_bookingId.Leave += new System.EventHandler(this.txt_bookingId_Leave);
             // 
             // pictureBox5
             // 
@@ -222,55 +387,41 @@ namespace ShineWay.UI
             this.pictureBox5.TabIndex = 57;
             this.pictureBox5.TabStop = false;
             // 
-            // txt_amount
-            // 
-            this.txt_amount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_amount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_amount.Location = new System.Drawing.Point(383, 561);
-            this.txt_amount.Name = "txt_amount";
-            this.txt_amount.Size = new System.Drawing.Size(430, 23);
-            this.txt_amount.TabIndex = 56;
-            // 
             // combo_status
             // 
             this.combo_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.combo_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_status.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.combo_status.FormattingEnabled = true;
             this.combo_status.Items.AddRange(new object[] {
             "Ongoing",
-            "Cancel",
-            "Complete"});
+            "Canceled",
+            "Completed"});
             this.combo_status.Location = new System.Drawing.Point(374, 384);
             this.combo_status.Name = "combo_status";
             this.combo_status.Size = new System.Drawing.Size(180, 31);
-            this.combo_status.TabIndex = 55;
+            this.combo_status.TabIndex = 4;
+            this.combo_status.KeyDown += new System.Windows.Forms.KeyEventHandler(this.combo_status_KeyDown);
+            this.combo_status.Leave += new System.EventHandler(this.combo_status_Leave);
             // 
             // date_endDate
             // 
             this.date_endDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.date_endDate.CustomFormat = "yyyy-MM-dd";
             this.date_endDate.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date_endDate.Location = new System.Drawing.Point(374, 436);
             this.date_endDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_endDate.Name = "date_endDate";
             this.date_endDate.Size = new System.Drawing.Size(370, 30);
-            this.date_endDate.TabIndex = 52;
-            // 
-            // txt_bookingId
-            // 
-            this.txt_bookingId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_bookingId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_bookingId.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_bookingId.Location = new System.Drawing.Point(383, 202);
-            this.txt_bookingId.Name = "txt_bookingId";
-            this.txt_bookingId.Size = new System.Drawing.Size(430, 23);
-            this.txt_bookingId.TabIndex = 51;
+            this.date_endDate.TabIndex = 5;
+            this.date_endDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.date_endDate_KeyDown);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(374, 187);
+            this.pictureBox1.Location = new System.Drawing.Point(374, 182);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(450, 47);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -346,16 +497,6 @@ namespace ShineWay.UI
             this.pictureBox18.TabIndex = 34;
             this.pictureBox18.TabStop = false;
             // 
-            // txt_customerNic
-            // 
-            this.txt_customerNic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_customerNic.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_customerNic.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_customerNic.Location = new System.Drawing.Point(383, 333);
-            this.txt_customerNic.Name = "txt_customerNic";
-            this.txt_customerNic.Size = new System.Drawing.Size(430, 23);
-            this.txt_customerNic.TabIndex = 33;
-            // 
             // pictureBox19
             // 
             this.pictureBox19.BackColor = System.Drawing.Color.White;
@@ -404,16 +545,6 @@ namespace ShineWay.UI
             this.pictureBox9.TabIndex = 27;
             this.pictureBox9.TabStop = false;
             // 
-            // txt_vehicleRegNumber
-            // 
-            this.txt_vehicleRegNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_vehicleRegNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_vehicleRegNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_vehicleRegNumber.Location = new System.Drawing.Point(383, 267);
-            this.txt_vehicleRegNumber.Name = "txt_vehicleRegNumber";
-            this.txt_vehicleRegNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_vehicleRegNumber.TabIndex = 26;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
@@ -459,16 +590,6 @@ namespace ShineWay.UI
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             // 
-            // txt_subAmount
-            // 
-            this.txt_subAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_subAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_subAmount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_subAmount.Location = new System.Drawing.Point(383, 682);
-            this.txt_subAmount.Name = "txt_subAmount";
-            this.txt_subAmount.Size = new System.Drawing.Size(430, 23);
-            this.txt_subAmount.TabIndex = 22;
-            // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
@@ -491,16 +612,6 @@ namespace ShineWay.UI
             this.label1.Size = new System.Drawing.Size(250, 27);
             this.label1.TabIndex = 4;
             this.label1.Text = "Vehicle Reg. Number";
-            // 
-            // txt_endingOdometer
-            // 
-            this.txt_endingOdometer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_endingOdometer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_endingOdometer.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_endingOdometer.Location = new System.Drawing.Point(383, 500);
-            this.txt_endingOdometer.Name = "txt_endingOdometer";
-            this.txt_endingOdometer.Size = new System.Drawing.Size(430, 23);
-            this.txt_endingOdometer.TabIndex = 10;
             // 
             // pictureBox13
             // 
@@ -571,16 +682,6 @@ namespace ShineWay.UI
             this.label2.TabIndex = 8;
             this.label2.Text = "End Date";
             // 
-            // txt_discount
-            // 
-            this.txt_discount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_discount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_discount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_discount.Location = new System.Drawing.Point(383, 621);
-            this.txt_discount.Name = "txt_discount";
-            this.txt_discount.Size = new System.Drawing.Size(430, 23);
-            this.txt_discount.TabIndex = 18;
-            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
@@ -646,6 +747,7 @@ namespace ShineWay.UI
             this.Size = new System.Drawing.Size(1800, 900);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -684,10 +786,8 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txt_amount;
         private System.Windows.Forms.ComboBox combo_status;
         private System.Windows.Forms.DateTimePicker date_endDate;
-        private System.Windows.Forms.TextBox txt_bookingId;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.Label label11;
@@ -695,27 +795,22 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.TextBox txt_customerNic;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.PictureBox pb_btnSubmitPrint;
         private System.Windows.Forms.PictureBox pb_btnReset;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.TextBox txt_vehicleRegNumber;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox txt_subAmount;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_endingOdometer;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_discount;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox11;
@@ -723,5 +818,20 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.MaskedTextBox txt_bookingId;
+        private System.Windows.Forms.MaskedTextBox txt_endingOdometer;
+        private System.Windows.Forms.MaskedTextBox txt_discount;
+        private System.Windows.Forms.MaskedTextBox txt_vehicleRegNumber;
+        private System.Windows.Forms.MaskedTextBox txt_customerNic;
+        private System.Windows.Forms.Label txt_amount;
+        private System.Windows.Forms.Label txt_subAmount;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Label pb_btnUpdatePrint;
     }
 }

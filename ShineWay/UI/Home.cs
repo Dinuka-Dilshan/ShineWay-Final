@@ -20,7 +20,9 @@ namespace ShineWay.UI
             InitializeComponent();
             setUserControl(homeControl1, btn_Home);
             label_userType.Text = userType;
-            new Welcome("Nice to see yoo " + userName.Split(" ")[0] + "!").Show();
+            Welcome message =new Welcome("Nice to see yoo " + userName.Split(" ")[0] + "!");
+            message.hideCloseButton();
+            message.Show();
             StartTimer();
         }
 
@@ -59,6 +61,8 @@ namespace ShineWay.UI
             btn_vehicleOwner.ForeColor = getColor(64, 64, 64);
             btnVehicles.BackColor = System.Drawing.Color.White;
             btnVehicles.ForeColor = getColor(64, 64, 64);
+            btn_reports.BackColor = System.Drawing.Color.White;
+            btn_reports.ForeColor = getColor(64, 64, 64);
             btn.BackColor = getColor(219, 238, 253);
             btn.ForeColor = getColor(33, 150, 243);
             booking1.Hide();
@@ -112,6 +116,7 @@ namespace ShineWay.UI
 
         private void pb_btnExit_Click(object sender, EventArgs e)
         {
+           //new LogOut().ShowDialog();
            DialogResult result = new CustomMessage("Do you really want to exit?","Exit Dialog",ShineWay.Properties.Resources.question,DialogResult.Yes).ShowDialog();
             if(result == DialogResult.Yes)
             {
@@ -121,7 +126,7 @@ namespace ShineWay.UI
 
         private void pb_btnExit_MouseHover(object sender, EventArgs e)
         {
-            pb_btnExit.Image = ShineWay.Properties.Resources.logout;
+            pb_btnExit.Image = ShineWay.Properties.Resources.logoutRed;
         }
 
         private void pb_btnExit_MouseLeave(object sender, EventArgs e)
@@ -144,6 +149,9 @@ namespace ShineWay.UI
             label_time.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
-
+        private void btn_reports_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -53,6 +53,7 @@ namespace ShineWay.UI
             this.label_userType = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label_time = new System.Windows.Forms.Label();
+            this.btn_reports = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_buttonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,7 +81,8 @@ namespace ShineWay.UI
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(100, 104);
             this.btn_Home.TabIndex = 1;
-            this.btn_Home.Text = "Home";
+            this.btn_Home.TabStop = false;
+            this.btn_Home.Text = "&Home";
             this.btn_Home.UseVisualStyleBackColor = false;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
@@ -95,7 +97,8 @@ namespace ShineWay.UI
             this.btnBooking.Name = "btnBooking";
             this.btnBooking.Size = new System.Drawing.Size(100, 104);
             this.btnBooking.TabIndex = 2;
-            this.btnBooking.Text = "Booking";
+            this.btnBooking.TabStop = false;
+            this.btnBooking.Text = "&Booking";
             this.btnBooking.UseVisualStyleBackColor = false;
             this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
@@ -110,7 +113,8 @@ namespace ShineWay.UI
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(100, 104);
             this.btnCustomer.TabIndex = 3;
-            this.btnCustomer.Text = "Customer";
+            this.btnCustomer.TabStop = false;
+            this.btnCustomer.Text = "&Customer";
             this.btnCustomer.UseVisualStyleBackColor = false;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
@@ -121,11 +125,12 @@ namespace ShineWay.UI
             this.btn_vehicleOwner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_vehicleOwner.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_vehicleOwner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_vehicleOwner.Location = new System.Drawing.Point(477, 0);
+            this.btn_vehicleOwner.Location = new System.Drawing.Point(479, 0);
             this.btn_vehicleOwner.Name = "btn_vehicleOwner";
             this.btn_vehicleOwner.Size = new System.Drawing.Size(100, 104);
             this.btn_vehicleOwner.TabIndex = 4;
-            this.btn_vehicleOwner.Text = "Vehicle Owners";
+            this.btn_vehicleOwner.TabStop = false;
+            this.btn_vehicleOwner.Text = "&Vehicle Owners";
             this.btn_vehicleOwner.UseVisualStyleBackColor = false;
             this.btn_vehicleOwner.Click += new System.EventHandler(this.btn_vehicleOwner_Click);
             // 
@@ -136,11 +141,12 @@ namespace ShineWay.UI
             this.btnVehicles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVehicles.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnVehicles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnVehicles.Location = new System.Drawing.Point(572, 0);
+            this.btnVehicles.Location = new System.Drawing.Point(575, 0);
             this.btnVehicles.Name = "btnVehicles";
             this.btnVehicles.Size = new System.Drawing.Size(100, 104);
             this.btnVehicles.TabIndex = 5;
-            this.btnVehicles.Text = "Vehicles";
+            this.btnVehicles.TabStop = false;
+            this.btnVehicles.Text = "V&ehicles";
             this.btnVehicles.UseVisualStyleBackColor = false;
             this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
             // 
@@ -151,11 +157,12 @@ namespace ShineWay.UI
             this.btn_payments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_payments.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_payments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_payments.Location = new System.Drawing.Point(669, 0);
+            this.btn_payments.Location = new System.Drawing.Point(671, 0);
             this.btn_payments.Name = "btn_payments";
             this.btn_payments.Size = new System.Drawing.Size(100, 104);
             this.btn_payments.TabIndex = 6;
-            this.btn_payments.Text = "Payments";
+            this.btn_payments.TabStop = false;
+            this.btn_payments.Text = "&Payments";
             this.btn_payments.UseVisualStyleBackColor = false;
             this.btn_payments.Click += new System.EventHandler(this.btn_payments_Click);
             // 
@@ -166,11 +173,12 @@ namespace ShineWay.UI
             this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsers.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnUsers.Location = new System.Drawing.Point(762, 0);
+            this.btnUsers.Location = new System.Drawing.Point(768, 0);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(100, 104);
             this.btnUsers.TabIndex = 7;
-            this.btnUsers.Text = "Users";
+            this.btnUsers.TabStop = false;
+            this.btnUsers.Text = "&Users";
             this.btnUsers.UseVisualStyleBackColor = false;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
@@ -181,11 +189,12 @@ namespace ShineWay.UI
             this.btn_ownerPayments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ownerPayments.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_ownerPayments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_ownerPayments.Location = new System.Drawing.Point(855, 0);
+            this.btn_ownerPayments.Location = new System.Drawing.Point(865, 0);
             this.btn_ownerPayments.Name = "btn_ownerPayments";
             this.btn_ownerPayments.Size = new System.Drawing.Size(100, 104);
             this.btn_ownerPayments.TabIndex = 8;
-            this.btn_ownerPayments.Text = "Owner Payments";
+            this.btn_ownerPayments.TabStop = false;
+            this.btn_ownerPayments.Text = "&Owner Payments";
             this.btn_ownerPayments.UseVisualStyleBackColor = false;
             this.btn_ownerPayments.Click += new System.EventHandler(this.btn_ownerPayments_Click_1);
             // 
@@ -274,6 +283,7 @@ namespace ShineWay.UI
             this.pb_btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pb_btnExit.TabIndex = 10;
             this.pb_btnExit.TabStop = false;
+            this.pb_btnExit.Tag = "Logout";
             this.pb_btnExit.Click += new System.EventHandler(this.pb_btnExit_Click);
             this.pb_btnExit.MouseLeave += new System.EventHandler(this.pb_btnExit_MouseLeave);
             this.pb_btnExit.MouseHover += new System.EventHandler(this.pb_btnExit_MouseHover);
@@ -311,11 +321,28 @@ namespace ShineWay.UI
             this.label_time.Size = new System.Drawing.Size(0, 21);
             this.label_time.TabIndex = 20;
             // 
+            // btn_reports
+            // 
+            this.btn_reports.BackColor = System.Drawing.Color.White;
+            this.btn_reports.FlatAppearance.BorderSize = 0;
+            this.btn_reports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reports.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_reports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_reports.Location = new System.Drawing.Point(971, 0);
+            this.btn_reports.Name = "btn_reports";
+            this.btn_reports.Size = new System.Drawing.Size(100, 104);
+            this.btn_reports.TabIndex = 21;
+            this.btn_reports.TabStop = false;
+            this.btn_reports.Text = "&Reports";
+            this.btn_reports.UseVisualStyleBackColor = false;
+            this.btn_reports.Click += new System.EventHandler(this.btn_reports_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1909, 1033);
+            this.Controls.Add(this.btn_reports);
             this.Controls.Add(this.label_time);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label_userType);
@@ -378,5 +405,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_userType;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label_time;
+        private System.Windows.Forms.Button btn_reports;
     }
 }

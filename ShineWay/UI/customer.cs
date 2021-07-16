@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShineWay.Validation;
 
 namespace ShineWay.UI
 {
     public partial class customer : UserControl
     {
+        //Validation.Validates obj1 = new Validation.Validates();
         public customer()
         {
             InitializeComponent();
@@ -200,6 +202,7 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
+            
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -210,6 +213,111 @@ namespace ShineWay.UI
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             //delete button code goes here
+        }
+
+        
+
+        private void txt_nicNumber_Validated(object sender, EventArgs e)
+        {
+            
+           
+        }
+
+        private void ValidCustomerOldNIC(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void txt_address_MouseLeave(object sender, EventArgs e)
+        {
+            bool address = Validates.ValidateDescription(txt_address.Text);
+
+            if (address == false)
+            {
+                txt_address.ForeColor = Color.Red;
+                Messages.CustomMessage errormessege = new Messages.CustomMessage("Maxium lenght of description is\n 150 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
+                errormessege.convertToOkButton();
+                errormessege.ShowDialog();
+            }
+            else
+            {
+                txt_address.ForeColor = Color.Green;
+            }
+        }
+
+      
+        private void txt_nicNumber_Leave(object sender, EventArgs e)
+        {
+            bool oldnic = Validates.ValidCustomerOldNIC(txt_nicNumber.Text);
+            bool newnic = Validates.ValidCustomerNewNIC(txt_nicNumber.Text);
+
+            if (oldnic == true || newnic == true)
+            {
+                txt_nicNumber.ForeColor = Color.Green;
+            }
+            else
+            {
+                txt_nicNumber.ForeColor = Color.Red;
+            }
+        }
+
+        private void txt_email_Leave(object sender, EventArgs e)
+        {
+            bool email = Validates.ValidEmail(txt_email.Text);
+            if (email == false)
+            {
+                txt_email.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_email.ForeColor = Color.Green;
+            }
+        }
+
+        private void txt_telephoneNumber_Leave(object sender, EventArgs e)
+        {
+            bool mobilenum = Validates.ValidMobile(txt_telephoneNumber.Text);
+            if (mobilenum == false)
+            {
+                txt_telephoneNumber.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_telephoneNumber.ForeColor = Color.Green;
+            }
+        }
+
+        private void txt_licenseNumber_Leave(object sender, EventArgs e)
+        {
+            bool licensenum = Validates.ValidLicensenumber(txt_licenseNumber.Text);
+            if (licensenum == false)
+            {
+                txt_licenseNumber.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_licenseNumber.ForeColor = Color.Green;
+            }
+        }
+
+        private void txt_customerName_Leave(object sender, EventArgs e)
+        {
+            bool cusname = Validates.ValidName(txt_customerName.Text);
+            if (cusname == false)
+            {
+                txt_customerName.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_customerName.ForeColor = Color.Green;
+            }
+        }
+
+        private void pictureBox3_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

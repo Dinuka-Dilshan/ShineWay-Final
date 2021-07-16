@@ -57,11 +57,12 @@ namespace ShineWay.Messages
             this.label1.Size = new System.Drawing.Size(245, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nice to see you Dinuka!";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 3000;
+            this.timer1.Interval = 1200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btnClose

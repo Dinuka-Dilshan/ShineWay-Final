@@ -32,7 +32,6 @@ namespace ShineWay.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(customer));
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.txt_address = new System.Windows.Forms.TextBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -46,16 +45,17 @@ namespace ShineWay.UI
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.txt_licenseNumber = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_telephoneNumber = new System.Windows.Forms.MaskedTextBox();
+            this.txt_address = new System.Windows.Forms.TextBox();
+            this.txt_licenseNumber = new System.Windows.Forms.TextBox();
             this.pb_btnDelete = new System.Windows.Forms.PictureBox();
             this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
             this.pb_btnAdd = new System.Windows.Forms.PictureBox();
             this.pb_btnReset = new System.Windows.Forms.PictureBox();
-            this.txt_telephoneNumber = new System.Windows.Forms.TextBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.txt_nicNumber = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -116,16 +116,6 @@ namespace ShineWay.UI
             this.pictureBox12.TabIndex = 23;
             this.pictureBox12.TabStop = false;
             // 
-            // txt_address
-            // 
-            this.txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_address.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_address.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_address.Location = new System.Drawing.Point(376, 632);
-            this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(430, 23);
-            this.txt_address.TabIndex = 22;
-            // 
             // pictureBox13
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.White;
@@ -168,7 +158,9 @@ namespace ShineWay.UI
             this.txt_email.Location = new System.Drawing.Point(376, 541);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(430, 23);
-            this.txt_email.TabIndex = 18;
+            this.txt_email.TabIndex = 4;
+            this.txt_email.TextChanged += new System.EventHandler(this.ValidCustomerOldNIC);
+            this.txt_email.Leave += new System.EventHandler(this.txt_email_Leave);
             // 
             // pictureBox11
             // 
@@ -236,7 +228,8 @@ namespace ShineWay.UI
             this.txt_customerName.Location = new System.Drawing.Point(376, 379);
             this.txt_customerName.Name = "txt_customerName";
             this.txt_customerName.Size = new System.Drawing.Size(430, 23);
-            this.txt_customerName.TabIndex = 10;
+            this.txt_customerName.TabIndex = 2;
+            this.txt_customerName.Leave += new System.EventHandler(this.txt_customerName_Leave);
             // 
             // pictureBox7
             // 
@@ -272,16 +265,6 @@ namespace ShineWay.UI
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
             // 
-            // txt_licenseNumber
-            // 
-            this.txt_licenseNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_licenseNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_licenseNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_licenseNumber.Location = new System.Drawing.Point(376, 291);
-            this.txt_licenseNumber.Name = "txt_licenseNumber";
-            this.txt_licenseNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_licenseNumber.TabIndex = 6;
-            // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
@@ -315,23 +298,26 @@ namespace ShineWay.UI
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click_2);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+
+            this.panel1.Controls.Add(this.txt_telephoneNumber);
+
+            this.panel1.Controls.Add(this.txt_address);
+            this.panel1.Controls.Add(this.txt_licenseNumber);
             this.panel1.Controls.Add(this.pb_btnDelete);
             this.panel1.Controls.Add(this.pb_btnUpdate);
             this.panel1.Controls.Add(this.pb_btnAdd);
             this.panel1.Controls.Add(this.pb_btnReset);
-            this.panel1.Controls.Add(this.txt_telephoneNumber);
             this.panel1.Controls.Add(this.pictureBox9);
             this.panel1.Controls.Add(this.txt_nicNumber);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.txt_address);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txt_customerName);
@@ -345,7 +331,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox8);
             this.panel1.Controls.Add(this.pictureBox11);
-            this.panel1.Controls.Add(this.txt_licenseNumber);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox14);
@@ -353,6 +338,41 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 25;
+            // 
+            // txt_telephoneNumber
+            // 
+            this.txt_telephoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_telephoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_telephoneNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_telephoneNumber.Location = new System.Drawing.Point(376, 455);
+            this.txt_telephoneNumber.Mask = "0000000000";
+            this.txt_telephoneNumber.Name = "txt_telephoneNumber";
+            this.txt_telephoneNumber.PromptChar = ' ';
+            this.txt_telephoneNumber.Size = new System.Drawing.Size(433, 23);
+            this.txt_telephoneNumber.TabIndex = 3;
+            this.txt_telephoneNumber.ValidatingType = typeof(int);
+            // 
+            // txt_address
+            // 
+            this.txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_address.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_address.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_address.Location = new System.Drawing.Point(376, 632);
+            this.txt_address.Name = "txt_address";
+            this.txt_address.Size = new System.Drawing.Size(430, 23);
+            this.txt_address.TabIndex = 5;
+            this.txt_address.MouseLeave += new System.EventHandler(this.txt_address_MouseLeave);
+            // 
+            // txt_licenseNumber
+            // 
+            this.txt_licenseNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_licenseNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_licenseNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_licenseNumber.Location = new System.Drawing.Point(376, 291);
+            this.txt_licenseNumber.Name = "txt_licenseNumber";
+            this.txt_licenseNumber.Size = new System.Drawing.Size(430, 23);
+            this.txt_licenseNumber.TabIndex = 1;
+            this.txt_licenseNumber.Leave += new System.EventHandler(this.txt_licenseNumber_Leave);
             // 
             // pb_btnDelete
             // 
@@ -406,16 +426,6 @@ namespace ShineWay.UI
             this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
             this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
             // 
-            // txt_telephoneNumber
-            // 
-            this.txt_telephoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_telephoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_telephoneNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_telephoneNumber.Location = new System.Drawing.Point(376, 460);
-            this.txt_telephoneNumber.Name = "txt_telephoneNumber";
-            this.txt_telephoneNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_telephoneNumber.TabIndex = 28;
-            // 
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
@@ -432,10 +442,12 @@ namespace ShineWay.UI
             this.txt_nicNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_nicNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_nicNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nicNumber.Location = new System.Drawing.Point(376, 197);
+            this.txt_nicNumber.Location = new System.Drawing.Point(379, 195);
             this.txt_nicNumber.Name = "txt_nicNumber";
             this.txt_nicNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_nicNumber.TabIndex = 26;
+            this.txt_nicNumber.TabIndex = 0;
+            this.txt_nicNumber.Leave += new System.EventHandler(this.txt_nicNumber_Leave);
+            this.txt_nicNumber.Validated += new System.EventHandler(this.txt_nicNumber_Validated);
             // 
             // pictureBox2
             // 
@@ -576,7 +588,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox10;
@@ -590,12 +601,10 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.TextBox txt_licenseNumber;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txt_telephoneNumber;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.TextBox txt_nicNumber;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -609,5 +618,9 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pb_btnAdd;
         private System.Windows.Forms.PictureBox pb_btnReset;
         private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.TextBox txt_;
+        private System.Windows.Forms.TextBox txt_licenseNumber;
+        private System.Windows.Forms.TextBox txt_address;
+        private System.Windows.Forms.MaskedTextBox txt_telephoneNumber;
     }
 }

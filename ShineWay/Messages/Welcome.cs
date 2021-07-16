@@ -29,5 +29,36 @@ namespace ShineWay.Messages
         {
             this.Close();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void setInterval(int miliseconds)
+        {
+            timer1.Interval = miliseconds;
+        }
+
+        public void setWidth(int width)
+        {
+            this.Width = width;
+        }
+
+        public void setIcon(Image icon)
+        {
+            pictureBox1.Image = icon;
+        }
+
+        public void setImageBounds(int width, int height, int x, int y)
+        {
+            pictureBox1.SetBounds(x,y,width,height);
+        }
+
+        public void hideCloseButton()
+        {
+            btnClose.Hide();
+        }
     }
+
 }
