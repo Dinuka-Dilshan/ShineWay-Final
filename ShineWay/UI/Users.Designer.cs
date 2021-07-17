@@ -31,12 +31,14 @@ namespace ShineWay.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.combo_userType = new System.Windows.Forms.ComboBox();
             this.label_tickName = new System.Windows.Forms.Label();
             this.label_tickAddress = new System.Windows.Forms.Label();
@@ -48,7 +50,6 @@ namespace ShineWay.UI
             this.label_nameError = new System.Windows.Forms.Label();
             this.txt_telephoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.txt_NIC = new System.Windows.Forms.MaskedTextBox();
-            this.pb_btnDelete = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pb_btnAdd = new System.Windows.Forms.Label();
             this.pb_btnReset = new System.Windows.Forms.Label();
@@ -71,8 +72,8 @@ namespace ShineWay.UI
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -90,7 +91,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -105,6 +105,16 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 28;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(100, 182);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(688, 569);
+            this.dataGridView1.TabIndex = 7;
             // 
             // pictureBox17
             // 
@@ -161,6 +171,7 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.btn_delete);
             this.panel1.Controls.Add(this.combo_userType);
             this.panel1.Controls.Add(this.label_tickName);
             this.panel1.Controls.Add(this.label_tickAddress);
@@ -172,7 +183,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.label_nameError);
             this.panel1.Controls.Add(this.txt_telephoneNumber);
             this.panel1.Controls.Add(this.txt_NIC);
-            this.panel1.Controls.Add(this.pb_btnDelete);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pb_btnAdd);
             this.panel1.Controls.Add(this.pb_btnReset);
@@ -199,6 +209,25 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 27;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.AutoSize = true;
+            this.btn_delete.BackColor = System.Drawing.Color.White;
+            this.btn_delete.FlatAppearance.BorderSize = 0;
+            this.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete.Image = global::ShineWay.Properties.Resources.delete;
+            this.btn_delete.Location = new System.Drawing.Point(669, 705);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(148, 50);
+            this.btn_delete.TabIndex = 9;
+            this.btn_delete.UseCompatibleTextRendering = true;
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            this.btn_delete.MouseLeave += new System.EventHandler(this.btn_delete_MouseLeave);
+            this.btn_delete.MouseHover += new System.EventHandler(this.btn_delete_MouseHover);
             // 
             // combo_userType
             // 
@@ -334,18 +363,6 @@ namespace ShineWay.UI
             this.txt_NIC.TabIndex = 0;
             this.txt_NIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NIC_KeyUp);
             this.txt_NIC.Leave += new System.EventHandler(this.txt_NIC_Leave);
-            // 
-            // pb_btnDelete
-            // 
-            this.pb_btnDelete.BackColor = System.Drawing.Color.White;
-            this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
-            this.pb_btnDelete.Location = new System.Drawing.Point(676, 705);
-            this.pb_btnDelete.Name = "pb_btnDelete";
-            this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
-            this.pb_btnDelete.TabIndex = 89;
-            this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click_1);
-            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
-            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
             // 
             // label8
             // 
@@ -593,17 +610,6 @@ namespace ShineWay.UI
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(100, 182);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(688, 569);
-            this.dataGridView1.TabIndex = 7;
             // 
             // Users
             // 
@@ -615,6 +621,7 @@ namespace ShineWay.UI
             this.Size = new System.Drawing.Size(1800, 900);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -633,7 +640,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -666,7 +672,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.Label pb_btnDelete;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label pb_btnAdd;
         private System.Windows.Forms.Label pb_btnReset;
@@ -682,5 +687,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_tickAddress;
         private System.Windows.Forms.ComboBox combo_userType;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

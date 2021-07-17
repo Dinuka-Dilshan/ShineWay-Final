@@ -48,26 +48,6 @@ namespace ShineWay.UI
             pb_btnAdd.Image = ShineWay.Properties.Resources.add;
         }
 
-        private void pb_btnUpdate_MouseHover(object sender, EventArgs e)
-        {
-            pb_btnDelete.Image = ShineWay.Properties.Resources.updateHover;
-        }
-
-        private void pb_btnUpdate_MouseLeave(object sender, EventArgs e)
-        {
-            pb_btnDelete.Image = ShineWay.Properties.Resources.update;
-        }
-
-        private void pb_btnDelete_MouseHover(object sender, EventArgs e)
-        {
-            pb_btnDelete.Image = ShineWay.Properties.Resources.deleteHover;
-        }
-
-        private void pb_btnDelete_MouseLeave(object sender, EventArgs e)
-        {
-            pb_btnDelete.Image = ShineWay.Properties.Resources.delete;
-        }
-
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             //reset button code goes here
@@ -146,11 +126,6 @@ namespace ShineWay.UI
             //delete button code goes here
         }
 
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txt_NIC_MouseLeave(object sender, EventArgs e)
         {
 
@@ -172,11 +147,6 @@ namespace ShineWay.UI
             submitmessege.ShowDialog();
         }
 
-        private void pb_btnDelete_Click_1(object sender, EventArgs e)
-        {
-        
-
-        }
 
         private void pb_btnReset_Click_1(object sender, EventArgs e)
         { 
@@ -343,6 +313,19 @@ namespace ShineWay.UI
             dataGridView1.DataSource = users;
         }
 
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btn_delete_MouseHover(object sender, EventArgs e)
+        {
+            btn_delete.Image = ShineWay.Properties.Resources.deleteHover;
+        }
+
+        private void btn_delete_MouseLeave(object sender, EventArgs e)
+        {
+            btn_delete.Image = ShineWay.Properties.Resources.delete;
+        }
     }
 }
