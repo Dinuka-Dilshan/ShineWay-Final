@@ -174,5 +174,17 @@ namespace ShineWay.UI
                 txt_name.ForeColor = Color.Green;
             }
         }
+
+        private void txt_userName_KeyUp(object sender, KeyEventArgs e)
+        {
+            pictureBox2.Image = ShineWay.Properties.Resources.errorinput;
+            label_userNameError.Visible = true;
+        }
+
+        private void txt_name_KeyUp(object sender, KeyEventArgs e)
+        {
+            pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+            label_userNameError.Visible = false;
+        }
     }
 }
