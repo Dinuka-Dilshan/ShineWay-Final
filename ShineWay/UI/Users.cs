@@ -4,6 +4,8 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using ShineWay.Validation;
 using ShineWay.Messages;
+using ShineWay.Classes;
+using System.Collections.Generic;
 
 namespace ShineWay.UI
 {
@@ -13,7 +15,8 @@ namespace ShineWay.UI
         bool isNICValid = false;
         bool isTelephoneNumberValid = false;
         bool isAddressValid = false;
-        
+        List<User> users = new List<User>();
+
 
 
         public Users()
@@ -127,8 +130,10 @@ namespace ShineWay.UI
                 }
 
             }
-
             setDataToGrid();
+            dataGridView1.Refresh();
+            this.Refresh();
+
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -169,7 +174,7 @@ namespace ShineWay.UI
 
         private void pb_btnDelete_Click_1(object sender, EventArgs e)
         {
-            CustomMessage deletemessege = new CustomMessage("Deleted!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
+        
 
         }
 
@@ -312,33 +317,30 @@ namespace ShineWay.UI
 
         public void setDataToGrid()
         {
+            
             try
             {
-                int x = 0;
                 MySqlDataReader reader = DbConnection.Read("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
                 while (reader.Read())
                 {
-                    dataGridView.Rows[x].Cells[0].Value = reader[0].ToString();
-                    dataGridView.Rows[x].Cells[1].Value = reader[1].ToString();
-                    dataGridView.Rows[x].Cells[2].Value = reader[2].ToString();
-                    dataGridView.Rows[x].Cells[3].Value = reader[3].ToString();
-                    dataGridView.Rows[x].Cells[4].Value = reader[4].ToString();
-                    dataGridView.Rows[x].Cells[0].Value = reader[0].ToString();
-                    dataGridView.Rows[x].Cells[1].Value = reader[1].ToString();
-                    dataGridView.Rows[x].Cells[2].Value = reader[2].ToString();
-                    dataGridView.Rows[x].Cells[3].Value = reader[3].ToString();
-                    dataGridView.Rows[x].Cells[4].Value = reader[4].ToString();
-                    x++;
+                    User user = new User();
+                    user.NIC = reader[0].ToString();
+                    user.Name = reader[1].ToString();
+                    user.Type = reader[2].ToString();
+                    user.TelephoneNumber = reader[3].ToString();
+                    user.Address = reader[4].ToString();
+                    users.Add(user);
                 }
-
                 
-
-             
             }
             catch (Exception ex)
             {
-
+                CustomMessage submitmessege = new CustomMessage(ex.Message, "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
             }
+
+            dataGridView1.DataSource = users;
         }
 
 
