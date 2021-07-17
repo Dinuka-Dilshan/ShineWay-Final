@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ShineWay.DataBase;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using ShineWay.Validation;
 using ShineWay.Messages;
@@ -68,9 +63,40 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
-            CustomMessage submitmessege = new CustomMessage("Recorded Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
-            submitmessege.convertToOkButton();
-            submitmessege.ShowDialog();
+            MySqlDataReader reader;
+            
+            try
+            {
+                reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `users`");
+                while (reader.Read())
+                {
+                   
+                }
+                
+
+                try
+                {
+                    String tempUserName = txt_name.Text.Trim().Split(" ")[0]+ (Int32.Parse(reader[0].ToString()) + 1);
+                    String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address`) VALUES (  \"{tempUserName}\",  \"{ randomString()}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\")";
+
+                    DbConnection.Write(addQuery);
+                    CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+
+                }
+                catch (Exception exe)
+                {
+                    new CustomMessage(exe.Message, "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
+                }
+            }
+            catch (Exception exe)
+            {
+                new CustomMessage(exe.Message, "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
+            }
+            
+           
+            ;
 
 
         }
@@ -119,7 +145,7 @@ namespace ShineWay.UI
 
         private void pb_btnReset_Click_1(object sender, EventArgs e)
         { 
-            txt_userName.Text = ""; 
+            
             txt_name.Text = "";
             txt_address.Text = "";
             txt_NIC.Text = "";
@@ -130,6 +156,10 @@ namespace ShineWay.UI
             label_telError.Visible = false;
             pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
             label_addressError.Visible = false;
+            label_telTick.Visible = false;
+            label_tickAddress.Visible = false;
+            label_tickNIC.Visible = false;
+            label_tickName.Visible = false;
         }
 
         
@@ -141,7 +171,18 @@ namespace ShineWay.UI
 
         private void txt_name_KeyUp(object sender, KeyEventArgs e)
         {
-           ;
+            if (Validates.ValidName(txt_name.Text))
+            {
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                label_nameError.Visible = false;
+                label_tickName.Visible = true;
+            }
+            else
+            {
+                pictureBox5.Image = ShineWay.Properties.Resources.errorinput;
+                label_nameError.Visible = true;
+                label_tickName.Visible = false;
+            }
         }
 
         private void txt_NIC_KeyUp(object sender, KeyEventArgs e)
@@ -202,5 +243,23 @@ namespace ShineWay.UI
                 label_tickAddress.Visible = true;
             }
         }
+
+
+
+
+        public string randomString()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new String(stringChars);
+        }
+
     }
 }
