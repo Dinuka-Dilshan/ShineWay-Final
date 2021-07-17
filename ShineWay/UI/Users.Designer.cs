@@ -37,6 +37,13 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_telTick = new System.Windows.Forms.Label();
+            this.label_tickNIC = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label_telError = new System.Windows.Forms.Label();
+            this.label_nicError = new System.Windows.Forms.Label();
+            this.label_nameError = new System.Windows.Forms.Label();
             this.label_userNameError = new System.Windows.Forms.Label();
             this.txt_userName = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -68,7 +75,6 @@ namespace ShineWay.UI
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
@@ -157,7 +163,13 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label_telTick);
+            this.panel1.Controls.Add(this.label_tickNIC);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label_telError);
+            this.panel1.Controls.Add(this.label_nicError);
+            this.panel1.Controls.Add(this.label_nameError);
             this.panel1.Controls.Add(this.label_userNameError);
             this.panel1.Controls.Add(this.txt_userName);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -194,6 +206,94 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 27;
             // 
+            // label_telTick
+            // 
+            this.label_telTick.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_telTick.Location = new System.Drawing.Point(771, 458);
+            this.label_telTick.Name = "label_telTick";
+            this.label_telTick.Size = new System.Drawing.Size(23, 22);
+            this.label_telTick.TabIndex = 97;
+            this.label_telTick.Visible = false;
+            // 
+            // label_tickNIC
+            // 
+            this.label_tickNIC.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickNIC.Location = new System.Drawing.Point(771, 376);
+            this.label_tickNIC.Name = "label_tickNIC";
+            this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
+            this.label_tickNIC.TabIndex = 96;
+            this.label_tickNIC.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(381, 658);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(217, 18);
+            this.label11.TabIndex = 95;
+            this.label11.Text = "Please enter a correct name";
+            this.label11.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(379, 567);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(217, 18);
+            this.label10.TabIndex = 94;
+            this.label10.Text = "Please enter a correct name";
+            this.label10.Visible = false;
+            // 
+            // label_telError
+            // 
+            this.label_telError.AutoSize = true;
+            this.label_telError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_telError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_telError.ForeColor = System.Drawing.Color.Red;
+            this.label_telError.Location = new System.Drawing.Point(379, 484);
+            this.label_telError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_telError.Name = "label_telError";
+            this.label_telError.Size = new System.Drawing.Size(311, 18);
+            this.label_telError.TabIndex = 93;
+            this.label_telError.Text = "Please enter a correct telephone number";
+            this.label_telError.Visible = false;
+            // 
+            // label_nicError
+            // 
+            this.label_nicError.AutoSize = true;
+            this.label_nicError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_nicError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_nicError.ForeColor = System.Drawing.Color.Red;
+            this.label_nicError.Location = new System.Drawing.Point(379, 403);
+            this.label_nicError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_nicError.Name = "label_nicError";
+            this.label_nicError.Size = new System.Drawing.Size(183, 18);
+            this.label_nicError.TabIndex = 92;
+            this.label_nicError.Text = "Please enter a valid NIC";
+            this.label_nicError.Visible = false;
+            // 
+            // label_nameError
+            // 
+            this.label_nameError.AutoSize = true;
+            this.label_nameError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_nameError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_nameError.ForeColor = System.Drawing.Color.Red;
+            this.label_nameError.Location = new System.Drawing.Point(379, 317);
+            this.label_nameError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_nameError.Name = "label_nameError";
+            this.label_nameError.Size = new System.Drawing.Size(217, 18);
+            this.label_nameError.TabIndex = 91;
+            this.label_nameError.Text = "Please enter a correct name";
+            this.label_nameError.Visible = false;
+            // 
             // label_userNameError
             // 
             this.label_userNameError.AutoSize = true;
@@ -213,9 +313,9 @@ namespace ShineWay.UI
             this.txt_userName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_userName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_userName.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_userName.Location = new System.Drawing.Point(381, 199);
+            this.txt_userName.Location = new System.Drawing.Point(383, 199);
             this.txt_userName.Name = "txt_userName";
-            this.txt_userName.Size = new System.Drawing.Size(430, 23);
+            this.txt_userName.Size = new System.Drawing.Size(423, 23);
             this.txt_userName.TabIndex = 0;
             this.txt_userName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_userName_KeyUp);
             // 
@@ -241,20 +341,21 @@ namespace ShineWay.UI
             this.txt_telephoneNumber.PromptChar = ' ';
             this.txt_telephoneNumber.Size = new System.Drawing.Size(360, 23);
             this.txt_telephoneNumber.TabIndex = 3;
-            this.txt_telephoneNumber.Leave += new System.EventHandler(this.txt_telephoneNumber_Leave);
+            this.txt_telephoneNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_telephoneNumber_KeyUp);
             // 
             // txt_NIC
             // 
             this.txt_NIC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_NIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_NIC.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_NIC.Location = new System.Drawing.Point(376, 375);
+            this.txt_NIC.Location = new System.Drawing.Point(384, 375);
+            this.txt_NIC.Margin = new System.Windows.Forms.Padding(0);
             this.txt_NIC.Mask = ">000000000A99";
             this.txt_NIC.Name = "txt_NIC";
             this.txt_NIC.PromptChar = ' ';
-            this.txt_NIC.Size = new System.Drawing.Size(312, 23);
+            this.txt_NIC.Size = new System.Drawing.Size(422, 23);
             this.txt_NIC.TabIndex = 2;
-            this.txt_NIC.Leave += new System.EventHandler(this.txt_NIC_Leave);
+            this.txt_NIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NIC_KeyUp);
             // 
             // pb_btnDelete
             // 
@@ -508,12 +609,11 @@ namespace ShineWay.UI
             this.txt_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_name.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_name.Location = new System.Drawing.Point(376, 291);
+            this.txt_name.Location = new System.Drawing.Point(382, 287);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(430, 23);
+            this.txt_name.Size = new System.Drawing.Size(424, 23);
             this.txt_name.TabIndex = 1;
             this.txt_name.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_name_KeyUp);
-            this.txt_name.Leave += new System.EventHandler(this.txt_name_Leave);
             // 
             // pictureBox5
             // 
@@ -548,20 +648,6 @@ namespace ShineWay.UI
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(379, 317);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(217, 18);
-            this.label7.TabIndex = 91;
-            this.label7.Text = "Please enter a correct name";
-            this.label7.Visible = false;
             // 
             // Users
             // 
@@ -637,6 +723,12 @@ namespace ShineWay.UI
         private System.Windows.Forms.MaskedTextBox txt_NIC;
         private System.Windows.Forms.MaskedTextBox txt_telephoneNumber;
         private System.Windows.Forms.Label label_userNameError;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label_nameError;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label_telError;
+        private System.Windows.Forms.Label label_nicError;
+        private System.Windows.Forms.Label label_tickNIC;
+        private System.Windows.Forms.Label label_telTick;
     }
 }

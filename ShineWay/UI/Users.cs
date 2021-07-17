@@ -102,40 +102,7 @@ namespace ShineWay.UI
 
         }
 
-        private void txt_NIC_Leave(object sender, EventArgs e)
-        {
-            bool isValidOwnerNic1 = Validates.ValidCustomerNewNIC(txt_NIC.Text);
-            bool isValidOwnerNic2 = Validates.ValidCustomerOldNIC(txt_NIC.Text);
-
-            if (isValidOwnerNic1 == true || isValidOwnerNic2 == true)
-            {
-                txt_NIC.ForeColor = Color.Black;
-            }
-            else
-            {
-                txt_NIC.ForeColor = Color.Red;
-                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n NIC Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errmsg.convertToOkButton();
-                errmsg.ShowDialog();
-            }
-        }
-
-        private void txt_telephoneNumber_Leave(object sender, EventArgs e)
-        {
-            bool isValidTeleNo = Validates.validMobileNumber(txt_telephoneNumber.Text);
-            if (isValidTeleNo == true)
-            {
-                txt_telephoneNumber.ForeColor = Color.Black;
-            }
-            else
-            {
-                txt_telephoneNumber.ForeColor = Color.Red;
-                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n Telephone Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errmsg.convertToOkButton();
-                errmsg.ShowDialog();
-            }
-        }
-
+        
         private void label8_Click(object sender, EventArgs e)
         {
             CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
@@ -159,32 +126,51 @@ namespace ShineWay.UI
             txt_password.Text="";
         }
 
-        private void txt_name_Leave(object sender, EventArgs e)
-        {
-            bool cusname = Validates.ValidName(txt_name.Text);
-            if (cusname == false)
-            {
-                txt_name.ForeColor = Color.Red;
-                CustomMessage errmsg = new CustomMessage("Please Enter your Correct Name!\n Digits not allowed", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errmsg.convertToOkButton();
-                errmsg.ShowDialog();
-            }
-            else
-            {
-                txt_name.ForeColor = Color.Green;
-            }
-        }
+        
 
         private void txt_userName_KeyUp(object sender, KeyEventArgs e)
         {
-            pictureBox2.Image = ShineWay.Properties.Resources.errorinput;
-            label_userNameError.Visible = true;
+            
         }
 
         private void txt_name_KeyUp(object sender, KeyEventArgs e)
         {
-            pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
-            label_userNameError.Visible = false;
+           ;
+        }
+
+        private void txt_NIC_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidCustomerNewNIC(txt_NIC.Text)|| Validates.ValidCustomerOldNIC(txt_NIC.Text))
+            {
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicError.Visible = false;
+                label_tickNIC.Visible = true;
+
+            }
+            else
+            {
+                pictureBox7.Image = ShineWay.Properties.Resources.errorinput;
+                label_nicError.Visible = true;
+                label_tickNIC.Visible = false;
+            }
+            
+        }
+
+        private void txt_telephoneNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidMobile(txt_telephoneNumber.Text))
+            {
+                pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+                label_telError.Visible = false;
+                label_telTick.Visible = true;
+
+            }
+            else
+            {
+                pictureBox9.Image = ShineWay.Properties.Resources.errorinput;
+                label_telError.Visible = true;
+                label_telTick.Visible = false;
+            }
         }
     }
 }
