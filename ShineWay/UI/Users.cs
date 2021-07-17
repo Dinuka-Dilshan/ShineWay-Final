@@ -20,6 +20,7 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             combo_userType.SelectedIndex = 0;
+            
         }
 
         private void pb_btnReset_MouseHover(object sender, EventArgs e)
