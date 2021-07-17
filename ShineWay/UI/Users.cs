@@ -299,5 +299,10 @@ namespace ShineWay.UI
         {
             return (isNICValid && isNameValid && isTelephoneNumberValid && isAddressValid);
         }
+
+        private void txt_NIC_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }
