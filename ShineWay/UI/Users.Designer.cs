@@ -37,9 +37,12 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.combo_userType = new System.Windows.Forms.ComboBox();
+            this.label_tickUserName = new System.Windows.Forms.Label();
+            this.label1_tickName = new System.Windows.Forms.Label();
+            this.label_tickAddress = new System.Windows.Forms.Label();
             this.label_telTick = new System.Windows.Forms.Label();
             this.label_tickNIC = new System.Windows.Forms.Label();
-            this.label_typeError = new System.Windows.Forms.Label();
             this.label_addressError = new System.Windows.Forms.Label();
             this.label_telError = new System.Windows.Forms.Label();
             this.label_nicError = new System.Windows.Forms.Label();
@@ -59,7 +62,6 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.txt_password = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,10 +77,6 @@ namespace ShineWay.UI
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.label_tickAddress = new System.Windows.Forms.Label();
-            this.label_tickType = new System.Windows.Forms.Label();
-            this.label1_tickName = new System.Windows.Forms.Label();
-            this.label_tickUserName = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
@@ -167,13 +165,12 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.combo_userType);
             this.panel1.Controls.Add(this.label_tickUserName);
             this.panel1.Controls.Add(this.label1_tickName);
-            this.panel1.Controls.Add(this.label_tickType);
             this.panel1.Controls.Add(this.label_tickAddress);
             this.panel1.Controls.Add(this.label_telTick);
             this.panel1.Controls.Add(this.label_tickNIC);
-            this.panel1.Controls.Add(this.label_typeError);
             this.panel1.Controls.Add(this.label_addressError);
             this.panel1.Controls.Add(this.label_telError);
             this.panel1.Controls.Add(this.label_nicError);
@@ -193,7 +190,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
-            this.panel1.Controls.Add(this.txt_password);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox13);
             this.panel1.Controls.Add(this.label3);
@@ -214,6 +210,48 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 27;
             // 
+            // combo_userType
+            // 
+            this.combo_userType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.combo_userType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_userType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.combo_userType.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.combo_userType.FormattingEnabled = true;
+            this.combo_userType.Items.AddRange(new object[] {
+            "User",
+            "Admin"});
+            this.combo_userType.Location = new System.Drawing.Point(381, 622);
+            this.combo_userType.Name = "combo_userType";
+            this.combo_userType.Size = new System.Drawing.Size(215, 29);
+            this.combo_userType.TabIndex = 5;
+            // 
+            // label_tickUserName
+            // 
+            this.label_tickUserName.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickUserName.Location = new System.Drawing.Point(771, 200);
+            this.label_tickUserName.Name = "label_tickUserName";
+            this.label_tickUserName.Size = new System.Drawing.Size(23, 22);
+            this.label_tickUserName.TabIndex = 101;
+            this.label_tickUserName.Visible = false;
+            // 
+            // label1_tickName
+            // 
+            this.label1_tickName.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label1_tickName.Location = new System.Drawing.Point(771, 289);
+            this.label1_tickName.Name = "label1_tickName";
+            this.label1_tickName.Size = new System.Drawing.Size(23, 22);
+            this.label1_tickName.TabIndex = 100;
+            this.label1_tickName.Visible = false;
+            // 
+            // label_tickAddress
+            // 
+            this.label_tickAddress.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickAddress.Location = new System.Drawing.Point(771, 541);
+            this.label_tickAddress.Name = "label_tickAddress";
+            this.label_tickAddress.Size = new System.Drawing.Size(23, 22);
+            this.label_tickAddress.TabIndex = 98;
+            this.label_tickAddress.Visible = false;
+            // 
             // label_telTick
             // 
             this.label_telTick.Image = global::ShineWay.Properties.Resources.tick1;
@@ -231,20 +269,6 @@ namespace ShineWay.UI
             this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
             this.label_tickNIC.TabIndex = 96;
             this.label_tickNIC.Visible = false;
-            // 
-            // label_typeError
-            // 
-            this.label_typeError.AutoSize = true;
-            this.label_typeError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label_typeError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_typeError.ForeColor = System.Drawing.Color.Red;
-            this.label_typeError.Location = new System.Drawing.Point(381, 658);
-            this.label_typeError.Margin = new System.Windows.Forms.Padding(0);
-            this.label_typeError.Name = "label_typeError";
-            this.label_typeError.Size = new System.Drawing.Size(219, 18);
-            this.label_typeError.TabIndex = 95;
-            this.label_typeError.Text = "Please select a relavent type";
-            this.label_typeError.Visible = false;
             // 
             // label_addressError
             // 
@@ -323,7 +347,7 @@ namespace ShineWay.UI
             this.txt_userName.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_userName.Location = new System.Drawing.Point(383, 199);
             this.txt_userName.Name = "txt_userName";
-            this.txt_userName.Size = new System.Drawing.Size(423, 23);
+            this.txt_userName.Size = new System.Drawing.Size(385, 23);
             this.txt_userName.TabIndex = 0;
             this.txt_userName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_userName_KeyUp);
             // 
@@ -347,7 +371,7 @@ namespace ShineWay.UI
             this.txt_telephoneNumber.Mask = "0000000000";
             this.txt_telephoneNumber.Name = "txt_telephoneNumber";
             this.txt_telephoneNumber.PromptChar = ' ';
-            this.txt_telephoneNumber.Size = new System.Drawing.Size(360, 23);
+            this.txt_telephoneNumber.Size = new System.Drawing.Size(377, 23);
             this.txt_telephoneNumber.TabIndex = 3;
             this.txt_telephoneNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_telephoneNumber_KeyUp);
             // 
@@ -361,7 +385,7 @@ namespace ShineWay.UI
             this.txt_NIC.Mask = ">000000000A99";
             this.txt_NIC.Name = "txt_NIC";
             this.txt_NIC.PromptChar = ' ';
-            this.txt_NIC.Size = new System.Drawing.Size(422, 23);
+            this.txt_NIC.Size = new System.Drawing.Size(384, 23);
             this.txt_NIC.TabIndex = 2;
             this.txt_NIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NIC_KeyUp);
             // 
@@ -479,16 +503,6 @@ namespace ShineWay.UI
             this.pictureBox12.TabIndex = 23;
             this.pictureBox12.TabStop = false;
             // 
-            // txt_password
-            // 
-            this.txt_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_password.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_password.Location = new System.Drawing.Point(376, 632);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(430, 23);
-            this.txt_password.TabIndex = 5;
-            // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.White;
@@ -574,10 +588,11 @@ namespace ShineWay.UI
             this.txt_address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_address.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_address.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_address.Location = new System.Drawing.Point(376, 541);
+            this.txt_address.Location = new System.Drawing.Point(381, 541);
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(430, 23);
+            this.txt_address.Size = new System.Drawing.Size(384, 23);
             this.txt_address.TabIndex = 4;
+            this.txt_address.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_address_KeyUp);
             // 
             // pictureBox4
             // 
@@ -657,42 +672,6 @@ namespace ShineWay.UI
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
-            // label_tickAddress
-            // 
-            this.label_tickAddress.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickAddress.Location = new System.Drawing.Point(771, 541);
-            this.label_tickAddress.Name = "label_tickAddress";
-            this.label_tickAddress.Size = new System.Drawing.Size(23, 22);
-            this.label_tickAddress.TabIndex = 98;
-            this.label_tickAddress.Visible = false;
-            // 
-            // label_tickType
-            // 
-            this.label_tickType.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickType.Location = new System.Drawing.Point(771, 628);
-            this.label_tickType.Name = "label_tickType";
-            this.label_tickType.Size = new System.Drawing.Size(23, 22);
-            this.label_tickType.TabIndex = 99;
-            this.label_tickType.Visible = false;
-            // 
-            // label1_tickName
-            // 
-            this.label1_tickName.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label1_tickName.Location = new System.Drawing.Point(771, 289);
-            this.label1_tickName.Name = "label1_tickName";
-            this.label1_tickName.Size = new System.Drawing.Size(23, 22);
-            this.label1_tickName.TabIndex = 100;
-            this.label1_tickName.Visible = false;
-            // 
-            // label_tickUserName
-            // 
-            this.label_tickUserName.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickUserName.Location = new System.Drawing.Point(771, 200);
-            this.label_tickUserName.Name = "label_tickUserName";
-            this.label_tickUserName.Size = new System.Drawing.Size(23, 22);
-            this.label_tickUserName.TabIndex = 101;
-            this.label_tickUserName.Visible = false;
-            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -741,7 +720,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox13;
@@ -768,7 +746,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.MaskedTextBox txt_telephoneNumber;
         private System.Windows.Forms.Label label_userNameError;
         private System.Windows.Forms.Label label_nameError;
-        private System.Windows.Forms.Label label_typeError;
         private System.Windows.Forms.Label label_addressError;
         private System.Windows.Forms.Label label_telError;
         private System.Windows.Forms.Label label_nicError;
@@ -776,7 +753,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_telTick;
         private System.Windows.Forms.Label label_tickUserName;
         private System.Windows.Forms.Label label1_tickName;
-        private System.Windows.Forms.Label label_tickType;
         private System.Windows.Forms.Label label_tickAddress;
+        private System.Windows.Forms.ComboBox combo_userType;
     }
 }

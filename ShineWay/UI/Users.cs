@@ -17,6 +17,7 @@ namespace ShineWay.UI
         public Users()
         {
             InitializeComponent();
+            combo_userType.SelectedIndex = 1;
         }
 
         private void pb_btnReset_MouseHover(object sender, EventArgs e)
@@ -123,7 +124,12 @@ namespace ShineWay.UI
             txt_address.Text = "";
             txt_NIC.Text = "";
             txt_telephoneNumber.Text = "";
-            txt_password.Text="";
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            label_nicError.Visible = false;
+            pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+            label_telError.Visible = false;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            label_addressError.Visible = false;
         }
 
         
@@ -170,6 +176,30 @@ namespace ShineWay.UI
                 pictureBox9.Image = ShineWay.Properties.Resources.errorinput;
                 label_telError.Visible = true;
                 label_telTick.Visible = false;
+            }
+        }
+
+        private void txt_address_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_address.Text.Length > 200 || (txt_address.Text.Length == 0))
+            {
+                pictureBox11.Image = ShineWay.Properties.Resources.errorinput;
+                if((txt_address.Text.Length == 0))
+                {
+                    label_addressError.Text = "Address cannot be empty!";
+                }
+                else
+                {
+                    label_addressError.Text = "Cannot exceeds more than 200 charactors!";
+                }
+                label_addressError.Visible = true;
+                label_tickAddress.Visible = false;
+            }
+            else
+            {
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                label_addressError.Visible = false;
+                label_tickAddress.Visible = true;
             }
         }
     }
