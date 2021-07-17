@@ -9,10 +9,17 @@ namespace ShineWay.UI
 {
     public partial class Users : UserControl
     {
+        bool isNameValid = false;
+        bool isNICValid = false;
+        bool isTelephoneNumberValid = false;
+        bool isAddressValid = false;
+        
+
+
         public Users()
         {
             InitializeComponent();
-            combo_userType.SelectedIndex = 1;
+            combo_userType.SelectedIndex = 0;
         }
 
         private void pb_btnReset_MouseHover(object sender, EventArgs e)
@@ -63,42 +70,60 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
+            
             MySqlDataReader reader;
-            
-            try
+
+            if(txt_NIC.Text.Trim() == "" || txt_name.Text.Trim() == "" || txt_telephoneNumber.Text.Trim() == "" || txt_address.Text.Trim() == "")
             {
-                reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `users`");
-                while (reader.Read())
-                {
-                   
-                }
-                
-
-                try
-                {
-                    String tempUserName = txt_name.Text.Trim().Split(" ")[0]+ (Int32.Parse(reader[0].ToString()) + 1);
-                    String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address`) VALUES (  \"{tempUserName}\",  \"{ randomString()}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\")";
-
-                    DbConnection.Write(addQuery);
-                    CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                    message.convertToOkButton();
-                    message.ShowDialog();
-
-                }
-                catch (Exception exe)
-                {
-                    new CustomMessage(exe.Message, "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
-                }
+                CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
             }
-            catch (Exception exe)
-            {
-                new CustomMessage(exe.Message, "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
+            else
+            { 
+
+                if (isAllValid())
+                {
+                    try
+                    {
+                        reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `users`");
+                        while (reader.Read())
+                        {
+
+                        }
+
+
+                        try
+                        {
+                            String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
+                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address`) VALUES (  \"{tempUserName}\",  \"{ randomString()}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\")";
+
+                            DbConnection.Write(addQuery);
+                            CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                            message.convertToOkButton();
+                            message.ShowDialog();
+
+                        }
+                        catch (Exception exe)
+                        {
+                            new CustomMessage("Connot insert!", "Error", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
+                        }
+                    }
+                    catch (Exception exe)
+                    {
+                        new CustomMessage("Unable to connect!", "Error", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
+                    }
+
+
+                }
+                else
+                {
+                    CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before submit!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+                }
+
             }
-            
-           
-            ;
-
-
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -176,12 +201,14 @@ namespace ShineWay.UI
                 pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
                 label_nameError.Visible = false;
                 label_tickName.Visible = true;
+                isNameValid = true;
             }
             else
             {
                 pictureBox5.Image = ShineWay.Properties.Resources.errorinput;
                 label_nameError.Visible = true;
                 label_tickName.Visible = false;
+                isNameValid = false;
             }
         }
 
@@ -192,6 +219,7 @@ namespace ShineWay.UI
                 pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
                 label_nicError.Visible = false;
                 label_tickNIC.Visible = true;
+                isNICValid = true;
 
             }
             else
@@ -199,17 +227,19 @@ namespace ShineWay.UI
                 pictureBox7.Image = ShineWay.Properties.Resources.errorinput;
                 label_nicError.Visible = true;
                 label_tickNIC.Visible = false;
+                isNICValid = false;
             }
             
         }
 
         private void txt_telephoneNumber_KeyUp(object sender, KeyEventArgs e)
         {
-            if (Validates.ValidMobile(txt_telephoneNumber.Text))
+            if (Validates.ValidMobile(txt_telephoneNumber.Text.Trim()))
             {
                 pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
                 label_telError.Visible = false;
                 label_telTick.Visible = true;
+                isTelephoneNumberValid = true;
 
             }
             else
@@ -217,6 +247,7 @@ namespace ShineWay.UI
                 pictureBox9.Image = ShineWay.Properties.Resources.errorinput;
                 label_telError.Visible = true;
                 label_telTick.Visible = false;
+                isTelephoneNumberValid = false;
             }
         }
 
@@ -235,12 +266,14 @@ namespace ShineWay.UI
                 }
                 label_addressError.Visible = true;
                 label_tickAddress.Visible = false;
+                isAddressValid = false;
             }
             else
             {
                 pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
                 label_addressError.Visible = false;
                 label_tickAddress.Visible = true;
+                isAddressValid = true;
             }
         }
 
@@ -261,5 +294,10 @@ namespace ShineWay.UI
             return new String(stringChars);
         }
 
+
+        private bool isAllValid()
+        {
+            return (isNICValid && isNameValid && isTelephoneNumberValid && isAddressValid);
+        }
     }
 }
