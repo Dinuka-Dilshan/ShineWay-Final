@@ -20,7 +20,9 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             combo_userType.SelectedIndex = 0;
-            
+            setDataToGrid();
+
+
         }
 
         private void pb_btnReset_MouseHover(object sender, EventArgs e)
@@ -125,6 +127,8 @@ namespace ShineWay.UI
                 }
 
             }
+
+            setDataToGrid();
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -305,5 +309,38 @@ namespace ShineWay.UI
         {
 
         }
+
+        public void setDataToGrid()
+        {
+            try
+            {
+                int x = 0;
+                MySqlDataReader reader = DbConnection.Read("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
+                while (reader.Read())
+                {
+                    dataGridView.Rows[x].Cells[0].Value = reader[0].ToString();
+                    dataGridView.Rows[x].Cells[1].Value = reader[1].ToString();
+                    dataGridView.Rows[x].Cells[2].Value = reader[2].ToString();
+                    dataGridView.Rows[x].Cells[3].Value = reader[3].ToString();
+                    dataGridView.Rows[x].Cells[4].Value = reader[4].ToString();
+                    dataGridView.Rows[x].Cells[0].Value = reader[0].ToString();
+                    dataGridView.Rows[x].Cells[1].Value = reader[1].ToString();
+                    dataGridView.Rows[x].Cells[2].Value = reader[2].ToString();
+                    dataGridView.Rows[x].Cells[3].Value = reader[3].ToString();
+                    dataGridView.Rows[x].Cells[4].Value = reader[4].ToString();
+                    x++;
+                }
+
+                
+
+             
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
     }
 }
