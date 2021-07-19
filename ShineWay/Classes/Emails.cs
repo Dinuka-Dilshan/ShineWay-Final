@@ -10,6 +10,7 @@ namespace ShineWay.Classes
 {
     class Emails
     {
+        //from microsoft documentation but modified
         public static void sendEmail(String to, String subject, string messageBody)
         {
             MailMessage message = new MailMessage("ShineWayRentalLk@gmail.com", to);
@@ -30,6 +31,27 @@ namespace ShineWay.Classes
             {
                 Console.WriteLine("Exception caught in CreateTestMessage2(): {0}",
                     ex.ToString());
+            }
+
+        }
+
+        //from web
+
+        public static void Email(string email, string recipient, string subject, string body)
+        {
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("ShineWayRentalLk@gmail.com", "shineway@123"),
+                EnableSsl = true,
+            };
+            try
+            {
+                smtpClient.Send(email, recipient, subject, body);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
         }
