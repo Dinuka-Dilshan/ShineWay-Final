@@ -148,7 +148,7 @@ namespace ShineWay.UI
             }
             else
             {
-                string query = " SELECT `username`,`user_type` ,`name` FROM `users`   WHERE username = '" + userName + "' AND password = '" + password + "';";
+                string query = " SELECT `username`,`user_type` ,`name` , `isFirstTimeUser` FROM `users`   WHERE username = '" + userName + "' AND password = '" + password + "';";
 
                 try
                 {
