@@ -15,6 +15,7 @@ namespace ShineWay.UI
         bool isNICValid = false;
         bool isTelephoneNumberValid = false;
         bool isAddressValid = false;
+        bool isEmailValid = false;
         List<User> users = new List<User>();
 
 
@@ -59,7 +60,7 @@ namespace ShineWay.UI
             
             MySqlDataReader reader;
 
-            if(txt_NIC.Text.Trim() == "" || txt_name.Text.Trim() == "" || txt_telephoneNumber.Text.Trim() == "" || txt_address.Text.Trim() == "")
+            if(txt_NIC.Text.Trim() == "" || txt_name.Text.Trim() == "" || txt_telephoneNumber.Text.Trim() == "" || txt_address.Text.Trim() == "" || txt_email.Text.Trim() == "")
             {
                 CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                 submitmessege.convertToOkButton();
@@ -277,13 +278,9 @@ namespace ShineWay.UI
 
         private bool isAllValid()
         {
-            return (isNICValid && isNameValid && isTelephoneNumberValid && isAddressValid);
+            return (isNICValid && isNameValid && isTelephoneNumberValid && isAddressValid && isEmailValid);
         }
 
-        private void txt_NIC_Leave(object sender, EventArgs e)
-        {
-
-        }
 
         public void setDataToGrid()
         {
@@ -327,5 +324,25 @@ namespace ShineWay.UI
         {
             btn_delete.Image = ShineWay.Properties.Resources.delete;
         }
+
+        private void txt_email_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidEmail(txt_email.Text.Trim()))
+            {
+                pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
+                label_emailError.Visible = false;
+                label_tickEmail.Visible = true;
+                isEmailValid = true;
+
+            }
+            else
+            {
+                pictureBox3.Image = ShineWay.Properties.Resources.errorinput;
+                label_emailError.Visible = true;
+                label_tickEmail.Visible = false;
+                isEmailValid = false;
+            }
+        }
+
     }
 }

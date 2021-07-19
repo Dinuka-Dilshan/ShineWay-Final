@@ -376,7 +376,6 @@ namespace ShineWay.UI
             this.txt_NIC.Size = new System.Drawing.Size(384, 23);
             this.txt_NIC.TabIndex = 0;
             this.txt_NIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NIC_KeyUp);
-            this.txt_NIC.Leave += new System.EventHandler(this.txt_NIC_Leave);
             // 
             // label8
             // 
@@ -660,6 +659,7 @@ namespace ShineWay.UI
             this.txt_email.PromptChar = ' ';
             this.txt_email.Size = new System.Drawing.Size(384, 23);
             this.txt_email.TabIndex = 101;
+            this.txt_email.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_email_KeyUp);
             // 
             // pictureBox2
             // 
