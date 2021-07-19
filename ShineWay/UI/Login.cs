@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ShineWay.DataBase;
 using MySql.Data.MySqlClient;
 using ShineWay.Messages;
+using ShineWay.Classes;
 
 namespace ShineWay.UI
 {
@@ -123,7 +124,7 @@ namespace ShineWay.UI
         {
 
             String userName = txt_userName.Text.Trim();
-            String password = txt_password.Text.Trim();
+            String password = Encrypt.encryption(txt_password.Text.Trim());
             bool isPasswordCorrect = false;
 
 
