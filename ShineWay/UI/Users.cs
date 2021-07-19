@@ -83,12 +83,21 @@ namespace ShineWay.UI
                         try
                         {
                             String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
-                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address`) VALUES (  \"{tempUserName}\",  \"{ randomString()}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\")";
+                            string temporaryPassword = randomString();
+                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address`) VALUES (  \"{tempUserName}\",  \"{temporaryPassword}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\")";
+
+                            string emailMessage = $"Welcome to Shineway rental!\nUsername: {tempUserName} \nTemporary password:{temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
+
+
+                            Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
+
+
 
                             DbConnection.Write(addQuery);
                             CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             message.convertToOkButton();
                             message.ShowDialog();
+                            pb_btnReset_Click_1(sender, e);
 
                         }
                         catch (Exception exe)
@@ -156,16 +165,22 @@ namespace ShineWay.UI
             txt_address.Text = "";
             txt_NIC.Text = "";
             txt_telephoneNumber.Text = "";
+            txt_email.Text = "";
             pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
             label_nicError.Visible = false;
             pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
             label_telError.Visible = false;
             pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
             label_addressError.Visible = false;
             label_telTick.Visible = false;
             label_tickAddress.Visible = false;
             label_tickNIC.Visible = false;
             label_tickName.Visible = false;
+            label_tickEmail.Visible = false;
+            label_emailError.Visible = false;
+            label_nameError.Visible = false;
         }
 
         

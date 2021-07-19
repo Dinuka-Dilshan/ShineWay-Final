@@ -38,6 +38,12 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_tickEmail = new System.Windows.Forms.Label();
+            this.label_emailError = new System.Windows.Forms.Label();
+            this.txt_email = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_delete = new System.Windows.Forms.Button();
             this.combo_userType = new System.Windows.Forms.ComboBox();
             this.label_tickName = new System.Windows.Forms.Label();
@@ -72,12 +78,6 @@ namespace ShineWay.UI
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.label_tickEmail = new System.Windows.Forms.Label();
-            this.label_emailError = new System.Windows.Forms.Label();
-            this.txt_email = new System.Windows.Forms.MaskedTextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
@@ -85,6 +85,8 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -97,8 +99,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -224,6 +224,76 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 27;
             // 
+            // label_tickEmail
+            // 
+            this.label_tickEmail.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickEmail.Location = new System.Drawing.Point(769, 231);
+            this.label_tickEmail.Name = "label_tickEmail";
+            this.label_tickEmail.Size = new System.Drawing.Size(23, 22);
+            this.label_tickEmail.TabIndex = 106;
+            this.label_tickEmail.Visible = false;
+            // 
+            // label_emailError
+            // 
+            this.label_emailError.AutoSize = true;
+            this.label_emailError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_emailError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_emailError.ForeColor = System.Drawing.Color.Red;
+            this.label_emailError.Location = new System.Drawing.Point(377, 258);
+            this.label_emailError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_emailError.Name = "label_emailError";
+            this.label_emailError.Size = new System.Drawing.Size(196, 18);
+            this.label_emailError.TabIndex = 105;
+            this.label_emailError.Text = "Please enter a valid Email";
+            this.label_emailError.Visible = false;
+            // 
+            // txt_email
+            // 
+            this.txt_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_email.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_email.Location = new System.Drawing.Point(382, 230);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(0);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.PromptChar = ' ';
+            this.txt_email.Size = new System.Drawing.Size(384, 23);
+            this.txt_email.TabIndex = 0;
+            this.txt_email.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_email_KeyUp);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(54, 215);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 103;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
+            this.label9.Location = new System.Drawing.Point(102, 230);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 27);
+            this.label9.TabIndex = 104;
+            this.label9.Text = "Email";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(365, 219);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(450, 47);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 102;
+            this.pictureBox3.TabStop = false;
+            // 
             // btn_delete
             // 
             this.btn_delete.AutoSize = true;
@@ -256,7 +326,7 @@ namespace ShineWay.UI
             this.combo_userType.Location = new System.Drawing.Point(381, 622);
             this.combo_userType.Name = "combo_userType";
             this.combo_userType.Size = new System.Drawing.Size(215, 29);
-            this.combo_userType.TabIndex = 4;
+            this.combo_userType.TabIndex = 5;
             // 
             // label_tickName
             // 
@@ -360,7 +430,7 @@ namespace ShineWay.UI
             this.txt_telephoneNumber.Name = "txt_telephoneNumber";
             this.txt_telephoneNumber.PromptChar = ' ';
             this.txt_telephoneNumber.Size = new System.Drawing.Size(377, 23);
-            this.txt_telephoneNumber.TabIndex = 2;
+            this.txt_telephoneNumber.TabIndex = 3;
             this.txt_telephoneNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_telephoneNumber_KeyUp);
             // 
             // txt_NIC
@@ -374,7 +444,7 @@ namespace ShineWay.UI
             this.txt_NIC.Name = "txt_NIC";
             this.txt_NIC.PromptChar = ' ';
             this.txt_NIC.Size = new System.Drawing.Size(384, 23);
-            this.txt_NIC.TabIndex = 0;
+            this.txt_NIC.TabIndex = 1;
             this.txt_NIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_NIC_KeyUp);
             // 
             // label8
@@ -544,7 +614,7 @@ namespace ShineWay.UI
             this.txt_address.Location = new System.Drawing.Point(381, 555);
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(384, 23);
-            this.txt_address.TabIndex = 3;
+            this.txt_address.TabIndex = 4;
             this.txt_address.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_address_KeyUp);
             // 
             // pictureBox4
@@ -588,7 +658,7 @@ namespace ShineWay.UI
             this.txt_name.Location = new System.Drawing.Point(382, 393);
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(424, 23);
-            this.txt_name.TabIndex = 1;
+            this.txt_name.TabIndex = 2;
             this.txt_name.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_name_KeyUp);
             // 
             // pictureBox5
@@ -624,77 +694,6 @@ namespace ShineWay.UI
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
             // 
-            // label_tickEmail
-            // 
-            this.label_tickEmail.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickEmail.Location = new System.Drawing.Point(769, 231);
-            this.label_tickEmail.Name = "label_tickEmail";
-            this.label_tickEmail.Size = new System.Drawing.Size(23, 22);
-            this.label_tickEmail.TabIndex = 106;
-            this.label_tickEmail.Visible = false;
-            // 
-            // label_emailError
-            // 
-            this.label_emailError.AutoSize = true;
-            this.label_emailError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label_emailError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_emailError.ForeColor = System.Drawing.Color.Red;
-            this.label_emailError.Location = new System.Drawing.Point(377, 258);
-            this.label_emailError.Margin = new System.Windows.Forms.Padding(0);
-            this.label_emailError.Name = "label_emailError";
-            this.label_emailError.Size = new System.Drawing.Size(196, 18);
-            this.label_emailError.TabIndex = 105;
-            this.label_emailError.Text = "Please enter a valid Email";
-            this.label_emailError.Visible = false;
-            // 
-            // txt_email
-            // 
-            this.txt_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_email.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(382, 230);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(0);
-            this.txt_email.Mask = ">000000000A99";
-            this.txt_email.Name = "txt_email";
-            this.txt_email.PromptChar = ' ';
-            this.txt_email.Size = new System.Drawing.Size(384, 23);
-            this.txt_email.TabIndex = 101;
-            this.txt_email.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_email_KeyUp);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(54, 215);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(42, 42);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 103;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
-            this.label9.Location = new System.Drawing.Point(102, 230);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 27);
-            this.label9.TabIndex = 104;
-            this.label9.Text = "Email";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(365, 219);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(450, 47);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 102;
-            this.pictureBox3.TabStop = false;
-            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -712,6 +711,8 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -724,8 +725,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
