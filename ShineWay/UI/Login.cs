@@ -166,9 +166,11 @@ namespace ShineWay.UI
                         }else if(reader[0].ToString() == userName && ((Convert.ToInt32(reader[3])) == 1))
                         {
                             isPasswordCorrect = true;
-                            CustomMessage message = new CustomMessage("new user", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
-                            message.convertToOkButton();
-                            message.ShowDialog();
+                            this.Hide();
+                            var form2 = new NewUser(userName, reader[2].ToString());
+                            form2.Closed += (s, args) => this.Close();
+                            form2.Show();
+                            return;
                         }
                         else{
                             return;
