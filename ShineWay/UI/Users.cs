@@ -24,7 +24,6 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             combo_userType.SelectedIndex = 0;
-            setDataToGrid();
 
 
         }
@@ -84,11 +83,9 @@ namespace ShineWay.UI
                         {
                             String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
                             string temporaryPassword = randomString();
-                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\")";
+                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address` , `isFirstTimeUser`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\", 1)";
 
-                            string emailMessage = $"Welcome to Shineway rental!\nUsername: {tempUserName} \nTemporary password:{temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
-
-
+                            string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to ligin!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
                             Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
 
 
@@ -120,9 +117,6 @@ namespace ShineWay.UI
                 }
 
             }
-            setDataToGrid();
-            dataGridView1.Refresh();
-            this.Refresh();
 
         }
 

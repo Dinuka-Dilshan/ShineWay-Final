@@ -148,14 +148,14 @@ namespace ShineWay.UI
             }
             else
             {
-                string query = " SELECT `username`,`user_type` ,`name` FROM `users`   WHERE username = '" + userName + "' AND password = '" + password + "';";
+                string query = " SELECT `username`,`user_type` ,`name` , `isFirstTimeUser` FROM `users`   WHERE username = '" + userName + "' AND password = '" + password + "';";
 
                 try
                 {
                     MySqlDataReader reader = DbConnection.Read(query);
                     while (reader.Read())
                     {
-                        if (reader[0].ToString() == userName)
+                        if (reader[0].ToString() == userName && ((Convert.ToInt32(reader[3])) == 0))
                         {
                             isPasswordCorrect = true;
                             this.Hide();
@@ -163,9 +163,16 @@ namespace ShineWay.UI
                             form2.Closed += (s, args) => this.Close();
                             form2.Show();
                             return;
-                        }
-                        else
+                        }else if(reader[0].ToString() == userName && ((Convert.ToInt32(reader[3])) == 1))
                         {
+                            isPasswordCorrect = true;
+                            this.Hide();
+                            var form2 = new NewUser(userName, reader[2].ToString());
+                            form2.Closed += (s, args) => this.Close();
+                            form2.Show();
+                            return;
+                        }
+                        else{
                             return;
                         }
                     }
