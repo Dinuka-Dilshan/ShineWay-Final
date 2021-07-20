@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,6 +56,22 @@ namespace ShineWay.Classes
                 throw ex;
             }
 
+        }
+
+
+
+        public static string createEmailTemplate(string name, string userName, string password)
+        {
+            string body = string.Empty;
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            StreamReader reader = new StreamReader(assembly.GetManifestResourceStream("ShineWay.Template.html"));
+
+            body = reader.ReadToEnd();
+            /*body = body.Replace("{name}", name);
+            body = body.Replace("{userName}", userName);
+            body = body.Replace("{password}", password);*/
+
+            return body;
         }
     }
 }

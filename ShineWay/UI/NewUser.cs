@@ -1,13 +1,9 @@
 ﻿using ShineWay.Messages;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using ShineWay.Classes;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using ShineWay.DataBase;
 using System.Windows.Forms;
 
 namespace ShineWay.UI
@@ -63,7 +59,26 @@ namespace ShineWay.UI
             {
                 if (Regex.IsMatch(txt_newPassword.Text, passwordPattern) && txt_newPassword.Text.Length >= 8 && txt_newPassword.Text.Length <= 15 && txt_newPassword.Text == txt_confirmPassword.Text)
                 {
+                    try
+                    {
+                        string query = $"UPDATE `users` SET `password`=\"{Encrypt.encryption(txt_newPassword.Text)}\",`isFirstTimeUser`=\"{0}\" WHERE `username` = \"{userName}\"";
+                        DbConnection.Update(query);
+                        
+                        CustomMessage message = new CustomMessage("Password Updated!\nLogin Again.", "Update Failed", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                        message.convertToOkButton();
+                        message.ShowDialog();
+                        txt_confirmPassword.Text = "";
+                        txt_newPassword.Text = "";
+                        Application.Restart();
+                    }
+                    catch (Exception exx)
+                    {
+                        CustomMessage message = new CustomMessage("Failed to update Password\nTry Again!", "Update Failed", ShineWay.Properties.Resources.error, DialogResult.OK);
+                        message.convertToOkButton();
+                        message.ShowDialog();
 
+                    }
+                    
                 }
                 else
                 {
