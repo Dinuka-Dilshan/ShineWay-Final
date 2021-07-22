@@ -199,6 +199,12 @@ namespace ShineWay.UI
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             // reset button code goes here
+            txt_nicNumber.Text = "";
+            txt_licenseNumber.Text = "";
+            txt_customerName.Text = "";
+            txt_telephoneNumber.Text = "";
+            txt_email.Text = "";
+            txt_address.Text = "";
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
