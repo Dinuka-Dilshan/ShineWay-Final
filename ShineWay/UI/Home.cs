@@ -153,5 +153,10 @@ namespace ShineWay.UI
         {
             
         }
+
+        private void customer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -273,6 +273,7 @@ namespace ShineWay.UI
             this.customer1.Name = "customer1";
             this.customer1.Size = new System.Drawing.Size(2250, 1125);
             this.customer1.TabIndex = 18;
+            this.customer1.Load += new System.EventHandler(this.customer1_Load);
             // 
             // pb_btnExit
             // 
