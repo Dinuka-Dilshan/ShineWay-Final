@@ -1,8 +1,4 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Text.RegularExpressions;
 
 namespace ShineWay.Validation
@@ -102,23 +98,24 @@ namespace ShineWay.Validation
 
         public static bool ValidCustomermaleNewNIC(string customernicm1)
         {
-            return Regex.IsMatch(customernicm1, validateNEWCustomerNIC);
+            return Regex.IsMatch(customernicm1, validatemaleNEWCustomerNIC);
         }
 
         public static bool ValidCustomermaleOldNIC(string customernicm2)
         {
-            return Regex.IsMatch(customernicm2, validateOLDCustomerNIC);
+            return Regex.IsMatch(customernicm2, validatemaleOLDCustomerNIC);
         }
-
+        /*
         public static bool ValidCustomerfemaleNewNIC(string customernicf1)
         {
-            return Regex.IsMatch(customernicf1, validateNEWCustomerNIC);
+            return Regex.IsMatch(customernicf1, validatefemaleNEWCustomerNIC);
         }
 
         public static bool ValidCustomerfemaleOldNIC(string customernicf2)
         {
-            return Regex.IsMatch(customernicf2, validateOLDCustomerNIC);
+            return Regex.IsMatch(customernicf2, validatefemaleOLDCustomerNIC);
         }
+        */
 
         /////////////////////////////////////////////////////////////////////
 

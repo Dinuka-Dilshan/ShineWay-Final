@@ -16,7 +16,17 @@ using ShineWay.Messages;
 namespace ShineWay.UI
 {
     public partial class Vehicles : UserControl
+
     {
+        // bool isValidVehicleRegNo = false;
+        bool isNICValid = false;
+        bool isOwnerConditionValid = false;
+        bool isBrandValid = false;
+        bool isVehRegNoValid = false;
+        bool isModelValid = false;
+        bool isEngineNoValid = false;
+        bool isChassisNoValid = false;
+
         public Vehicles()
         {
             InitializeComponent();
@@ -90,7 +100,7 @@ namespace ShineWay.UI
                         "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
 
                     //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     addmsg.convertToOkButton();
                     addmsg.ShowDialog();
                 }
@@ -208,81 +218,28 @@ namespace ShineWay.UI
             
         }
 
-        private void msktxt_vehicleRegNumber_Leave(object sender, EventArgs e)
-        {
-            bool isValidVehicleRegNo1 = Validates.ValidVehiclenumber1(msktxt_vehicleRegNumber.Text);
-            bool isValidVehicleRegNo2 = Validates.ValidVehiclenumber2(msktxt_vehicleRegNumber.Text);
-
-            if (isValidVehicleRegNo1 == true || isValidVehicleRegNo2 == true)
-            {
-                msktxt_vehicleRegNumber.ForeColor = Color.Black;
-            }
-            else
-            {
-                msktxt_vehicleRegNumber.ForeColor = Color.Red;
-                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n Vehicle Register No!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errmsg.convertToOkButton();
-                errmsg.ShowDialog();
-            }
-         
-        }
-
-        private void txt_ownerNIC_Leave(object sender, EventArgs e)
-        {
-            bool isValidOwnerNic1 = Validates.ValidCustomerNewNIC(txt_ownerNIC.Text);
-            bool isValidOwnerNic2 = Validates.ValidCustomerOldNIC(txt_ownerNIC.Text);
-
-            if(isValidOwnerNic1 == true || isValidOwnerNic2 == true)
-            {
-                txt_ownerNIC.ForeColor = Color.Black;
-            }
-            else
-            {
-                txt_ownerNIC.ForeColor = Color.Red;
-                CustomMessage errmsg = new CustomMessage("Please Enter Correct \n NIC Number!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errmsg.convertToOkButton();
-                errmsg.ShowDialog();
-            }
-        }
+      
 
         private void msktxt_startingOdo_Leave(object sender, EventArgs e)
         {
            
         }
 
-        private void txt_ownerCondition_Leave(object sender, EventArgs e)
-        {
-            bool isValidOwnerCondition = Validates.ValidateDescription(txt_ownerCondition.Text);
-
-            if(isValidOwnerCondition == true)
-            {
-                txt_ownerCondition.ForeColor = Color.Black;
-            }
-            else
-            {
-                txt_ownerCondition.ForeColor = Color.Red;
-                CustomMessage errormessege = new CustomMessage("Maximum length of description is\n 200 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errormessege.convertToOkButton();
-                errormessege.ShowDialog();
-
-            }
-        }
-
         private void txt_OwnerPayment_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-                e.Handled = true;
+          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            e.Handled = true;
         }
 
         private void txt_DailyPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-                e.Handled = true;
+          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+              e.Handled = true;
         }
 
         private void txt_WeeklyPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+         if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
         }
 
@@ -294,14 +251,14 @@ namespace ShineWay.UI
 
         private void txt_ExtrakmPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-                e.Handled = true;
+          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+               e.Handled = true;
         }
 
         private void txt_Dailykm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-                e.Handled = true;
+           if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+               e.Handled = true;
         }
 
         private void txt_Weeklykm_KeyPress(object sender, KeyPressEventArgs e)
@@ -312,14 +269,14 @@ namespace ShineWay.UI
 
         private void txt_Monthlykm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-                e.Handled = true;
+           if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+              e.Handled = true;
         }
 
         private void msktxt_startingOdo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-                e.Handled = true;
+          //  if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+          //      e.Handled = true;
         }
 
         private void pb_BtnBrowseOverallView_MouseHover_1(object sender, EventArgs e)
@@ -331,6 +288,264 @@ namespace ShineWay.UI
         {
             msktxt_vehicleRegNumber.Text = txt_brand.Text = txt_model.Text = txt_engineNumber.Text = txt_chasisNumber.Text = txt_ownerNIC.Text = txt_ownerCondition.Text= txt_DailyPrice.Text = txt_WeeklyPrice.Text = txt_MonthlyPrice.Text = txt_ExtrakmPrice.Text = txt_Dailykm.Text = txt_Weeklykm.Text = txt_Monthlykm.Text = txt_OwnerPayment.Text = msktxt_startingOdo.Text  = string.Empty;
             pb_overallViewimg.Image = pb_InsideViewimg.Image = null;
+        }
+
+        private void txt_DailyPrice_Leave(object sender, EventArgs e)
+        {
+        /*    bool isValiddailyPrice = Validates.ValidAmount(txt_DailyPrice.Text);
+
+            if (isValiddailyPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void txt_WeeklyPrice_Leave(object sender, EventArgs e)
+        {
+         /*   bool isValidWeeklyPrice = Validates.ValidAmount(txt_WeeklyPrice.Text);
+
+            if (isValidWeeklyPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void txt_MonthlyPrice_Leave(object sender, EventArgs e)
+        {
+           /* bool isValidMonthlyPrice = Validates.ValidAmount(txt_MonthlyPrice.Text);
+            if (isValidMonthlyPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void txt_ExtrakmPrice_Leave(object sender, EventArgs e)
+        {
+           /* bool isValidExtraKmPrice = Validates.ValidAmount(txt_ExtrakmPrice.Text);
+            if (isValidExtraKmPrice == true)
+            {
+                txt_OwnerPayment.ForeColor = Color.Black;
+                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
+            }
+            else
+            {
+                txt_OwnerPayment.ForeColor = Color.Red;
+            }*/
+        }
+
+        private void pb_btnUpdate_Click(object sender, EventArgs e)
+        {
+            CustomMessage addmsg = new CustomMessage("Vehicle Updated Successfully!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
+            addmsg.convertToOkButton();
+            addmsg.ShowDialog();
+        }
+
+        private void pb_btnDelete_Click(object sender, EventArgs e)
+        {
+            CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
+            addmsg.convertToOkButton();
+            addmsg.ShowDialog();
+        }
+
+        private void txt_ownerNIC_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidCustomerNewNIC(txt_ownerNIC.Text) || Validates.ValidCustomerOldNIC(txt_ownerNIC.Text))
+            {
+                pictureBox19.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicError.Visible = false;
+                label_tickNIC.Visible = true;
+                isNICValid = true;
+
+            }
+            else
+            {
+                pictureBox19.Image = ShineWay.Properties.Resources.errorinput;
+                label_nicError.Visible = true;
+                label_tickNIC.Visible = false;
+                isNICValid = false;
+            }
+        }
+
+        private void txt_ownerCondition_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_ownerCondition.Text.Length > 200 || (txt_ownerCondition.Text.Length == 0))
+            {
+                pictureBox23.Image = ShineWay.Properties.Resources.errorinput;
+                if ((txt_ownerCondition.Text.Length == 0))
+                {
+                    label_ownerConditionError.Text = "Owner condition cannot be empty!";
+                }
+                else
+                {
+                    label_ownerConditionError.Text = "Cannot exceeds more than 200 charactors!";
+                }
+                label_ownerConditionError.Visible = true;
+                label_tickOwnerCondition.Visible = false;
+                isOwnerConditionValid = false;
+            }
+            else
+            {
+                pictureBox23.Image = ShineWay.Properties.Resources.correctInput;
+                label_ownerConditionError.Visible = false;
+                label_tickOwnerCondition.Visible = true;
+                isOwnerConditionValid = true;
+            }
+        }
+
+        private void msktxt_vehicleRegNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidVehiclenumber1(msktxt_vehicleRegNumber.Text) || Validates.ValidVehiclenumber2(msktxt_vehicleRegNumber.Text))
+            {
+                pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+                if ((msktxt_vehicleRegNumber.Text.Length == 0))
+                {
+                    label_VehicleRegNoError.Text = "Vehicle Register Number cannot be empty!";
+                }
+                else
+                {
+                    label_VehicleRegNoError.Text = "Enter the correct format!";
+                }
+                label_VehicleRegNoError.Visible = false;
+                label_tickVehicleRegNo.Visible = true;
+                isVehRegNoValid = true;
+
+            }
+            else
+            {
+                pictureBox2.Image = ShineWay.Properties.Resources.errorinput;
+                label_VehicleRegNoError.Visible = true;
+                label_tickVehicleRegNo.Visible = false;
+                isVehRegNoValid = false;
+            }
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txt_brand_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_brand.Text.Length > 40 || (txt_brand.Text.Length == 0))
+            {
+                pictureBox14.Image = ShineWay.Properties.Resources.errorinput;
+                if ((txt_brand.Text.Length == 0))
+                {
+                    label_brandError.Text = "Brand cannot be empty!";
+                }
+                else
+                {
+                    label_brandError.Text = "Cannot exceeds more than 40 charactors!";
+                }
+                label_brandError.Visible = true;
+                label_tickBrand.Visible = false;
+                isBrandValid = false;
+            }
+            else
+            {
+                pictureBox14.Image = ShineWay.Properties.Resources.correctInput;
+                label_brandError.Visible = false;
+                label_tickBrand.Visible = true;
+                isBrandValid = true;
+            }
+        }
+
+        private void txt_model_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_model.Text.Length > 40 || (txt_model.Text.Length == 0))
+            {
+                pictureBox7.Image = ShineWay.Properties.Resources.errorinput;
+                if ((txt_model.Text.Length == 0))
+                {
+                    label_modelError.Text = "Model cannot be empty!";
+                }
+                else
+                {
+                    label_modelError.Text = "Cannot exceeds more than 40 charactors!";
+                }
+                label_modelError.Visible = true;
+                label_tickModel.Visible = false;
+                isModelValid = false;
+            }
+            else
+            {
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                label_modelError.Visible = false;
+                label_tickModel.Visible = true;
+                isModelValid = true;
+            }
+        }
+
+        private void txt_engineNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_engineNumber.Text.Length > 40 || (txt_engineNumber.Text.Length == 0))
+            {
+                pictureBox11.Image = ShineWay.Properties.Resources.errorinput;
+                if ((txt_engineNumber.Text.Length == 0))
+                {
+                    label_engineNoError.Text = "Engine Number cannot be empty!";
+                }
+                else
+                {
+                    label_engineNoError.Text = "Cannot exceeds more than 40 charactors!";
+                }
+                label_engineNoError.Visible = true;
+                label_tickEngineNO.Visible = false;
+                isEngineNoValid = false;
+            }
+            else
+            {
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                label_engineNoError.Visible = false;
+                label_tickEngineNO.Visible = true;
+                isEngineNoValid = true;
+            }
+        }
+
+        private void txt_chasisNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txt_chasisNumber.Text.Length > 40 || (txt_chasisNumber.Text.Length == 0))
+            {
+                pictureBox13.Image = ShineWay.Properties.Resources.errorinput;
+                if ((txt_chasisNumber.Text.Length == 0))
+                {
+                    label_chassisNoError.Text = "Chassis Number cannot be empty!";
+                }
+                else
+                {
+                    label_chassisNoError.Text = "Cannot exceeds more than 40 charactors!";
+                }
+                label_chassisNoError.Visible = true;
+                label_tickChassisNo.Visible = false;
+                isChassisNoValid = false;
+            }
+            else
+            {
+                pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+                label_chassisNoError.Visible = false;
+                label_tickChassisNo.Visible = true;
+                isChassisNoValid = true;
+            }
         }
     }
 }

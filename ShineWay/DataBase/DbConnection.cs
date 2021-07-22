@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace ShineWay.DataBase
 {
@@ -70,6 +72,26 @@ namespace ShineWay.DataBase
             }
         }
 
-
+        public static void addToTable(String query,  DataGridView datagrid)
+        {
+            
+                MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+  
+         
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, mysqlCon))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            datagrid.DataSource = dt;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
