@@ -76,21 +76,22 @@ namespace ShineWay.DataBase
         {
             
                 MySqlConnection mysqlCon = new MySqlConnection(connectionString);
-                mysqlCon.Open();
-
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand(query, mysqlCon);
-
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-
-
-                datagrid.DataSource = bSource;
-
-
+  
+         
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, mysqlCon))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    using (MySqlDataAdapter sda = new MySqlDataAdapter(cmd))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            datagrid.DataSource = dt;
+                        }
+                    }
+                }
+            }
         }
     }
 }
