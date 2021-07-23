@@ -18,7 +18,7 @@ namespace ShineWay.UI
     public partial class Vehicles : UserControl
 
     {
-        // bool isValidVehicleRegNo = false;
+        bool isValidVehicleRegNo = false;
         bool isNICValid = false;
         bool isOwnerConditionValid = false;
         bool isBrandValid = false;
@@ -208,22 +208,7 @@ namespace ShineWay.UI
 
         }
 
-        private void combo_Packagetype_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combo_Packagetype_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
       
-
-        private void msktxt_startingOdo_Leave(object sender, EventArgs e)
-        {
-           
-        }
 
         private void txt_OwnerPayment_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -233,8 +218,10 @@ namespace ShineWay.UI
 
         private void txt_DailyPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-              e.Handled = true;
+
+             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                 e.Handled = true;
+          
         }
 
         private void txt_WeeklyPrice_KeyPress(object sender, KeyPressEventArgs e)
@@ -258,25 +245,62 @@ namespace ShineWay.UI
         private void txt_Dailykm_KeyPress(object sender, KeyPressEventArgs e)
         {
            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-               e.Handled = true;
+            {
+                e.Handled = true;
+               label_validKmError.Visible = true;
+            }
+            else
+            {
+                label_validKmError.Visible = false;
+                label_tickKm.Visible = true;
+            }
+               
         }
 
         private void txt_Weeklykm_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
                 e.Handled = true;
+                label_validKmError.Visible = true;
+            }
+            else
+            {
+                label_validKmError.Visible = false;
+                label_tickKm.Visible = true;
+            }
+                
         }
 
         private void txt_Monthlykm_KeyPress(object sender, KeyPressEventArgs e)
         {
            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-              e.Handled = true;
+            {
+                e.Handled = true;
+                label_validKmError.Visible = true;
+            }
+            else
+            {
+                label_validKmError.Visible = false;
+                label_tickKm.Visible = true;
+            }
+              
         }
 
         private void msktxt_startingOdo_KeyPress(object sender, KeyPressEventArgs e)
         {
-          //  if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-          //      e.Handled = true;
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                label_StartingOdoError.Visible = true;
+            }
+            else
+            {
+                label_StartingOdoError.Visible = false;
+                label_tickStartOdo.Visible = true;
+            }
+
+
         }
 
         private void pb_BtnBrowseOverallView_MouseHover_1(object sender, EventArgs e)
@@ -284,70 +308,53 @@ namespace ShineWay.UI
            // pb_btnReset.Image = ShineWay.Properties.Resources.
         }
 
+
+
+
+        //Restet Button
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             msktxt_vehicleRegNumber.Text = txt_brand.Text = txt_model.Text = txt_engineNumber.Text = txt_chasisNumber.Text = txt_ownerNIC.Text = txt_ownerCondition.Text= txt_DailyPrice.Text = txt_WeeklyPrice.Text = txt_MonthlyPrice.Text = txt_ExtrakmPrice.Text = txt_Dailykm.Text = txt_Weeklykm.Text = txt_Monthlykm.Text = txt_OwnerPayment.Text = msktxt_startingOdo.Text  = string.Empty;
             pb_overallViewimg.Image = pb_InsideViewimg.Image = null;
+            label_VehicleRegNoError.Visible = false;
+            label_tickVehicleRegNo.Visible = false;
+            label_brandError.Visible = false;
+            label_tickBrand.Visible = false;
+            label_modelError.Visible = false;
+            label_tickModel.Visible = false;
+            label_VehicleTypeError.Visible = false;
+            label_tickVehType.Visible = false;
+            label_engineNoError.Visible = false;
+            label_tickEngineNO.Visible = false;
+            label_chassisNoError.Visible = false;
+            label_tickChassisNo.Visible = false;
+            label_nicError.Visible = false;
+            label_tickNIC.Visible = false;
+            label_ownerConditionError.Visible = false;
+            label_tickOwnerCondition.Visible = false;
+            label_ownerPaymentError.Visible = false;
+            label_tickOwnerPayment.Visible = false;
+            label_StartingOdoError.Visible = false;
+            label_tickStartOdo.Visible = false;
+            pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox14.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox19.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox23.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox28.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox30.Image = ShineWay.Properties.Resources.correctInput;
+            label_rentPriceError.Visible = false;
+            label_tickrentPrice.Visible = false;
+            label_validKmError.Visible = false;
+            label_tickKm.Visible = false;
+
         }
 
-        private void txt_DailyPrice_Leave(object sender, EventArgs e)
-        {
-        /*    bool isValiddailyPrice = Validates.ValidAmount(txt_DailyPrice.Text);
 
-            if (isValiddailyPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
 
-        private void txt_WeeklyPrice_Leave(object sender, EventArgs e)
-        {
-         /*   bool isValidWeeklyPrice = Validates.ValidAmount(txt_WeeklyPrice.Text);
-
-            if (isValidWeeklyPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
-
-        private void txt_MonthlyPrice_Leave(object sender, EventArgs e)
-        {
-           /* bool isValidMonthlyPrice = Validates.ValidAmount(txt_MonthlyPrice.Text);
-            if (isValidMonthlyPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
-
-        private void txt_ExtrakmPrice_Leave(object sender, EventArgs e)
-        {
-           /* bool isValidExtraKmPrice = Validates.ValidAmount(txt_ExtrakmPrice.Text);
-            if (isValidExtraKmPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
-
+        //Update Button
         private void pb_btnUpdate_Click(object sender, EventArgs e)
         {
             CustomMessage addmsg = new CustomMessage("Vehicle Updated Successfully!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
@@ -355,6 +362,9 @@ namespace ShineWay.UI
             addmsg.ShowDialog();
         }
 
+
+
+        //Delete Button
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
@@ -362,6 +372,7 @@ namespace ShineWay.UI
             addmsg.ShowDialog();
         }
 
+        //Validations
         private void txt_ownerNIC_KeyUp(object sender, KeyEventArgs e)
         {
             if (Validates.ValidCustomerNewNIC(txt_ownerNIC.Text) || Validates.ValidCustomerOldNIC(txt_ownerNIC.Text))
@@ -546,6 +557,101 @@ namespace ShineWay.UI
                 label_tickChassisNo.Visible = true;
                 isChassisNoValid = true;
             }
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combo_type_TextChanged(object sender, EventArgs e)
+        {
+            if (combo_type.Text != "")
+            {
+                label_VehicleTypeError.Visible = false;
+                label_tickVehType.Visible = true;
+            }
+        }
+
+        private void txt_DailyPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidDailyPrice = Validates.ValidAmount(txt_DailyPrice.Text);
+            if (isValidDailyPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_WeeklyPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidWeeklyPrice = Validates.ValidAmount(txt_WeeklyPrice.Text);
+            if (isValidWeeklyPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_MonthlyPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidMonthlyPrice = Validates.ValidAmount(txt_MonthlyPrice.Text);
+            if (isValidMonthlyPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_ExtrakmPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            bool isValidExtrakmPrice = Validates.ValidAmount(txt_ExtrakmPrice.Text);
+            if (isValidExtrakmPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_OwnerPayment_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidOwnerPayment = Validates.ValidAmount(txt_OwnerPayment.Text);
+            if (isValidOwnerPayment == false)
+            {
+                label_ownerPaymentError.Visible = true;
+            }
+            else
+            {
+                label_ownerPaymentError.Visible = false;
+                label_tickOwnerPayment.Visible = true;
+            }
+        }
+
+        private void txt_DailyPrice_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
         }
     }
 }
