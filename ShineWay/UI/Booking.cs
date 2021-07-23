@@ -125,21 +125,24 @@ namespace ShineWay.UI
 
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
-                if (    txt_bookingId.ForeColor==Color.Green &&
-                        txt_vehicleRegNumber.ForeColor == Color.Green &&
-                        txt_customerNic.ForeColor == Color.Green &&
-                        txt_licenseNumber.ForeColor == Color.Green &&
-                        date_startingDate.Value <= date_endDate.Value &&
-                        txt_startingOdometer.ForeColor == Color.Green &&
-                        combo_packageType.ForeColor == Color.Green &&
-                        txt_depositAmount.ForeColor == Color.Green &&
-                        txt_advancedPayment.ForeColor == Color.Green &&
-                        txt_description.ForeColor == Color.Green &&
-                        txt_bookingId.Text != "" &&
-                        txt_vehicleRegNumber.Text != "" &&
-                        txt_customerNic.Text != "" &&
-                        date_startingDate.Text != "" &&
-                        combo_packageType.Text != "" 
+            // check package type selected
+            if (combo_packageType.Text == "")
+            {
+                lbl_packageTypeError.Visible = true;
+                lbl_packageTypeCorrect.Visible = false;
+            }
+
+
+            if (    lbl_bookingIDError.Visible == false ||
+                    lbl_vehicleNumberError.Visible == false ||
+                    lbl_customerNICError.Visible == false ||
+                    lbl_licenseNumberError.Visible == false ||
+                    lbl_odomemterError.Visible == false ||
+                    lbl_packageTypeError.Visible == false ||
+                    lbl_depositeAmountError.Visible == false ||
+                    lbl_advancedPayementError.Visible == false ||
+                    lbl_discriptionError.Visible == false
+
                 )
             {
                 try
@@ -172,11 +175,13 @@ namespace ShineWay.UI
             bool validbookingID = Validates.ValidBookingID(txt_bookingId.Text);
             if (validbookingID == false)
             {
-                txt_bookingId.ForeColor = Color.Red;
+                lbl_bookingIDError.Visible = true;
+                lbl_bookingIDCorrect.Visible = false;
             }
             else
             {
-                txt_bookingId.ForeColor = Color.Green;
+                lbl_bookingIDError.Visible = false;
+                lbl_bookingIDCorrect.Visible = true;
             }
         }
 
@@ -187,11 +192,13 @@ namespace ShineWay.UI
 
             if (validVehicleNumber1 == true || validVehicleNumber2 == true)
             {
-                txt_vehicleRegNumber.ForeColor = Color.Green;
+                lbl_vehicleNumberCorrect.Visible = true;
+                lbl_vehicleNumberError.Visible = false;
             }
             else
             {
-                txt_vehicleRegNumber.ForeColor = Color.Red;
+                lbl_vehicleNumberCorrect.Visible = false;
+                lbl_vehicleNumberError.Visible = true;
             }
         }
 
@@ -203,11 +210,13 @@ namespace ShineWay.UI
 
             if (validcustomernic1 == true || validcustomernic2 == true)
             {
-                txt_customerNic.ForeColor = Color.Green;
+                lbl_customerNICCorrect.Visible = true;
+                lbl_customerNICError.Visible = false;
             }
             else
             {
-                txt_customerNic.ForeColor = Color.Red;
+                lbl_customerNICError.Visible = true;
+                lbl_customerNICCorrect.Visible = false;
             }
         }
 
@@ -219,27 +228,33 @@ namespace ShineWay.UI
 
             if (licensenumber == false)
             {
-                txt_licenseNumber.ForeColor = Color.Red;
+                lbl_licenseNumberError.Visible = true;
+                lbl_licenseNumberCorrect.Visible = false;
             }
             else
             {
-                txt_licenseNumber.ForeColor = Color.Green;
+                lbl_licenseNumberError.Visible = false;
+                lbl_licenseNumberCorrect.Visible = true;
             }
+        
         }
 
-
-
+    
+    
         private void txt_startingOdometer_MouseLeave(object sender, EventArgs e)
         {
             bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text);
 
             if (startodo == false)
             {
-                txt_startingOdometer.ForeColor = Color.Red;
+                lbl_odomemterError.Visible = true;
+                lbl_odomemterCorrect.Visible = false;
+
             }
             else
             {
-                txt_startingOdometer.ForeColor = Color.Green;
+                lbl_odomemterError.Visible = false;
+                lbl_odomemterCorrect.Visible = true;
             }
         }
 
@@ -249,11 +264,13 @@ namespace ShineWay.UI
 
             if (startodo == false)
             {
-                txt_startingOdometer.ForeColor = Color.Red;
+                lbl_odomemterError.Visible = true;
+                lbl_odomemterCorrect.Visible = false;
             }
             else
             {
-                txt_startingOdometer.ForeColor = Color.Green;
+                lbl_odomemterError.Visible = false;
+                lbl_odomemterCorrect.Visible = true;
             }
         }
 
@@ -268,11 +285,13 @@ namespace ShineWay.UI
 
             if (depositeamount == false)
             {
-                txt_depositAmount.ForeColor = Color.Red;
+                lbl_depositeAmountError.Visible = true;
+                lbl_depositeAmountCorrect.Visible = false;
             }
             else
             {
-                txt_depositAmount.ForeColor = Color.Green;
+                lbl_depositeAmountError.Visible = false;
+                lbl_depositeAmountCorrect.Visible = true;
                 txt_depositAmount.TextAlign = HorizontalAlignment.Right;
             }
         }
@@ -287,11 +306,14 @@ namespace ShineWay.UI
             bool advanceamount = Validates.ValidAmount(txt_advancedPayment.Text);
             if (advanceamount == false)
             {
-                txt_advancedPayment.ForeColor = Color.Red;
+                lbl_advancedPayementError.Visible = true;
+                lbl_advancedPayementCorrect.Visible = false;
+
             }
             else
             {
-                txt_advancedPayment.ForeColor = Color.Green;
+                lbl_advancedPayementError.Visible = false;
+                lbl_advancedPayementCorrect.Visible = true;
                 txt_advancedPayment.TextAlign = HorizontalAlignment.Right;
             }
         }
@@ -302,15 +324,18 @@ namespace ShineWay.UI
 
             if (description == false)
             {
-                txt_description.ForeColor = Color.Red;
+                lbl_depositeAmountError.Visible = true;
+                lbl_depositeAmountCorrect.Visible = false;
+
               //  MessageBox.Show("Maxium lenght of description is 150 charcters", "Too long", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                CustomMessage errormessege = new CustomMessage("Maxium lenght of description is\n 150 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errormessege.convertToOkButton();
-                errormessege.ShowDialog();
+              //  CustomMessage errormessege = new CustomMessage("Maxium lenght of description is\n 150 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
+              //  errormessege.convertToOkButton();
+              //  errormessege.ShowDialog();
             }
             else
             {
-                txt_description.ForeColor = Color.Green;
+                lbl_depositeAmountError.Visible = false;
+                lbl_depositeAmountCorrect.Visible = true;
             }
         }
 
@@ -322,7 +347,12 @@ namespace ShineWay.UI
 
         private void combo_packageType_TextChanged(object sender, EventArgs e)
         {
-            combo_packageType.ForeColor = Color.Green;
+            if(combo_packageType.Text != "")
+            {
+                lbl_packageTypeError.Visible = false;
+                lbl_packageTypeCorrect.Visible = true;
+            }
+            
         }
 
         private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

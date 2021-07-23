@@ -155,7 +155,7 @@ namespace ShineWay.UI
                     MySqlDataReader reader = DbConnection.Read(query);
                     while (reader.Read())
                     {
-                        if (reader[0].ToString() == userName && ((Convert.ToInt32(reader[3])) == 0))
+                        if (string.Equals(reader[0].ToString(), userName, StringComparison.OrdinalIgnoreCase) && ((Convert.ToInt32(reader[3])) == 0))
                         {
                             isPasswordCorrect = true;
                             this.Hide();
