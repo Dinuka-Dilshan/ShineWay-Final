@@ -18,7 +18,7 @@ namespace ShineWay.UI
     public partial class Vehicles : UserControl
 
     {
-        // bool isValidVehicleRegNo = false;
+        bool isValidVehicleRegNo = false;
         bool isNICValid = false;
         bool isOwnerConditionValid = false;
         bool isBrandValid = false;
@@ -208,16 +208,6 @@ namespace ShineWay.UI
 
         }
 
-        private void combo_Packagetype_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combo_Packagetype_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
       
 
         private void msktxt_startingOdo_Leave(object sender, EventArgs e)
@@ -284,11 +274,47 @@ namespace ShineWay.UI
            // pb_btnReset.Image = ShineWay.Properties.Resources.
         }
 
+
+
+
+        //Restet Button
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             msktxt_vehicleRegNumber.Text = txt_brand.Text = txt_model.Text = txt_engineNumber.Text = txt_chasisNumber.Text = txt_ownerNIC.Text = txt_ownerCondition.Text= txt_DailyPrice.Text = txt_WeeklyPrice.Text = txt_MonthlyPrice.Text = txt_ExtrakmPrice.Text = txt_Dailykm.Text = txt_Weeklykm.Text = txt_Monthlykm.Text = txt_OwnerPayment.Text = msktxt_startingOdo.Text  = string.Empty;
             pb_overallViewimg.Image = pb_InsideViewimg.Image = null;
+            label_VehicleRegNoError.Visible = false;
+            label_tickVehicleRegNo.Visible = false;
+            label_brandError.Visible = false;
+            label_tickBrand.Visible = false;
+            label_modelError.Visible = false;
+            label_tickModel.Visible = false;
+            label_VehicleTypeError.Visible = false;
+            label_tickVehType.Visible = false;
+            label_engineNoError.Visible = false;
+            label_tickEngineNO.Visible = false;
+            label_chassisNoError.Visible = false;
+            label_tickChassisNo.Visible = false;
+            label_nicError.Visible = false;
+            label_tickNIC.Visible = false;
+            label_ownerConditionError.Visible = false;
+            label_tickOwnerCondition.Visible = false;
+            label_ownerPaymentError.Visible = false;
+            label_tickOwnerPayment.Visible = false;
+            label_StartingOdoError.Visible = false;
+            label_tickStartOdo.Visible = false;
+            pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox14.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox19.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox23.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox28.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox30.Image = ShineWay.Properties.Resources.correctInput;
+
         }
+
+
 
         private void txt_DailyPrice_Leave(object sender, EventArgs e)
         {
@@ -348,6 +374,7 @@ namespace ShineWay.UI
             }*/
         }
 
+        //Update Button
         private void pb_btnUpdate_Click(object sender, EventArgs e)
         {
             CustomMessage addmsg = new CustomMessage("Vehicle Updated Successfully!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
@@ -355,6 +382,9 @@ namespace ShineWay.UI
             addmsg.ShowDialog();
         }
 
+
+
+        //Delete Button
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
@@ -362,6 +392,7 @@ namespace ShineWay.UI
             addmsg.ShowDialog();
         }
 
+        //Validations
         private void txt_ownerNIC_KeyUp(object sender, KeyEventArgs e)
         {
             if (Validates.ValidCustomerNewNIC(txt_ownerNIC.Text) || Validates.ValidCustomerOldNIC(txt_ownerNIC.Text))
@@ -545,6 +576,20 @@ namespace ShineWay.UI
                 label_chassisNoError.Visible = false;
                 label_tickChassisNo.Visible = true;
                 isChassisNoValid = true;
+            }
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combo_type_TextChanged(object sender, EventArgs e)
+        {
+            if (combo_type.Text != "")
+            {
+                label_VehicleTypeError.Visible = false;
+                label_tickVehType.Visible = true;
             }
         }
     }
