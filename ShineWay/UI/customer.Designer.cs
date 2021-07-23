@@ -162,7 +162,7 @@ namespace ShineWay.UI
             this.txt_email.Size = new System.Drawing.Size(430, 23);
             this.txt_email.TabIndex = 4;
             this.txt_email.TextChanged += new System.EventHandler(this.ValidCustomerOldNIC);
-            this.txt_email.Leave += new System.EventHandler(this.txt_email_Leave);
+            //this.txt_email.Leave += new System.EventHandler(this.txt_email_Leave);
             // 
             // pictureBox11
             // 
@@ -231,7 +231,7 @@ namespace ShineWay.UI
             this.txt_customerName.Name = "txt_customerName";
             this.txt_customerName.Size = new System.Drawing.Size(430, 23);
             this.txt_customerName.TabIndex = 2;
-            this.txt_customerName.Leave += new System.EventHandler(this.txt_customerName_Leave);
+            //this.txt_customerName.Leave += new System.EventHandler(this.txt_customerName_Leave);
             // 
             // pictureBox7
             // 
@@ -361,7 +361,7 @@ namespace ShineWay.UI
             this.txt_address.Name = "txt_address";
             this.txt_address.Size = new System.Drawing.Size(430, 23);
             this.txt_address.TabIndex = 5;
-            this.txt_address.MouseLeave += new System.EventHandler(this.txt_address_MouseLeave);
+            //this.txt_address.MouseLeave += new System.EventHandler(this.txt_address_MouseLeave);
             // 
             // txt_licenseNumber
             // 
@@ -372,7 +372,7 @@ namespace ShineWay.UI
             this.txt_licenseNumber.Name = "txt_licenseNumber";
             this.txt_licenseNumber.Size = new System.Drawing.Size(430, 23);
             this.txt_licenseNumber.TabIndex = 1;
-            this.txt_licenseNumber.Leave += new System.EventHandler(this.txt_licenseNumber_Leave);
+            //this.txt_licenseNumber.Leave += new System.EventHandler(this.txt_licenseNumber_Leave);
             // 
             // pb_btnDelete
             // 
@@ -446,7 +446,7 @@ namespace ShineWay.UI
             this.txt_nicNumber.Name = "txt_nicNumber";
             this.txt_nicNumber.Size = new System.Drawing.Size(430, 23);
             this.txt_nicNumber.TabIndex = 0;
-            this.txt_nicNumber.Leave += new System.EventHandler(this.txt_nicNumber_Leave);
+            //this.txt_nicNumber.Leave += new System.EventHandler(this.txt_nicNumber_Leave);
             this.txt_nicNumber.Validated += new System.EventHandler(this.txt_nicNumber_Validated);
             // 
             // pictureBox2
