@@ -43,6 +43,8 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_validKmError = new System.Windows.Forms.Label();
+            this.label_tickKm = new System.Windows.Forms.Label();
             this.label_tickrentPrice = new System.Windows.Forms.Label();
             this.label_rentPriceError = new System.Windows.Forms.Label();
             this.label_tickVehType = new System.Windows.Forms.Label();
@@ -132,8 +134,6 @@ namespace ShineWay.UI
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.label_tickKm = new System.Windows.Forms.Label();
-            this.label_validKmError = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
@@ -188,6 +188,7 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 27;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox31
             // 
@@ -403,6 +404,29 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label_validKmError
+            // 
+            this.label_validKmError.AutoSize = true;
+            this.label_validKmError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_validKmError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_validKmError.ForeColor = System.Drawing.Color.Red;
+            this.label_validKmError.Location = new System.Drawing.Point(407, 598);
+            this.label_validKmError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_validKmError.Name = "label_validKmError";
+            this.label_validKmError.Size = new System.Drawing.Size(230, 18);
+            this.label_validKmError.TabIndex = 120;
+            this.label_validKmError.Text = "Please enter a valid km format";
+            this.label_validKmError.Visible = false;
+            // 
+            // label_tickKm
+            // 
+            this.label_tickKm.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickKm.Location = new System.Drawing.Point(825, 584);
+            this.label_tickKm.Name = "label_tickKm";
+            this.label_tickKm.Size = new System.Drawing.Size(23, 22);
+            this.label_tickKm.TabIndex = 119;
+            this.label_tickKm.Visible = false;
             // 
             // label_tickrentPrice
             // 
@@ -1447,29 +1471,6 @@ namespace ShineWay.UI
             this.pictureBox15.TabStop = false;
             this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
             // 
-            // label_tickKm
-            // 
-            this.label_tickKm.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickKm.Location = new System.Drawing.Point(825, 584);
-            this.label_tickKm.Name = "label_tickKm";
-            this.label_tickKm.Size = new System.Drawing.Size(23, 22);
-            this.label_tickKm.TabIndex = 119;
-            this.label_tickKm.Visible = false;
-            // 
-            // label_validKmError
-            // 
-            this.label_validKmError.AutoSize = true;
-            this.label_validKmError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label_validKmError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_validKmError.ForeColor = System.Drawing.Color.Red;
-            this.label_validKmError.Location = new System.Drawing.Point(407, 598);
-            this.label_validKmError.Margin = new System.Windows.Forms.Padding(0);
-            this.label_validKmError.Name = "label_validKmError";
-            this.label_validKmError.Size = new System.Drawing.Size(230, 18);
-            this.label_validKmError.TabIndex = 120;
-            this.label_validKmError.Text = "Please enter a valid km format";
-            this.label_validKmError.Visible = false;
-            // 
             // Vehicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1478,6 +1479,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "Vehicles";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.Vehicles_Load);
             this.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
             this.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
             this.panel2.ResumeLayout(false);

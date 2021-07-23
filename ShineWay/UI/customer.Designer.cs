@@ -303,9 +303,7 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-
             this.panel1.Controls.Add(this.txt_telephoneNumber);
-
             this.panel1.Controls.Add(this.txt_address);
             this.panel1.Controls.Add(this.txt_licenseNumber);
             this.panel1.Controls.Add(this.pb_btnDelete);
@@ -446,6 +444,7 @@ namespace ShineWay.UI
             this.txt_nicNumber.Name = "txt_nicNumber";
             this.txt_nicNumber.Size = new System.Drawing.Size(430, 23);
             this.txt_nicNumber.TabIndex = 0;
+            this.txt_nicNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_nicNumber_KeyUp);
             this.txt_nicNumber.Leave += new System.EventHandler(this.txt_nicNumber_Leave);
             this.txt_nicNumber.Validated += new System.EventHandler(this.txt_nicNumber_Validated);
             // 

@@ -319,5 +319,10 @@ namespace ShineWay.UI
         {
 
         }
+
+        private void txt_nicNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
