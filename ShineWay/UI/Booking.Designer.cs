@@ -45,6 +45,23 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_packageTypeCorrect = new System.Windows.Forms.Label();
+            this.lbl_advancedPayementCorrect = new System.Windows.Forms.Label();
+            this.lbl_depositeAmountCorrect = new System.Windows.Forms.Label();
+            this.lbl_odomemterCorrect = new System.Windows.Forms.Label();
+            this.lbl_licenseNumberCorrect = new System.Windows.Forms.Label();
+            this.lbl_customerNICCorrect = new System.Windows.Forms.Label();
+            this.lbl_vehicleNumberCorrect = new System.Windows.Forms.Label();
+            this.lbl_bookingIDCorrect = new System.Windows.Forms.Label();
+            this.lbl_packageTypeError = new System.Windows.Forms.Label();
+            this.lbl_discriptionError = new System.Windows.Forms.Label();
+            this.lbl_advancedPayementError = new System.Windows.Forms.Label();
+            this.lbl_depositeAmountError = new System.Windows.Forms.Label();
+            this.lbl_odomemterError = new System.Windows.Forms.Label();
+            this.lbl_licenseNumberError = new System.Windows.Forms.Label();
+            this.lbl_customerNICError = new System.Windows.Forms.Label();
+            this.lbl_vehicleNumberError = new System.Windows.Forms.Label();
+            this.lbl_bookingIDError = new System.Windows.Forms.Label();
             this.pb_btnSubmitPrint = new System.Windows.Forms.Label();
             this.pb_btnReset = new System.Windows.Forms.Label();
             this.txt_description = new System.Windows.Forms.TextBox();
@@ -235,7 +252,6 @@ namespace ShineWay.UI
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(230, 25);
             this.txt_search.TabIndex = 15;
-            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // pictureBox16
             // 
@@ -260,6 +276,23 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lbl_packageTypeCorrect);
+            this.panel1.Controls.Add(this.lbl_advancedPayementCorrect);
+            this.panel1.Controls.Add(this.lbl_depositeAmountCorrect);
+            this.panel1.Controls.Add(this.lbl_odomemterCorrect);
+            this.panel1.Controls.Add(this.lbl_licenseNumberCorrect);
+            this.panel1.Controls.Add(this.lbl_customerNICCorrect);
+            this.panel1.Controls.Add(this.lbl_vehicleNumberCorrect);
+            this.panel1.Controls.Add(this.lbl_bookingIDCorrect);
+            this.panel1.Controls.Add(this.lbl_packageTypeError);
+            this.panel1.Controls.Add(this.lbl_discriptionError);
+            this.panel1.Controls.Add(this.lbl_advancedPayementError);
+            this.panel1.Controls.Add(this.lbl_depositeAmountError);
+            this.panel1.Controls.Add(this.lbl_odomemterError);
+            this.panel1.Controls.Add(this.lbl_licenseNumberError);
+            this.panel1.Controls.Add(this.lbl_customerNICError);
+            this.panel1.Controls.Add(this.lbl_vehicleNumberError);
+            this.panel1.Controls.Add(this.lbl_bookingIDError);
             this.panel1.Controls.Add(this.pb_btnSubmitPrint);
             this.panel1.Controls.Add(this.pb_btnReset);
             this.panel1.Controls.Add(this.txt_description);
@@ -310,6 +343,204 @@ namespace ShineWay.UI
             this.panel1.TabIndex = 28;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // lbl_packageTypeCorrect
+            // 
+            this.lbl_packageTypeCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_packageTypeCorrect.Location = new System.Drawing.Point(777, 507);
+            this.lbl_packageTypeCorrect.Name = "lbl_packageTypeCorrect";
+            this.lbl_packageTypeCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_packageTypeCorrect.TabIndex = 122;
+            this.lbl_packageTypeCorrect.Visible = false;
+            // 
+            // lbl_advancedPayementCorrect
+            // 
+            this.lbl_advancedPayementCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_advancedPayementCorrect.Location = new System.Drawing.Point(777, 626);
+            this.lbl_advancedPayementCorrect.Name = "lbl_advancedPayementCorrect";
+            this.lbl_advancedPayementCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_advancedPayementCorrect.TabIndex = 120;
+            this.lbl_advancedPayementCorrect.Visible = false;
+            // 
+            // lbl_depositeAmountCorrect
+            // 
+            this.lbl_depositeAmountCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_depositeAmountCorrect.Location = new System.Drawing.Point(777, 566);
+            this.lbl_depositeAmountCorrect.Name = "lbl_depositeAmountCorrect";
+            this.lbl_depositeAmountCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_depositeAmountCorrect.TabIndex = 119;
+            this.lbl_depositeAmountCorrect.Visible = false;
+            // 
+            // lbl_odomemterCorrect
+            // 
+            this.lbl_odomemterCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_odomemterCorrect.Location = new System.Drawing.Point(777, 380);
+            this.lbl_odomemterCorrect.Name = "lbl_odomemterCorrect";
+            this.lbl_odomemterCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_odomemterCorrect.TabIndex = 118;
+            this.lbl_odomemterCorrect.Visible = false;
+            // 
+            // lbl_licenseNumberCorrect
+            // 
+            this.lbl_licenseNumberCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_licenseNumberCorrect.Location = new System.Drawing.Point(777, 257);
+            this.lbl_licenseNumberCorrect.Name = "lbl_licenseNumberCorrect";
+            this.lbl_licenseNumberCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_licenseNumberCorrect.TabIndex = 117;
+            this.lbl_licenseNumberCorrect.Visible = false;
+            // 
+            // lbl_customerNICCorrect
+            // 
+            this.lbl_customerNICCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_customerNICCorrect.Location = new System.Drawing.Point(777, 194);
+            this.lbl_customerNICCorrect.Name = "lbl_customerNICCorrect";
+            this.lbl_customerNICCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_customerNICCorrect.TabIndex = 116;
+            this.lbl_customerNICCorrect.Visible = false;
+            // 
+            // lbl_vehicleNumberCorrect
+            // 
+            this.lbl_vehicleNumberCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_vehicleNumberCorrect.Location = new System.Drawing.Point(777, 132);
+            this.lbl_vehicleNumberCorrect.Name = "lbl_vehicleNumberCorrect";
+            this.lbl_vehicleNumberCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_vehicleNumberCorrect.TabIndex = 115;
+            this.lbl_vehicleNumberCorrect.Visible = false;
+            // 
+            // lbl_bookingIDCorrect
+            // 
+            this.lbl_bookingIDCorrect.Image = global::ShineWay.Properties.Resources.tick1;
+            this.lbl_bookingIDCorrect.Location = new System.Drawing.Point(777, 66);
+            this.lbl_bookingIDCorrect.Name = "lbl_bookingIDCorrect";
+            this.lbl_bookingIDCorrect.Size = new System.Drawing.Size(23, 22);
+            this.lbl_bookingIDCorrect.TabIndex = 107;
+            this.lbl_bookingIDCorrect.Visible = false;
+            // 
+            // lbl_packageTypeError
+            // 
+            this.lbl_packageTypeError.AutoSize = true;
+            this.lbl_packageTypeError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_packageTypeError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_packageTypeError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_packageTypeError.Location = new System.Drawing.Point(385, 530);
+            this.lbl_packageTypeError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_packageTypeError.Name = "lbl_packageTypeError";
+            this.lbl_packageTypeError.Size = new System.Drawing.Size(228, 18);
+            this.lbl_packageTypeError.TabIndex = 114;
+            this.lbl_packageTypeError.Text = "Please select a Package Type";
+            this.lbl_packageTypeError.Visible = false;
+            // 
+            // lbl_discriptionError
+            // 
+            this.lbl_discriptionError.AutoSize = true;
+            this.lbl_discriptionError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_discriptionError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_discriptionError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_discriptionError.Location = new System.Drawing.Point(387, 714);
+            this.lbl_discriptionError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_discriptionError.Name = "lbl_discriptionError";
+            this.lbl_discriptionError.Size = new System.Drawing.Size(240, 18);
+            this.lbl_discriptionError.TabIndex = 113;
+            this.lbl_discriptionError.Text = "Exceeded the word limit (0-150)";
+            this.lbl_discriptionError.Visible = false;
+            // 
+            // lbl_advancedPayementError
+            // 
+            this.lbl_advancedPayementError.AutoSize = true;
+            this.lbl_advancedPayementError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_advancedPayementError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_advancedPayementError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_advancedPayementError.Location = new System.Drawing.Point(385, 652);
+            this.lbl_advancedPayementError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_advancedPayementError.Name = "lbl_advancedPayementError";
+            this.lbl_advancedPayementError.Size = new System.Drawing.Size(213, 18);
+            this.lbl_advancedPayementError.TabIndex = 112;
+            this.lbl_advancedPayementError.Text = "Please enter a valid Amount";
+            this.lbl_advancedPayementError.Visible = false;
+            // 
+            // lbl_depositeAmountError
+            // 
+            this.lbl_depositeAmountError.AutoSize = true;
+            this.lbl_depositeAmountError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_depositeAmountError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_depositeAmountError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_depositeAmountError.Location = new System.Drawing.Point(385, 590);
+            this.lbl_depositeAmountError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_depositeAmountError.Name = "lbl_depositeAmountError";
+            this.lbl_depositeAmountError.Size = new System.Drawing.Size(213, 18);
+            this.lbl_depositeAmountError.TabIndex = 111;
+            this.lbl_depositeAmountError.Text = "Please enter a valid Amount";
+            this.lbl_depositeAmountError.Visible = false;
+            // 
+            // lbl_odomemterError
+            // 
+            this.lbl_odomemterError.AutoSize = true;
+            this.lbl_odomemterError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_odomemterError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_odomemterError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_odomemterError.Location = new System.Drawing.Point(385, 408);
+            this.lbl_odomemterError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_odomemterError.Name = "lbl_odomemterError";
+            this.lbl_odomemterError.Size = new System.Drawing.Size(232, 18);
+            this.lbl_odomemterError.TabIndex = 110;
+            this.lbl_odomemterError.Text = "Please enter a valid Odometer";
+            this.lbl_odomemterError.Visible = false;
+            // 
+            // lbl_licenseNumberError
+            // 
+            this.lbl_licenseNumberError.AutoSize = true;
+            this.lbl_licenseNumberError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_licenseNumberError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_licenseNumberError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_licenseNumberError.Location = new System.Drawing.Point(385, 283);
+            this.lbl_licenseNumberError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_licenseNumberError.Name = "lbl_licenseNumberError";
+            this.lbl_licenseNumberError.Size = new System.Drawing.Size(275, 18);
+            this.lbl_licenseNumberError.TabIndex = 109;
+            this.lbl_licenseNumberError.Text = "Please enter a valid License Number";
+            this.lbl_licenseNumberError.Visible = false;
+            // 
+            // lbl_customerNICError
+            // 
+            this.lbl_customerNICError.AutoSize = true;
+            this.lbl_customerNICError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_customerNICError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_customerNICError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_customerNICError.Location = new System.Drawing.Point(385, 219);
+            this.lbl_customerNICError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_customerNICError.Name = "lbl_customerNICError";
+            this.lbl_customerNICError.Size = new System.Drawing.Size(246, 18);
+            this.lbl_customerNICError.TabIndex = 108;
+            this.lbl_customerNICError.Text = "Please enter a valid NIC Number";
+            this.lbl_customerNICError.Visible = false;
+            // 
+            // lbl_vehicleNumberError
+            // 
+            this.lbl_vehicleNumberError.AutoSize = true;
+            this.lbl_vehicleNumberError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_vehicleNumberError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_vehicleNumberError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_vehicleNumberError.Location = new System.Drawing.Point(385, 157);
+            this.lbl_vehicleNumberError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_vehicleNumberError.Name = "lbl_vehicleNumberError";
+            this.lbl_vehicleNumberError.Size = new System.Drawing.Size(391, 18);
+            this.lbl_vehicleNumberError.TabIndex = 107;
+            this.lbl_vehicleNumberError.Text = "Please enter a valid Vehicle Numbr (eg :- ABC-1234)";
+            this.lbl_vehicleNumberError.Visible = false;
+            // 
+            // lbl_bookingIDError
+            // 
+            this.lbl_bookingIDError.AutoSize = true;
+            this.lbl_bookingIDError.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_bookingIDError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_bookingIDError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_bookingIDError.Location = new System.Drawing.Point(385, 94);
+            this.lbl_bookingIDError.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_bookingIDError.Name = "lbl_bookingIDError";
+            this.lbl_bookingIDError.Size = new System.Drawing.Size(196, 18);
+            this.lbl_bookingIDError.TabIndex = 106;
+            this.lbl_bookingIDError.Text = "Please enter a valid Email";
+            this.lbl_bookingIDError.Visible = false;
+            // 
             // pb_btnSubmitPrint
             // 
             this.pb_btnSubmitPrint.BackColor = System.Drawing.Color.White;
@@ -354,7 +585,7 @@ namespace ShineWay.UI
             this.txt_advancedPayment.Location = new System.Drawing.Point(385, 626);
             this.txt_advancedPayment.Name = "txt_advancedPayment";
             this.txt_advancedPayment.PromptChar = ' ';
-            this.txt_advancedPayment.Size = new System.Drawing.Size(417, 23);
+            this.txt_advancedPayment.Size = new System.Drawing.Size(368, 23);
             this.txt_advancedPayment.TabIndex = 9;
             this.txt_advancedPayment.Enter += new System.EventHandler(this.txt_advancedPayment_Enter);
             this.txt_advancedPayment.Leave += new System.EventHandler(this.txt_advancedPayment_Leave);
@@ -367,7 +598,7 @@ namespace ShineWay.UI
             this.txt_depositAmount.Location = new System.Drawing.Point(387, 566);
             this.txt_depositAmount.Name = "txt_depositAmount";
             this.txt_depositAmount.PromptChar = ' ';
-            this.txt_depositAmount.Size = new System.Drawing.Size(415, 23);
+            this.txt_depositAmount.Size = new System.Drawing.Size(366, 23);
             this.txt_depositAmount.TabIndex = 8;
             this.txt_depositAmount.Enter += new System.EventHandler(this.txt_depositAmount_Enter);
             this.txt_depositAmount.Leave += new System.EventHandler(this.txt_depositAmount_Leave);
@@ -826,7 +1057,6 @@ namespace ShineWay.UI
             this.label4.Size = new System.Drawing.Size(225, 27);
             this.label4.TabIndex = 16;
             this.label4.Text = "Expected End Date";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox14
             // 
@@ -940,5 +1170,22 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
         private System.Windows.Forms.DateTimePicker date_endDate;
+        private System.Windows.Forms.Label lbl_bookingIDError;
+        private System.Windows.Forms.Label lbl_licenseNumberError;
+        private System.Windows.Forms.Label lbl_customerNICError;
+        private System.Windows.Forms.Label lbl_vehicleNumberError;
+        private System.Windows.Forms.Label lbl_discriptionError;
+        private System.Windows.Forms.Label lbl_advancedPayementError;
+        private System.Windows.Forms.Label lbl_odomemterError;
+        private System.Windows.Forms.Label lbl_packageTypeError;
+        private System.Windows.Forms.Label lbl_depositeAmountError;
+        private System.Windows.Forms.Label lbl_bookingIDCorrect;
+        private System.Windows.Forms.Label lbl_packageTypeCorrect;
+        private System.Windows.Forms.Label lbl_advancedPayementCorrect;
+        private System.Windows.Forms.Label lbl_depositeAmountCorrect;
+        private System.Windows.Forms.Label lbl_odomemterCorrect;
+        private System.Windows.Forms.Label lbl_licenseNumberCorrect;
+        private System.Windows.Forms.Label lbl_customerNICCorrect;
+        private System.Windows.Forms.Label lbl_vehicleNumberCorrect;
     }
 }
