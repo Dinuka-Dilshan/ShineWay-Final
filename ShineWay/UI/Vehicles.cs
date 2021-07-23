@@ -210,11 +210,6 @@ namespace ShineWay.UI
 
       
 
-        private void msktxt_startingOdo_Leave(object sender, EventArgs e)
-        {
-           
-        }
-
         private void txt_OwnerPayment_KeyPress(object sender, KeyPressEventArgs e)
         {
           if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
@@ -223,8 +218,10 @@ namespace ShineWay.UI
 
         private void txt_DailyPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-          if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
-              e.Handled = true;
+
+             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                 e.Handled = true;
+          
         }
 
         private void txt_WeeklyPrice_KeyPress(object sender, KeyPressEventArgs e)
@@ -248,25 +245,62 @@ namespace ShineWay.UI
         private void txt_Dailykm_KeyPress(object sender, KeyPressEventArgs e)
         {
            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-               e.Handled = true;
+            {
+                e.Handled = true;
+               label_validKmError.Visible = true;
+            }
+            else
+            {
+                label_validKmError.Visible = false;
+                label_tickKm.Visible = true;
+            }
+               
         }
 
         private void txt_Weeklykm_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
                 e.Handled = true;
+                label_validKmError.Visible = true;
+            }
+            else
+            {
+                label_validKmError.Visible = false;
+                label_tickKm.Visible = true;
+            }
+                
         }
 
         private void txt_Monthlykm_KeyPress(object sender, KeyPressEventArgs e)
         {
            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-              e.Handled = true;
+            {
+                e.Handled = true;
+                label_validKmError.Visible = true;
+            }
+            else
+            {
+                label_validKmError.Visible = false;
+                label_tickKm.Visible = true;
+            }
+              
         }
 
         private void msktxt_startingOdo_KeyPress(object sender, KeyPressEventArgs e)
         {
-          //  if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-          //      e.Handled = true;
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                label_StartingOdoError.Visible = true;
+            }
+            else
+            {
+                label_StartingOdoError.Visible = false;
+                label_tickStartOdo.Visible = true;
+            }
+
+
         }
 
         private void pb_BtnBrowseOverallView_MouseHover_1(object sender, EventArgs e)
@@ -311,68 +345,14 @@ namespace ShineWay.UI
             pictureBox23.Image = ShineWay.Properties.Resources.correctInput;
             pictureBox28.Image = ShineWay.Properties.Resources.correctInput;
             pictureBox30.Image = ShineWay.Properties.Resources.correctInput;
+            label_rentPriceError.Visible = false;
+            label_tickrentPrice.Visible = false;
+            label_validKmError.Visible = false;
+            label_tickKm.Visible = false;
 
         }
 
 
-
-        private void txt_DailyPrice_Leave(object sender, EventArgs e)
-        {
-        /*    bool isValiddailyPrice = Validates.ValidAmount(txt_DailyPrice.Text);
-
-            if (isValiddailyPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
-
-        private void txt_WeeklyPrice_Leave(object sender, EventArgs e)
-        {
-         /*   bool isValidWeeklyPrice = Validates.ValidAmount(txt_WeeklyPrice.Text);
-
-            if (isValidWeeklyPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
-
-        private void txt_MonthlyPrice_Leave(object sender, EventArgs e)
-        {
-           /* bool isValidMonthlyPrice = Validates.ValidAmount(txt_MonthlyPrice.Text);
-            if (isValidMonthlyPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
-
-        private void txt_ExtrakmPrice_Leave(object sender, EventArgs e)
-        {
-           /* bool isValidExtraKmPrice = Validates.ValidAmount(txt_ExtrakmPrice.Text);
-            if (isValidExtraKmPrice == true)
-            {
-                txt_OwnerPayment.ForeColor = Color.Black;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }*/
-        }
 
         //Update Button
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -591,6 +571,87 @@ namespace ShineWay.UI
                 label_VehicleTypeError.Visible = false;
                 label_tickVehType.Visible = true;
             }
+        }
+
+        private void txt_DailyPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidDailyPrice = Validates.ValidAmount(txt_DailyPrice.Text);
+            if (isValidDailyPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_WeeklyPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidWeeklyPrice = Validates.ValidAmount(txt_WeeklyPrice.Text);
+            if (isValidWeeklyPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_MonthlyPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidMonthlyPrice = Validates.ValidAmount(txt_MonthlyPrice.Text);
+            if (isValidMonthlyPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_ExtrakmPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            bool isValidExtrakmPrice = Validates.ValidAmount(txt_ExtrakmPrice.Text);
+            if (isValidExtrakmPrice == false)
+            {
+                label_rentPriceError.Visible = true;
+
+            }
+            else
+            {
+                label_rentPriceError.Visible = false;
+                label_tickrentPrice.Visible = true;
+            }
+        }
+
+        private void txt_OwnerPayment_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool isValidOwnerPayment = Validates.ValidAmount(txt_OwnerPayment.Text);
+            if (isValidOwnerPayment == false)
+            {
+                label_ownerPaymentError.Visible = true;
+            }
+            else
+            {
+                label_ownerPaymentError.Visible = false;
+                label_tickOwnerPayment.Visible = true;
+            }
+        }
+
+        private void txt_DailyPrice_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+                e.Handled = true;
         }
     }
 }
