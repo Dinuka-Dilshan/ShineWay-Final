@@ -389,5 +389,17 @@ namespace ShineWay.UI
                 isEmailValid = false;
             }
         }
+
+
+        private void pictureBox3_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_nicNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
     }
 }

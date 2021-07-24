@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using System.IO;
 using ShineWay.Validation;
 using ShineWay.Messages;
+using ShineWay.Classes;
 
 namespace ShineWay.UI
 {
@@ -26,6 +27,7 @@ namespace ShineWay.UI
         bool isModelValid = false;
         bool isEngineNoValid = false;
         bool isChassisNoValid = false;
+        List<Vehicle> vehicles = new List<Vehicle>();
 
         public Vehicles()
         {
@@ -71,46 +73,37 @@ namespace ShineWay.UI
         {
             pb_btnDelete.Image = ShineWay.Properties.Resources.delete;
         }
-     
+
 
         //Insert Button
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
-            if(msktxt_vehicleRegNumber.ForeColor == Color.Red && txt_ownerNIC.ForeColor == Color.Red && msktxt_startingOdo.ForeColor == Color.Red)
+            try
             {
-                CustomMessage errmsg = new CustomMessage("Please enter correct values!", "Incorrect", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errmsg.convertToOkButton();
-                errmsg.ShowDialog();
+                MemoryStream ms = new MemoryStream();
+                pb_overallViewimg.Image.Save(ms, pb_overallViewimg.Image.RawFormat);
+                pb_InsideViewimg.Image.Save(ms, pb_InsideViewimg.Image.RawFormat);
+                Byte[] img = ms.ToArray();
+
+                MySqlDataReader rd1 = DbConnection.Read("INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`," +
+                    " `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`," +
+                    " `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) VALUES ('" + msktxt_vehicleRegNumber.Text + "','" + txt_brand.Text + "','" + txt_model.Text + "'," +
+                    "'" + combo_type.Text + "','" + txt_engineNumber.Text + "','" + txt_chasisNumber.Text + "','" + txt_ownerNIC.Text + "','" + date_registeredDate.Text + "','" + txt_ownerCondition.Text + "'" +
+                    ",'" + txt_DailyPrice.Text + "','" + txt_Dailykm.Text + "','" + txt_WeeklyPrice.Text + "','" + txt_Weeklykm.Text + "','" + txt_MonthlyPrice.Text + "'," +
+                    "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
+
+                //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                addmsg.convertToOkButton();
+                addmsg.ShowDialog();
             }
-            else
+
+            catch (Exception ex)
             {
-
-                try
-                {
-                    MemoryStream ms = new MemoryStream();
-                    pb_overallViewimg.Image.Save(ms, pb_overallViewimg.Image.RawFormat);
-                    pb_InsideViewimg.Image.Save(ms, pb_InsideViewimg.Image.RawFormat);
-                    Byte[] img = ms.ToArray();
-
-                    MySqlDataReader rd1 = DbConnection.Read("INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`," +
-                        " `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`," +
-                        " `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) VALUES ('" + msktxt_vehicleRegNumber.Text + "','" + txt_brand.Text + "','" + txt_model.Text + "'," +
-                        "'" + combo_type.Text + "','" + txt_engineNumber.Text + "','" + txt_chasisNumber.Text + "','" + txt_ownerNIC.Text + "','" + date_registeredDate.Text + "','" + txt_ownerCondition.Text + "'" +
-                        ",'" + txt_DailyPrice.Text + "','" + txt_Dailykm.Text + "','" + txt_WeeklyPrice.Text + "','" + txt_Weeklykm.Text + "','" + txt_MonthlyPrice.Text + "'," +
-                        "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
-
-                    //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                    addmsg.convertToOkButton();
-                    addmsg.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    // MessageBox.Show("Vehicle not added!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    CustomMessage addmsgerr = new CustomMessage("Vehicle not added!", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
-                    addmsgerr.convertToOkButton();
-                    addmsgerr.ShowDialog();
-                }
+                // MessageBox.Show("Vehicle not added!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CustomMessage addmsgerr = new CustomMessage("Vehicle not added!", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                addmsgerr.convertToOkButton();
+                addmsgerr.ShowDialog();
             }
           
         }
@@ -133,6 +126,47 @@ namespace ShineWay.UI
             imgcol.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+        public void setDataToGrid()
+        {
+
+            try
+            {
+                MySqlDataReader reader = DbConnection.Read("SELECT * FROM `vehicle`");
+                while (reader.Read())
+                {
+                  Vehicle vehicle = new Vehicle();
+                    vehicle.vehNumber = reader[0].ToString();
+                    vehicle.Brand = reader[1].ToString();
+                    vehicle.model = reader[2].ToString();
+                    vehicle.type = reader[3].ToString();
+                    vehicle.engineNumber = reader[4].ToString();
+                    vehicle.chassisNumber = reader[5].ToString();
+                    vehicle.ownerNic = reader[6].ToString();
+                    vehicle.registerDate = reader[7].ToString();
+                    vehicle.ownerCondition = reader[8].ToString();
+                    vehicle.dailyPrice = reader[9].ToString();
+                    vehicle.dailyKm = reader[10].ToString();
+                    vehicle.weeklyPrice = reader[11].ToString();
+                    vehicle.weeklyKm = reader[12].ToString();
+                    vehicle.monthlyPrice = reader[13].ToString();
+                    vehicle.monthlyKm = reader[14].ToString();
+                    vehicle.ownerPayment = reader[15].ToString();
+                    vehicle.startingOdometer = reader[16].ToString();
+                    vehicle.overallView = reader[17].ToString();
+                    vehicle.insideView = reader[18].ToString();
+                    vehicles.Add(vehicle);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CustomMessage submitmessege = new CustomMessage(ex.Message, "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+
+            dataGridView1.DataSource = vehicles;
         }
 
         private void txt_DailyPrice_TextChanged(object sender, EventArgs e)
@@ -367,7 +401,7 @@ namespace ShineWay.UI
         //Delete Button
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
-            CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
+            CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.tick, DialogResult.OK);
             addmsg.convertToOkButton();
             addmsg.ShowDialog();
         }
@@ -652,6 +686,16 @@ namespace ShineWay.UI
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Vehicles_Load(object sender, EventArgs e)
+        {
+            setDataToGrid();
         }
     }
 }
