@@ -33,21 +33,25 @@ namespace ShineWay.UI
 
             try
             {
-                MySqlDataReader reader = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Licen_num`,`Cus_NIC` FROM `booking`");
-                while (reader.Read())
+                MySqlDataReader reader1 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`,`Package_Type` FROM `booking`");
+              //  MySqlDataReader reader2 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`,`Package_Type`,`Discription` FROM `booking`");
+
+                while (reader1.Read())
                 {
                     Booking1 Booking = new Booking1();
-                    Booking.bookinID = reader[0].ToString();
-                    Booking.vehicleNum = reader[1].ToString();
-                    Booking.licenseNum = reader[2].ToString();
-                    Booking.customerNIC = reader[3].ToString();
-
+                    Booking.Booking_ID = reader1[0].ToString();
+                    Booking.Vehicle_Number = reader1[1].ToString();
+                    Booking.Customer_NIC = reader1[2].ToString();
+                    Booking.License_Number = reader1[3].ToString();
+                    Booking.Start_Date = reader1[4].ToString();
+                    Booking.Package_Type = reader1[5].ToString();
+                 
                     bookings.Add(Booking);
                 }
             }
             catch (Exception ex)
             {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.error, DialogResult.OK);
                 submitmessege.convertToOkButton();
                 submitmessege.ShowDialog();
             }
@@ -205,13 +209,14 @@ namespace ShineWay.UI
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
-                    //   MySqlDataReader reader1 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text.Trim() + "');");
 
 
                 }
                 catch (Exception ex)
                 {
-                    //  MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
