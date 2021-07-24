@@ -391,15 +391,6 @@ namespace ShineWay.UI
         }
 
 
-        private void pictureBox3_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_nicNumber_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
 
     }
 }
