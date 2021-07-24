@@ -325,18 +325,26 @@ namespace ShineWay.UI
 
         public void fillData(string query)
         {
-            MySqlConnection connection = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
-            connection.Open();
-            MySqlDataAdapter MyDA = new MySqlDataAdapter();
-            MyDA.SelectCommand = new MySqlCommand(query, connection);
+            try
+            {
+                MySqlConnection connection = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+                connection.Open();
+                MySqlDataAdapter MyDA = new MySqlDataAdapter();
+                MyDA.SelectCommand = new MySqlCommand(query, connection);
 
-            DataTable table = new DataTable();
-            MyDA.Fill(table);
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
 
-            BindingSource bSource = new BindingSource();
-            bSource.DataSource = table;
-            dataGridView1.DataSource = bSource;
-            connection.Close();
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = table;
+                dataGridView1.DataSource = bSource;
+                connection.Close();
+            }
+            catch (Exception ee)
+            {
+
+            }
+            
         }
 
 
@@ -374,9 +382,10 @@ namespace ShineWay.UI
             }
         }
 
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        private void txt_search_KeyUp(object sender, KeyEventArgs e)
         {
-
+            string query = $"SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\"";
+            fillData(query);
         }
     }
 }
