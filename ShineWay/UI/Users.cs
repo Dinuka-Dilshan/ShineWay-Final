@@ -376,5 +376,18 @@ namespace ShineWay.UI
                 
             }
         }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    txt_NIC.Text = row.Cells[0].Value.ToString();
+                    txt_name.Text = row.Cells[1].Value.ToString();
+                    txt_telephoneNumber.Text = row.Cells[3].Value.ToString();
+                    txt_address.Text = row.Cells[4].Value.ToString();
+
+            }
+            
+        }
     }
 }
