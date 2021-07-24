@@ -43,8 +43,19 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+
+            this.label_validKmError = new System.Windows.Forms.Label();
+            this.label_tickKm = new System.Windows.Forms.Label();
+            this.label_tickrentPrice = new System.Windows.Forms.Label();
+            this.label_rentPriceError = new System.Windows.Forms.Label();
+            this.label_tickVehType = new System.Windows.Forms.Label();
+            this.label_VehicleTypeError = new System.Windows.Forms.Label();
+            this.label_StartingOdoError = new System.Windows.Forms.Label();
+            this.label_ownerPaymentError = new System.Windows.Forms.Label();
+
             this.label_chassisNoError = new System.Windows.Forms.Label();
             this.label_engineNoError = new System.Windows.Forms.Label();
             this.label_modelError = new System.Windows.Forms.Label();
@@ -182,6 +193,7 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 27;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox31
             // 
@@ -302,8 +314,14 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.label_validKmError);
+            this.panel1.Controls.Add(this.label_tickKm);
+            this.panel1.Controls.Add(this.label_tickrentPrice);
+            this.panel1.Controls.Add(this.label_rentPriceError);
+            this.panel1.Controls.Add(this.label_tickVehType);
+            this.panel1.Controls.Add(this.label_VehicleTypeError);
+            this.panel1.Controls.Add(this.label_StartingOdoError);
+            this.panel1.Controls.Add(this.label_ownerPaymentError);
             this.panel1.Controls.Add(this.label_chassisNoError);
             this.panel1.Controls.Add(this.label_engineNoError);
             this.panel1.Controls.Add(this.label_modelError);
@@ -393,6 +411,7 @@ namespace ShineWay.UI
             this.panel1.TabIndex = 28;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+
             // label22
             // 
             this.label22.AutoSize = true;
@@ -420,6 +439,104 @@ namespace ShineWay.UI
             this.label21.TabIndex = 111;
             this.label21.Text = "Please enter a valid price format";
             this.label21.Visible = false;
+
+            // label_validKmError
+            // 
+            this.label_validKmError.AutoSize = true;
+            this.label_validKmError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_validKmError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_validKmError.ForeColor = System.Drawing.Color.Red;
+            this.label_validKmError.Location = new System.Drawing.Point(407, 598);
+            this.label_validKmError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_validKmError.Name = "label_validKmError";
+            this.label_validKmError.Size = new System.Drawing.Size(230, 18);
+            this.label_validKmError.TabIndex = 120;
+            this.label_validKmError.Text = "Please enter a valid km format";
+            this.label_validKmError.Visible = false;
+            // 
+            // label_tickKm
+            // 
+            this.label_tickKm.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickKm.Location = new System.Drawing.Point(825, 584);
+            this.label_tickKm.Name = "label_tickKm";
+            this.label_tickKm.Size = new System.Drawing.Size(23, 22);
+            this.label_tickKm.TabIndex = 119;
+            this.label_tickKm.Visible = false;
+            // 
+            // label_tickrentPrice
+            // 
+            this.label_tickrentPrice.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickrentPrice.Location = new System.Drawing.Point(825, 528);
+            this.label_tickrentPrice.Name = "label_tickrentPrice";
+            this.label_tickrentPrice.Size = new System.Drawing.Size(23, 22);
+            this.label_tickrentPrice.TabIndex = 118;
+            this.label_tickrentPrice.Visible = false;
+            // 
+            // label_rentPriceError
+            // 
+            this.label_rentPriceError.AutoSize = true;
+            this.label_rentPriceError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_rentPriceError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_rentPriceError.ForeColor = System.Drawing.Color.Red;
+            this.label_rentPriceError.Location = new System.Drawing.Point(399, 510);
+            this.label_rentPriceError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_rentPriceError.Name = "label_rentPriceError";
+            this.label_rentPriceError.Size = new System.Drawing.Size(246, 18);
+            this.label_rentPriceError.TabIndex = 117;
+            this.label_rentPriceError.Text = "Please enter a valid price format";
+            this.label_rentPriceError.Visible = false;
+            // 
+            // label_tickVehType
+            // 
+            this.label_tickVehType.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickVehType.Location = new System.Drawing.Point(825, 194);
+            this.label_tickVehType.Name = "label_tickVehType";
+            this.label_tickVehType.Size = new System.Drawing.Size(23, 22);
+            this.label_tickVehType.TabIndex = 116;
+            this.label_tickVehType.Visible = false;
+            // 
+            // label_VehicleTypeError
+            // 
+            this.label_VehicleTypeError.AutoSize = true;
+            this.label_VehicleTypeError.BackColor = System.Drawing.Color.Transparent;
+            this.label_VehicleTypeError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_VehicleTypeError.ForeColor = System.Drawing.Color.Red;
+            this.label_VehicleTypeError.Location = new System.Drawing.Point(399, 215);
+            this.label_VehicleTypeError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_VehicleTypeError.Name = "label_VehicleTypeError";
+            this.label_VehicleTypeError.Size = new System.Drawing.Size(232, 18);
+            this.label_VehicleTypeError.TabIndex = 115;
+            this.label_VehicleTypeError.Text = "Please select the Vehicle Type";
+            this.label_VehicleTypeError.Visible = false;
+            // 
+            // label_StartingOdoError
+            // 
+            this.label_StartingOdoError.AutoSize = true;
+            this.label_StartingOdoError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_StartingOdoError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_StartingOdoError.ForeColor = System.Drawing.Color.Red;
+            this.label_StartingOdoError.Location = new System.Drawing.Point(429, 725);
+            this.label_StartingOdoError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_StartingOdoError.Name = "label_StartingOdoError";
+            this.label_StartingOdoError.Size = new System.Drawing.Size(230, 18);
+            this.label_StartingOdoError.TabIndex = 112;
+            this.label_StartingOdoError.Text = "Please enter a valid km format";
+            this.label_StartingOdoError.Visible = false;
+            // 
+            // label_ownerPaymentError
+            // 
+            this.label_ownerPaymentError.AutoSize = true;
+            this.label_ownerPaymentError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_ownerPaymentError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_ownerPaymentError.ForeColor = System.Drawing.Color.Red;
+            this.label_ownerPaymentError.Location = new System.Drawing.Point(429, 666);
+            this.label_ownerPaymentError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_ownerPaymentError.Name = "label_ownerPaymentError";
+            this.label_ownerPaymentError.Size = new System.Drawing.Size(246, 18);
+            this.label_ownerPaymentError.TabIndex = 111;
+            this.label_ownerPaymentError.Text = "Please enter a valid price format";
+            this.label_ownerPaymentError.Visible = false;
+
             // 
             // label_chassisNoError
             // 
@@ -480,7 +597,7 @@ namespace ShineWay.UI
             // label_tickStartOdo
             // 
             this.label_tickStartOdo.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickStartOdo.Location = new System.Drawing.Point(785, 699);
+            this.label_tickStartOdo.Location = new System.Drawing.Point(825, 699);
             this.label_tickStartOdo.Name = "label_tickStartOdo";
             this.label_tickStartOdo.Size = new System.Drawing.Size(23, 22);
             this.label_tickStartOdo.TabIndex = 106;
@@ -489,7 +606,7 @@ namespace ShineWay.UI
             // label_tickOwnerPayment
             // 
             this.label_tickOwnerPayment.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickOwnerPayment.Location = new System.Drawing.Point(785, 640);
+            this.label_tickOwnerPayment.Location = new System.Drawing.Point(825, 640);
             this.label_tickOwnerPayment.Name = "label_tickOwnerPayment";
             this.label_tickOwnerPayment.Size = new System.Drawing.Size(23, 22);
             this.label_tickOwnerPayment.TabIndex = 105;
@@ -498,7 +615,7 @@ namespace ShineWay.UI
             // label_tickChassisNo
             // 
             this.label_tickChassisNo.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickChassisNo.Location = new System.Drawing.Point(785, 309);
+            this.label_tickChassisNo.Location = new System.Drawing.Point(825, 309);
             this.label_tickChassisNo.Name = "label_tickChassisNo";
             this.label_tickChassisNo.Size = new System.Drawing.Size(23, 22);
             this.label_tickChassisNo.TabIndex = 104;
@@ -507,7 +624,7 @@ namespace ShineWay.UI
             // label_tickEngineNO
             // 
             this.label_tickEngineNO.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickEngineNO.Location = new System.Drawing.Point(785, 251);
+            this.label_tickEngineNO.Location = new System.Drawing.Point(825, 251);
             this.label_tickEngineNO.Name = "label_tickEngineNO";
             this.label_tickEngineNO.Size = new System.Drawing.Size(23, 22);
             this.label_tickEngineNO.TabIndex = 103;
@@ -516,7 +633,7 @@ namespace ShineWay.UI
             // label_tickModel
             // 
             this.label_tickModel.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickModel.Location = new System.Drawing.Point(785, 145);
+            this.label_tickModel.Location = new System.Drawing.Point(825, 145);
             this.label_tickModel.Name = "label_tickModel";
             this.label_tickModel.Size = new System.Drawing.Size(23, 22);
             this.label_tickModel.TabIndex = 102;
@@ -525,7 +642,7 @@ namespace ShineWay.UI
             // label_tickBrand
             // 
             this.label_tickBrand.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickBrand.Location = new System.Drawing.Point(785, 87);
+            this.label_tickBrand.Location = new System.Drawing.Point(825, 88);
             this.label_tickBrand.Name = "label_tickBrand";
             this.label_tickBrand.Size = new System.Drawing.Size(23, 22);
             this.label_tickBrand.TabIndex = 101;
@@ -534,7 +651,7 @@ namespace ShineWay.UI
             // label_tickVehicleRegNo
             // 
             this.label_tickVehicleRegNo.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickVehicleRegNo.Location = new System.Drawing.Point(785, 29);
+            this.label_tickVehicleRegNo.Location = new System.Drawing.Point(825, 29);
             this.label_tickVehicleRegNo.Name = "label_tickVehicleRegNo";
             this.label_tickVehicleRegNo.Size = new System.Drawing.Size(23, 22);
             this.label_tickVehicleRegNo.TabIndex = 100;
@@ -549,15 +666,15 @@ namespace ShineWay.UI
             this.label_VehicleRegNoError.Location = new System.Drawing.Point(399, 55);
             this.label_VehicleRegNoError.Margin = new System.Windows.Forms.Padding(0);
             this.label_VehicleRegNoError.Name = "label_VehicleRegNoError";
-            this.label_VehicleRegNoError.Size = new System.Drawing.Size(339, 18);
+            this.label_VehicleRegNoError.Size = new System.Drawing.Size(391, 18);
             this.label_VehicleRegNoError.TabIndex = 99;
-            this.label_VehicleRegNoError.Text = "Please enter a valid Vehicle Register Number";
+            this.label_VehicleRegNoError.Text = "Please enter a valid Vehicle Numbr (eg :- ABC-1234)";
             this.label_VehicleRegNoError.Visible = false;
             // 
             // label_tickOwnerCondition
             // 
             this.label_tickOwnerCondition.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickOwnerCondition.Location = new System.Drawing.Point(785, 476);
+            this.label_tickOwnerCondition.Location = new System.Drawing.Point(825, 471);
             this.label_tickOwnerCondition.Name = "label_tickOwnerCondition";
             this.label_tickOwnerCondition.Size = new System.Drawing.Size(23, 22);
             this.label_tickOwnerCondition.TabIndex = 98;
@@ -566,7 +683,7 @@ namespace ShineWay.UI
             // label_tickNIC
             // 
             this.label_tickNIC.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickNIC.Location = new System.Drawing.Point(785, 366);
+            this.label_tickNIC.Location = new System.Drawing.Point(825, 366);
             this.label_tickNIC.Name = "label_tickNIC";
             this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
             this.label_tickNIC.TabIndex = 97;
@@ -658,7 +775,6 @@ namespace ShineWay.UI
             this.msktxt_startingOdo.Size = new System.Drawing.Size(422, 23);
             this.msktxt_startingOdo.TabIndex = 17;
             this.msktxt_startingOdo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.msktxt_startingOdo_KeyPress);
-            this.msktxt_startingOdo.Leave += new System.EventHandler(this.msktxt_startingOdo_Leave);
             // 
             // txt_ownerNIC
             // 
@@ -804,7 +920,7 @@ namespace ShineWay.UI
             this.txt_ExtrakmPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_ExtrakmPrice.TabIndex = 12;
             this.txt_ExtrakmPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ExtrakmPrice_KeyPress);
-            this.txt_ExtrakmPrice.Leave += new System.EventHandler(this.txt_ExtrakmPrice_Leave);
+            this.txt_ExtrakmPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ExtrakmPrice_KeyUp);
             // 
             // txt_MonthlyPrice
             // 
@@ -817,7 +933,7 @@ namespace ShineWay.UI
             this.txt_MonthlyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_MonthlyPrice.TabIndex = 11;
             this.txt_MonthlyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_MonthlyPrice_KeyPress);
-            this.txt_MonthlyPrice.Leave += new System.EventHandler(this.txt_MonthlyPrice_Leave);
+            this.txt_MonthlyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_MonthlyPrice_KeyUp);
             // 
             // txt_WeeklyPrice
             // 
@@ -830,7 +946,7 @@ namespace ShineWay.UI
             this.txt_WeeklyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_WeeklyPrice.TabIndex = 10;
             this.txt_WeeklyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_WeeklyPrice_KeyPress);
-            this.txt_WeeklyPrice.Leave += new System.EventHandler(this.txt_WeeklyPrice_Leave);
+            this.txt_WeeklyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_WeeklyPrice_KeyUp);
             // 
             // msktxt_vehicleRegNumber
             // 
@@ -875,8 +991,7 @@ namespace ShineWay.UI
             this.combo_type.Name = "combo_type";
             this.combo_type.Size = new System.Drawing.Size(151, 29);
             this.combo_type.TabIndex = 3;
-            this.combo_type.SelectedIndexChanged += new System.EventHandler(this.combo_Packagetype_SelectedIndexChanged);
-            this.combo_type.TextChanged += new System.EventHandler(this.combo_Packagetype_TextChanged);
+            this.combo_type.TextChanged += new System.EventHandler(this.combo_type_TextChanged);
             // 
             // label13
             // 
@@ -945,6 +1060,7 @@ namespace ShineWay.UI
             this.txt_OwnerPayment.Size = new System.Drawing.Size(430, 23);
             this.txt_OwnerPayment.TabIndex = 16;
             this.txt_OwnerPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OwnerPayment_KeyPress);
+            this.txt_OwnerPayment.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_OwnerPayment_KeyUp);
             // 
             // pictureBox28
             // 
@@ -1025,8 +1141,8 @@ namespace ShineWay.UI
             this.txt_DailyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_DailyPrice.TabIndex = 9;
             this.txt_DailyPrice.TextChanged += new System.EventHandler(this.txt_DailyPrice_TextChanged);
-            this.txt_DailyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DailyPrice_KeyPress);
-            this.txt_DailyPrice.Leave += new System.EventHandler(this.txt_DailyPrice_Leave);
+            this.txt_DailyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DailyPrice_KeyPress_1);
+            this.txt_DailyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_DailyPrice_KeyUp);
             // 
             // pictureBox25
             // 
@@ -1399,6 +1515,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "Vehicles";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.Vehicles_Load);
             this.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
             this.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
             this.panel2.ResumeLayout(false);
@@ -1540,7 +1657,13 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_engineNoError;
         private System.Windows.Forms.Label label_modelError;
         private System.Windows.Forms.Label label_brandError;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label_StartingOdoError;
+        private System.Windows.Forms.Label label_ownerPaymentError;
+        private System.Windows.Forms.Label label_tickVehType;
+        private System.Windows.Forms.Label label_VehicleTypeError;
+        private System.Windows.Forms.Label label_rentPriceError;
+        private System.Windows.Forms.Label label_tickrentPrice;
+        private System.Windows.Forms.Label label_tickKm;
+        private System.Windows.Forms.Label label_validKmError;
     }
 }
