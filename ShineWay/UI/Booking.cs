@@ -252,8 +252,8 @@ namespace ShineWay.UI
 
         private void txt_vehicleRegNumber_Leave(object sender, EventArgs e)
         {
-            bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text);
-            bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text);
+            bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text.Trim());
+            bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text.Trim());
 
             if (validVehicleNumber1 == true || validVehicleNumber2 == true)
             {
@@ -270,8 +270,8 @@ namespace ShineWay.UI
        
         private void txt_customerNic_Leave(object sender, EventArgs e)
         {
-            bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text);
-            bool validcustomernic2 = Validates.ValidCustomerNewNIC(txt_customerNic.Text);
+            bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text.Trim());
+            bool validcustomernic2 = Validates.ValidCustomerNewNIC(txt_customerNic.Text.Trim());
 
             if (validcustomernic1 == true || validcustomernic2 == true)
             {
@@ -325,7 +325,7 @@ namespace ShineWay.UI
 
         private void txt_startingOdometer_Leave(object sender, EventArgs e)
         {
-            bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text);
+            bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text.Trim());
 
             if (startodo == false)
             {
@@ -346,7 +346,7 @@ namespace ShineWay.UI
 
         private void txt_depositAmount_Leave(object sender, EventArgs e)
         {
-            bool depositeamount = Validates.ValidAmount(txt_depositAmount.Text);
+            bool depositeamount = Validates.ValidAmount(txt_depositAmount.Text.Trim());
 
             if (depositeamount == false)
             {
@@ -368,7 +368,7 @@ namespace ShineWay.UI
 
         private void txt_advancedPayment_Leave(object sender, EventArgs e)
         {
-            bool advanceamount = Validates.ValidAmount(txt_advancedPayment.Text);
+            bool advanceamount = Validates.ValidAmount(txt_advancedPayment.Text.Trim());
             if (advanceamount == false)
             {
                 lbl_advancedPayementError.Visible = true;
