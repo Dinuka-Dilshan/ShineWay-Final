@@ -108,12 +108,12 @@ namespace ShineWay.UI
                         }
                         catch (Exception exe)
                         {
-                            new CustomMessage("Connot insert!", "Error", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
+                            new CustomMessage("Connot insert!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
                         }
                     }
                     catch (Exception exe)
                     {
-                        new CustomMessage("Unable to connect!", "Error", ShineWay.Properties.Resources.correct, DialogResult.OK).ShowDialog();
+                        new CustomMessage("Unable to connect!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
                     }
 
 
@@ -183,14 +183,14 @@ namespace ShineWay.UI
                         {
                             DbConnection.Update(query);
                             setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
-                            CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                            CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             submitmessege.convertToOkButton();
                             submitmessege.ShowDialog();
 
                         }
                         catch (Exception exc)
                         {
-                            CustomMessage submitmessege = new CustomMessage(exc.Message, "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                            CustomMessage submitmessege = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
                             submitmessege.convertToOkButton();
                             submitmessege.ShowDialog();
                         }
@@ -199,7 +199,7 @@ namespace ShineWay.UI
                     }
                     else
                     {
-                        CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before Update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                        CustomMessage submitmessege = new CustomMessage("All fields must be corrected\nbefore Update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                         submitmessege.convertToOkButton();
                         submitmessege.ShowDialog();
                     }
@@ -367,7 +367,28 @@ namespace ShineWay.UI
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            CustomMessage submitmessege = new CustomMessage("Are you sure to Delete ?", "Warning", ShineWay.Properties.Resources.question, DialogResult.Yes);
+            DialogResult result = submitmessege.ShowDialog();
 
+            if(result == DialogResult.Yes)
+            {
+                string query = $"DELETE FROM `users` WHERE `ID`= \"{dataGridView1.SelectedRows[0].Cells[6].Value}\"";
+                try
+                {
+                    DbConnection.Delete(query);
+                    CustomMessage m = new CustomMessage("successfully Deleted!", "Deleted", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    m.convertToOkButton();
+                    m.ShowDialog();
+                    setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
+
+                }
+                catch(Exception exc)
+                {
+                    CustomMessage messege = new CustomMessage("Unable to Delete!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                    messege.convertToOkButton();
+                    messege.ShowDialog();
+                }
+            }
         }
 
         private void btn_delete_MouseHover(object sender, EventArgs e)
