@@ -11,19 +11,48 @@ using MySql.Data.MySqlClient;
 using ShineWay.Validation;
 using ShineWay.Messages;
 using ShineWay.DataBase;
+using ShineWay.Classes;
 
 namespace ShineWay.UI
 {
     public partial class Booking : UserControl
     {
-        
 
+        List<Booking1> bookings = new List<Booking1>();
 
         public Booking()
         {
             InitializeComponent();
             date_startingDate.MinDate = DateTime.Now;
             date_endDate.MinDate = DateTime.Now;
+            setDataToGrid();
+        }
+
+        public void setDataToGrid()
+        {
+
+            try
+            {
+                MySqlDataReader reader = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Licen_num`,`Cus_NIC` FROM `booking`");
+                while (reader.Read())
+                {
+                    Booking1 Booking = new Booking1();
+                    Booking.bookinID = reader[0].ToString();
+                    Booking.vehicleNum = reader[1].ToString();
+                    Booking.licenseNum = reader[2].ToString();
+                    Booking.customerNIC = reader[3].ToString();
+
+                    bookings.Add(Booking);
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+
+            dgv_Booking.DataSource = bookings;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -84,7 +113,7 @@ namespace ShineWay.UI
             txt_description.Text = "";
             date_startingDate.Value = DateTime.Now;
             date_endDate.Value = DateTime.Now;
-
+            
 
         }
 
