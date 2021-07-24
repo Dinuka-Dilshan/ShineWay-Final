@@ -6,6 +6,7 @@ using ShineWay.Validation;
 using ShineWay.Messages;
 using ShineWay.Classes;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ShineWay.UI
 {
@@ -24,7 +25,7 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             combo_userType.SelectedIndex = 0;
-
+            fillData("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
 
         }
 
@@ -117,6 +118,8 @@ namespace ShineWay.UI
                 }
 
             }
+
+            fillData("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
 
         }
 
@@ -291,7 +294,7 @@ namespace ShineWay.UI
         }
 
 
-        public void setDataToGrid()
+        /*public void setDataToGrid()
         {
             
             try
@@ -317,7 +320,25 @@ namespace ShineWay.UI
             }
 
             dataGridView1.DataSource = users;
+        }*/
+
+
+        public void fillData(string query)
+        {
+            MySqlConnection connection = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            connection.Open();
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            MyDA.SelectCommand = new MySqlCommand(query, connection);
+
+            DataTable table = new DataTable();
+            MyDA.Fill(table);
+
+            BindingSource bSource = new BindingSource();
+            bSource.DataSource = table;
+            dataGridView1.DataSource = bSource;
+            connection.Close();
         }
+
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
@@ -353,5 +374,9 @@ namespace ShineWay.UI
             }
         }
 
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
