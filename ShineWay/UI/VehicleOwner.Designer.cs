@@ -373,7 +373,7 @@ namespace ShineWay.UI
             this.txt_email.PromptChar = ' ';
             this.txt_email.Size = new System.Drawing.Size(407, 23);
             this.txt_email.TabIndex = 3;
-            this.txt_email.Leave += new System.EventHandler(this.txt_email_Leave);
+            this.txt_email.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_email_KeyUp);
             // 
             // txt_telephone
             // 
@@ -386,6 +386,7 @@ namespace ShineWay.UI
             this.txt_telephone.PromptChar = ' ';
             this.txt_telephone.Size = new System.Drawing.Size(407, 23);
             this.txt_telephone.TabIndex = 2;
+            this.txt_telephone.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_telephone_KeyUp);
             this.txt_telephone.Leave += new System.EventHandler(this.txt_telephone_Leave);
             // 
             // txt_ownerName
