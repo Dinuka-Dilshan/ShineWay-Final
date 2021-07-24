@@ -33,7 +33,7 @@ namespace ShineWay.UI
 
             try
             {
-                MySqlDataReader reader1 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`,`Package_Type` FROM `booking`");
+                MySqlDataReader reader1 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`, `Start_ODO`,`Package_Type`,`Discription` FROM `booking`");
               //  MySqlDataReader reader2 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`,`Package_Type`,`Discription` FROM `booking`");
 
                 while (reader1.Read())
@@ -44,7 +44,11 @@ namespace ShineWay.UI
                     Booking.Customer_NIC = reader1[2].ToString();
                     Booking.License_Number = reader1[3].ToString();
                     Booking.Start_Date = reader1[4].ToString();
-                    Booking.Package_Type = reader1[5].ToString();
+                    Booking.Start_Odometer = reader1[5].ToString();
+                  
+                    Booking.Package_Type = reader1[6].ToString();
+                    Booking.Description = reader1[7].ToString();
+                    
                     
                     bookings.Add(Booking);
                 }
@@ -58,6 +62,28 @@ namespace ShineWay.UI
 
             dgv_Booking.DataSource = bookings;
         }
+
+        private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgv_Booking.Rows[e.RowIndex];
+
+                txt_bookingId.Text = row.Cells["Booking_ID"].Value.ToString();
+                txt_vehicleRegNumber.Text = row.Cells["Vehicle_Number"].Value.ToString();
+                txt_customerNic.Text = row.Cells["Customer_NIC"].Value.ToString();
+                txt_licenseNumber.Text = row.Cells["License_Number"].Value.ToString();
+                date_startingDate.Text = row.Cells["Start_Date"].Value.ToString();
+                txt_startingOdometer.Text = row.Cells["Start_Odometer"].Value.ToString();
+                // date_endDate.Text = row.Cells[""].Value.ToString();
+               combo_packageType.Text = row.Cells["Package_Type"].Value.ToString();
+                //
+                //
+                txt_description.Text = row.Cells["Description"].Value.ToString();
+            }
+        }
+
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -185,8 +211,8 @@ namespace ShineWay.UI
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
             // check package type selected
-            btn_Refresh.Visible = true;    
-
+            btn_Refresh.Visible = true;
+            
             if (combo_packageType.Text == "")
             {
                 lbl_packageTypeError.Visible = true;
@@ -482,7 +508,9 @@ namespace ShineWay.UI
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            setDataToGrid();
+            /////////////////////  
         }
+
+        
     }
 }
