@@ -112,8 +112,24 @@ namespace ShineWay.UI
             txt_advancedPayment.Text = "";
             txt_description.Text = "";
             date_startingDate.Value = DateTime.Now;
-            date_endDate.Value = DateTime.Now;
-            
+            date_endDate.Value = DateTime.Now; lbl_bookingIDError.Visible = false;
+            lbl_bookingIDCorrect.Visible = false;
+            lbl_vehicleNumberCorrect.Visible = false;
+            lbl_vehicleNumberError.Visible = false;
+            lbl_customerNICCorrect.Visible = false;
+            lbl_customerNICError.Visible = false;
+            lbl_licenseNumberCorrect.Visible = false;
+            lbl_licenseNumberError.Visible = false;
+            lbl_odomemterCorrect.Visible = false;
+            lbl_odomemterError.Visible = false;
+            lbl_packageTypeCorrect.Visible = false;
+            lbl_packageTypeError.Visible = false;
+            lbl_depositeAmountCorrect.Visible = false;
+            lbl_depositeAmountError.Visible = false;
+            lbl_advancedPayementCorrect.Visible = false;
+            lbl_advancedPayementError.Visible = false;
+            lbl_discriptionError.Visible = false;
+
 
         }
 
