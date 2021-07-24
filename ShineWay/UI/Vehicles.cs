@@ -92,8 +92,6 @@ namespace ShineWay.UI
                     ",'" + txt_DailyPrice.Text + "','" + txt_Dailykm.Text + "','" + txt_WeeklyPrice.Text + "','" + txt_Weeklykm.Text + "','" + txt_MonthlyPrice.Text + "'," +
                     "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
 
-           
-
                 //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
                 addmsg.convertToOkButton();
@@ -109,8 +107,9 @@ namespace ShineWay.UI
             }
           
         }
-         
-       /* public void FillDataGridView()
+
+        //To fill datagrid view
+        public void FillDataGridView()
         {
             MySqlDataReader rd = DbConnection.Read("SELECT * FROM `vehicle`");
             DataTable tbl = new DataTable();
@@ -127,13 +126,13 @@ namespace ShineWay.UI
             imgcol.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }*/
-        public void setDataToGrid(string valueToSearch)
+        }
+        public void setDataToGrid()
         {
 
             try
             {
-                MySqlDataReader reader = DbConnection.Read("SELECT * FROM `vehicle` WHERE CONCAT (`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) LIKE '%" + valueToSearch + "%'");
+                MySqlDataReader reader = DbConnection.Read("SELECT * FROM `vehicle`");
                 while (reader.Read())
                 {
                   Vehicle vehicle = new Vehicle();
@@ -154,26 +153,17 @@ namespace ShineWay.UI
                     vehicle.monthlyKm = reader[14].ToString();
                     vehicle.ownerPayment = reader[15].ToString();
                     vehicle.startingOdometer = reader[16].ToString();
-                  //  vehicle.overallView = reader[17].ToString();
-                  //  vehicle.insideView = reader[18].ToString();
+                    vehicle.overallView = reader[17].ToString();
+                    vehicle.insideView = reader[18].ToString();
                     vehicles.Add(vehicle);
-
-                    DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
-                    imgcol = (DataGridViewImageColumn)dataGridView1.Columns[17];
-                    imgcol = (DataGridViewImageColumn)dataGridView1.Columns[18];
-                    imgcol.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
 
             }
             catch (Exception ex)
             {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                CustomMessage submitmessege = new CustomMessage(ex.Message, "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
                 submitmessege.convertToOkButton();
                 submitmessege.ShowDialog();
-
-
             }
 
             dataGridView1.DataSource = vehicles;
@@ -223,14 +213,14 @@ namespace ShineWay.UI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          // Byte[] img = (Byte[])dataGridView1.CurrentRow.Cells[17].Value;
-        //   Byte[] img1 = (Byte[])dataGridView1.CurrentRow.Cells[18].Value;
+            Byte[] img = (Byte[])dataGridView1.CurrentRow.Cells[17].Value;
+            Byte[] img1 = (Byte[])dataGridView1.CurrentRow.Cells[18].Value;
 
-          //  MemoryStream ms = new MemoryStream(img);
-          //  MemoryStream ms1 = new MemoryStream(img1);
+            MemoryStream ms = new MemoryStream(img);
+            MemoryStream ms1 = new MemoryStream(img1);
 
-        //    pb_overallViewimg.Image = Image.FromStream(ms);
-         //   pb_InsideViewimg.Image = Image.FromStream(ms1);
+            pb_overallViewimg.Image = Image.FromStream(ms);
+            pb_InsideViewimg.Image = Image.FromStream(ms1);
 
             msktxt_vehicleRegNumber.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txt_brand.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
@@ -711,12 +701,8 @@ namespace ShineWay.UI
 
         private void Vehicles_Load(object sender, EventArgs e)
         {
-            setDataToGrid("");
+            setDataToGrid();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            setDataToGrid(textBox1.Text);
-        }
     }
 }
