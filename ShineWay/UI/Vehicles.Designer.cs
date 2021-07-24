@@ -43,10 +43,6 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-
-            //this.label22 = new System.Windows.Forms.Label();
-            //this.label21 = new System.Windows.Forms.Label();
-
             this.label_validKmError = new System.Windows.Forms.Label();
             this.label_tickKm = new System.Windows.Forms.Label();
             this.label_tickrentPrice = new System.Windows.Forms.Label();
@@ -55,7 +51,6 @@ namespace ShineWay.UI
             this.label_VehicleTypeError = new System.Windows.Forms.Label();
             this.label_StartingOdoError = new System.Windows.Forms.Label();
             this.label_ownerPaymentError = new System.Windows.Forms.Label();
-
             this.label_chassisNoError = new System.Windows.Forms.Label();
             this.label_engineNoError = new System.Windows.Forms.Label();
             this.label_modelError = new System.Windows.Forms.Label();
@@ -277,6 +272,7 @@ namespace ShineWay.UI
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 25);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox16
             // 
@@ -411,9 +407,6 @@ namespace ShineWay.UI
             this.panel1.TabIndex = 28;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-
-            
-
             // label_validKmError
             // 
             this.label_validKmError.AutoSize = true;
@@ -510,7 +503,6 @@ namespace ShineWay.UI
             this.label_ownerPaymentError.TabIndex = 111;
             this.label_ownerPaymentError.Text = "Please enter a valid price format";
             this.label_ownerPaymentError.Visible = false;
-
             // 
             // label_chassisNoError
             // 
