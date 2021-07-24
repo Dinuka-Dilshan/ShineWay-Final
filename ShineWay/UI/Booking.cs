@@ -45,7 +45,7 @@ namespace ShineWay.UI
                     Booking.License_Number = reader1[3].ToString();
                     Booking.Start_Date = reader1[4].ToString();
                     Booking.Package_Type = reader1[5].ToString();
-                 
+                    
                     bookings.Add(Booking);
                 }
             }
@@ -116,7 +116,8 @@ namespace ShineWay.UI
             txt_advancedPayment.Text = "";
             txt_description.Text = "";
             date_startingDate.Value = DateTime.Now;
-            date_endDate.Value = DateTime.Now; lbl_bookingIDError.Visible = false;
+            date_endDate.Value = DateTime.Now; 
+            lbl_bookingIDError.Visible = false;
             lbl_bookingIDCorrect.Visible = false;
             lbl_vehicleNumberCorrect.Visible = false;
             lbl_vehicleNumberError.Visible = false;
@@ -141,16 +142,21 @@ namespace ShineWay.UI
         {
             // update actions
 
-            if (txt_bookingId.ForeColor == Color.Green &&
-                       txt_vehicleRegNumber.ForeColor == Color.Green &&
-                       txt_customerNic.ForeColor == Color.Green &&
-                       txt_licenseNumber.ForeColor == Color.Green &&
-                       date_startingDate.Value <= date_endDate.Value &&
-                       txt_startingOdometer.ForeColor == Color.Green &&
-                       combo_packageType.ForeColor == Color.Green &&
-                       txt_depositAmount.ForeColor == Color.Green &&
-                       txt_advancedPayment.ForeColor == Color.Green &&
-                       txt_description.ForeColor == Color.Green
+            if (lbl_bookingIDError.Visible == false &&
+                    lbl_vehicleNumberError.Visible == false &&
+                    lbl_customerNICError.Visible == false &&
+                    lbl_licenseNumberError.Visible == false &&
+                    lbl_odomemterError.Visible == false &&
+                    lbl_packageTypeError.Visible == false &&
+                    lbl_depositeAmountError.Visible == false &&
+                    lbl_advancedPayementError.Visible == false &&
+                    lbl_discriptionError.Visible == false &&
+                    txt_vehicleRegNumber.Text != "" &&
+                    txt_customerNic.Text != "" &&
+                    txt_startingOdometer.Text != "" &&
+                    combo_packageType.Text != "" &&
+                    txt_depositAmount.Text != ""
+
                )
             {
                 try
@@ -159,13 +165,13 @@ namespace ShineWay.UI
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
-                       MySqlDataReader reader1 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
 
-
+                    setDataToGrid();
                 }
                 catch (Exception ex)
                 {
-                    //  MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -179,14 +185,16 @@ namespace ShineWay.UI
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
             // check package type selected
+            btn_Refresh.Visible = true;    
+
             if (combo_packageType.Text == "")
             {
                 lbl_packageTypeError.Visible = true;
                 lbl_packageTypeCorrect.Visible = false;
             }
+            
 
-
-            if (lbl_bookingIDError.Visible == false &&
+            if (    lbl_bookingIDError.Visible == false &&
                     lbl_vehicleNumberError.Visible == false &&
                     lbl_customerNICError.Visible == false &&
                     lbl_licenseNumberError.Visible == false &&
@@ -196,11 +204,12 @@ namespace ShineWay.UI
                     lbl_advancedPayementError.Visible == false &&
                     lbl_discriptionError.Visible == false &&
                     txt_vehicleRegNumber.Text != "" &&
-                    (txt_customerNic.Text != "" || txt_licenseNumber.Text != "") &&
+                    txt_customerNic.Text != "" &&
                     txt_startingOdometer.Text != "" &&
                     combo_packageType.Text != "" &&
                     txt_depositAmount.Text != ""
 
+                    
                 )
             {
                 try
@@ -209,10 +218,10 @@ namespace ShineWay.UI
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
-                    MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
-                    MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text.Trim() + "');");
+                    MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "');");
 
-
+                    setDataToGrid();
                 }
                 catch (Exception ex)
                 {
@@ -242,7 +251,7 @@ namespace ShineWay.UI
 
         private void txt_bookingId_Leave(object sender, EventArgs e)
         {
-            bool validbookingID = Validates.ValidBookingID(txt_bookingId.Text);
+            bool validbookingID = Validates.ValidBookingID(txt_bookingId.Text.Trim());
             if (validbookingID == false)
             {
                 lbl_bookingIDError.Visible = true;
@@ -469,6 +478,11 @@ namespace ShineWay.UI
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            setDataToGrid();
         }
     }
 }

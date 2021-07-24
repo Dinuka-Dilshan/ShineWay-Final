@@ -100,6 +100,7 @@ namespace ShineWay.UI
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.btn_Refresh = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Booking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
@@ -127,10 +128,12 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_Refresh);
             this.panel2.Controls.Add(this.dgv_Booking);
             this.panel2.Controls.Add(this.pb_btnUpdatePrint);
             this.panel2.Controls.Add(this.pictureBox17);
@@ -1014,6 +1017,18 @@ namespace ShineWay.UI
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_Refresh.Image")));
+            this.btn_Refresh.Location = new System.Drawing.Point(74, 137);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(44, 40);
+            this.btn_Refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Refresh.TabIndex = 17;
+            this.btn_Refresh.TabStop = false;
+            this.btn_Refresh.Visible = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1051,6 +1066,7 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1127,5 +1143,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label lbl_licenseNumberCorrect;
         private System.Windows.Forms.Label lbl_customerNICCorrect;
         private System.Windows.Forms.Label lbl_vehicleNumberCorrect;
+        private System.Windows.Forms.PictureBox btn_Refresh;
     }
 }
