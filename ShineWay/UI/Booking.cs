@@ -10,17 +10,80 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ShineWay.Validation;
 using ShineWay.Messages;
+using ShineWay.DataBase;
+using ShineWay.Classes;
 
 namespace ShineWay.UI
 {
     public partial class Booking : UserControl
     {
+
+        List<Booking1> bookings = new List<Booking1>();
+
         public Booking()
         {
             InitializeComponent();
-           date_startingDate.MinDate = DateTime.Now;
-           date_endDate.MinDate = DateTime.Now;
+            date_startingDate.MinDate = DateTime.Now;
+            date_endDate.MinDate = DateTime.Now;
+            setDataToGrid();
         }
+
+        public void setDataToGrid()
+        {
+
+            try
+            {
+                MySqlDataReader reader1 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`, `Start_ODO`,`Package_Type`,`Discription` FROM `booking`");
+              //  MySqlDataReader reader2 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`,`Package_Type`,`Discription` FROM `booking`");
+
+                while (reader1.Read())
+                {
+                    Booking1 Booking = new Booking1();
+                    Booking.Booking_ID = reader1[0].ToString();
+                    Booking.Vehicle_Number = reader1[1].ToString();
+                    Booking.Customer_NIC = reader1[2].ToString();
+                    Booking.License_Number = reader1[3].ToString();
+                    Booking.Start_Date = reader1[4].ToString();
+                    Booking.Start_Odometer = reader1[5].ToString();
+                  
+                    Booking.Package_Type = reader1[6].ToString();
+                    Booking.Description = reader1[7].ToString();
+                    
+                    
+                    bookings.Add(Booking);
+                }
+            }
+            catch (Exception ex)
+            {
+                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+
+            dgv_Booking.DataSource = bookings;
+        }
+
+        private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dgv_Booking.Rows[e.RowIndex];
+
+                txt_bookingId.Text = row.Cells["Booking_ID"].Value.ToString();
+                txt_vehicleRegNumber.Text = row.Cells["Vehicle_Number"].Value.ToString();
+                txt_customerNic.Text = row.Cells["Customer_NIC"].Value.ToString();
+                txt_licenseNumber.Text = row.Cells["License_Number"].Value.ToString();
+                date_startingDate.Text = row.Cells["Start_Date"].Value.ToString();
+                txt_startingOdometer.Text = row.Cells["Start_Odometer"].Value.ToString();
+                // date_endDate.Text = row.Cells[""].Value.ToString();
+               combo_packageType.Text = row.Cells["Package_Type"].Value.ToString();
+                //
+                //
+                txt_description.Text = row.Cells["Description"].Value.ToString();
+            }
+        }
+
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -70,34 +133,56 @@ namespace ShineWay.UI
 
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
-             txt_bookingId.Text = "";
-             txt_vehicleRegNumber.Text = "";
-             txt_customerNic.Text = "";
-             txt_licenseNumber.Text = "";
-             txt_startingOdometer.Text = "";
-             txt_depositAmount.Text = "";
-             txt_advancedPayment.Text = "";
-             txt_description.Text = "";
-             date_startingDate.Value = DateTime.Now;
-             date_endDate.Value = DateTime.Now;
+            txt_bookingId.Text = "";
+            txt_vehicleRegNumber.Text = "";
+            txt_customerNic.Text = "";
+            txt_licenseNumber.Text = "";
+            txt_startingOdometer.Text = "";
+            txt_depositAmount.Text = "";
+            txt_advancedPayment.Text = "";
+            txt_description.Text = "";
+            date_startingDate.Value = DateTime.Now;
+            date_endDate.Value = DateTime.Now; 
+            lbl_bookingIDError.Visible = false;
+            lbl_bookingIDCorrect.Visible = false;
+            lbl_vehicleNumberCorrect.Visible = false;
+            lbl_vehicleNumberError.Visible = false;
+            lbl_customerNICCorrect.Visible = false;
+            lbl_customerNICError.Visible = false;
+            lbl_licenseNumberCorrect.Visible = false;
+            lbl_licenseNumberError.Visible = false;
+            lbl_odomemterCorrect.Visible = false;
+            lbl_odomemterError.Visible = false;
+            lbl_packageTypeCorrect.Visible = false;
+            lbl_packageTypeError.Visible = false;
+            lbl_depositeAmountCorrect.Visible = false;
+            lbl_depositeAmountError.Visible = false;
+            lbl_advancedPayementCorrect.Visible = false;
+            lbl_advancedPayementError.Visible = false;
+            lbl_discriptionError.Visible = false;
 
-            
+
         }
 
         private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
         {
             // update actions
 
-            if (txt_bookingId.ForeColor == Color.Green &&
-                       txt_vehicleRegNumber.ForeColor == Color.Green &&
-                       txt_customerNic.ForeColor == Color.Green &&
-                       txt_licenseNumber.ForeColor == Color.Green &&
-                       date_startingDate.Value <= date_endDate.Value &&
-                       txt_startingOdometer.ForeColor == Color.Green &&
-                       combo_packageType.ForeColor == Color.Green &&
-                       txt_depositAmount.ForeColor == Color.Green &&
-                       txt_advancedPayment.ForeColor == Color.Green &&
-                       txt_description.ForeColor == Color.Green
+            if (lbl_bookingIDError.Visible == false &&
+                    lbl_vehicleNumberError.Visible == false &&
+                    lbl_customerNICError.Visible == false &&
+                    lbl_licenseNumberError.Visible == false &&
+                    lbl_odomemterError.Visible == false &&
+                    lbl_packageTypeError.Visible == false &&
+                    lbl_depositeAmountError.Visible == false &&
+                    lbl_advancedPayementError.Visible == false &&
+                    lbl_discriptionError.Visible == false &&
+                    txt_vehicleRegNumber.Text != "" &&
+                    txt_customerNic.Text != "" &&
+                    txt_startingOdometer.Text != "" &&
+                    combo_packageType.Text != "" &&
+                    txt_depositAmount.Text != ""
+
                )
             {
                 try
@@ -106,13 +191,13 @@ namespace ShineWay.UI
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
-                    //   MySqlDataReader reader1 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
 
-
+                    setDataToGrid();
                 }
                 catch (Exception ex)
                 {
-                    //  MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -125,21 +210,32 @@ namespace ShineWay.UI
 
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
-                if (    txt_bookingId.ForeColor==Color.Green &&
-                        txt_vehicleRegNumber.ForeColor == Color.Green &&
-                        txt_customerNic.ForeColor == Color.Green &&
-                        txt_licenseNumber.ForeColor == Color.Green &&
-                        date_startingDate.Value <= date_endDate.Value &&
-                        txt_startingOdometer.ForeColor == Color.Green &&
-                        combo_packageType.ForeColor == Color.Green &&
-                        txt_depositAmount.ForeColor == Color.Green &&
-                        txt_advancedPayment.ForeColor == Color.Green &&
-                        txt_description.ForeColor == Color.Green &&
-                        txt_bookingId.Text != "" &&
-                        txt_vehicleRegNumber.Text != "" &&
-                        txt_customerNic.Text != "" &&
-                        date_startingDate.Text != "" &&
-                        combo_packageType.Text != "" 
+            // check package type selected
+            btn_Refresh.Visible = true;
+            
+            if (combo_packageType.Text == "")
+            {
+                lbl_packageTypeError.Visible = true;
+                lbl_packageTypeCorrect.Visible = false;
+            }
+            
+
+            if (    lbl_bookingIDError.Visible == false &&
+                    lbl_vehicleNumberError.Visible == false &&
+                    lbl_customerNICError.Visible == false &&
+                    lbl_licenseNumberError.Visible == false &&
+                    lbl_odomemterError.Visible == false &&
+                    lbl_packageTypeError.Visible == false &&
+                    lbl_depositeAmountError.Visible == false &&
+                    lbl_advancedPayementError.Visible == false &&
+                    lbl_discriptionError.Visible == false &&
+                    txt_vehicleRegNumber.Text != "" &&
+                    txt_customerNic.Text != "" &&
+                    txt_startingOdometer.Text != "" &&
+                    combo_packageType.Text != "" &&
+                    txt_depositAmount.Text != ""
+
+                    
                 )
             {
                 try
@@ -148,13 +244,14 @@ namespace ShineWay.UI
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
-                    //   MySqlDataReader reader1 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text + "', '" + txt_bookingId.Text + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "');");
 
-
+                    setDataToGrid();
                 }
                 catch (Exception ex)
                 {
-                    //  MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -165,49 +262,66 @@ namespace ShineWay.UI
             }
         }
 
+        // ++++++++++++++++ search ++++++++++++++++
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void searchData(string valueToSearch)
+        {
+           
+        }
         // ++++++++++++++++ validations ++++++++++++++++
 
         private void txt_bookingId_Leave(object sender, EventArgs e)
         {
-            bool validbookingID = Validates.ValidBookingID(txt_bookingId.Text);
+            bool validbookingID = Validates.ValidBookingID(txt_bookingId.Text.Trim());
             if (validbookingID == false)
             {
-                txt_bookingId.ForeColor = Color.Red;
+                lbl_bookingIDError.Visible = true;
+                lbl_bookingIDCorrect.Visible = false;
             }
             else
             {
-                txt_bookingId.ForeColor = Color.Green;
+                lbl_bookingIDError.Visible = false;
+                lbl_bookingIDCorrect.Visible = true;
             }
         }
 
         private void txt_vehicleRegNumber_Leave(object sender, EventArgs e)
         {
-            bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text);
-            bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text);
+            bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text.Trim());
+            bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text.Trim());
 
             if (validVehicleNumber1 == true || validVehicleNumber2 == true)
             {
-                txt_vehicleRegNumber.ForeColor = Color.Green;
+                lbl_vehicleNumberCorrect.Visible = true;
+                lbl_vehicleNumberError.Visible = false;
             }
             else
             {
-                txt_vehicleRegNumber.ForeColor = Color.Red;
+                lbl_vehicleNumberCorrect.Visible = false;
+                lbl_vehicleNumberError.Visible = true;
             }
         }
 
        
         private void txt_customerNic_Leave(object sender, EventArgs e)
         {
-            bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text);
-            bool validcustomernic2 = Validates.ValidCustomerNewNIC(txt_customerNic.Text);
+            bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text.Trim());
+            bool validcustomernic2 = Validates.ValidCustomerNewNIC(txt_customerNic.Text.Trim());
 
             if (validcustomernic1 == true || validcustomernic2 == true)
             {
-                txt_customerNic.ForeColor = Color.Green;
+                lbl_customerNICCorrect.Visible = true;
+                lbl_customerNICError.Visible = false;
             }
             else
             {
-                txt_customerNic.ForeColor = Color.Red;
+                lbl_customerNICError.Visible = true;
+                lbl_customerNICCorrect.Visible = false;
             }
         }
 
@@ -219,41 +333,49 @@ namespace ShineWay.UI
 
             if (licensenumber == false)
             {
-                txt_licenseNumber.ForeColor = Color.Red;
+                lbl_licenseNumberError.Visible = true;
+                lbl_licenseNumberCorrect.Visible = false;
             }
             else
             {
-                txt_licenseNumber.ForeColor = Color.Green;
+                lbl_licenseNumberError.Visible = false;
+                lbl_licenseNumberCorrect.Visible = true;
             }
+        
         }
 
-
-
+    
+    
         private void txt_startingOdometer_MouseLeave(object sender, EventArgs e)
         {
             bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text);
 
             if (startodo == false)
             {
-                txt_startingOdometer.ForeColor = Color.Red;
+                lbl_odomemterError.Visible = true;
+                lbl_odomemterCorrect.Visible = false;
+
             }
             else
             {
-                txt_startingOdometer.ForeColor = Color.Green;
+                lbl_odomemterError.Visible = false;
+                lbl_odomemterCorrect.Visible = true;
             }
         }
 
         private void txt_startingOdometer_Leave(object sender, EventArgs e)
         {
-            bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text);
+            bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text.Trim());
 
             if (startodo == false)
             {
-                txt_startingOdometer.ForeColor = Color.Red;
+                lbl_odomemterError.Visible = true;
+                lbl_odomemterCorrect.Visible = false;
             }
             else
             {
-                txt_startingOdometer.ForeColor = Color.Green;
+                lbl_odomemterError.Visible = false;
+                lbl_odomemterCorrect.Visible = true;
             }
         }
 
@@ -264,15 +386,17 @@ namespace ShineWay.UI
 
         private void txt_depositAmount_Leave(object sender, EventArgs e)
         {
-            bool depositeamount = Validates.ValidAmount(txt_depositAmount.Text);
+            bool depositeamount = Validates.ValidAmount(txt_depositAmount.Text.Trim());
 
             if (depositeamount == false)
             {
-                txt_depositAmount.ForeColor = Color.Red;
+                lbl_depositeAmountError.Visible = true;
+                lbl_depositeAmountCorrect.Visible = false;
             }
             else
             {
-                txt_depositAmount.ForeColor = Color.Green;
+                lbl_depositeAmountError.Visible = false;
+                lbl_depositeAmountCorrect.Visible = true;
                 txt_depositAmount.TextAlign = HorizontalAlignment.Right;
             }
         }
@@ -284,14 +408,17 @@ namespace ShineWay.UI
 
         private void txt_advancedPayment_Leave(object sender, EventArgs e)
         {
-            bool advanceamount = Validates.ValidAmount(txt_advancedPayment.Text);
+            bool advanceamount = Validates.ValidAmount(txt_advancedPayment.Text.Trim());
             if (advanceamount == false)
             {
-                txt_advancedPayment.ForeColor = Color.Red;
+                lbl_advancedPayementError.Visible = true;
+                lbl_advancedPayementCorrect.Visible = false;
+
             }
             else
             {
-                txt_advancedPayment.ForeColor = Color.Green;
+                lbl_advancedPayementError.Visible = false;
+                lbl_advancedPayementCorrect.Visible = true;
                 txt_advancedPayment.TextAlign = HorizontalAlignment.Right;
             }
         }
@@ -302,27 +429,32 @@ namespace ShineWay.UI
 
             if (description == false)
             {
-                txt_description.ForeColor = Color.Red;
+                lbl_depositeAmountError.Visible = true;
+                lbl_depositeAmountCorrect.Visible = false;
+
               //  MessageBox.Show("Maxium lenght of description is 150 charcters", "Too long", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                CustomMessage errormessege = new CustomMessage("Maxium lenght of description is\n 150 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errormessege.convertToOkButton();
-                errormessege.ShowDialog();
+              //  CustomMessage errormessege = new CustomMessage("Maxium lenght of description is\n 150 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
+              //  errormessege.convertToOkButton();
+              //  errormessege.ShowDialog();
             }
             else
             {
-                txt_description.ForeColor = Color.Green;
+                lbl_depositeAmountError.Visible = false;
+                lbl_depositeAmountCorrect.Visible = true;
             }
         }
 
 
-        private void txt_search_TextChanged(object sender, EventArgs e)
-        {
-            // search in database
-        }
+        
 
         private void combo_packageType_TextChanged(object sender, EventArgs e)
         {
-            combo_packageType.ForeColor = Color.Green;
+            if(combo_packageType.Text != "")
+            {
+                lbl_packageTypeError.Visible = false;
+                lbl_packageTypeCorrect.Visible = true;
+            }
+            
         }
 
         private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -373,5 +505,12 @@ namespace ShineWay.UI
         {
 
         }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            /////////////////////  
+        }
+
+        
     }
 }
