@@ -32,12 +32,6 @@ namespace ShineWay.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_Booking = new System.Windows.Forms.DataGridView();
-            this.bookingID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenseNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pb_btnUpdatePrint = new System.Windows.Forms.Label();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -153,13 +147,6 @@ namespace ShineWay.UI
             // 
             this.dgv_Booking.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Booking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Booking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bookingID,
-            this.vehicleNumber,
-            this.licenseNumber,
-            this.customerNIC,
-            this.name,
-            this.startDate});
             this.dgv_Booking.Location = new System.Drawing.Point(74, 186);
             this.dgv_Booking.Name = "dgv_Booking";
             this.dgv_Booking.RowHeadersVisible = false;
@@ -167,48 +154,6 @@ namespace ShineWay.UI
             this.dgv_Booking.RowTemplate.Height = 29;
             this.dgv_Booking.Size = new System.Drawing.Size(750, 516);
             this.dgv_Booking.TabIndex = 15;
-            // 
-            // bookingID
-            // 
-            this.bookingID.HeaderText = "Booking ID";
-            this.bookingID.MinimumWidth = 6;
-            this.bookingID.Name = "bookingID";
-            this.bookingID.Width = 125;
-            // 
-            // vehicleNumber
-            // 
-            this.vehicleNumber.HeaderText = "Vehicle Number";
-            this.vehicleNumber.MinimumWidth = 6;
-            this.vehicleNumber.Name = "vehicleNumber";
-            this.vehicleNumber.Width = 125;
-            // 
-            // licenseNumber
-            // 
-            this.licenseNumber.HeaderText = "License Number";
-            this.licenseNumber.MinimumWidth = 6;
-            this.licenseNumber.Name = "licenseNumber";
-            this.licenseNumber.Width = 125;
-            // 
-            // customerNIC
-            // 
-            this.customerNIC.HeaderText = "Customer NIC";
-            this.customerNIC.MinimumWidth = 6;
-            this.customerNIC.Name = "customerNIC";
-            this.customerNIC.Width = 125;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 125;
-            // 
-            // startDate
-            // 
-            this.startDate.HeaderText = "Staring Date";
-            this.startDate.MinimumWidth = 6;
-            this.startDate.Name = "startDate";
-            this.startDate.Width = 125;
             // 
             // pb_btnUpdatePrint
             // 
@@ -1164,12 +1109,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label pb_btnSubmitPrint;
         private System.Windows.Forms.Label pb_btnReset;
         private System.Windows.Forms.DataGridView dgv_Booking;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookingID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn licenseNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNIC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
         private System.Windows.Forms.DateTimePicker date_endDate;
         private System.Windows.Forms.Label lbl_bookingIDError;
         private System.Windows.Forms.Label lbl_licenseNumberError;
