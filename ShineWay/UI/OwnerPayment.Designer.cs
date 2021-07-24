@@ -31,6 +31,14 @@ namespace ShineWay.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerPayment));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_tickAmount = new System.Windows.Forms.Label();
+            this.label_tickVehicleNum = new System.Windows.Forms.Label();
+            this.label_tickNIC = new System.Windows.Forms.Label();
+            this.label_tickPaymentID = new System.Windows.Forms.Label();
+            this.label_AmountError = new System.Windows.Forms.Label();
+            this.label_nicVehicleNum = new System.Windows.Forms.Label();
+            this.label_nicError = new System.Windows.Forms.Label();
+            this.label_PaymentIDError = new System.Windows.Forms.Label();
             this.pb_btnDelete = new System.Windows.Forms.Label();
             this.pb_btnUpdate = new System.Windows.Forms.Label();
             this.pb_btnAdd = new System.Windows.Forms.Label();
@@ -85,6 +93,14 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label_tickAmount);
+            this.panel1.Controls.Add(this.label_tickVehicleNum);
+            this.panel1.Controls.Add(this.label_tickNIC);
+            this.panel1.Controls.Add(this.label_tickPaymentID);
+            this.panel1.Controls.Add(this.label_AmountError);
+            this.panel1.Controls.Add(this.label_nicVehicleNum);
+            this.panel1.Controls.Add(this.label_nicError);
+            this.panel1.Controls.Add(this.label_PaymentIDError);
             this.panel1.Controls.Add(this.pb_btnDelete);
             this.panel1.Controls.Add(this.pb_btnUpdate);
             this.panel1.Controls.Add(this.pb_btnAdd);
@@ -115,6 +131,98 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 30;
+            // 
+            // label_tickAmount
+            // 
+            this.label_tickAmount.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickAmount.Location = new System.Drawing.Point(823, 466);
+            this.label_tickAmount.Name = "label_tickAmount";
+            this.label_tickAmount.Size = new System.Drawing.Size(23, 22);
+            this.label_tickAmount.TabIndex = 105;
+            this.label_tickAmount.Visible = false;
+            // 
+            // label_tickVehicleNum
+            // 
+            this.label_tickVehicleNum.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickVehicleNum.Location = new System.Drawing.Point(823, 375);
+            this.label_tickVehicleNum.Name = "label_tickVehicleNum";
+            this.label_tickVehicleNum.Size = new System.Drawing.Size(23, 22);
+            this.label_tickVehicleNum.TabIndex = 104;
+            this.label_tickVehicleNum.Visible = false;
+            // 
+            // label_tickNIC
+            // 
+            this.label_tickNIC.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickNIC.Location = new System.Drawing.Point(823, 286);
+            this.label_tickNIC.Name = "label_tickNIC";
+            this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
+            this.label_tickNIC.TabIndex = 103;
+            this.label_tickNIC.Visible = false;
+            // 
+            // label_tickPaymentID
+            // 
+            this.label_tickPaymentID.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickPaymentID.Location = new System.Drawing.Point(823, 197);
+            this.label_tickPaymentID.Name = "label_tickPaymentID";
+            this.label_tickPaymentID.Size = new System.Drawing.Size(23, 22);
+            this.label_tickPaymentID.TabIndex = 102;
+            this.label_tickPaymentID.Visible = false;
+            // 
+            // label_AmountError
+            // 
+            this.label_AmountError.AutoSize = true;
+            this.label_AmountError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_AmountError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_AmountError.ForeColor = System.Drawing.Color.Red;
+            this.label_AmountError.Location = new System.Drawing.Point(407, 490);
+            this.label_AmountError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_AmountError.Name = "label_AmountError";
+            this.label_AmountError.Size = new System.Drawing.Size(213, 18);
+            this.label_AmountError.TabIndex = 98;
+            this.label_AmountError.Text = "Please enter a valid Amount";
+            this.label_AmountError.Visible = false;
+            // 
+            // label_nicVehicleNum
+            // 
+            this.label_nicVehicleNum.AutoSize = true;
+            this.label_nicVehicleNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_nicVehicleNum.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_nicVehicleNum.ForeColor = System.Drawing.Color.Red;
+            this.label_nicVehicleNum.Location = new System.Drawing.Point(407, 405);
+            this.label_nicVehicleNum.Margin = new System.Windows.Forms.Padding(0);
+            this.label_nicVehicleNum.Name = "label_nicVehicleNum";
+            this.label_nicVehicleNum.Size = new System.Drawing.Size(277, 18);
+            this.label_nicVehicleNum.TabIndex = 97;
+            this.label_nicVehicleNum.Text = "Please enter a valid Vehicle Number";
+            this.label_nicVehicleNum.Visible = false;
+            // 
+            // label_nicError
+            // 
+            this.label_nicError.AutoSize = true;
+            this.label_nicError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_nicError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_nicError.ForeColor = System.Drawing.Color.Red;
+            this.label_nicError.Location = new System.Drawing.Point(407, 317);
+            this.label_nicError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_nicError.Name = "label_nicError";
+            this.label_nicError.Size = new System.Drawing.Size(183, 18);
+            this.label_nicError.TabIndex = 96;
+            this.label_nicError.Text = "Please enter a valid NIC";
+            this.label_nicError.Visible = false;
+            // 
+            // label_PaymentIDError
+            // 
+            this.label_PaymentIDError.AutoSize = true;
+            this.label_PaymentIDError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_PaymentIDError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_PaymentIDError.ForeColor = System.Drawing.Color.Red;
+            this.label_PaymentIDError.Location = new System.Drawing.Point(407, 223);
+            this.label_PaymentIDError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_PaymentIDError.Name = "label_PaymentIDError";
+            this.label_PaymentIDError.Size = new System.Drawing.Size(239, 18);
+            this.label_PaymentIDError.TabIndex = 95;
+            this.label_PaymentIDError.Text = "Please enter a valid Payment ID";
+            this.label_PaymentIDError.Visible = false;
             // 
             // pb_btnDelete
             // 
@@ -175,6 +283,7 @@ namespace ShineWay.UI
             this.txt_OwnerPayment.Size = new System.Drawing.Size(415, 23);
             this.txt_OwnerPayment.TabIndex = 3;
             this.txt_OwnerPayment.Enter += new System.EventHandler(this.txt_OwnerPayment_Enter);
+            this.txt_OwnerPayment.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_OwnerPayment_KeyUp);
             this.txt_OwnerPayment.Leave += new System.EventHandler(this.txt_OwnerPayment_Leave);
             // 
             // txt_VehicleNumber
@@ -188,6 +297,7 @@ namespace ShineWay.UI
             this.txt_VehicleNumber.PromptChar = ' ';
             this.txt_VehicleNumber.Size = new System.Drawing.Size(415, 23);
             this.txt_VehicleNumber.TabIndex = 2;
+            this.txt_VehicleNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_VehicleNumber_KeyUp);
             this.txt_VehicleNumber.Leave += new System.EventHandler(this.txt_VehicleNumber_Leave);
             // 
             // txt_ownerNIC
@@ -201,6 +311,7 @@ namespace ShineWay.UI
             this.txt_ownerNIC.PromptChar = ' ';
             this.txt_ownerNIC.Size = new System.Drawing.Size(415, 23);
             this.txt_ownerNIC.TabIndex = 1;
+            this.txt_ownerNIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ownerNIC_KeyUp);
             this.txt_ownerNIC.Leave += new System.EventHandler(this.txt_ownerNIC_Leave);
             // 
             // txt_paymentID
@@ -214,6 +325,7 @@ namespace ShineWay.UI
             this.txt_paymentID.PromptChar = ' ';
             this.txt_paymentID.Size = new System.Drawing.Size(415, 23);
             this.txt_paymentID.TabIndex = 0;
+            this.txt_paymentID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_paymentID_KeyUp);
             this.txt_paymentID.Leave += new System.EventHandler(this.txt_paymentID_Leave);
             // 
             // label1
@@ -545,5 +657,13 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label pb_btnDelete;
         private System.Windows.Forms.Label pb_btnUpdate;
         private System.Windows.Forms.Label pb_btnAdd;
+        private System.Windows.Forms.Label label_AmountError;
+        private System.Windows.Forms.Label label_nicVehicleNum;
+        private System.Windows.Forms.Label label_nicError;
+        private System.Windows.Forms.Label label_PaymentIDError;
+        private System.Windows.Forms.Label label_tickAmount;
+        private System.Windows.Forms.Label label_tickVehicleNum;
+        private System.Windows.Forms.Label label_tickNIC;
+        private System.Windows.Forms.Label label_tickPaymentID;
     }
 }

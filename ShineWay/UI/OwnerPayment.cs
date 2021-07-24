@@ -9,11 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ShineWay.Validation;
 using ShineWay.Messages;
+using ShineWay.DataBase;
+using MySql.Data.MySqlClient;
 
 namespace ShineWay.UI
 {
     public partial class OwnerPayment : UserControl
     {
+        bool isNICValid = false;
+        bool isVehhicleNumValid = false;
+        bool isAmountValid = false;
+        bool isPaymentIDValid = false;
+
         public OwnerPayment()
         {
             InitializeComponent();
@@ -137,7 +144,13 @@ namespace ShineWay.UI
             txt_VehicleNumber.Text = "";
             txt_OwnerPayment.Text = "";
             date_OwnerPayment.Value = DateTime.Now;
-
+            label_nicError.Visible = false;
+            label_tickNIC.Visible = false;
+            label_nicVehicleNum.Visible = false;
+            label_AmountError.Visible = false;
+            label_tickAmount.Visible = false;
+            label_tickVehicleNum.Visible = false;
+            label_tickPaymentID.Visible = false;
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
@@ -202,6 +215,83 @@ namespace ShineWay.UI
         private void txt_OwnerPayment_Enter(object sender, EventArgs e)
         {
             txt_OwnerPayment.TextAlign = HorizontalAlignment.Left;
+        }
+
+        private void txt_paymentID_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidBookingID(txt_paymentID.Text))
+            {
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                label_PaymentIDError.Visible = false;
+                label_tickPaymentID.Visible = true;
+                isPaymentIDValid = true;
+
+            }
+            else
+            {
+                pictureBox5.Image = ShineWay.Properties.Resources.errorinput;
+                label_PaymentIDError.Visible = true;
+                label_tickPaymentID.Visible = false;
+                isPaymentIDValid = false;
+            }
+        }
+
+        private void txt_ownerNIC_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidCustomerNewNIC(txt_ownerNIC.Text) || Validates.ValidCustomerOldNIC(txt_ownerNIC.Text))
+            {
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicError.Visible = false;
+                label_tickNIC.Visible = true;
+                isNICValid = true;
+
+            }
+            else
+            {
+                pictureBox5.Image = ShineWay.Properties.Resources.errorinput;
+                label_nicError.Visible = true;
+                label_tickNIC.Visible = false;
+                isNICValid = false;
+            }
+        }
+
+        private void txt_VehicleNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidVehiclenumber1(txt_VehicleNumber.Text) || Validates.ValidVehiclenumber2(txt_VehicleNumber.Text))
+            {
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicVehicleNum.Visible = false;
+                label_tickVehicleNum.Visible = true;
+                isVehhicleNumValid = true;
+
+            }
+            else
+            {
+                pictureBox7.Image = ShineWay.Properties.Resources.errorinput;
+                label_nicVehicleNum.Visible = true;
+                label_tickVehicleNum.Visible = false;
+                isVehhicleNumValid = false;
+            }
+        }
+
+        private void txt_OwnerPayment_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidAmount(txt_OwnerPayment.Text))
+            {
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                label_AmountError.Visible = false;
+                label_tickAmount.Visible = true;
+                isAmountValid = true;
+
+            }
+            else
+            {
+                pictureBox11.Image = ShineWay.Properties.Resources.errorinput;
+                label_AmountError.Visible = true;
+                label_tickAmount.Visible = false;
+                isAmountValid = false;
+            }
+            
         }
     }
 
