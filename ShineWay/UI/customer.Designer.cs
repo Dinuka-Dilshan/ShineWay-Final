@@ -627,8 +627,6 @@ namespace ShineWay.UI
             this.txt_nicNumber.TabIndex = 0;
             this.txt_nicNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_nicNumber_KeyUp);
 
-            this.txt_nicNumber.Leave += new System.EventHandler(this.txt_nicNumber_Leave);
-
             this.txt_nicNumber.Validated += new System.EventHandler(this.txt_nicNumber_Validated);
             // 
             // pictureBox2
