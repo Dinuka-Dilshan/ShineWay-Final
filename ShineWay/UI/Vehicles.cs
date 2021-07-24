@@ -27,12 +27,18 @@ namespace ShineWay.UI
         bool isModelValid = false;
         bool isEngineNoValid = false;
         bool isChassisNoValid = false;
+
+
         List<Vehicle> vehicles = new List<Vehicle>();
+
 
         public Vehicles()
         {
             InitializeComponent();
+            combo_type.SelectedIndex = 0;
+            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
         }
+
 
         private void pb_btnReset_MouseHover(object sender, EventArgs e)
         {
@@ -109,74 +115,41 @@ namespace ShineWay.UI
             }
           
         }
-         
-       /* public void FillDataGridView()
+   
+        public void setDataToGrid(string query)
         {
-            MySqlDataReader rd = DbConnection.Read("SELECT * FROM `vehicle`");
-            DataTable tbl = new DataTable();
-         //   MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-          //  adp.Fill(tbl);
-            dataGridView1.RowTemplate.Height = 60;
-            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            
+          
 
-            dataGridView1.DataSource = tbl;
+                MySqlDataReader reader = DbConnection.Read(query);
 
-            DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
-            imgcol = (DataGridViewImageColumn)dataGridView1.Columns[17];
-            imgcol = (DataGridViewImageColumn)dataGridView1.Columns[18];
-            imgcol.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }*/
-        public void setDataToGrid(string valueToSearch)
-        {
-
-            try
+            while (reader.Read())
             {
-                MySqlDataReader reader = DbConnection.Read("SELECT * FROM `vehicle` WHERE CONCAT (`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) LIKE '%" + valueToSearch + "%'");
-                while (reader.Read())
-                {
-                  Vehicle vehicle = new Vehicle();
-                    vehicle.vehNumber = reader[0].ToString();
-                    vehicle.Brand = reader[1].ToString();
-                    vehicle.model = reader[2].ToString();
-                    vehicle.type = reader[3].ToString();
-                    vehicle.engineNumber = reader[4].ToString();
-                    vehicle.chassisNumber = reader[5].ToString();
-                    vehicle.ownerNic = reader[6].ToString();
-                    vehicle.registerDate = reader[7].ToString();
-                    vehicle.ownerCondition = reader[8].ToString();
-                    vehicle.dailyPrice = reader[9].ToString();
-                    vehicle.dailyKm = reader[10].ToString();
-                    vehicle.weeklyPrice = reader[11].ToString();
-                    vehicle.weeklyKm = reader[12].ToString();
-                    vehicle.monthlyPrice = reader[13].ToString();
-                    vehicle.monthlyKm = reader[14].ToString();
-                    vehicle.ownerPayment = reader[15].ToString();
-                    vehicle.startingOdometer = reader[16].ToString();
-                  //  vehicle.overallView = reader[17].ToString();
-                  //  vehicle.insideView = reader[18].ToString();
-                    vehicles.Add(vehicle);
-
-                    DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
-                    imgcol = (DataGridViewImageColumn)dataGridView1.Columns[17];
-                    imgcol = (DataGridViewImageColumn)dataGridView1.Columns[18];
-                    imgcol.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "", ShineWay.Properties.Resources.tick, DialogResult.OK);
-                submitmessege.convertToOkButton();
-                submitmessege.ShowDialog();
+                int x = dataGridView1.Rows.Add();
+                dataGridView1.Rows[x].Cells[0].Value = reader.GetString("Vehicle_num");
+                dataGridView1.Rows[x].Cells[1].Value = reader.GetString("Brand");
+                dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Model");
+                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Type");
+                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Engine_Num");
+                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Chassis_Num");
+                dataGridView1.Rows[x].Cells[6].Value = reader.GetString("Owner_NIC");
+                dataGridView1.Rows[x].Cells[7].Value = reader.GetString("Reg_Date");
+                dataGridView1.Rows[x].Cells[8].Value = reader.GetString("Owner_Condi");
+                dataGridView1.Rows[x].Cells[9].Value = reader.GetString("Daily_price");
+                dataGridView1.Rows[x].Cells[10].Value = reader.GetString("Daliy_KM");
+                dataGridView1.Rows[x].Cells[11].Value = reader.GetString("Weekly_price");
+                dataGridView1.Rows[x].Cells[12].Value = reader.GetString("Weekly_KM");
+                dataGridView1.Rows[x].Cells[13].Value = reader.GetString("Monthly_price");
+                dataGridView1.Rows[x].Cells[14].Value = reader.GetString("Monthy_KM");
+                dataGridView1.Rows[x].Cells[15].Value = reader.GetString("Owner_payment");
+                dataGridView1.Rows[x].Cells[16].Value = reader.GetString("Starting_odo");
+                dataGridView1.Rows[x].Cells[17].Value = reader.GetString("OverallView");
+                dataGridView1.Rows[x].Cells[18].Value = reader.GetString("InsideView");
 
 
             }
-
-            dataGridView1.DataSource = vehicles;
         }
 
         private void txt_DailyPrice_TextChanged(object sender, EventArgs e)
@@ -249,6 +222,7 @@ namespace ShineWay.UI
             txt_Monthlykm.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
             txt_OwnerPayment.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
             msktxt_startingOdo.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
+
 
         }
 
@@ -712,11 +686,32 @@ namespace ShineWay.UI
         private void Vehicles_Load(object sender, EventArgs e)
         {
             setDataToGrid("");
+            dataGridView1.BorderStyle = BorderStyle.None;
+            //this.dataGridView1.GridColor = Color.BlueViolet;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26, 139, 9);
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic bold", 12);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.Font = new Font("Century Gothic", 12);
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = dataGridView1.ColumnHeadersDefaultCellStyle.BackColor;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            setDataToGrid(textBox1.Text);
+            // setDataToGrid(textBox1.Text);
+
+            //  string query = $"SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\" OR `email` LIKE \"%{txt_search.Text}%\"";
+            string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`" +
+                $"WHERE `Vehicle_num` LIKE \"% {textBox1.Text}%\" "; 
+            setDataToGrid(query);
         }
     }
 }
