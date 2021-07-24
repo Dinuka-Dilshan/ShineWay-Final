@@ -7,6 +7,7 @@ using ShineWay.Messages;
 using ShineWay.Classes;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 
 namespace ShineWay.UI
 {
@@ -25,7 +26,7 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             combo_userType.SelectedIndex = 0;
-            fillData("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
+            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
 
         }
 
@@ -119,7 +120,7 @@ namespace ShineWay.UI
 
             }
 
-            fillData("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
+            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
 
         }
 
@@ -294,59 +295,6 @@ namespace ShineWay.UI
         }
 
 
-        /*public void setDataToGrid()
-        {
-            
-            try
-            {
-                MySqlDataReader reader = DbConnection.Read("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
-                while (reader.Read())
-                {
-                    User user = new User();
-                    user.NIC = reader[0].ToString();
-                    user.Name = reader[1].ToString();
-                    user.Type = reader[2].ToString();
-                    user.TelephoneNumber = reader[3].ToString();
-                    user.Address = reader[4].ToString();
-                    users.Add(user);
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
-                submitmessege.convertToOkButton();
-                submitmessege.ShowDialog();
-            }
-
-            dataGridView1.DataSource = users;
-        }*/
-
-
-        public void fillData(string query)
-        {
-            try
-            {
-                MySqlConnection connection = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
-                connection.Open();
-                MySqlDataAdapter MyDA = new MySqlDataAdapter();
-                MyDA.SelectCommand = new MySqlCommand(query, connection);
-
-                DataTable table = new DataTable();
-                MyDA.Fill(table);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = table;
-                dataGridView1.DataSource = bSource;
-                connection.Close();
-            }
-            catch (Exception ee)
-            {
-
-            }
-            
-        }
-
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
@@ -385,7 +333,48 @@ namespace ShineWay.UI
         private void txt_search_KeyUp(object sender, KeyEventArgs e)
         {
             string query = $"SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\"";
-            fillData(query);
+            setDataToTable(query);
+        }
+
+        private void Users_Load(object sender, EventArgs e)
+        {
+            dataGridView1.BorderStyle = BorderStyle.None;
+            //this.dataGridView1.GridColor = Color.BlueViolet;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26,139,9);
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic bold", 12);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.Font = new Font("Century Gothic", 12);
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = dataGridView1.ColumnHeadersDefaultCellStyle.BackColor;
+
+        }
+
+
+        void setDataToTable(string query)
+        {
+            MySqlDataReader reader = DbConnection.Read(query);
+
+            
+
+            while (reader.Read())
+            {
+                int x = dataGridView1.Rows.Add();
+                dataGridView1.Rows[x].Cells[0].Value = reader.GetString("NIC");
+                dataGridView1.Rows[x].Cells[1].Value = reader.GetString("name");
+                dataGridView1.Rows[x].Cells[2].Value = reader.GetString("user_type");
+                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Telephone");
+                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Address");
+
+                
+            }
         }
     }
 }
