@@ -25,10 +25,23 @@ namespace ShineWay.UI
         bool isTelNumValid = false;
         bool isEmailValid = false;
 
+        private void DisplayData()
+        {
+            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            MySqlCommand cmd;
+            MySqlDataAdapter adapt;
+            con.Open();
+            DataTable dt = new DataTable();
+            adapt = new MySqlDataAdapter("select * from customer", con);
+            adapt.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
+        }
 
         public customer()
         {
             InitializeComponent();
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -237,8 +250,9 @@ namespace ShineWay.UI
                 CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
                 message.convertToOkButton();
                 message.ShowDialog();
-               
-                }
+                DisplayData();
+
+            }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -249,11 +263,48 @@ namespace ShineWay.UI
         private void pb_btnUpdate_Click(object sender, EventArgs e)
         {
             // update button code goes here
+            try
+            {
+                DbConnection.Read("UPDATE customer set Licen_num='" + txt_licenseNumber.Text + "', Cus_name='" + txt_customerName.Text + "' , Tel_num='" + txt_telephoneNumber.Text + "', Email='"
+                + txt_email.Text + "' , Cus_Address='" + txt_address.Text + "' where Cus_NIC='" + txt_nicNumber.Text + "'");
+
+                CustomMessage message = new CustomMessage("User Updated Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+                DisplayData();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             //delete button code goes here
+            if (txt_nicNumber.Text != "")
+            {
+
+                try
+                {
+                    DbConnection.Read("delete from customer where Cus_NIC='" + txt_nicNumber.Text + "'");
+
+                    CustomMessage message = new CustomMessage("User Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+
+                    DisplayData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Record to Delete");
+            }
         }
 
         
@@ -390,7 +441,20 @@ namespace ShineWay.UI
             }
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_nicNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txt_licenseNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txt_customerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txt_telephoneNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txt_email.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txt_address.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            
+        }
 
-
+        private void customer_Load(object sender, EventArgs e)
+        {
+            DisplayData();
+        }
     }
 }
