@@ -5,15 +5,27 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using ShineWay.Messages;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using ShineWay.Validation;
+using ShineWay.DataBase;
+using ShineWay.Classes;
 
 namespace ShineWay.UI
 {
     public partial class customer : UserControl
     {
         //Validation.Validates obj1 = new Validation.Validates();
+        
+        bool isNICValid = false;
+        bool isLicensenumberValid = false;
+        bool isCusNameValid = false;
+        bool isTelNumValid = false;
+        bool isEmailValid = false;
+
+
         public customer()
         {
             InitializeComponent();
@@ -197,11 +209,40 @@ namespace ShineWay.UI
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             // reset button code goes here
+            txt_nicNumber.Text = "";
+            txt_licenseNumber.Text = "";
+            txt_customerName.Text = "";
+            txt_telephoneNumber.Text = "";
+            txt_email.Text = "";
+            txt_address.Text = "";
+            label_tickNIC.Visible = false;
+            label_tickLicenseNum.Visible = false;
+            label_tickName.Visible = false;
+            label_tickTelNum.Visible = false;
+            label_tickEmail.Visible = false;
+            label_tickAddress.Visible = false;
+
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
+            
+                try
+                {
+                    DataBase.DbConnection.Read("insert into customer (Cus_NIC , Licen_num, Cus_name, Tel_num, Email , Cus_Address) Values" +
+                    "('" + txt_nicNumber.Text + "','" + txt_licenseNumber.Text + "','" + txt_customerName.Text + "','" + txt_telephoneNumber.Text + "','" + txt_email.Text + "','"
+                    + txt_address.Text + "')");
+
+                CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+               
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             
         }
 
@@ -229,95 +270,136 @@ namespace ShineWay.UI
         }
 
         
-
-        private void txt_address_MouseLeave(object sender, EventArgs e)
+        
+        private void pictureBox3_Click_2(object sender, EventArgs e)
         {
-            bool address = Validates.ValidateDescription(txt_address.Text);
 
-            if (address == false)
+        }
+
+        private void txt_nicNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Validates.ValidCustomerNewNIC(txt_nicNumber.Text) || Validates.ValidCustomerOldNIC(txt_nicNumber.Text))
             {
-                txt_address.ForeColor = Color.Red;
-                Messages.CustomMessage errormessege = new Messages.CustomMessage("Maxium lenght of description is\n 150 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
-                errormessege.convertToOkButton();
-                errormessege.ShowDialog();
+                pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicError.Visible = false;
+                label_tickNIC.Visible = true;
+                isNICValid = true;
+
             }
             else
             {
-                txt_address.ForeColor = Color.Green;
+                pictureBox2.Image = ShineWay.Properties.Resources.errorinput;
+                label_nicError.Visible = true;
+                label_tickNIC.Visible = false;
+                isNICValid = false;
             }
         }
 
-      
-        private void txt_nicNumber_Leave(object sender, EventArgs e)
+        private void txt_licenseNumber_KeyUp(object sender, KeyEventArgs e)
         {
-            bool oldnic = Validates.ValidCustomerOldNIC(txt_nicNumber.Text);
-            bool newnic = Validates.ValidCustomerNewNIC(txt_nicNumber.Text);
-
-            if (oldnic == true || newnic == true)
+            if (Validates.ValidLicensenumber(txt_licenseNumber.Text))
             {
-                txt_nicNumber.ForeColor = Color.Green;
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                label_licenseError.Visible = false;
+                label_tickLicenseNum.Visible = true;
+                isLicensenumberValid = true;
+
             }
             else
             {
-                txt_nicNumber.ForeColor = Color.Red;
+                pictureBox5.Image = ShineWay.Properties.Resources.errorinput;
+                label_licenseError.Visible = true;
+                label_tickLicenseNum.Visible = false;
+                isLicensenumberValid = false;
             }
         }
 
-        private void txt_email_Leave(object sender, EventArgs e)
+        private void txt_customerName_KeyUp(object sender, KeyEventArgs e)
         {
-            bool email = Validates.ValidEmail(txt_email.Text);
-            if (email == false)
+            if (Validates.ValidName(txt_customerName.Text))
             {
-                txt_email.ForeColor = Color.Red;
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                label_nameError.Visible = false;
+                label_tickName.Visible = true;
+                isCusNameValid = true;
+
             }
             else
             {
-                txt_email.ForeColor = Color.Green;
+                pictureBox7.Image = ShineWay.Properties.Resources.errorinput;
+                label_nameError.Visible = true;
+                label_tickName.Visible = false;
+                isCusNameValid = false;
             }
         }
 
-        private void txt_telephoneNumber_Leave(object sender, EventArgs e)
+        private void txt_telephoneNumber_KeyUp(object sender, KeyEventArgs e)
         {
-            bool mobilenum = Validates.ValidMobile(txt_telephoneNumber.Text);
-            if (mobilenum == false)
+            if (Validates.ValidMobile(txt_telephoneNumber.Text))
             {
-                txt_telephoneNumber.ForeColor = Color.Red;
+                pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+                label_telnumberError.Visible = false;
+                label_tickTelNum.Visible = true;
+                isTelNumValid = true;
+
             }
             else
             {
-                txt_telephoneNumber.ForeColor = Color.Green;
+                pictureBox9.Image = ShineWay.Properties.Resources.errorinput;
+                label_telnumberError.Visible = true;
+                label_tickTelNum.Visible = false;
+                isTelNumValid = false;
             }
         }
 
-        private void txt_licenseNumber_Leave(object sender, EventArgs e)
+        private void txt_email_KeyUp(object sender, KeyEventArgs e)
         {
-            bool licensenum = Validates.ValidLicensenumber(txt_licenseNumber.Text);
-            if (licensenum == false)
+            if (Validates.ValidEmail(txt_email.Text))
             {
-                txt_licenseNumber.ForeColor = Color.Red;
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                label_emailError.Visible = false;
+                label_tickEmail.Visible = true;
+                isEmailValid = true;
+
             }
             else
             {
-                txt_licenseNumber.ForeColor = Color.Green;
+                pictureBox11.Image = ShineWay.Properties.Resources.errorinput;
+                label_emailError.Visible = true;
+                label_tickEmail.Visible = false;
+                isEmailValid = false;
             }
         }
 
-        private void txt_customerName_Leave(object sender, EventArgs e)
+        private void txt_address_KeyUp(object sender, KeyEventArgs e)
         {
-            bool cusname = Validates.ValidName(txt_customerName.Text);
-            if (cusname == false)
+            if (Validates.ValidateDescription(txt_address.Text))
             {
-                txt_customerName.ForeColor = Color.Red;
+                pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+                label_addressError.Visible = false;
+                label_tickAddress.Visible = true;
+                isEmailValid = true;
+
             }
             else
             {
-                txt_customerName.ForeColor = Color.Green;
+                pictureBox13.Image = ShineWay.Properties.Resources.errorinput;
+                label_addressError.Visible = true;
+                label_tickAddress.Visible = false;
+                isEmailValid = false;
             }
         }
+
 
         private void pictureBox3_Click_2(object sender, EventArgs e)
         {
 
         }
+
+        private void txt_nicNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
     }
 }
