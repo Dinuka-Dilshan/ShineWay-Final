@@ -18,6 +18,13 @@ namespace ShineWay.UI
         bool isTelephoneNumberValid = false;
         bool isAddressValid = false;
         bool isEmailValid = false;
+
+        bool isNameValidForUpdate = true;
+        bool isNICValidForUpdate = true;
+        bool isTelephoneNumberValidForUpdate = true;
+        bool isAddressValidForUpdate = true;
+        bool isEmailValidForUpdate = true;
+
         List<User> users = new List<User>();
 
 
@@ -26,7 +33,7 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             combo_userType.SelectedIndex = 0;
-            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
+            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
 
         }
 
@@ -85,7 +92,7 @@ namespace ShineWay.UI
                         {
                             String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
                             string temporaryPassword = randomString();
-                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address` , `isFirstTimeUser`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\", 1)";
+                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address` , `isFirstTimeUser`,`email`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\", 1,\"{txt_email.Text}\")";
 
                             string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to login!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
                             Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
@@ -120,7 +127,7 @@ namespace ShineWay.UI
 
             }
 
-            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users`");
+            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
 
         }
 
@@ -150,9 +157,58 @@ namespace ShineWay.UI
         
         private void label8_Click(object sender, EventArgs e)
         {
-            CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
-            submitmessege.convertToOkButton();
-            submitmessege.ShowDialog();
+            if(dataGridView1.SelectedRows[0] == null)
+            {
+                CustomMessage submitmessege = new CustomMessage("Select a row before update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+            else
+            {
+                if (txt_NIC.Text.Trim() == "" || txt_name.Text.Trim() == "" || txt_telephoneNumber.Text.Trim() == "" || txt_address.Text.Trim() == "" || txt_email.Text.Trim() == "")
+                {
+                    CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+                }
+                else
+                {
+
+                    if (isAllValidForUpdate())
+                    {
+
+                        string query = $"UPDATE `users` SET `NIC`= \"{txt_NIC.Text}\", `name`= \"{txt_name.Text}\", `user_type`= \"{combo_userType.Text}\", `email`= \"{txt_email.Text}\", `Telephone`= \"{txt_telephoneNumber.Text}\", `Address`= \"{txt_address.Text}\"  WHERE `ID`= \"{dataGridView1.SelectedRows[0].Cells[6].Value}\"";
+
+                        try
+                        {
+                            DbConnection.Update(query);
+                            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
+                            CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                            submitmessege.convertToOkButton();
+                            submitmessege.ShowDialog();
+
+                        }
+                        catch (Exception exc)
+                        {
+                            CustomMessage submitmessege = new CustomMessage(exc.Message, "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                            submitmessege.convertToOkButton();
+                            submitmessege.ShowDialog();
+                        }
+
+
+                    }
+                    else
+                    {
+                        CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before Update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                        submitmessege.convertToOkButton();
+                        submitmessege.ShowDialog();
+                    }
+
+                }
+            }
+
+
+
         }
 
 
@@ -196,6 +252,7 @@ namespace ShineWay.UI
                 label_nameError.Visible = false;
                 label_tickName.Visible = true;
                 isNameValid = true;
+                isNameValidForUpdate = true;
             }
             else
             {
@@ -203,6 +260,7 @@ namespace ShineWay.UI
                 label_nameError.Visible = true;
                 label_tickName.Visible = false;
                 isNameValid = false;
+                isNameValidForUpdate = false;
             }
         }
 
@@ -214,6 +272,7 @@ namespace ShineWay.UI
                 label_nicError.Visible = false;
                 label_tickNIC.Visible = true;
                 isNICValid = true;
+                isNICValidForUpdate = true;
 
             }
             else
@@ -222,6 +281,7 @@ namespace ShineWay.UI
                 label_nicError.Visible = true;
                 label_tickNIC.Visible = false;
                 isNICValid = false;
+                isNICValidForUpdate = false;
             }
             
         }
@@ -234,6 +294,7 @@ namespace ShineWay.UI
                 label_telError.Visible = false;
                 label_telTick.Visible = true;
                 isTelephoneNumberValid = true;
+                isTelephoneNumberValidForUpdate = true;
 
             }
             else
@@ -242,6 +303,7 @@ namespace ShineWay.UI
                 label_telError.Visible = true;
                 label_telTick.Visible = false;
                 isTelephoneNumberValid = false;
+                isTelephoneNumberValidForUpdate = false;
             }
         }
 
@@ -261,6 +323,7 @@ namespace ShineWay.UI
                 label_addressError.Visible = true;
                 label_tickAddress.Visible = false;
                 isAddressValid = false;
+                isAddressValidForUpdate = false;
             }
             else
             {
@@ -268,6 +331,7 @@ namespace ShineWay.UI
                 label_addressError.Visible = false;
                 label_tickAddress.Visible = true;
                 isAddressValid = true;
+                isAddressValidForUpdate = true;
             }
         }
 
@@ -292,6 +356,11 @@ namespace ShineWay.UI
         private bool isAllValid()
         {
             return (isNICValid && isNameValid && isTelephoneNumberValid && isAddressValid && isEmailValid);
+        }
+
+        private bool isAllValidForUpdate()
+        {
+            return (isNICValidForUpdate && isNameValidForUpdate && isTelephoneNumberValidForUpdate && isAddressValidForUpdate && isEmailValidForUpdate);
         }
 
 
@@ -319,6 +388,7 @@ namespace ShineWay.UI
                 label_emailError.Visible = false;
                 label_tickEmail.Visible = true;
                 isEmailValid = true;
+                isEmailValidForUpdate = true;
 
             }
             else
@@ -327,12 +397,14 @@ namespace ShineWay.UI
                 label_emailError.Visible = true;
                 label_tickEmail.Visible = false;
                 isEmailValid = false;
+                isEmailValidForUpdate = false;
             }
         }
 
         private void txt_search_KeyUp(object sender, KeyEventArgs e)
         {
-            string query = $"SELECT  `NIC`, `name`, `user_type`, `Telephone`, `Address` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\"";
+            string query = $"SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\" OR `email` LIKE \"%{txt_search.Text}%\"";
+            
             setDataToTable(query);
         }
 
@@ -360,9 +432,10 @@ namespace ShineWay.UI
 
         void setDataToTable(string query)
         {
-            MySqlDataReader reader = DbConnection.Read(query);
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
 
-            
+            MySqlDataReader reader = DbConnection.Read(query);
 
             while (reader.Read())
             {
@@ -371,23 +444,23 @@ namespace ShineWay.UI
                 dataGridView1.Rows[x].Cells[1].Value = reader.GetString("name");
                 dataGridView1.Rows[x].Cells[2].Value = reader.GetString("user_type");
                 dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Telephone");
-                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Address");
+                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
+                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Address");
+                dataGridView1.Rows[x].Cells[6].Value = reader.GetString("ID");
 
-                
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-                {
-                    txt_NIC.Text = row.Cells[0].Value.ToString();
-                    txt_name.Text = row.Cells[1].Value.ToString();
-                    txt_telephoneNumber.Text = row.Cells[3].Value.ToString();
-                    txt_address.Text = row.Cells[4].Value.ToString();
+       
 
-            }
-            
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
         }
     }
 }
