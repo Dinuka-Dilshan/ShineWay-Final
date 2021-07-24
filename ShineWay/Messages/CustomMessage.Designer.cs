@@ -55,7 +55,7 @@ namespace ShineWay.Messages
             this.btn_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_btn2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_btn2.ForeColor = System.Drawing.Color.White;
-            this.btn_btn2.Location = new System.Drawing.Point(336, 109);
+            this.btn_btn2.Location = new System.Drawing.Point(308, 109);
             this.btn_btn2.Name = "btn_btn2";
             this.btn_btn2.Size = new System.Drawing.Size(94, 42);
             this.btn_btn2.TabIndex = 1;
@@ -105,7 +105,7 @@ namespace ShineWay.Messages
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(507, 170);
+            this.ClientSize = new System.Drawing.Size(426, 170);
             this.Controls.Add(this.label_message);
             this.Controls.Add(this.btn_btn1);
             this.Controls.Add(this.pb_icon);

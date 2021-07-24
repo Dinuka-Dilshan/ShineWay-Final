@@ -31,11 +31,11 @@ namespace ShineWay.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vehicles));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox31 = new System.Windows.Forms.Label();
+            this.pb_BtnBrowseOverallView = new System.Windows.Forms.Label();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
             this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
-            this.pb_BtnBrowseOverallView = new System.Windows.Forms.PictureBox();
             this.pb_overallViewimg = new System.Windows.Forms.PictureBox();
             this.pb_InsideViewimg = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -43,6 +43,41 @@ namespace ShineWay.UI
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+
+            //this.label22 = new System.Windows.Forms.Label();
+            //this.label21 = new System.Windows.Forms.Label();
+
+            this.label_validKmError = new System.Windows.Forms.Label();
+            this.label_tickKm = new System.Windows.Forms.Label();
+            this.label_tickrentPrice = new System.Windows.Forms.Label();
+            this.label_rentPriceError = new System.Windows.Forms.Label();
+            this.label_tickVehType = new System.Windows.Forms.Label();
+            this.label_VehicleTypeError = new System.Windows.Forms.Label();
+            this.label_StartingOdoError = new System.Windows.Forms.Label();
+            this.label_ownerPaymentError = new System.Windows.Forms.Label();
+
+            this.label_chassisNoError = new System.Windows.Forms.Label();
+            this.label_engineNoError = new System.Windows.Forms.Label();
+            this.label_modelError = new System.Windows.Forms.Label();
+            this.label_brandError = new System.Windows.Forms.Label();
+            this.label_tickStartOdo = new System.Windows.Forms.Label();
+            this.label_tickOwnerPayment = new System.Windows.Forms.Label();
+            this.label_tickChassisNo = new System.Windows.Forms.Label();
+            this.label_tickEngineNO = new System.Windows.Forms.Label();
+            this.label_tickModel = new System.Windows.Forms.Label();
+            this.label_tickBrand = new System.Windows.Forms.Label();
+            this.label_tickVehicleRegNo = new System.Windows.Forms.Label();
+            this.label_VehicleRegNoError = new System.Windows.Forms.Label();
+            this.label_tickOwnerCondition = new System.Windows.Forms.Label();
+            this.label_tickNIC = new System.Windows.Forms.Label();
+            this.label_ownerConditionError = new System.Windows.Forms.Label();
+            this.label_nicError = new System.Windows.Forms.Label();
+            this.pb_btnDelete = new System.Windows.Forms.Label();
+            this.pb_btnUpdate = new System.Windows.Forms.Label();
+            this.pb_btnAdd = new System.Windows.Forms.Label();
+            this.pb_btnReset = new System.Windows.Forms.Label();
+            this.msktxt_startingOdo = new System.Windows.Forms.MaskedTextBox();
+            this.txt_ownerNIC = new System.Windows.Forms.MaskedTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -61,7 +96,6 @@ namespace ShineWay.UI
             this.combo_type = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.txt_StartingOdo = new System.Windows.Forms.TextBox();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
@@ -82,12 +116,7 @@ namespace ShineWay.UI
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.txt_ownerNIC = new System.Windows.Forms.TextBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pb_btnDelete = new System.Windows.Forms.PictureBox();
-            this.pb_btnUpdate = new System.Windows.Forms.PictureBox();
-            this.pb_btnAdd = new System.Windows.Forms.PictureBox();
-            this.pb_btnReset = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -114,8 +143,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_BtnBrowseOverallView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_overallViewimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_InsideViewimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -135,10 +162,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -155,11 +178,11 @@ namespace ShineWay.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox31);
+            this.panel2.Controls.Add(this.pb_BtnBrowseOverallView);
             this.panel2.Controls.Add(this.pictureBox32);
             this.panel2.Controls.Add(this.pictureBox33);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.pictureBox31);
-            this.panel2.Controls.Add(this.pb_BtnBrowseOverallView);
             this.panel2.Controls.Add(this.pb_overallViewimg);
             this.panel2.Controls.Add(this.pb_InsideViewimg);
             this.panel2.Controls.Add(this.textBox1);
@@ -170,6 +193,28 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 27;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // pictureBox31
+            // 
+            this.pictureBox31.BackColor = System.Drawing.Color.White;
+            this.pictureBox31.Image = global::ShineWay.Properties.Resources.Leftbrowse;
+            this.pictureBox31.Location = new System.Drawing.Point(360, 179);
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.Size = new System.Drawing.Size(147, 46);
+            this.pictureBox31.TabIndex = 19;
+            this.pictureBox31.Click += new System.EventHandler(this.pictureBox31_Click);
+            // 
+            // pb_BtnBrowseOverallView
+            // 
+            this.pb_BtnBrowseOverallView.BackColor = System.Drawing.Color.White;
+            this.pb_BtnBrowseOverallView.Image = global::ShineWay.Properties.Resources.BrowseLeft;
+            this.pb_BtnBrowseOverallView.Location = new System.Drawing.Point(360, 64);
+            this.pb_BtnBrowseOverallView.Name = "pb_BtnBrowseOverallView";
+            this.pb_BtnBrowseOverallView.Size = new System.Drawing.Size(147, 46);
+            this.pb_BtnBrowseOverallView.TabIndex = 18;
+            this.pb_BtnBrowseOverallView.Click += new System.EventHandler(this.pb_BtnBrowseOverallView_Click);
+            this.pb_BtnBrowseOverallView.MouseHover += new System.EventHandler(this.pb_BtnBrowseOverallView_MouseHover_1);
             // 
             // pictureBox32
             // 
@@ -203,31 +248,7 @@ namespace ShineWay.UI
             this.dataGridView1.Size = new System.Drawing.Size(727, 328);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // pictureBox31
-            // 
-            this.pictureBox31.BackColor = System.Drawing.Color.White;
-            this.pictureBox31.Image = global::ShineWay.Properties.Resources.Leftbrowse;
-            this.pictureBox31.Location = new System.Drawing.Point(351, 179);
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(170, 72);
-            this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox31.TabIndex = 8;
-            this.pictureBox31.TabStop = false;
-            this.pictureBox31.Click += new System.EventHandler(this.pictureBox31_Click);
-            // 
-            // pb_BtnBrowseOverallView
-            // 
-            this.pb_BtnBrowseOverallView.BackColor = System.Drawing.Color.White;
-            this.pb_BtnBrowseOverallView.Image = global::ShineWay.Properties.Resources.BrowseLeft;
-            this.pb_BtnBrowseOverallView.Location = new System.Drawing.Point(351, 34);
-            this.pb_BtnBrowseOverallView.Name = "pb_BtnBrowseOverallView";
-            this.pb_BtnBrowseOverallView.Size = new System.Drawing.Size(170, 72);
-            this.pb_BtnBrowseOverallView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_BtnBrowseOverallView.TabIndex = 7;
-            this.pb_BtnBrowseOverallView.TabStop = false;
-            this.pb_BtnBrowseOverallView.Click += new System.EventHandler(this.pb_BtnBrowseOverallView_Click);
-            this.pb_BtnBrowseOverallView.MouseHover += new System.EventHandler(this.pb_BtnBrowseOverallView_MouseHover);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // pb_overallViewimg
             // 
@@ -288,10 +309,41 @@ namespace ShineWay.UI
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox17.TabIndex = 2;
             this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox31_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label_validKmError);
+            this.panel1.Controls.Add(this.label_tickKm);
+            this.panel1.Controls.Add(this.label_tickrentPrice);
+            this.panel1.Controls.Add(this.label_rentPriceError);
+            this.panel1.Controls.Add(this.label_tickVehType);
+            this.panel1.Controls.Add(this.label_VehicleTypeError);
+            this.panel1.Controls.Add(this.label_StartingOdoError);
+            this.panel1.Controls.Add(this.label_ownerPaymentError);
+            this.panel1.Controls.Add(this.label_chassisNoError);
+            this.panel1.Controls.Add(this.label_engineNoError);
+            this.panel1.Controls.Add(this.label_modelError);
+            this.panel1.Controls.Add(this.label_brandError);
+            this.panel1.Controls.Add(this.label_tickStartOdo);
+            this.panel1.Controls.Add(this.label_tickOwnerPayment);
+            this.panel1.Controls.Add(this.label_tickChassisNo);
+            this.panel1.Controls.Add(this.label_tickEngineNO);
+            this.panel1.Controls.Add(this.label_tickModel);
+            this.panel1.Controls.Add(this.label_tickBrand);
+            this.panel1.Controls.Add(this.label_tickVehicleRegNo);
+            this.panel1.Controls.Add(this.label_VehicleRegNoError);
+            this.panel1.Controls.Add(this.label_tickOwnerCondition);
+            this.panel1.Controls.Add(this.label_tickNIC);
+            this.panel1.Controls.Add(this.label_ownerConditionError);
+            this.panel1.Controls.Add(this.label_nicError);
+            this.panel1.Controls.Add(this.pb_btnDelete);
+            this.panel1.Controls.Add(this.pb_btnUpdate);
+            this.panel1.Controls.Add(this.pb_btnAdd);
+            this.panel1.Controls.Add(this.pb_btnReset);
+            this.panel1.Controls.Add(this.msktxt_startingOdo);
+            this.panel1.Controls.Add(this.txt_ownerNIC);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label17);
@@ -310,7 +362,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.combo_type);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.pictureBox29);
-            this.panel1.Controls.Add(this.txt_StartingOdo);
             this.panel1.Controls.Add(this.pictureBox30);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.pictureBox27);
@@ -331,12 +382,7 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.pictureBox20);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox18);
-            this.panel1.Controls.Add(this.txt_ownerNIC);
             this.panel1.Controls.Add(this.pictureBox19);
-            this.panel1.Controls.Add(this.pb_btnDelete);
-            this.panel1.Controls.Add(this.pb_btnUpdate);
-            this.panel1.Controls.Add(this.pb_btnAdd);
-            this.panel1.Controls.Add(this.pb_btnReset);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
@@ -363,6 +409,359 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+
+            
+
+            // label_validKmError
+            // 
+            this.label_validKmError.AutoSize = true;
+            this.label_validKmError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_validKmError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_validKmError.ForeColor = System.Drawing.Color.Red;
+            this.label_validKmError.Location = new System.Drawing.Point(407, 598);
+            this.label_validKmError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_validKmError.Name = "label_validKmError";
+            this.label_validKmError.Size = new System.Drawing.Size(230, 18);
+            this.label_validKmError.TabIndex = 120;
+            this.label_validKmError.Text = "Please enter a valid km format";
+            this.label_validKmError.Visible = false;
+            // 
+            // label_tickKm
+            // 
+            this.label_tickKm.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickKm.Location = new System.Drawing.Point(825, 584);
+            this.label_tickKm.Name = "label_tickKm";
+            this.label_tickKm.Size = new System.Drawing.Size(23, 22);
+            this.label_tickKm.TabIndex = 119;
+            this.label_tickKm.Visible = false;
+            // 
+            // label_tickrentPrice
+            // 
+            this.label_tickrentPrice.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickrentPrice.Location = new System.Drawing.Point(825, 528);
+            this.label_tickrentPrice.Name = "label_tickrentPrice";
+            this.label_tickrentPrice.Size = new System.Drawing.Size(23, 22);
+            this.label_tickrentPrice.TabIndex = 118;
+            this.label_tickrentPrice.Visible = false;
+            // 
+            // label_rentPriceError
+            // 
+            this.label_rentPriceError.AutoSize = true;
+            this.label_rentPriceError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_rentPriceError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_rentPriceError.ForeColor = System.Drawing.Color.Red;
+            this.label_rentPriceError.Location = new System.Drawing.Point(399, 510);
+            this.label_rentPriceError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_rentPriceError.Name = "label_rentPriceError";
+            this.label_rentPriceError.Size = new System.Drawing.Size(246, 18);
+            this.label_rentPriceError.TabIndex = 117;
+            this.label_rentPriceError.Text = "Please enter a valid price format";
+            this.label_rentPriceError.Visible = false;
+            // 
+            // label_tickVehType
+            // 
+            this.label_tickVehType.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickVehType.Location = new System.Drawing.Point(825, 194);
+            this.label_tickVehType.Name = "label_tickVehType";
+            this.label_tickVehType.Size = new System.Drawing.Size(23, 22);
+            this.label_tickVehType.TabIndex = 116;
+            this.label_tickVehType.Visible = false;
+            // 
+            // label_VehicleTypeError
+            // 
+            this.label_VehicleTypeError.AutoSize = true;
+            this.label_VehicleTypeError.BackColor = System.Drawing.Color.Transparent;
+            this.label_VehicleTypeError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_VehicleTypeError.ForeColor = System.Drawing.Color.Red;
+            this.label_VehicleTypeError.Location = new System.Drawing.Point(399, 215);
+            this.label_VehicleTypeError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_VehicleTypeError.Name = "label_VehicleTypeError";
+            this.label_VehicleTypeError.Size = new System.Drawing.Size(232, 18);
+            this.label_VehicleTypeError.TabIndex = 115;
+            this.label_VehicleTypeError.Text = "Please select the Vehicle Type";
+            this.label_VehicleTypeError.Visible = false;
+            // 
+            // label_StartingOdoError
+            // 
+            this.label_StartingOdoError.AutoSize = true;
+            this.label_StartingOdoError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_StartingOdoError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_StartingOdoError.ForeColor = System.Drawing.Color.Red;
+            this.label_StartingOdoError.Location = new System.Drawing.Point(429, 725);
+            this.label_StartingOdoError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_StartingOdoError.Name = "label_StartingOdoError";
+            this.label_StartingOdoError.Size = new System.Drawing.Size(230, 18);
+            this.label_StartingOdoError.TabIndex = 112;
+            this.label_StartingOdoError.Text = "Please enter a valid km format";
+            this.label_StartingOdoError.Visible = false;
+            // 
+            // label_ownerPaymentError
+            // 
+            this.label_ownerPaymentError.AutoSize = true;
+            this.label_ownerPaymentError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_ownerPaymentError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_ownerPaymentError.ForeColor = System.Drawing.Color.Red;
+            this.label_ownerPaymentError.Location = new System.Drawing.Point(429, 666);
+            this.label_ownerPaymentError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_ownerPaymentError.Name = "label_ownerPaymentError";
+            this.label_ownerPaymentError.Size = new System.Drawing.Size(246, 18);
+            this.label_ownerPaymentError.TabIndex = 111;
+            this.label_ownerPaymentError.Text = "Please enter a valid price format";
+            this.label_ownerPaymentError.Visible = false;
+
+            // 
+            // label_chassisNoError
+            // 
+            this.label_chassisNoError.AutoSize = true;
+            this.label_chassisNoError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_chassisNoError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_chassisNoError.ForeColor = System.Drawing.Color.Red;
+            this.label_chassisNoError.Location = new System.Drawing.Point(407, 335);
+            this.label_chassisNoError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_chassisNoError.Name = "label_chassisNoError";
+            this.label_chassisNoError.Size = new System.Drawing.Size(312, 18);
+            this.label_chassisNoError.TabIndex = 110;
+            this.label_chassisNoError.Text = "Cannot exceeds more than 40 charactors";
+            this.label_chassisNoError.Visible = false;
+            // 
+            // label_engineNoError
+            // 
+            this.label_engineNoError.AutoSize = true;
+            this.label_engineNoError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_engineNoError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_engineNoError.ForeColor = System.Drawing.Color.Red;
+            this.label_engineNoError.Location = new System.Drawing.Point(407, 277);
+            this.label_engineNoError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_engineNoError.Name = "label_engineNoError";
+            this.label_engineNoError.Size = new System.Drawing.Size(312, 18);
+            this.label_engineNoError.TabIndex = 109;
+            this.label_engineNoError.Text = "Cannot exceeds more than 40 charactors";
+            this.label_engineNoError.Visible = false;
+            // 
+            // label_modelError
+            // 
+            this.label_modelError.AutoSize = true;
+            this.label_modelError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_modelError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_modelError.ForeColor = System.Drawing.Color.Red;
+            this.label_modelError.Location = new System.Drawing.Point(399, 169);
+            this.label_modelError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_modelError.Name = "label_modelError";
+            this.label_modelError.Size = new System.Drawing.Size(312, 18);
+            this.label_modelError.TabIndex = 108;
+            this.label_modelError.Text = "Cannot exceeds more than 40 charactors";
+            this.label_modelError.Visible = false;
+            // 
+            // label_brandError
+            // 
+            this.label_brandError.AutoSize = true;
+            this.label_brandError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_brandError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_brandError.ForeColor = System.Drawing.Color.Red;
+            this.label_brandError.Location = new System.Drawing.Point(399, 113);
+            this.label_brandError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_brandError.Name = "label_brandError";
+            this.label_brandError.Size = new System.Drawing.Size(312, 18);
+            this.label_brandError.TabIndex = 107;
+            this.label_brandError.Text = "Cannot exceeds more than 40 charactors";
+            this.label_brandError.Visible = false;
+            // 
+            // label_tickStartOdo
+            // 
+            this.label_tickStartOdo.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickStartOdo.Location = new System.Drawing.Point(825, 699);
+            this.label_tickStartOdo.Name = "label_tickStartOdo";
+            this.label_tickStartOdo.Size = new System.Drawing.Size(23, 22);
+            this.label_tickStartOdo.TabIndex = 106;
+            this.label_tickStartOdo.Visible = false;
+            // 
+            // label_tickOwnerPayment
+            // 
+            this.label_tickOwnerPayment.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickOwnerPayment.Location = new System.Drawing.Point(825, 640);
+            this.label_tickOwnerPayment.Name = "label_tickOwnerPayment";
+            this.label_tickOwnerPayment.Size = new System.Drawing.Size(23, 22);
+            this.label_tickOwnerPayment.TabIndex = 105;
+            this.label_tickOwnerPayment.Visible = false;
+            // 
+            // label_tickChassisNo
+            // 
+            this.label_tickChassisNo.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickChassisNo.Location = new System.Drawing.Point(825, 309);
+            this.label_tickChassisNo.Name = "label_tickChassisNo";
+            this.label_tickChassisNo.Size = new System.Drawing.Size(23, 22);
+            this.label_tickChassisNo.TabIndex = 104;
+            this.label_tickChassisNo.Visible = false;
+            // 
+            // label_tickEngineNO
+            // 
+            this.label_tickEngineNO.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickEngineNO.Location = new System.Drawing.Point(825, 251);
+            this.label_tickEngineNO.Name = "label_tickEngineNO";
+            this.label_tickEngineNO.Size = new System.Drawing.Size(23, 22);
+            this.label_tickEngineNO.TabIndex = 103;
+            this.label_tickEngineNO.Visible = false;
+            // 
+            // label_tickModel
+            // 
+            this.label_tickModel.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickModel.Location = new System.Drawing.Point(825, 145);
+            this.label_tickModel.Name = "label_tickModel";
+            this.label_tickModel.Size = new System.Drawing.Size(23, 22);
+            this.label_tickModel.TabIndex = 102;
+            this.label_tickModel.Visible = false;
+            // 
+            // label_tickBrand
+            // 
+            this.label_tickBrand.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickBrand.Location = new System.Drawing.Point(825, 88);
+            this.label_tickBrand.Name = "label_tickBrand";
+            this.label_tickBrand.Size = new System.Drawing.Size(23, 22);
+            this.label_tickBrand.TabIndex = 101;
+            this.label_tickBrand.Visible = false;
+            // 
+            // label_tickVehicleRegNo
+            // 
+            this.label_tickVehicleRegNo.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickVehicleRegNo.Location = new System.Drawing.Point(825, 29);
+            this.label_tickVehicleRegNo.Name = "label_tickVehicleRegNo";
+            this.label_tickVehicleRegNo.Size = new System.Drawing.Size(23, 22);
+            this.label_tickVehicleRegNo.TabIndex = 100;
+            this.label_tickVehicleRegNo.Visible = false;
+            // 
+            // label_VehicleRegNoError
+            // 
+            this.label_VehicleRegNoError.AutoSize = true;
+            this.label_VehicleRegNoError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_VehicleRegNoError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_VehicleRegNoError.ForeColor = System.Drawing.Color.Red;
+            this.label_VehicleRegNoError.Location = new System.Drawing.Point(399, 55);
+            this.label_VehicleRegNoError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_VehicleRegNoError.Name = "label_VehicleRegNoError";
+            this.label_VehicleRegNoError.Size = new System.Drawing.Size(391, 18);
+            this.label_VehicleRegNoError.TabIndex = 99;
+            this.label_VehicleRegNoError.Text = "Please enter a valid Vehicle Numbr (eg :- ABC-1234)";
+            this.label_VehicleRegNoError.Visible = false;
+            // 
+            // label_tickOwnerCondition
+            // 
+            this.label_tickOwnerCondition.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickOwnerCondition.Location = new System.Drawing.Point(825, 471);
+            this.label_tickOwnerCondition.Name = "label_tickOwnerCondition";
+            this.label_tickOwnerCondition.Size = new System.Drawing.Size(23, 22);
+            this.label_tickOwnerCondition.TabIndex = 98;
+            this.label_tickOwnerCondition.Visible = false;
+            // 
+            // label_tickNIC
+            // 
+            this.label_tickNIC.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickNIC.Location = new System.Drawing.Point(825, 366);
+            this.label_tickNIC.Name = "label_tickNIC";
+            this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
+            this.label_tickNIC.TabIndex = 97;
+            this.label_tickNIC.Visible = false;
+            // 
+            // label_ownerConditionError
+            // 
+            this.label_ownerConditionError.AutoSize = true;
+            this.label_ownerConditionError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_ownerConditionError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_ownerConditionError.ForeColor = System.Drawing.Color.Red;
+            this.label_ownerConditionError.Location = new System.Drawing.Point(399, 492);
+            this.label_ownerConditionError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_ownerConditionError.Name = "label_ownerConditionError";
+            this.label_ownerConditionError.Size = new System.Drawing.Size(320, 18);
+            this.label_ownerConditionError.TabIndex = 95;
+            this.label_ownerConditionError.Text = "Cannot exceeds more than 200 charactors";
+            this.label_ownerConditionError.Visible = false;
+            // 
+            // label_nicError
+            // 
+            this.label_nicError.AutoSize = true;
+            this.label_nicError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_nicError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_nicError.ForeColor = System.Drawing.Color.Red;
+            this.label_nicError.Location = new System.Drawing.Point(404, 390);
+            this.label_nicError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_nicError.Name = "label_nicError";
+            this.label_nicError.Size = new System.Drawing.Size(183, 18);
+            this.label_nicError.TabIndex = 93;
+            this.label_nicError.Text = "Please enter a valid NIC";
+            this.label_nicError.Visible = false;
+            // 
+            // pb_btnDelete
+            // 
+            this.pb_btnDelete.BackColor = System.Drawing.Color.White;
+            this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
+            this.pb_btnDelete.Location = new System.Drawing.Point(672, 745);
+            this.pb_btnDelete.Name = "pb_btnDelete";
+            this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnDelete.TabIndex = 85;
+            this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click);
+            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
+            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
+            // 
+            // pb_btnUpdate
+            // 
+            this.pb_btnUpdate.BackColor = System.Drawing.Color.White;
+            this.pb_btnUpdate.Image = global::ShineWay.Properties.Resources.update;
+            this.pb_btnUpdate.Location = new System.Drawing.Point(461, 745);
+            this.pb_btnUpdate.Name = "pb_btnUpdate";
+            this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnUpdate.TabIndex = 84;
+            this.pb_btnUpdate.Click += new System.EventHandler(this.pb_btnUpdate_Click);
+            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
+            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
+            // 
+            // pb_btnAdd
+            // 
+            this.pb_btnAdd.BackColor = System.Drawing.Color.White;
+            this.pb_btnAdd.Image = global::ShineWay.Properties.Resources.add;
+            this.pb_btnAdd.Location = new System.Drawing.Point(256, 745);
+            this.pb_btnAdd.Name = "pb_btnAdd";
+            this.pb_btnAdd.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnAdd.TabIndex = 20;
+            this.pb_btnAdd.Click += new System.EventHandler(this.pb_btnAdd_Click);
+            // 
+            // pb_btnReset
+            // 
+            this.pb_btnReset.BackColor = System.Drawing.Color.White;
+            this.pb_btnReset.Image = global::ShineWay.Properties.Resources.reset;
+            this.pb_btnReset.Location = new System.Drawing.Point(58, 745);
+            this.pb_btnReset.Name = "pb_btnReset";
+            this.pb_btnReset.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnReset.TabIndex = 21;
+            this.pb_btnReset.Click += new System.EventHandler(this.pb_btnReset_Click);
+            this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
+            this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
+            // 
+            // msktxt_startingOdo
+            // 
+            this.msktxt_startingOdo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.msktxt_startingOdo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.msktxt_startingOdo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.msktxt_startingOdo.Location = new System.Drawing.Point(378, 699);
+            this.msktxt_startingOdo.Mask = "000009";
+            this.msktxt_startingOdo.Name = "msktxt_startingOdo";
+            this.msktxt_startingOdo.PromptChar = ' ';
+            this.msktxt_startingOdo.Size = new System.Drawing.Size(422, 23);
+            this.msktxt_startingOdo.TabIndex = 17;
+            this.msktxt_startingOdo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.msktxt_startingOdo_KeyPress);
+            // 
+            // txt_ownerNIC
+            // 
+            this.txt_ownerNIC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_ownerNIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_ownerNIC.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_ownerNIC.Location = new System.Drawing.Point(378, 366);
+            this.txt_ownerNIC.Mask = ">000000000A99";
+            this.txt_ownerNIC.Name = "txt_ownerNIC";
+            this.txt_ownerNIC.PromptChar = ' ';
+            this.txt_ownerNIC.Size = new System.Drawing.Size(373, 23);
+            this.txt_ownerNIC.TabIndex = 6;
+            this.txt_ownerNIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ownerNIC_KeyUp);
             // 
             // label18
             // 
@@ -457,7 +856,8 @@ namespace ShineWay.UI
             this.txt_Monthlykm.Name = "txt_Monthlykm";
             this.txt_Monthlykm.PlaceholderText = "  Monthly";
             this.txt_Monthlykm.Size = new System.Drawing.Size(101, 23);
-            this.txt_Monthlykm.TabIndex = 72;
+            this.txt_Monthlykm.TabIndex = 15;
+            this.txt_Monthlykm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Monthlykm_KeyPress);
             // 
             // txt_Weeklykm
             // 
@@ -468,7 +868,8 @@ namespace ShineWay.UI
             this.txt_Weeklykm.Name = "txt_Weeklykm";
             this.txt_Weeklykm.PlaceholderText = "    Weekly";
             this.txt_Weeklykm.Size = new System.Drawing.Size(101, 23);
-            this.txt_Weeklykm.TabIndex = 71;
+            this.txt_Weeklykm.TabIndex = 14;
+            this.txt_Weeklykm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Weeklykm_KeyPress);
             // 
             // txt_Dailykm
             // 
@@ -479,7 +880,8 @@ namespace ShineWay.UI
             this.txt_Dailykm.Name = "txt_Dailykm";
             this.txt_Dailykm.PlaceholderText = "    Daily";
             this.txt_Dailykm.Size = new System.Drawing.Size(101, 23);
-            this.txt_Dailykm.TabIndex = 70;
+            this.txt_Dailykm.TabIndex = 13;
+            this.txt_Dailykm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Dailykm_KeyPress);
             // 
             // txt_ExtrakmPrice
             // 
@@ -490,7 +892,9 @@ namespace ShineWay.UI
             this.txt_ExtrakmPrice.Name = "txt_ExtrakmPrice";
             this.txt_ExtrakmPrice.PlaceholderText = "  Extra Km";
             this.txt_ExtrakmPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_ExtrakmPrice.TabIndex = 65;
+            this.txt_ExtrakmPrice.TabIndex = 12;
+            this.txt_ExtrakmPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ExtrakmPrice_KeyPress);
+            this.txt_ExtrakmPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ExtrakmPrice_KeyUp);
             // 
             // txt_MonthlyPrice
             // 
@@ -501,7 +905,9 @@ namespace ShineWay.UI
             this.txt_MonthlyPrice.Name = "txt_MonthlyPrice";
             this.txt_MonthlyPrice.PlaceholderText = "  Monthly";
             this.txt_MonthlyPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_MonthlyPrice.TabIndex = 64;
+            this.txt_MonthlyPrice.TabIndex = 11;
+            this.txt_MonthlyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_MonthlyPrice_KeyPress);
+            this.txt_MonthlyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_MonthlyPrice_KeyUp);
             // 
             // txt_WeeklyPrice
             // 
@@ -512,36 +918,44 @@ namespace ShineWay.UI
             this.txt_WeeklyPrice.Name = "txt_WeeklyPrice";
             this.txt_WeeklyPrice.PlaceholderText = "    Weekly";
             this.txt_WeeklyPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_WeeklyPrice.TabIndex = 63;
+            this.txt_WeeklyPrice.TabIndex = 10;
+            this.txt_WeeklyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_WeeklyPrice_KeyPress);
+            this.txt_WeeklyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_WeeklyPrice_KeyUp);
             // 
             // msktxt_vehicleRegNumber
             // 
             this.msktxt_vehicleRegNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.msktxt_vehicleRegNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.msktxt_vehicleRegNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.msktxt_vehicleRegNumber.ForeColor = System.Drawing.Color.Black;
             this.msktxt_vehicleRegNumber.Location = new System.Drawing.Point(378, 29);
-            this.msktxt_vehicleRegNumber.Mask = ">AAa-0000";
+            this.msktxt_vehicleRegNumber.Mask = ">AAC#0000";
             this.msktxt_vehicleRegNumber.Name = "msktxt_vehicleRegNumber";
-            this.msktxt_vehicleRegNumber.Size = new System.Drawing.Size(430, 20);
-            this.msktxt_vehicleRegNumber.TabIndex = 62;
+            this.msktxt_vehicleRegNumber.PromptChar = ' ';
+            this.msktxt_vehicleRegNumber.Size = new System.Drawing.Size(430, 23);
+            this.msktxt_vehicleRegNumber.TabIndex = 0;
             this.msktxt_vehicleRegNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.msktxt_vehicleRegNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.msktxt_vehicleRegNumber_KeyUp);
             // 
             // date_registeredDate
             // 
             this.date_registeredDate.CalendarFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date_registeredDate.CustomFormat = "";
             this.date_registeredDate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.date_registeredDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_registeredDate.Location = new System.Drawing.Point(369, 411);
             this.date_registeredDate.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
-            this.date_registeredDate.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.date_registeredDate.MinDate = new System.DateTime(2021, 7, 12, 0, 0, 0, 0);
             this.date_registeredDate.Name = "date_registeredDate";
             this.date_registeredDate.Size = new System.Drawing.Size(369, 32);
-            this.date_registeredDate.TabIndex = 61;
+            this.date_registeredDate.TabIndex = 7;
             // 
             // combo_type
             // 
             this.combo_type.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.combo_type.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.combo_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.combo_type.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.combo_type.FormattingEnabled = true;
             this.combo_type.Items.AddRange(new object[] {
             "Car",
@@ -549,10 +963,9 @@ namespace ShineWay.UI
             "Bike"});
             this.combo_type.Location = new System.Drawing.Point(369, 190);
             this.combo_type.Name = "combo_type";
-            this.combo_type.Size = new System.Drawing.Size(151, 31);
-            this.combo_type.TabIndex = 60;
-            this.combo_type.SelectedIndexChanged += new System.EventHandler(this.combo_Packagetype_SelectedIndexChanged);
-            this.combo_type.TextChanged += new System.EventHandler(this.combo_Packagetype_TextChanged);
+            this.combo_type.Size = new System.Drawing.Size(151, 29);
+            this.combo_type.TabIndex = 3;
+            this.combo_type.TextChanged += new System.EventHandler(this.combo_type_TextChanged);
             // 
             // label13
             // 
@@ -576,16 +989,6 @@ namespace ShineWay.UI
             this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox29.TabIndex = 58;
             this.pictureBox29.TabStop = false;
-            // 
-            // txt_StartingOdo
-            // 
-            this.txt_StartingOdo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_StartingOdo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_StartingOdo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_StartingOdo.Location = new System.Drawing.Point(378, 699);
-            this.txt_StartingOdo.Name = "txt_StartingOdo";
-            this.txt_StartingOdo.Size = new System.Drawing.Size(430, 23);
-            this.txt_StartingOdo.TabIndex = 57;
             // 
             // pictureBox30
             // 
@@ -629,7 +1032,9 @@ namespace ShineWay.UI
             this.txt_OwnerPayment.Location = new System.Drawing.Point(378, 640);
             this.txt_OwnerPayment.Name = "txt_OwnerPayment";
             this.txt_OwnerPayment.Size = new System.Drawing.Size(430, 23);
-            this.txt_OwnerPayment.TabIndex = 53;
+            this.txt_OwnerPayment.TabIndex = 16;
+            this.txt_OwnerPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OwnerPayment_KeyPress);
+            this.txt_OwnerPayment.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_OwnerPayment_KeyUp);
             // 
             // pictureBox28
             // 
@@ -708,8 +1113,10 @@ namespace ShineWay.UI
             this.txt_DailyPrice.Name = "txt_DailyPrice";
             this.txt_DailyPrice.PlaceholderText = "    Daily";
             this.txt_DailyPrice.Size = new System.Drawing.Size(101, 23);
-            this.txt_DailyPrice.TabIndex = 45;
+            this.txt_DailyPrice.TabIndex = 9;
             this.txt_DailyPrice.TextChanged += new System.EventHandler(this.txt_DailyPrice_TextChanged);
+            this.txt_DailyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DailyPrice_KeyPress_1);
+            this.txt_DailyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_DailyPrice_KeyUp);
             // 
             // pictureBox25
             // 
@@ -754,7 +1161,8 @@ namespace ShineWay.UI
             this.txt_ownerCondition.Multiline = true;
             this.txt_ownerCondition.Name = "txt_ownerCondition";
             this.txt_ownerCondition.Size = new System.Drawing.Size(430, 37);
-            this.txt_ownerCondition.TabIndex = 41;
+            this.txt_ownerCondition.TabIndex = 8;
+            this.txt_ownerCondition.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ownerCondition_KeyUp);
             // 
             // pictureBox23
             // 
@@ -813,16 +1221,6 @@ namespace ShineWay.UI
             this.pictureBox18.TabIndex = 34;
             this.pictureBox18.TabStop = false;
             // 
-            // txt_ownerNIC
-            // 
-            this.txt_ownerNIC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_ownerNIC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_ownerNIC.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_ownerNIC.Location = new System.Drawing.Point(378, 366);
-            this.txt_ownerNIC.Name = "txt_ownerNIC";
-            this.txt_ownerNIC.Size = new System.Drawing.Size(430, 23);
-            this.txt_ownerNIC.TabIndex = 33;
-            // 
             // pictureBox19
             // 
             this.pictureBox19.BackColor = System.Drawing.Color.White;
@@ -833,55 +1231,6 @@ namespace ShineWay.UI
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox19.TabIndex = 32;
             this.pictureBox19.TabStop = false;
-            // 
-            // pb_btnDelete
-            // 
-            this.pb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnDelete.Image")));
-            this.pb_btnDelete.Location = new System.Drawing.Point(649, 749);
-            this.pb_btnDelete.Name = "pb_btnDelete";
-            this.pb_btnDelete.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnDelete.TabIndex = 31;
-            this.pb_btnDelete.TabStop = false;
-            this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
-            this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
-            // 
-            // pb_btnUpdate
-            // 
-            this.pb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnUpdate.Image")));
-            this.pb_btnUpdate.Location = new System.Drawing.Point(469, 749);
-            this.pb_btnUpdate.Name = "pb_btnUpdate";
-            this.pb_btnUpdate.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnUpdate.TabIndex = 30;
-            this.pb_btnUpdate.TabStop = false;
-            this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
-            this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
-            // 
-            // pb_btnAdd
-            // 
-            this.pb_btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnAdd.Image")));
-            this.pb_btnAdd.Location = new System.Drawing.Point(285, 749);
-            this.pb_btnAdd.Name = "pb_btnAdd";
-            this.pb_btnAdd.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnAdd.TabIndex = 29;
-            this.pb_btnAdd.TabStop = false;
-            this.pb_btnAdd.Click += new System.EventHandler(this.pb_btnAdd_Click);
-            this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
-            this.pb_btnAdd.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
-            // 
-            // pb_btnReset
-            // 
-            this.pb_btnReset.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnReset.Image")));
-            this.pb_btnReset.Location = new System.Drawing.Point(100, 749);
-            this.pb_btnReset.Name = "pb_btnReset";
-            this.pb_btnReset.Size = new System.Drawing.Size(140, 42);
-            this.pb_btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnReset.TabIndex = 27;
-            this.pb_btnReset.TabStop = false;
-            this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
-            this.pb_btnReset.MouseHover += new System.EventHandler(this.pb_btnReset_MouseHover);
             // 
             // pictureBox2
             // 
@@ -937,7 +1286,8 @@ namespace ShineWay.UI
             this.txt_chasisNumber.Location = new System.Drawing.Point(378, 309);
             this.txt_chasisNumber.Name = "txt_chasisNumber";
             this.txt_chasisNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_chasisNumber.TabIndex = 22;
+            this.txt_chasisNumber.TabIndex = 5;
+            this.txt_chasisNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_chasisNumber_KeyUp);
             // 
             // pictureBox6
             // 
@@ -970,7 +1320,8 @@ namespace ShineWay.UI
             this.txt_model.Location = new System.Drawing.Point(378, 145);
             this.txt_model.Name = "txt_model";
             this.txt_model.Size = new System.Drawing.Size(430, 23);
-            this.txt_model.TabIndex = 10;
+            this.txt_model.TabIndex = 2;
+            this.txt_model.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_model_KeyUp);
             // 
             // pictureBox13
             // 
@@ -1049,7 +1400,8 @@ namespace ShineWay.UI
             this.txt_engineNumber.Location = new System.Drawing.Point(378, 251);
             this.txt_engineNumber.Name = "txt_engineNumber";
             this.txt_engineNumber.Size = new System.Drawing.Size(430, 23);
-            this.txt_engineNumber.TabIndex = 18;
+            this.txt_engineNumber.TabIndex = 4;
+            this.txt_engineNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_engineNumber_KeyUp);
             // 
             // pictureBox5
             // 
@@ -1092,7 +1444,8 @@ namespace ShineWay.UI
             this.txt_brand.Location = new System.Drawing.Point(378, 87);
             this.txt_brand.Name = "txt_brand";
             this.txt_brand.Size = new System.Drawing.Size(430, 23);
-            this.txt_brand.TabIndex = 6;
+            this.txt_brand.TabIndex = 1;
+            this.txt_brand.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_brand_KeyUp);
             // 
             // pictureBox14
             // 
@@ -1126,6 +1479,7 @@ namespace ShineWay.UI
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
             // 
             // Vehicles
             // 
@@ -1135,13 +1489,14 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "Vehicles";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.Vehicles_Load);
+            this.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
+            this.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_BtnBrowseOverallView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_overallViewimg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_InsideViewimg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -1162,10 +1517,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnUpdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -1205,12 +1556,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.TextBox txt_ownerNIC;
         private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.PictureBox pb_btnDelete;
-        private System.Windows.Forms.PictureBox pb_btnUpdate;
-        private System.Windows.Forms.PictureBox pb_btnAdd;
-        private System.Windows.Forms.PictureBox pb_btnReset;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox12;
@@ -1235,7 +1581,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox29;
-        private System.Windows.Forms.TextBox txt_StartingOdo;
         private System.Windows.Forms.PictureBox pictureBox30;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox27;
@@ -1244,8 +1589,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.DateTimePicker date_registeredDate;
         private System.Windows.Forms.ComboBox combo_type;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pictureBox31;
-        private System.Windows.Forms.PictureBox pb_BtnBrowseOverallView;
         private System.Windows.Forms.PictureBox pb_overallViewimg;
         private System.Windows.Forms.PictureBox pb_InsideViewimg;
         private System.Windows.Forms.PictureBox pictureBox32;
@@ -1264,5 +1607,37 @@ namespace ShineWay.UI
         private System.Windows.Forms.TextBox txt_ExtrakmPrice;
         private System.Windows.Forms.TextBox txt_MonthlyPrice;
         private System.Windows.Forms.TextBox txt_WeeklyPrice;
+        private System.Windows.Forms.MaskedTextBox txt_ownerNIC;
+        private System.Windows.Forms.MaskedTextBox msktxt_startingOdo;
+        private System.Windows.Forms.Label pb_btnReset;
+        private System.Windows.Forms.Label pb_btnAdd;
+        private System.Windows.Forms.Label pb_BtnBrowseOverallView;
+        private System.Windows.Forms.Label pictureBox31;
+        private System.Windows.Forms.Label pb_btnDelete;
+        private System.Windows.Forms.Label pb_btnUpdate;
+        private System.Windows.Forms.Label label_nicError;
+        private System.Windows.Forms.Label label_ownerConditionError;
+        private System.Windows.Forms.Label label_tickOwnerCondition;
+        private System.Windows.Forms.Label label_tickNIC;
+        private System.Windows.Forms.Label label_VehicleRegNoError;
+        private System.Windows.Forms.Label label_tickStartOdo;
+        private System.Windows.Forms.Label label_tickOwnerPayment;
+        private System.Windows.Forms.Label label_tickChassisNo;
+        private System.Windows.Forms.Label label_tickEngineNO;
+        private System.Windows.Forms.Label label_tickModel;
+        private System.Windows.Forms.Label label_tickBrand;
+        private System.Windows.Forms.Label label_tickVehicleRegNo;
+        private System.Windows.Forms.Label label_chassisNoError;
+        private System.Windows.Forms.Label label_engineNoError;
+        private System.Windows.Forms.Label label_modelError;
+        private System.Windows.Forms.Label label_brandError;
+        private System.Windows.Forms.Label label_StartingOdoError;
+        private System.Windows.Forms.Label label_ownerPaymentError;
+        private System.Windows.Forms.Label label_tickVehType;
+        private System.Windows.Forms.Label label_VehicleTypeError;
+        private System.Windows.Forms.Label label_rentPriceError;
+        private System.Windows.Forms.Label label_tickrentPrice;
+        private System.Windows.Forms.Label label_tickKm;
+        private System.Windows.Forms.Label label_validKmError;
     }
 }

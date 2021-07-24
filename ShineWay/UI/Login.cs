@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ShineWay.DataBase;
 using MySql.Data.MySqlClient;
 using ShineWay.Messages;
+using ShineWay.Classes;
 
 namespace ShineWay.UI
 {
@@ -19,20 +20,6 @@ namespace ShineWay.UI
             closeBtnColor = btn_Close.ForeColor;
         }
 
-        private void pb_loginBtn_MouseHover(object sender, EventArgs e)
-        {
-            pb_loginBtn.Image = ShineWay.Properties.Resources.loginHoverbtn;
-        }
-
-        private void pb_loginBtn_MouseLeave(object sender, EventArgs e)
-        {
-            pb_loginBtn.Image = ShineWay.Properties.Resources.loginbtn;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void label_closeBtn_Click(object sender, EventArgs e)
         {
@@ -44,76 +31,6 @@ namespace ShineWay.UI
             Application.Exit();
         }
 
-        private void pb_loginBtn_Click(object sender, EventArgs e)
-        {
-
-            
-            String userName = txt_userName.Text.Trim();
-            String password = txt_password.Text.Trim();
-            bool isPasswordCorrect = false;
-
-
-            if (userName.Equals("") && password.Equals(""))
-            {
-                CustomMessage message = new CustomMessage("  Username and password \n  are empty!", "Error Dialog", ShineWay.Properties.Resources.information, DialogResult.OK);
-                message.convertToOkButton();
-                message.ShowDialog();
-            }else if (password.Equals(""))
-            {
-                CustomMessage message = new CustomMessage("  Password is empty!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
-                message.convertToOkButton();
-                message.ShowDialog();
-            }else if (userName.Equals(""))
-            {
-                CustomMessage message = new CustomMessage(" Username is empty!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
-                message.convertToOkButton();
-                message.ShowDialog();
-            }
-            else
-            {
-                string query = " SELECT `username`,`user_type` ,`name` FROM `users`   WHERE username = '" + userName + "' AND password = '" + password + "';";
-
-                try
-                {
-                    MySqlDataReader reader = DbConnection.Read(query);
-                    while (reader.Read())
-                    {
-                        if (reader[0].ToString() == userName)
-                        {
-                            isPasswordCorrect = true;
-                            this.Hide();
-                            var form2 = new Home(reader[1].ToString(),reader[2].ToString());
-                            form2.Closed += (s, args) => this.Close();
-                            form2.Show();
-                            return;
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-
-                    if (!isPasswordCorrect)
-                    {
-                        CustomMessage message = new CustomMessage("     Username or password is \n     incorrect!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
-                        message.convertToOkButton();
-                        message.ShowDialog();
-                    }
-
-
-
-                }
-                catch (Exception ex)
-                {
-                    CustomMessage message = new CustomMessage("  Unable to connect to the \n  Database!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
-                    message.convertToOkButton();
-                    message.ShowDialog();
-                }
-            }
-
-
-            
-        }
 
         private void btn_showPassword_Click(object sender, EventArgs e)
         {
@@ -154,7 +71,7 @@ namespace ShineWay.UI
         {
             if (e.KeyCode.Equals(Keys.Enter))
             {
-                pb_loginBtn_Click(sender,e);
+                btn_login_Click(sender,e);
                 e.SuppressKeyPress = true; //to remove the 'ding' sound
             }
             else if (e.KeyCode.Equals(Keys.Up))
@@ -193,9 +110,90 @@ namespace ShineWay.UI
             label_forgotPassword.ForeColor = System.Drawing.Color.FromArgb(64,64,64);
         }
 
-        private void txt_userName_TextChanged(object sender, EventArgs e)
+        private void btn_login_MouseHover(object sender, EventArgs e)
+        {
+            btn_login.Image = ShineWay.Properties.Resources.loginHoverbtn;
+        }
+
+        private void btn_login_MouseLeave(object sender, EventArgs e)
+        {
+            btn_login.Image = ShineWay.Properties.Resources.loginbtn;
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
         {
 
+            String userName = txt_userName.Text.Trim();
+            String password = Encrypt.encryption(txt_password.Text.Trim());
+            bool isPasswordCorrect = false;
+
+
+            if (userName.Equals("") && password.Equals(""))
+            {
+                CustomMessage message = new CustomMessage("  Username and password \n  are empty!", "Error Dialog", ShineWay.Properties.Resources.information, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+            }
+            else if (password.Equals(""))
+            {
+                CustomMessage message = new CustomMessage("  Password is empty!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+            }
+            else if (userName.Equals(""))
+            {
+                CustomMessage message = new CustomMessage(" Username is empty!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+            }
+            else
+            {
+                string query = " SELECT `username`,`user_type` ,`name` , `isFirstTimeUser` FROM `users`   WHERE username = '" + userName + "' AND password = '" + password + "';";
+
+                try
+                {
+                    MySqlDataReader reader = DbConnection.Read(query);
+                    while (reader.Read())
+                    {
+                        if (string.Equals(reader[0].ToString(), userName, StringComparison.OrdinalIgnoreCase) && ((Convert.ToInt32(reader[3])) == 0))
+                        {
+                            isPasswordCorrect = true;
+                            this.Hide();
+                            var form2 = new Home(reader[1].ToString(), reader[2].ToString());
+                            form2.Closed += (s, args) => this.Close();
+                            form2.Show();
+                            return;
+                        }else if(reader[0].ToString() == userName && ((Convert.ToInt32(reader[3])) == 1))
+                        {
+                            isPasswordCorrect = true;
+                            this.Hide();
+                            var form2 = new NewUser(userName, reader[2].ToString());
+                            form2.Closed += (s, args) => this.Close();
+                            form2.Show();
+                            return;
+                        }
+                        else{
+                            return;
+                        }
+                    }
+
+                    if (!isPasswordCorrect)
+                    {
+                        CustomMessage message = new CustomMessage("     Username or password is \n     incorrect!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
+                        message.convertToOkButton();
+                        message.ShowDialog();
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    CustomMessage message = new CustomMessage("  Unable to connect to the \n  Database!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+                }
+            }
         }
     }
 }
