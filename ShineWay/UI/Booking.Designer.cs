@@ -166,7 +166,6 @@ namespace ShineWay.UI
             this.btn_Refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Refresh.TabIndex = 17;
             this.btn_Refresh.TabStop = false;
-            this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // dgv_Booking
@@ -738,13 +737,16 @@ namespace ShineWay.UI
             // 
             // txt_bookingId
             // 
+            this.txt_bookingId.AllowPromptAsInput = false;
             this.txt_bookingId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_bookingId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_bookingId.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txt_bookingId.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_bookingId.Location = new System.Drawing.Point(385, 66);
             this.txt_bookingId.Mask = "99999999999999999999999999999999999999999999999999999999999999999";
             this.txt_bookingId.Name = "txt_bookingId";
             this.txt_bookingId.PromptChar = ' ';
+            this.txt_bookingId.ReadOnly = true;
             this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
             this.txt_bookingId.TabIndex = 0;
             this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
