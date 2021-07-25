@@ -37,6 +37,16 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_tickAddress = new System.Windows.Forms.Label();
+            this.label_tickEmail = new System.Windows.Forms.Label();
+            this.label_tickTelephoneNumber = new System.Windows.Forms.Label();
+            this.label_tickOwnerName = new System.Windows.Forms.Label();
+            this.label_AddressError = new System.Windows.Forms.Label();
+            this.label_EmailError = new System.Windows.Forms.Label();
+            this.label_TelephoneError = new System.Windows.Forms.Label();
+            this.label_OwnerNameError = new System.Windows.Forms.Label();
+            this.label_tickNICnumber = new System.Windows.Forms.Label();
+            this.label_nicError = new System.Windows.Forms.Label();
             this.pb_btnDelete = new System.Windows.Forms.Label();
             this.pb_btnUpdate = new System.Windows.Forms.Label();
             this.lbl_salutation = new System.Windows.Forms.Label();
@@ -150,6 +160,16 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label_tickAddress);
+            this.panel1.Controls.Add(this.label_tickEmail);
+            this.panel1.Controls.Add(this.label_tickTelephoneNumber);
+            this.panel1.Controls.Add(this.label_tickOwnerName);
+            this.panel1.Controls.Add(this.label_AddressError);
+            this.panel1.Controls.Add(this.label_EmailError);
+            this.panel1.Controls.Add(this.label_TelephoneError);
+            this.panel1.Controls.Add(this.label_OwnerNameError);
+            this.panel1.Controls.Add(this.label_tickNICnumber);
+            this.panel1.Controls.Add(this.label_nicError);
             this.panel1.Controls.Add(this.pb_btnDelete);
             this.panel1.Controls.Add(this.pb_btnUpdate);
             this.panel1.Controls.Add(this.lbl_salutation);
@@ -182,13 +202,128 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
             // 
+            // label_tickAddress
+            // 
+            this.label_tickAddress.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickAddress.Location = new System.Drawing.Point(823, 556);
+            this.label_tickAddress.Name = "label_tickAddress";
+            this.label_tickAddress.Size = new System.Drawing.Size(23, 21);
+            this.label_tickAddress.TabIndex = 109;
+            this.label_tickAddress.Visible = false;
+            // 
+            // label_tickEmail
+            // 
+            this.label_tickEmail.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickEmail.Location = new System.Drawing.Point(823, 463);
+            this.label_tickEmail.Name = "label_tickEmail";
+            this.label_tickEmail.Size = new System.Drawing.Size(23, 21);
+            this.label_tickEmail.TabIndex = 108;
+            this.label_tickEmail.Visible = false;
+            // 
+            // label_tickTelephoneNumber
+            // 
+            this.label_tickTelephoneNumber.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickTelephoneNumber.Location = new System.Drawing.Point(823, 372);
+            this.label_tickTelephoneNumber.Name = "label_tickTelephoneNumber";
+            this.label_tickTelephoneNumber.Size = new System.Drawing.Size(23, 21);
+            this.label_tickTelephoneNumber.TabIndex = 107;
+            this.label_tickTelephoneNumber.Visible = false;
+            // 
+            // label_tickOwnerName
+            // 
+            this.label_tickOwnerName.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickOwnerName.Location = new System.Drawing.Point(823, 291);
+            this.label_tickOwnerName.Name = "label_tickOwnerName";
+            this.label_tickOwnerName.Size = new System.Drawing.Size(23, 21);
+            this.label_tickOwnerName.TabIndex = 106;
+            this.label_tickOwnerName.Visible = false;
+            // 
+            // label_AddressError
+            // 
+            this.label_AddressError.AutoSize = true;
+            this.label_AddressError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_AddressError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_AddressError.ForeColor = System.Drawing.Color.Red;
+            this.label_AddressError.Location = new System.Drawing.Point(488, 582);
+            this.label_AddressError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_AddressError.Name = "label_AddressError";
+            this.label_AddressError.Size = new System.Drawing.Size(213, 18);
+            this.label_AddressError.TabIndex = 105;
+            this.label_AddressError.Text = "Please enter a valid address";
+            this.label_AddressError.Visible = false;
+            // 
+            // label_EmailError
+            // 
+            this.label_EmailError.AutoSize = true;
+            this.label_EmailError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_EmailError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_EmailError.ForeColor = System.Drawing.Color.Red;
+            this.label_EmailError.Location = new System.Drawing.Point(490, 501);
+            this.label_EmailError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_EmailError.Name = "label_EmailError";
+            this.label_EmailError.Size = new System.Drawing.Size(198, 18);
+            this.label_EmailError.TabIndex = 104;
+            this.label_EmailError.Text = "Please enter a valid email";
+            this.label_EmailError.Visible = false;
+            // 
+            // label_TelephoneError
+            // 
+            this.label_TelephoneError.AutoSize = true;
+            this.label_TelephoneError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_TelephoneError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_TelephoneError.ForeColor = System.Drawing.Color.Red;
+            this.label_TelephoneError.Location = new System.Drawing.Point(452, 398);
+            this.label_TelephoneError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_TelephoneError.Name = "label_TelephoneError";
+            this.label_TelephoneError.Size = new System.Drawing.Size(249, 18);
+            this.label_TelephoneError.TabIndex = 103;
+            this.label_TelephoneError.Text = "Please enter a valid owner name";
+            this.label_TelephoneError.Visible = false;
+            // 
+            // label_OwnerNameError
+            // 
+            this.label_OwnerNameError.AutoSize = true;
+            this.label_OwnerNameError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_OwnerNameError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_OwnerNameError.ForeColor = System.Drawing.Color.Red;
+            this.label_OwnerNameError.Location = new System.Drawing.Point(452, 317);
+            this.label_OwnerNameError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_OwnerNameError.Name = "label_OwnerNameError";
+            this.label_OwnerNameError.Size = new System.Drawing.Size(249, 18);
+            this.label_OwnerNameError.TabIndex = 102;
+            this.label_OwnerNameError.Text = "Please enter a valid owner name";
+            this.label_OwnerNameError.Visible = false;
+            // 
+            // label_tickNICnumber
+            // 
+            this.label_tickNICnumber.Image = global::ShineWay.Properties.Resources.tick1;
+            this.label_tickNICnumber.Location = new System.Drawing.Point(823, 196);
+            this.label_tickNICnumber.Name = "label_tickNICnumber";
+            this.label_tickNICnumber.Size = new System.Drawing.Size(23, 21);
+            this.label_tickNICnumber.TabIndex = 101;
+            this.label_tickNICnumber.Visible = false;
+            // 
+            // label_nicError
+            // 
+            this.label_nicError.AutoSize = true;
+            this.label_nicError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label_nicError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_nicError.ForeColor = System.Drawing.Color.Red;
+            this.label_nicError.Location = new System.Drawing.Point(473, 222);
+            this.label_nicError.Margin = new System.Windows.Forms.Padding(0);
+            this.label_nicError.Name = "label_nicError";
+            this.label_nicError.Size = new System.Drawing.Size(183, 18);
+            this.label_nicError.TabIndex = 94;
+            this.label_nicError.Text = "Please enter a valid NIC";
+            this.label_nicError.Visible = false;
+            // 
             // pb_btnDelete
             // 
             this.pb_btnDelete.BackColor = System.Drawing.Color.White;
             this.pb_btnDelete.Image = global::ShineWay.Properties.Resources.delete;
             this.pb_btnDelete.Location = new System.Drawing.Point(650, 691);
             this.pb_btnDelete.Name = "pb_btnDelete";
-            this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnDelete.Size = new System.Drawing.Size(147, 45);
             this.pb_btnDelete.TabIndex = 8;
             this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click);
             this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
@@ -200,7 +335,7 @@ namespace ShineWay.UI
             this.pb_btnUpdate.Image = global::ShineWay.Properties.Resources.update;
             this.pb_btnUpdate.Location = new System.Drawing.Point(462, 691);
             this.pb_btnUpdate.Name = "pb_btnUpdate";
-            this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnUpdate.Size = new System.Drawing.Size(147, 45);
             this.pb_btnUpdate.TabIndex = 7;
             this.pb_btnUpdate.Click += new System.EventHandler(this.pb_btnUpdate_Click);
             this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
@@ -233,12 +368,12 @@ namespace ShineWay.UI
             this.txt_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_email.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(386, 466);
+            this.txt_email.Location = new System.Drawing.Point(386, 463);
             this.txt_email.Name = "txt_email";
             this.txt_email.PromptChar = ' ';
             this.txt_email.Size = new System.Drawing.Size(407, 23);
             this.txt_email.TabIndex = 3;
-            this.txt_email.Leave += new System.EventHandler(this.txt_email_Leave);
+            this.txt_email.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_email_KeyUp);
             // 
             // txt_telephone
             // 
@@ -251,6 +386,7 @@ namespace ShineWay.UI
             this.txt_telephone.PromptChar = ' ';
             this.txt_telephone.Size = new System.Drawing.Size(407, 23);
             this.txt_telephone.TabIndex = 2;
+            this.txt_telephone.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_telephone_KeyUp);
             this.txt_telephone.Leave += new System.EventHandler(this.txt_telephone_Leave);
             // 
             // txt_ownerName
@@ -285,7 +421,7 @@ namespace ShineWay.UI
             this.pb_btnAdd.Image = global::ShineWay.Properties.Resources.add;
             this.pb_btnAdd.Location = new System.Drawing.Point(274, 691);
             this.pb_btnAdd.Name = "pb_btnAdd";
-            this.pb_btnAdd.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnAdd.Size = new System.Drawing.Size(147, 45);
             this.pb_btnAdd.TabIndex = 5;
             this.pb_btnAdd.Click += new System.EventHandler(this.pb_btnAdd_Click);
             this.pb_btnAdd.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
@@ -297,7 +433,7 @@ namespace ShineWay.UI
             this.pb_btnReset.Image = global::ShineWay.Properties.Resources.reset;
             this.pb_btnReset.Location = new System.Drawing.Point(86, 691);
             this.pb_btnReset.Name = "pb_btnReset";
-            this.pb_btnReset.Size = new System.Drawing.Size(147, 46);
+            this.pb_btnReset.Size = new System.Drawing.Size(147, 45);
             this.pb_btnReset.TabIndex = 6;
             this.pb_btnReset.Click += new System.EventHandler(this.pb_btnReset_Click);
             this.pb_btnReset.MouseLeave += new System.EventHandler(this.pb_btnReset_MouseLeave);
@@ -562,5 +698,15 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label lbl_salutation;
         private System.Windows.Forms.Label pb_btnDelete;
         private System.Windows.Forms.Label pb_btnUpdate;
+        private System.Windows.Forms.Label label_nicError;
+        private System.Windows.Forms.Label label_tickNICnumber;
+        private System.Windows.Forms.Label label_TelephoneError;
+        private System.Windows.Forms.Label label_OwnerNameError;
+        private System.Windows.Forms.Label label_tickAddress;
+        private System.Windows.Forms.Label label_tickEmail;
+        private System.Windows.Forms.Label label_tickTelephoneNumber;
+        private System.Windows.Forms.Label label_tickOwnerName;
+        private System.Windows.Forms.Label label_AddressError;
+        private System.Windows.Forms.Label label_EmailError;
     }
 }

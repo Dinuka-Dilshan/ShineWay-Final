@@ -105,7 +105,7 @@ namespace ShineWay.Messages
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(426, 170);
+            this.ClientSize = new System.Drawing.Size(490, 170);
             this.Controls.Add(this.label_message);
             this.Controls.Add(this.btn_btn1);
             this.Controls.Add(this.pb_icon);
