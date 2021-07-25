@@ -21,6 +21,19 @@ namespace ShineWay.UI
         bool isAmountValid = false;
         bool isPaymentIDValid = false;
 
+        private void DisplayData()
+        {
+            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            MySqlCommand cmd;
+            MySqlDataAdapter adapt;
+            con.Open();
+            DataTable dt = new DataTable();
+            adapt = new MySqlDataAdapter("select * from owner_payment", con);
+            adapt.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
+        }
+
         public OwnerPayment()
         {
             InitializeComponent();
@@ -151,63 +164,76 @@ namespace ShineWay.UI
             label_tickAmount.Visible = false;
             label_tickVehicleNum.Visible = false;
             label_tickPaymentID.Visible = false;
+            date_OwnerPayment.Value = DateTime.Now;
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
-            if (txt_paymentID.ForeColor == Color.Green && txt_ownerNIC.ForeColor == Color.Green && txt_VehicleNumber.ForeColor == Color.Green && txt_OwnerPayment.ForeColor == Color.Green)
+            try
             {
-                try
-                {
-                    CustomMessage submitmessege = new CustomMessage("Recorded Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                    submitmessege.convertToOkButton();
-                    submitmessege.ShowDialog();
+                DataBase.DbConnection.Read("insert into owner_payment (Owner_NIC , payment_date, Payment_ID, payment_ODO, Owner_pay_Amount) Values" +
+                "('" + txt_ownerNIC.Text + "','" + date_OwnerPayment.Text + "','" + txt_paymentID.Text + "','" + txt_VehicleNumber.Text + "','"
+                + txt_OwnerPayment.Text + "')");
 
-                    
+                CustomMessage message = new CustomMessage("Payment Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+                DisplayData();
 
-                }
-                catch (Exception ex)
-                {
-                    //  MessageBox.Show(ex.Message);
-                }
             }
-            else
+            catch (Exception ex)
             {
-                CustomMessage errormessege1 = new CustomMessage("Unsuccessfull Record!\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
-                errormessege1.convertToOkButton();
-                errormessege1.ShowDialog();
+                MessageBox.Show(ex.Message);
             }
+            
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txt_paymentID.ForeColor == Color.Green && txt_ownerNIC.ForeColor == Color.Green && txt_VehicleNumber.ForeColor == Color.Green && txt_OwnerPayment.ForeColor == Color.Green)
+            try
             {
-                try
-                {
-                    CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
-                    submitmessege.convertToOkButton();
-                    submitmessege.ShowDialog();
-                    
-                }
-                catch (Exception ex)
-                {
-                    //  MessageBox.Show(ex.Message);
-                }
+                DbConnection.Read("UPDATE owner_payment set Payment_ID='" + txt_paymentID.Text + "', payment_date='" + date_OwnerPayment.Text + "', payment_ODO='"
+                + txt_VehicleNumber.Text + "' , Owner_pay_Amount='" + txt_OwnerPayment.Text + "' where Owner_NIC='" + txt_ownerNIC.Text + "'");
+
+                CustomMessage message = new CustomMessage("Update Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+                DisplayData();
+
             }
-            else
+            catch (Exception ex)
             {
-                CustomMessage errormessege2 = new CustomMessage("Cannot Update\n\n Enter correct details", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
-                errormessege2.convertToOkButton();
-                errormessege2.ShowDialog();
+                MessageBox.Show(ex.Message);
             }
+
+            
         }
 
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
-                CustomMessage deletemessege = new CustomMessage("Deleted!", "Deleted", ShineWay.Properties.Resources.error, DialogResult.OK);
-                deletemessege.convertToOkButton();
-                deletemessege.ShowDialog();
+            if (txt_ownerNIC.Text != "")
+            {
+
+                try
+                {
+                    DbConnection.Read("delete from owner_payment where Owner_NIC='" + txt_ownerNIC.Text + "'");
+
+                    CustomMessage message = new CustomMessage("Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+
+                    DisplayData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Record to Delete");
+            }
+            
 
                 //delete code
         }
@@ -292,6 +318,21 @@ namespace ShineWay.UI
                 isAmountValid = false;
             }
             
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_paymentID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txt_ownerNIC.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txt_VehicleNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txt_OwnerPayment.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            date_OwnerPayment.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+        }
+
+        private void OwnerPayment_Load(object sender, EventArgs e)
+        {
+            DisplayData();
         }
     }
 

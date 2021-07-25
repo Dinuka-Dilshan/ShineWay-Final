@@ -30,6 +30,7 @@ namespace ShineWay.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerPayment));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_tickAmount = new System.Windows.Forms.Label();
             this.label_tickVehicleNum = new System.Windows.Forms.Label();
@@ -66,6 +67,12 @@ namespace ShineWay.UI
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Payament_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Owner_NIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payment_ODO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Owner_pay_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payment_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -84,6 +91,7 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -135,7 +143,7 @@ namespace ShineWay.UI
             // label_tickAmount
             // 
             this.label_tickAmount.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickAmount.Location = new System.Drawing.Point(823, 466);
+            this.label_tickAmount.Location = new System.Drawing.Point(783, 465);
             this.label_tickAmount.Name = "label_tickAmount";
             this.label_tickAmount.Size = new System.Drawing.Size(23, 22);
             this.label_tickAmount.TabIndex = 105;
@@ -144,7 +152,7 @@ namespace ShineWay.UI
             // label_tickVehicleNum
             // 
             this.label_tickVehicleNum.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickVehicleNum.Location = new System.Drawing.Point(823, 375);
+            this.label_tickVehicleNum.Location = new System.Drawing.Point(783, 379);
             this.label_tickVehicleNum.Name = "label_tickVehicleNum";
             this.label_tickVehicleNum.Size = new System.Drawing.Size(23, 22);
             this.label_tickVehicleNum.TabIndex = 104;
@@ -153,7 +161,7 @@ namespace ShineWay.UI
             // label_tickNIC
             // 
             this.label_tickNIC.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickNIC.Location = new System.Drawing.Point(823, 286);
+            this.label_tickNIC.Location = new System.Drawing.Point(783, 290);
             this.label_tickNIC.Name = "label_tickNIC";
             this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
             this.label_tickNIC.TabIndex = 103;
@@ -162,7 +170,7 @@ namespace ShineWay.UI
             // label_tickPaymentID
             // 
             this.label_tickPaymentID.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickPaymentID.Location = new System.Drawing.Point(823, 197);
+            this.label_tickPaymentID.Location = new System.Drawing.Point(783, 197);
             this.label_tickPaymentID.Name = "label_tickPaymentID";
             this.label_tickPaymentID.Size = new System.Drawing.Size(23, 22);
             this.label_tickPaymentID.TabIndex = 102;
@@ -521,7 +529,7 @@ namespace ShineWay.UI
             // pictureBox14
             // 
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(16, 3);
+            this.pictureBox14.Location = new System.Drawing.Point(16, 5);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(856, 814);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -530,6 +538,7 @@ namespace ShineWay.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.pictureBox17);
             this.panel2.Controls.Add(this.pictureBox8);
             this.panel2.Controls.Add(this.textBox1);
@@ -539,6 +548,69 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 29;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Payament_ID,
+            this.Owner_NIC,
+            this.payment_ODO,
+            this.Owner_pay_Amount,
+            this.payment_date});
+            this.dataGridView1.Location = new System.Drawing.Point(105, 182);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(683, 573);
+            this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Payament_ID
+            // 
+            this.Payament_ID.HeaderText = "Payment ID";
+            this.Payament_ID.MinimumWidth = 6;
+            this.Payament_ID.Name = "Payament_ID";
+            this.Payament_ID.Width = 125;
+            // 
+            // Owner_NIC
+            // 
+            this.Owner_NIC.HeaderText = "Owner NIC";
+            this.Owner_NIC.MinimumWidth = 6;
+            this.Owner_NIC.Name = "Owner_NIC";
+            this.Owner_NIC.Width = 125;
+            // 
+            // payment_ODO
+            // 
+            this.payment_ODO.HeaderText = "Vehicle Number";
+            this.payment_ODO.MinimumWidth = 6;
+            this.payment_ODO.Name = "payment_ODO";
+            this.payment_ODO.Width = 125;
+            // 
+            // Owner_pay_Amount
+            // 
+            this.Owner_pay_Amount.HeaderText = "Amount";
+            this.Owner_pay_Amount.MinimumWidth = 6;
+            this.Owner_pay_Amount.Name = "Owner_pay_Amount";
+            this.Owner_pay_Amount.Width = 125;
+            // 
+            // payment_date
+            // 
+            this.payment_date.HeaderText = "Date";
+            this.payment_date.MinimumWidth = 6;
+            this.payment_date.Name = "payment_date";
+            this.payment_date.Width = 125;
             // 
             // pictureBox17
             // 
@@ -599,6 +671,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "OwnerPayment";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.OwnerPayment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -614,6 +687,7 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -665,5 +739,11 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_tickVehicleNum;
         private System.Windows.Forms.Label label_tickNIC;
         private System.Windows.Forms.Label label_tickPaymentID;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Payament_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Owner_NIC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payment_ODO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Owner_pay_Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payment_date;
     }
 }

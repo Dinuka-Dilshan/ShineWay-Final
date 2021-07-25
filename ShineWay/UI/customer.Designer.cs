@@ -30,7 +30,7 @@ namespace ShineWay.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(customer));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -376,7 +376,7 @@ namespace ShineWay.UI
             // label_tickAddress
             // 
             this.label_tickAddress.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickAddress.Location = new System.Drawing.Point(823, 632);
+            this.label_tickAddress.Location = new System.Drawing.Point(783, 632);
             this.label_tickAddress.Name = "label_tickAddress";
             this.label_tickAddress.Size = new System.Drawing.Size(23, 22);
             this.label_tickAddress.TabIndex = 106;
@@ -385,7 +385,7 @@ namespace ShineWay.UI
             // label_tickEmail
             // 
             this.label_tickEmail.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickEmail.Location = new System.Drawing.Point(823, 541);
+            this.label_tickEmail.Location = new System.Drawing.Point(783, 541);
             this.label_tickEmail.Name = "label_tickEmail";
             this.label_tickEmail.Size = new System.Drawing.Size(23, 22);
             this.label_tickEmail.TabIndex = 105;
@@ -394,7 +394,7 @@ namespace ShineWay.UI
             // label_tickTelNum
             // 
             this.label_tickTelNum.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickTelNum.Location = new System.Drawing.Point(823, 460);
+            this.label_tickTelNum.Location = new System.Drawing.Point(783, 458);
             this.label_tickTelNum.Name = "label_tickTelNum";
             this.label_tickTelNum.Size = new System.Drawing.Size(23, 22);
             this.label_tickTelNum.TabIndex = 104;
@@ -403,7 +403,7 @@ namespace ShineWay.UI
             // label_tickName
             // 
             this.label_tickName.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickName.Location = new System.Drawing.Point(823, 379);
+            this.label_tickName.Location = new System.Drawing.Point(783, 379);
             this.label_tickName.Name = "label_tickName";
             this.label_tickName.Size = new System.Drawing.Size(23, 22);
             this.label_tickName.TabIndex = 103;
@@ -412,7 +412,7 @@ namespace ShineWay.UI
             // label_tickLicenseNum
             // 
             this.label_tickLicenseNum.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickLicenseNum.Location = new System.Drawing.Point(823, 291);
+            this.label_tickLicenseNum.Location = new System.Drawing.Point(783, 291);
             this.label_tickLicenseNum.Name = "label_tickLicenseNum";
             this.label_tickLicenseNum.Size = new System.Drawing.Size(23, 22);
             this.label_tickLicenseNum.TabIndex = 102;
@@ -421,7 +421,7 @@ namespace ShineWay.UI
             // label_tickNIC
             // 
             this.label_tickNIC.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickNIC.Location = new System.Drawing.Point(823, 196);
+            this.label_tickNIC.Location = new System.Drawing.Point(783, 195);
             this.label_tickNIC.Name = "label_tickNIC";
             this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
             this.label_tickNIC.TabIndex = 101;
@@ -436,9 +436,9 @@ namespace ShineWay.UI
             this.label_addressError.Location = new System.Drawing.Point(397, 658);
             this.label_addressError.Margin = new System.Windows.Forms.Padding(0);
             this.label_addressError.Name = "label_addressError";
-            this.label_addressError.Size = new System.Drawing.Size(214, 18);
+            this.label_addressError.Size = new System.Drawing.Size(245, 18);
             this.label_addressError.TabIndex = 100;
-            this.label_addressError.Text = "Please enter a valid Address";
+            this.label_addressError.Text = "Exceeded the Word Limit (0-150)";
             this.label_addressError.Visible = false;
             // 
             // label_emailError
@@ -683,14 +683,14 @@ namespace ShineWay.UI
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NIC_Number,
