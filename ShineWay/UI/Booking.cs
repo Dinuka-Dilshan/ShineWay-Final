@@ -24,7 +24,15 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
+           // getNextBookingID();
+        }
 
+      
+
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            
         }
 
         public void setDataToGrid(string query)
@@ -87,6 +95,8 @@ namespace ShineWay.UI
         {
 
         }
+
+        
 
         // ++++++++++++++++ hoverings ++++++++++++++++
 
@@ -154,7 +164,7 @@ namespace ShineWay.UI
             lbl_advancedPayementError.Visible = false;
             lbl_discriptionError.Visible = false;
 
-
+           // getNextBookingID();
         }
 
         private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
@@ -180,18 +190,39 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updates", ShineWay.Properties.Resources.tick, DialogResult.OK);
-                    submitmessege.convertToOkButton();
-                    submitmessege.ShowDialog();
-
-                    MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
-                    MySqlDataReader reader2 = DbConnection.Read("UPDATE `payment` SET `Cust_NIC`='"+txt_customerNic.Text.Trim()+"',`Vehicle_num`='"+txt_vehicleRegNumber.Text.Trim()+"',`End_date`='"+date_endDate.Text+"',`Deposite_Amount`='"+txt_depositAmount.Text.Trim()+"',`Advance_Payment`='"+txt_advancedPayment.Text.Trim()+ "' WHERE `payment`.`Booking_ID` = '"+txt_bookingId.Text.Trim()+"'     ");
+                    
+                    try
+                    {
+                        MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
+                        try
+                        {
+                            MySqlDataReader reader2 = DbConnection.Read("UPDATE `payment` SET `Cust_NIC`='" + txt_customerNic.Text.Trim() + "',`Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`End_date`='" + date_endDate.Text + "',`Deposite_Amount`='" + txt_depositAmount.Text.Trim() + "',`Advance_Payment`='" + txt_advancedPayment.Text.Trim() + "' WHERE `payment`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "'     ");
+                            try
+                            {
+                                CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updates", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                                submitmessege.convertToOkButton();
+                                submitmessege.ShowDialog();
+                            }
+                            catch (Exception ex0)
+                            {
+                                MessageBox.Show(ex0.Message);
+                            }
+                        }
+                        catch (Exception ex1)
+                        {
+                            MessageBox.Show(ex1.Message);
+                        }
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.Message);
+                    }
                     
                     setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
                 }
-                catch (Exception ex)
+                catch (Exception ex3)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex3.Message);
                 }
             }
             else
@@ -205,7 +236,7 @@ namespace ShineWay.UI
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
             // check package type selected
-            btn_Refresh.Visible = true;
+          
             
             if (combo_packageType.Text == "")
             {
@@ -236,18 +267,40 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                    submitmessege.convertToOkButton();
-                    submitmessege.ShowDialog();
+                    
+                    try
+                    {
+                        MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                        try
+                        {
+                            MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`,`Deposite_Amount`,`Advance_Payment`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" + date_endDate.Text + "','" + txt_depositAmount.Text.Trim() + "','" + txt_advancedPayment.Text.Trim() + "');");
+                            try
+                            {
+                                CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                submitmessege.convertToOkButton();
+                                submitmessege.ShowDialog();
+                            }
+                            catch (Exception ex0)
+                            {
+                                MessageBox.Show(ex0.Message); 
+                            }
+                        }
+                        catch (Exception ex1)
+                        {
+                            MessageBox.Show(ex1.Message);
+                        }
+                    }
+                    catch(Exception ex2)
+                    {
+                        MessageBox.Show(ex2.Message);
+                    }
 
-                    MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
-                    MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`,`Deposite_Amount`,`Advance_Payment`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "','"+txt_depositAmount.Text.Trim()+"','"+txt_advancedPayment.Text.Trim()+"');");
 
                     setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
                 }
-                catch (Exception exce)
+                catch (Exception ex3)
                 {
-                    MessageBox.Show(exce.Message);
+                    MessageBox.Show(ex3.Message);
                 }
             }
             else
@@ -257,18 +310,36 @@ namespace ShineWay.UI
                 errormessege1.ShowDialog();
             }
         }
-
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ++++++++++++++++ search ++++++++++++++++
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-
+            if (txt_search.Text != "") {
+                try
+                {
+                    setDataToGrid("SELECT `Vehicle_num`, `Booking_ID`,`Licen_num`,`Cus_NIC`, `Start_date`, `Start_ODO`  FROM `booking` WHERE `Vehicle_num` LIKE '%" + txt_search.Text + "%' OR `Booking_ID` LIKE '%" + txt_search.Text + "%' OR `Cus_nic` LIKE '%" + txt_search.Text + "%' OR `Licen_num` LIKE '%" + txt_search.Text + "%' OR `Start_date` LIKE '%" + txt_search.Text + "%' OR `Start_ODO` LIKE '%" + txt_search.Text + "%'");
+                }
+                catch (Exception exsearch)
+                {
+                    MessageBox.Show(exsearch.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+                    setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
+                }
+                catch (Exception exsearchnull)
+                {
+                    MessageBox.Show(exsearchnull.Message);
+                }
+            }
         }
 
-        public void searchData(string valueToSearch)
-        {
-           
-        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // ++++++++++++++++ validations ++++++++++++++++
 
         private void txt_bookingId_Leave(object sender, EventArgs e)
@@ -502,10 +573,7 @@ namespace ShineWay.UI
 
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            /////////////////////  
-        }
+        
 
         private void Booking_Load(object sender, EventArgs e)
         {
