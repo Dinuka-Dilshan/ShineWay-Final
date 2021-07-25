@@ -37,7 +37,7 @@ namespace ShineWay.UI
         public OwnerPayment()
         {
             InitializeComponent();
-            date_OwnerPayment.MinDate = DateTime.Now;
+            dateTimePicker1.MaxDate = DateTime.Now;
 
         }
 
@@ -156,7 +156,7 @@ namespace ShineWay.UI
             txt_ownerNIC.Text = "";
             txt_VehicleNumber.Text = "";
             txt_OwnerPayment.Text = "";
-            date_OwnerPayment.Value = DateTime.Now;
+            //dateTimePicker1.Value = DateTime.Now;
             label_nicError.Visible = false;
             label_tickNIC.Visible = false;
             label_nicVehicleNum.Visible = false;
@@ -164,47 +164,67 @@ namespace ShineWay.UI
             label_tickAmount.Visible = false;
             label_tickVehicleNum.Visible = false;
             label_tickPaymentID.Visible = false;
-            date_OwnerPayment.Value = DateTime.Now;
+            //dateTimePicker1.Value = DateTime.Now;
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            if (isAllValid())
             {
-                DataBase.DbConnection.Read("insert into owner_payment (Owner_NIC , payment_date, Payment_ID, payment_ODO, Owner_pay_Amount) Values" +
-                "('" + txt_ownerNIC.Text + "','" + date_OwnerPayment.Text + "','" + txt_paymentID.Text + "','" + txt_VehicleNumber.Text + "','"
-                + txt_OwnerPayment.Text + "')");
+                try
+                {
+                    DataBase.DbConnection.Read("insert into owner_payment (Owner_NIC , payment_date, Payament_ID, payment_ODO, Owner_pay_Amount) Values" +
+                    "('" + txt_ownerNIC.Text + "','" + dateTimePicker1.Text + "','" + txt_paymentID.Text + "','" + txt_VehicleNumber.Text + "','"
+                    + txt_OwnerPayment.Text + "')");
 
-                CustomMessage message = new CustomMessage("Payment Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                message.convertToOkButton();
-                message.ShowDialog();
-                DisplayData();
+                    CustomMessage message = new CustomMessage("Payment Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+                    DisplayData();
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before Added!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
             }
+            
             
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
         {
-            try
+            if (isAllValid())
             {
-                DbConnection.Read("UPDATE owner_payment set Payment_ID='" + txt_paymentID.Text + "', payment_date='" + date_OwnerPayment.Text + "', payment_ODO='"
-                + txt_VehicleNumber.Text + "' , Owner_pay_Amount='" + txt_OwnerPayment.Text + "' where Owner_NIC='" + txt_ownerNIC.Text + "'");
+                try
+                {
+                    DbConnection.Read("UPDATE owner_payment set Payament_ID='" + txt_paymentID.Text + "', payment_date='" + dateTimePicker1.Text + "', payment_ODO='"
+                    + txt_VehicleNumber.Text + "' , Owner_pay_Amount='" + txt_OwnerPayment.Text + "' where Owner_NIC='" + txt_ownerNIC.Text + "'");
 
-                CustomMessage message = new CustomMessage("Update Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                message.convertToOkButton();
-                message.ShowDialog();
-                DisplayData();
+                    CustomMessage message = new CustomMessage("Update Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+                    DisplayData();
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before Updated!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
             }
+            
 
             
         }
@@ -322,17 +342,22 @@ namespace ShineWay.UI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_paymentID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txt_ownerNIC.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txt_VehicleNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txt_OwnerPayment.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            date_OwnerPayment.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txt_paymentID.Text = dataGridView1.Rows[e.RowIndex].Cells["Payament_ID"].Value.ToString();
+            txt_ownerNIC.Text = dataGridView1.Rows[e.RowIndex].Cells["Owner_NIC"].Value.ToString();
+            txt_VehicleNumber.Text = dataGridView1.Rows[e.RowIndex].Cells["payment_ODO"].Value.ToString();
+            txt_OwnerPayment.Text = dataGridView1.Rows[e.RowIndex].Cells["Owner_pay_Amount"].Value.ToString();
+            dateTimePicker1.Text= dataGridView1.Rows[e.RowIndex].Cells["payment_date"].Value.ToString();
 
         }
 
         private void OwnerPayment_Load(object sender, EventArgs e)
         {
             DisplayData();
+        }
+
+        private bool isAllValid()
+        {
+            return (isNICValid && isAmountValid && isVehhicleNumValid && isPaymentIDValid);
         }
     }
 
