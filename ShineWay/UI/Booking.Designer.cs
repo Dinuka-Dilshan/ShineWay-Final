@@ -1041,6 +1041,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "Booking";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.Booking_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).EndInit();

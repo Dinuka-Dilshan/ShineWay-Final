@@ -23,8 +23,8 @@ namespace ShineWay.UI
         public Booking()
         {
             InitializeComponent();
-            date_startingDate.MinDate = DateTime.Now;
-            date_endDate.MinDate = DateTime.Now;
+           // date_startingDate.MinDate = DateTime.Now;
+           // date_endDate.MinDate = DateTime.Now;
             setDataToGrid();
         }
 
@@ -45,8 +45,10 @@ namespace ShineWay.UI
                     Booking.License_Number = reader1[3].ToString();
                     Booking.Start_Date = reader1[4].ToString();
                     Booking.Start_Odometer = reader1[5].ToString();
-                  
+                    //
                     Booking.Package_Type = reader1[6].ToString();
+                    //
+                    //
                     Booking.Description = reader1[7].ToString();
                     
                     
@@ -69,17 +71,17 @@ namespace ShineWay.UI
             {
                 DataGridViewRow row = this.dgv_Booking.Rows[e.RowIndex];
 
-                txt_bookingId.Text = row.Cells["Booking_ID"].Value.ToString();
-                txt_vehicleRegNumber.Text = row.Cells["Vehicle_Number"].Value.ToString();
-                txt_customerNic.Text = row.Cells["Customer_NIC"].Value.ToString();
-                txt_licenseNumber.Text = row.Cells["License_Number"].Value.ToString();
-                date_startingDate.Text = row.Cells["Start_Date"].Value.ToString();
-                txt_startingOdometer.Text = row.Cells["Start_Odometer"].Value.ToString();
+                txt_bookingId.Text = dgv_Booking.CurrentRow.Cells[0].Value.ToString();
+                txt_vehicleRegNumber.Text = dgv_Booking.CurrentRow.Cells[1].Value.ToString();
+                txt_customerNic.Text = dgv_Booking.CurrentRow.Cells[2].Value.ToString();
+                txt_licenseNumber.Text = dgv_Booking.CurrentRow.Cells[3].Value.ToString();
+                date_startingDate.Text = dgv_Booking.CurrentRow.Cells[4].Value.ToString();
+                txt_startingOdometer.Text = dgv_Booking.CurrentRow.Cells[5].Value.ToString();
                 // date_endDate.Text = row.Cells[""].Value.ToString();
-               combo_packageType.Text = row.Cells["Package_Type"].Value.ToString();
-                //
-                //
-                txt_description.Text = row.Cells["Description"].Value.ToString();
+               combo_packageType.Text = dgv_Booking.CurrentRow.Cells[6].Value.ToString();
+                //deposite amount
+                //advanced payment
+                txt_description.Text = dgv_Booking.CurrentRow.Cells[7].Value.ToString();
             }
         }
 
@@ -233,9 +235,11 @@ namespace ShineWay.UI
                     txt_customerNic.Text != "" &&
                     txt_startingOdometer.Text != "" &&
                     combo_packageType.Text != "" &&
-                    txt_depositAmount.Text != ""
+                    txt_depositAmount.Text != "" &&
+                    date_startingDate.MinDate == DateTime.Now  &&
+                    date_endDate.MinDate == DateTime.Now
 
-                    
+
                 )
             {
                 try
@@ -511,6 +515,24 @@ namespace ShineWay.UI
             /////////////////////  
         }
 
-        
+        private void Booking_Load(object sender, EventArgs e)
+        {
+            dgv_Booking.BorderStyle = BorderStyle.None;
+            //this.dataGridView1.GridColor = Color.BlueViolet;
+            dgv_Booking.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgv_Booking.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            // dgv_Booking.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26, 139, 9);
+            dgv_Booking.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgv_Booking.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Booking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dgv_Booking.EnableHeadersVisualStyles = false;
+            dgv_Booking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv_Booking.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic bold", 12);
+            dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+            dgv_Booking.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgv_Booking.DefaultCellStyle.Font = new Font("Century Gothic", 12);
+            dgv_Booking.RowHeadersVisible = false;
+            dgv_Booking.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor;
+        }
     }
 }
