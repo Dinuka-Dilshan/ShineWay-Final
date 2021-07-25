@@ -24,25 +24,48 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
-           // getNextBookingID();
+            getNextBookingID();
+           
+
         }
 
-        private void getNextBookingID()
+        private void getNextBookingID()                                                                     // autmatically update the next booking ID
         {
             MySqlDataReader getfinalid = DbConnection.Read("SELECT MAX(Booking_ID) FROM booking");
             while (getfinalid.Read())
             {
                 string LastBookingID = getfinalid[0].ToString();
-                int NewBookingID = Int32.Parse(LastBookingID) + 1;
+                int NewBookingID = Int16.Parse(LastBookingID) + 1;
                 txt_bookingId.Text = NewBookingID.ToString();
             }
         }
+        
+       /*
+        
+        public void selectPackageType()                                                                     // prevent entering a incorrect package type
+        {
+            int dateDifference =Convert.ToInt16((date_endDate.Value - date_startingDate.Value).TotalDays);
+            
+            //txt_advancedPayment.Text = datedif.ToString();
 
+            if (dateDifference >= 30)
+            {
+                combo_packageType.Items.Add("Monthly Basis");
+            }
+            if(dateDifference >= 7){
+                combo_packageType.Items.Add("Weekly Basis");
+            }
+            if (dateDifference > 0) {
+                combo_packageType.Items.Add("Daily Basis");
+            }
 
+           
+        }*/
+       
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            
+            combo_packageType.Items.Add("Monthly Basis");//selectPackageType();/////
         }
 
         public void setDataToGrid(string query)
@@ -92,6 +115,8 @@ namespace ShineWay.UI
                 txt_depositAmount.Text = dgv_Booking.SelectedRows[0].Cells[8].Value.ToString();
                 txt_advancedPayment.Text = dgv_Booking.SelectedRows[0].Cells[9].Value.ToString();
                 txt_description.Text = dgv_Booking.SelectedRows[0].Cells[10].Value.ToString();
+
+                isEndDatevalid();
         }
 
 
@@ -174,7 +199,8 @@ namespace ShineWay.UI
             lbl_advancedPayementError.Visible = false;
             lbl_discriptionError.Visible = false;
 
-           // getNextBookingID();
+            getNextBookingID();
+           
         }
 
         private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
@@ -270,7 +296,7 @@ namespace ShineWay.UI
                     combo_packageType.Text != "" &&
                     txt_depositAmount.Text != "" &&
                     date_startingDate.Value >= DateTime.Now  &&
-                    date_endDate.Value >= DateTime.Now
+                    date_endDate.Value >= date_startingDate.Value
 
 
                 )
@@ -351,6 +377,21 @@ namespace ShineWay.UI
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // ++++++++++++++++ validations ++++++++++++++++
+
+        public void isEndDatevalid()                                                             // avoid entering later starting date than ending date
+        {
+            if (date_startingDate.Value > date_endDate.Value)
+            {
+                try
+                {
+                    date_endDate.Value = date_startingDate.Value; 
+                }
+                catch (Exception invalidenddate)
+                {
+                    MessageBox.Show("End date should be a later date than start date");
+                }
+            }
+        }
 
         private void txt_bookingId_Leave(object sender, EventArgs e)
         {
@@ -521,9 +562,6 @@ namespace ShineWay.UI
             }
         }
 
-
-        
-
         private void combo_packageType_TextChanged(object sender, EventArgs e)
         {
             if(combo_packageType.Text != "")
@@ -561,17 +599,8 @@ namespace ShineWay.UI
 
         private void date_endDate_Leave(object sender, EventArgs e)
         {
-            if (date_startingDate.Value > date_endDate.Value)
-            {
-                /////////////////////////////
-            }
-        }
-
-        private void date_startingDate_Leave(object sender, EventArgs e)
-        {
-            date_endDate.MinDate = date_startingDate.Value;
-          
-        }
+            //selectPackageType();
+        }      
 
         private void combo_packageType_Leave(object sender, EventArgs e)
         {
@@ -582,8 +611,6 @@ namespace ShineWay.UI
         {
 
         }
-
-        
 
         private void Booking_Load(object sender, EventArgs e)
         {
@@ -606,6 +633,36 @@ namespace ShineWay.UI
             dgv_Booking.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor;
 
             
+        }
+
+        private void date_startingDate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            isEndDatevalid(); ;
+        }
+
+        private void date_startingDate_MouseLeave(object sender, EventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void date_startingDate_Leave(object sender, EventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void date_startingDate_MouseMove(object sender, MouseEventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void dgv_Booking_MouseEnter(object sender, EventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void combo_packageType_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
