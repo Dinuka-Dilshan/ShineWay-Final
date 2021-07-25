@@ -517,7 +517,22 @@ namespace ShineWay.UI
 
         private void Booking_Load(object sender, EventArgs e)
         {
-           
+            dgv_Booking.BorderStyle = BorderStyle.None;
+            //this.dataGridView1.GridColor = Color.BlueViolet;
+            dgv_Booking.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgv_Booking.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            // dgv_Booking.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26, 139, 9);
+            dgv_Booking.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgv_Booking.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Booking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dgv_Booking.EnableHeadersVisualStyles = false;
+            dgv_Booking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv_Booking.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic bold", 12);
+            dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+            dgv_Booking.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgv_Booking.DefaultCellStyle.Font = new Font("Century Gothic", 12);
+            dgv_Booking.RowHeadersVisible = false;
+            dgv_Booking.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor;
         }
     }
 }
