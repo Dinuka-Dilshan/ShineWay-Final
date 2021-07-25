@@ -67,7 +67,7 @@ namespace ShineWay.UI
                         string query = $"UPDATE `users` SET `password`=\"{Encrypt.encryption(txt_newPassword.Text)}\",`isFirstTimeUser`=\"{0}\" WHERE `username` = \"{userName}\"";
                         DbConnection.Update(query);
                         
-                        CustomMessage message = new CustomMessage("Password Updated!\nLogin Again.", "Update Failed", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                        CustomMessage message = new CustomMessage("Password Updated!\nLogin Again.", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
                         message.convertToOkButton();
                         message.ShowDialog();
                         txt_confirmPassword.Text = "";
@@ -145,6 +145,31 @@ namespace ShineWay.UI
                 btn_sowConfirmPassword.Image = ShineWay.Properties.Resources.eye;
                 txt_confirmPassword.UseSystemPasswordChar = true;
                 isConfirmPasswordHideClicked = true;
+            }
+        }
+
+        private void txt_newPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter|| e.KeyCode == Keys.Down)
+            {
+                txt_confirmPassword.Focus();
+            }
+        }
+
+        private void txt_confirmPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_register.PerformClick();
+            }
+            else if(e.KeyCode == Keys.Up)
+            {
+                txt_newPassword.Focus();
+                e.SuppressKeyPress = true; //to remove the 'ding' sound
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                btn_register.Focus();
             }
         }
     }

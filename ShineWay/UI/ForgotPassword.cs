@@ -43,69 +43,78 @@ namespace ShineWay.UI
             btn_proceed.Image = ShineWay.Properties.Resources.proceed;
         }
 
-        private void btn_proceed_Click(object sender, EventArgs e)
+        private async void btn_proceed_Click(object sender, EventArgs e)
         {
-            
-
-            string userName = txt_username.Text.Trim();
-            string queryForExistence = $"SELECT `username`, `name`, `email` FROM `users` WHERE `username` = \"{userName}\"";
-
-            MySqlDataReader reader = null;
-
-            try
+            Cursor = Cursors.WaitCursor;
+            if (txt_username.Text.Trim().Length == 0)
             {
-                reader = DbConnection.Read(queryForExistence);
+                CustomMessage message = new CustomMessage("    Username Is Empty!", "Empty", ShineWay.Properties.Resources.information, DialogResult.OK);
+                message.convertToOkButton();
+                message.ShowDialog();
+            }
+            else
+            {
+                
+                string userName = txt_username.Text.Trim();
+                string queryForExistence = $"SELECT `username`, `name`, `email` FROM `users` WHERE `username` = \"{userName}\"";
 
-                while (reader.Read())
+                MySqlDataReader reader = null;
+
+                try
                 {
-                    if (reader[0].ToString().Equals(userName))
+                    reader = DbConnection.Read(queryForExistence);
+
+                    while (reader.Read())
                     {
 
-                        try
+                        if (reader[0].ToString().Equals(userName))
                         {
-                            string temporaryPassword = randomString();
-                            string query = $"UPDATE `users` SET`password`=\"{Encrypt.encryption(temporaryPassword)}\", `isFirstTimeUser`= 1 WHERE `username` = \"{reader[0].ToString()}\";";
-                            DbConnection.Update(query);
-                            string emailMessage = $"Dear {reader[1].ToString()},\nYour Password Has been Reset!.Please use the Username and the temporary password given below to login!\n\nUsername:  {reader[0].ToString()} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
-                            Emails.sendEmail(reader[2].ToString(), "Welcome to ShineWay!", emailMessage);
-                            CustomMessage message = new CustomMessage("Successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                            message.convertToOkButton();
-                            message.ShowDialog();
-                            btn_Close.PerformClick();
-                            return;
+
+                            try
+                            {
+                                string temporaryPassword = randomString();
+                                string query = $"UPDATE `users` SET`password`=\"{Encrypt.encryption(temporaryPassword)}\", `isFirstTimeUser`= 1 WHERE `username` = \"{reader[0].ToString()}\";";
+                                DbConnection.Update(query);
+                                string emailMessage = $"Dear {reader[1].ToString()},\nYour Password Has been Reset!.Please use the Username and the temporary password given below to login!\n\nUsername:  {reader[0].ToString()} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
+                                Emails.sendEmail(reader[2].ToString(), "ShineWay Password Reset!", emailMessage);
+                                CustomMessage message = new CustomMessage("Successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                message.convertToOkButton();
+                                message.ShowDialog();
+                                btn_Close.PerformClick();
+                                return;
+                            }
+                            catch (Exception ex)
+                            {
+                                CustomMessage message2 = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                                message2.convertToOkButton();
+                                message2.ShowDialog();
+                                return;
+                            }
+
                         }
-                        catch (Exception ex)
+                        else
                         {
                             
-                            CustomMessage message2 = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
-                            message2.convertToOkButton();
-                            message2.ShowDialog();
                             return;
+
                         }
 
                     }
-                    else
-                    {
-                        return;
-                        
-                    }
+                    CustomMessage message3 = new CustomMessage("Username Does Not Exist!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    message3.convertToOkButton();
+                    message3.ShowDialog();
+
 
                 }
+                catch (Exception exc)
+                {
+                    reader.Close();
+                }
 
-                CustomMessage message3 = new CustomMessage("Username Does Not Exist!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
-                message3.convertToOkButton();
-                message3.ShowDialog();
 
-
-            }
-            catch (Exception exc)
-            {
                 reader.Close();
             }
-
-
-            reader.Close();
-
+            Cursor = Cursors.Arrow;
         }
 
 

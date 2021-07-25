@@ -62,10 +62,10 @@ namespace ShineWay.UI
             //reset button code goes here
         }
 
-        private void pb_btnAdd_Click(object sender, EventArgs e)
+        private async void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
-            
+            Cursor = Cursors.WaitCursor;
             MySqlDataReader reader;
 
             if(txt_NIC.Text.Trim() == "" || txt_name.Text.Trim() == "" || txt_telephoneNumber.Text.Trim() == "" || txt_address.Text.Trim() == "" || txt_email.Text.Trim() == "")
@@ -128,7 +128,7 @@ namespace ShineWay.UI
             }
 
             setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
-
+            Cursor = Cursors.Arrow;
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -476,12 +476,20 @@ namespace ShineWay.UI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+            isNameValid = true;
+            isNICValid = true;
+            isTelephoneNumberValid = true;
+            isAddressValid = true;
+            isEmailValid = true;
             txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
             combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            
+
         }
     }
 }

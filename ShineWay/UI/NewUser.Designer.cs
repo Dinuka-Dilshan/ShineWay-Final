@@ -81,6 +81,7 @@ namespace ShineWay.UI
             this.txt_newPassword.Size = new System.Drawing.Size(304, 29);
             this.txt_newPassword.TabIndex = 1;
             this.txt_newPassword.UseSystemPasswordChar = true;
+            this.txt_newPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_newPassword_KeyDown);
             // 
             // label1
             // 
@@ -116,6 +117,7 @@ namespace ShineWay.UI
             this.txt_confirmPassword.Size = new System.Drawing.Size(304, 29);
             this.txt_confirmPassword.TabIndex = 2;
             this.txt_confirmPassword.UseSystemPasswordChar = true;
+            this.txt_confirmPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_confirmPassword_KeyDown);
             // 
             // label2
             // 
