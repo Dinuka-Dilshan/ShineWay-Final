@@ -24,11 +24,25 @@ namespace ShineWay.UI
         bool isCusNameValid = false;
         bool isTelNumValid = false;
         bool isEmailValid = false;
+        bool isAddressValid = false;
 
+        private void DisplayData()
+        {
+            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            MySqlCommand cmd;
+            MySqlDataAdapter adapt;
+            con.Open();
+            DataTable dt = new DataTable();
+            adapt = new MySqlDataAdapter("select * from customer", con);
+            adapt.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
+        }
 
         public customer()
         {
             InitializeComponent();
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -221,39 +235,101 @@ namespace ShineWay.UI
             label_tickTelNum.Visible = false;
             label_tickEmail.Visible = false;
             label_tickAddress.Visible = false;
-
+            label_nicError.Visible = false;
+            label_nameError.Visible = false;
+            label_addressError.Visible = false;
+            label_emailError.Visible = false;
+            label_telnumberError.Visible = false;
+            label_licenseError.Visible = false;
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
-            
+            if (isAllValid())
+            {
                 try
                 {
                     DataBase.DbConnection.Read("insert into customer (Cus_NIC , Licen_num, Cus_name, Tel_num, Email , Cus_Address) Values" +
                     "('" + txt_nicNumber.Text + "','" + txt_licenseNumber.Text + "','" + txt_customerName.Text + "','" + txt_telephoneNumber.Text + "','" + txt_email.Text + "','"
                     + txt_address.Text + "')");
 
-                CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                message.convertToOkButton();
-                message.ShowDialog();
-               
+                    CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+                    DisplayData();
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+            else
+            {
+                CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before Added!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+                
             
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
         {
             // update button code goes here
+            if (isAllValid())
+            {
+                try
+                {
+                    DbConnection.Read("UPDATE customer set Licen_num='" + txt_licenseNumber.Text + "', Cus_name='" + txt_customerName.Text + "' , Tel_num='" + txt_telephoneNumber.Text + "', Email='"
+                    + txt_email.Text + "' , Cus_Address='" + txt_address.Text + "' where Cus_NIC='" + txt_nicNumber.Text + "'");
+
+                    CustomMessage message = new CustomMessage("User Updated Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+                    DisplayData();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before Updated!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+            
         }
 
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             //delete button code goes here
+            if (txt_nicNumber.Text != "")
+            {
+
+                try
+                {
+                    DbConnection.Read("delete from customer where Cus_NIC='" + txt_nicNumber.Text + "'");
+
+                    CustomMessage message = new CustomMessage("User Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+
+                    DisplayData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Select Record to Delete");
+            }
         }
 
         
@@ -378,7 +454,7 @@ namespace ShineWay.UI
                 pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
                 label_addressError.Visible = false;
                 label_tickAddress.Visible = true;
-                isEmailValid = true;
+                isAddressValid = true;
 
             }
             else
@@ -386,11 +462,29 @@ namespace ShineWay.UI
                 pictureBox13.Image = ShineWay.Properties.Resources.errorinput;
                 label_addressError.Visible = true;
                 label_tickAddress.Visible = false;
-                isEmailValid = false;
+                isAddressValid = false;
             }
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_nicNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txt_licenseNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txt_customerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txt_telephoneNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txt_email.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txt_address.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            
+        }
 
+        private void customer_Load(object sender, EventArgs e)
+        {
+            DisplayData();
+        }
 
+        private bool isAllValid()
+        {
+            return (isNICValid && isEmailValid && isTelNumValid && isCusNameValid && isLicensenumberValid && isAddressValid);
+        }
     }
 }

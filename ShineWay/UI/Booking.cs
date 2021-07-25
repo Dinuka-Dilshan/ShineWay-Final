@@ -24,6 +24,7 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             setDataToGrid();
+
         }
 
         public void setDataToGrid()
@@ -52,11 +53,12 @@ namespace ShineWay.UI
                 }
             }
             catch(Exception e)
-            {
+
                 MessageBox.Show(e.Message);
             }
             
         }
+
 
         private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -243,7 +245,7 @@ namespace ShineWay.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Test for error");
                 }
             }
             else

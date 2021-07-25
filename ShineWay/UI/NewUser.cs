@@ -10,6 +10,9 @@ namespace ShineWay.UI
 {
     public partial class NewUser : Form
     {
+        bool isPasswordHideClicked = true;
+        bool isConfirmPasswordHideClicked = true;
+
         System.Drawing.Color closeBtnColor;
         string passwordPattern = "[a-zA-Z]+[0-9]+";
         string userName;
@@ -64,7 +67,7 @@ namespace ShineWay.UI
                         string query = $"UPDATE `users` SET `password`=\"{Encrypt.encryption(txt_newPassword.Text)}\",`isFirstTimeUser`=\"{0}\" WHERE `username` = \"{userName}\"";
                         DbConnection.Update(query);
                         
-                        CustomMessage message = new CustomMessage("Password Updated!\nLogin Again.", "Update Failed", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                        CustomMessage message = new CustomMessage("Password Updated!\nLogin Again.", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
                         message.convertToOkButton();
                         message.ShowDialog();
                         txt_confirmPassword.Text = "";
@@ -110,6 +113,64 @@ namespace ShineWay.UI
                 }
             }
             
+        }
+
+        private void btn_showPassword_Click(object sender, EventArgs e)
+        {
+            if (isPasswordHideClicked)
+            {
+                btn_showPassword.Image = ShineWay.Properties.Resources.hideEye;
+                txt_newPassword.UseSystemPasswordChar = false;
+                isPasswordHideClicked = false;
+            }
+            else
+            {
+                btn_showPassword.Image = ShineWay.Properties.Resources.eye;
+                txt_newPassword.UseSystemPasswordChar = true;
+                isPasswordHideClicked = true;
+            }
+            
+        }
+
+        private void btn_sowConfirmPassword_Click(object sender, EventArgs e)
+        {
+            if (isConfirmPasswordHideClicked)
+            {
+                btn_sowConfirmPassword.Image = ShineWay.Properties.Resources.hideEye;
+                txt_confirmPassword.UseSystemPasswordChar = false;
+                isConfirmPasswordHideClicked = false;
+            }
+            else
+            {
+                btn_sowConfirmPassword.Image = ShineWay.Properties.Resources.eye;
+                txt_confirmPassword.UseSystemPasswordChar = true;
+                isConfirmPasswordHideClicked = true;
+            }
+        }
+
+        private void txt_newPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter|| e.KeyCode == Keys.Down)
+            {
+                txt_confirmPassword.Focus();
+            }
+        }
+
+        private void txt_confirmPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_register.PerformClick();
+            }
+            else if(e.KeyCode == Keys.Up)
+            {
+                txt_newPassword.Focus();
+                e.SuppressKeyPress = true; //to remove the 'ding' sound
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                btn_register.Focus();
+            }
         }
     }
 }

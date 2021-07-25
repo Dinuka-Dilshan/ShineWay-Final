@@ -122,11 +122,12 @@ namespace ShineWay.UI
 
         private void pb_btnExit_Click(object sender, EventArgs e)
         {
-           //new LogOut().ShowDialog();
-           DialogResult result = new CustomMessage("Do you really want to exit?","Exit Dialog",ShineWay.Properties.Resources.question,DialogResult.Yes).ShowDialog();
-            if(result == DialogResult.Yes)
+            CustomMessage customM = new CustomMessage("Do you really want to Logout?","Logout Dialog",ShineWay.Properties.Resources.question,DialogResult.Yes);
+            customM.setWidth(445);
+            DialogResult result = customM.ShowDialog();
+            if (result == DialogResult.Yes)
             {
-                Application.Exit();
+                Application.Restart();
             }
         }
 

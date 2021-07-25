@@ -55,7 +55,7 @@ namespace ShineWay.Messages
             this.btn_btn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_btn2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_btn2.ForeColor = System.Drawing.Color.White;
-            this.btn_btn2.Location = new System.Drawing.Point(308, 109);
+            this.btn_btn2.Location = new System.Drawing.Point(314, 109);
             this.btn_btn2.Name = "btn_btn2";
             this.btn_btn2.Size = new System.Drawing.Size(94, 42);
             this.btn_btn2.TabIndex = 1;
@@ -92,7 +92,7 @@ namespace ShineWay.Messages
             this.btn_btn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_btn1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_btn1.ForeColor = System.Drawing.Color.White;
-            this.btn_btn1.Location = new System.Drawing.Point(208, 109);
+            this.btn_btn1.Location = new System.Drawing.Point(214, 109);
             this.btn_btn1.Name = "btn_btn1";
             this.btn_btn1.Size = new System.Drawing.Size(94, 42);
             this.btn_btn1.TabIndex = 4;
@@ -105,7 +105,7 @@ namespace ShineWay.Messages
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(490, 170);
+            this.ClientSize = new System.Drawing.Size(424, 173);
             this.Controls.Add(this.label_message);
             this.Controls.Add(this.btn_btn1);
             this.Controls.Add(this.pb_icon);
