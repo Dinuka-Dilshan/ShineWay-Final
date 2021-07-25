@@ -199,7 +199,7 @@ namespace ShineWay.UI
         private void label_forgotPassword_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new ForgotPassword();
+            var form2 = new ForgotPassword(txt_userName.Text);
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
