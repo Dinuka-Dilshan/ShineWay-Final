@@ -196,6 +196,7 @@ namespace ShineWay.UI
             this.dgv_Booking.Size = new System.Drawing.Size(750, 516);
             this.dgv_Booking.TabIndex = 15;
             this.dgv_Booking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Booking_CellContentClick);
+            this.dgv_Booking.MouseEnter += new System.EventHandler(this.dgv_Booking_MouseEnter);
             // 
             // Column1
             // 
@@ -759,15 +760,12 @@ namespace ShineWay.UI
             this.combo_packageType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.combo_packageType.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.combo_packageType.FormattingEnabled = true;
-            this.combo_packageType.Items.AddRange(new object[] {
-            "Daily Basis",
-            "Weekly Basis",
-            "Monthly Basis"});
             this.combo_packageType.Location = new System.Drawing.Point(367, 503);
             this.combo_packageType.Name = "combo_packageType";
             this.combo_packageType.Size = new System.Drawing.Size(169, 29);
             this.combo_packageType.TabIndex = 7;
             this.combo_packageType.TextChanged += new System.EventHandler(this.combo_packageType_TextChanged);
+            this.combo_packageType.Enter += new System.EventHandler(this.combo_packageType_Enter);
             this.combo_packageType.Leave += new System.EventHandler(this.combo_packageType_Leave);
             // 
             // date_endDate
@@ -779,7 +777,7 @@ namespace ShineWay.UI
             this.date_endDate.Location = new System.Drawing.Point(367, 440);
             this.date_endDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_endDate.Name = "date_endDate";
-            this.date_endDate.Size = new System.Drawing.Size(450, 30);
+            this.date_endDate.Size = new System.Drawing.Size(169, 30);
             this.date_endDate.TabIndex = 6;
             this.date_endDate.Leave += new System.EventHandler(this.date_endDate_Leave);
             // 
@@ -792,9 +790,12 @@ namespace ShineWay.UI
             this.date_startingDate.Location = new System.Drawing.Point(367, 315);
             this.date_startingDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_startingDate.Name = "date_startingDate";
-            this.date_startingDate.Size = new System.Drawing.Size(450, 30);
+            this.date_startingDate.Size = new System.Drawing.Size(169, 30);
             this.date_startingDate.TabIndex = 4;
+            this.date_startingDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.date_startingDate_KeyPress);
             this.date_startingDate.Leave += new System.EventHandler(this.date_startingDate_Leave);
+            this.date_startingDate.MouseLeave += new System.EventHandler(this.date_startingDate_MouseLeave);
+            this.date_startingDate.MouseMove += new System.Windows.Forms.MouseEventHandler(this.date_startingDate_MouseMove);
             // 
             // pictureBox1
             // 
