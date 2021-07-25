@@ -45,6 +45,8 @@ namespace ShineWay.UI
 
         private void btn_proceed_Click(object sender, EventArgs e)
         {
+            
+
             string userName = txt_username.Text.Trim();
             string queryForExistence = $"SELECT `username`, `name`, `email` FROM `users` WHERE `username` = \"{userName}\"";
 
@@ -53,28 +55,55 @@ namespace ShineWay.UI
             try
             {
                 reader = DbConnection.Read(queryForExistence);
-                if (reader[0].ToString().Equals(userName))
+
+                while (reader.Read())
                 {
-                    
-                    string temporaryPassword = randomString();
-                    string query = $"UPDATE `users` SET`password`=\"{temporaryPassword}\" WHERE `username` = \"{reader[0].ToString()}\";";
-                    DbConnection.Update(query);
-                    string emailMessage = $"Dear {reader[1].ToString()},\nYour Password Has been Reset!.Please use the Username and the temporary password given below to login!\n\nUsername:  {reader[0].ToString()} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
-                    Emails.sendEmail(reader[2].ToString(), "Welcome to ShineWay!", emailMessage);
-                }
-                else
-                {
-                    CustomMessage message = new CustomMessage("Username Does Not Exist!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
-                    message.convertToOkButton();
-                    message.ShowDialog();
+                    if (reader[0].ToString().Equals(userName))
+                    {
+
+                        try
+                        {
+                            string temporaryPassword = randomString();
+                            string query = $"UPDATE `users` SET`password`=\"{Encrypt.encryption(temporaryPassword)}\", `isFirstTimeUser`= 1 WHERE `username` = \"{reader[0].ToString()}\";";
+                            DbConnection.Update(query);
+                            string emailMessage = $"Dear {reader[1].ToString()},\nYour Password Has been Reset!.Please use the Username and the temporary password given below to login!\n\nUsername:  {reader[0].ToString()} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
+                            Emails.sendEmail(reader[2].ToString(), "Welcome to ShineWay!", emailMessage);
+                            CustomMessage message = new CustomMessage("Successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                            message.convertToOkButton();
+                            message.ShowDialog();
+                            btn_Close.PerformClick();
+                            return;
+                        }
+                        catch (Exception ex)
+                        {
+                            
+                            CustomMessage message2 = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                            message2.convertToOkButton();
+                            message2.ShowDialog();
+                            return;
+                        }
+
+                    }
+                    else
+                    {
+                        return;
+                        
+                    }
+
                 }
 
-                reader.Close();
+                CustomMessage message3 = new CustomMessage("Username Does Not Exist!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                message3.convertToOkButton();
+                message3.ShowDialog();
 
-            }catch(Exception exc)
+
+            }
+            catch (Exception exc)
             {
                 reader.Close();
             }
+
+
             reader.Close();
 
         }
@@ -92,6 +121,11 @@ namespace ShineWay.UI
             }
 
             return new String(stringChars);
+        }
+
+        private void btn_proceed_MouseClick(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 }

@@ -111,6 +111,7 @@ namespace ShineWay.UI
             this.btn_proceed.TabIndex = 26;
             this.btn_proceed.UseVisualStyleBackColor = true;
             this.btn_proceed.Click += new System.EventHandler(this.btn_proceed_Click);
+            this.btn_proceed.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_proceed_MouseClick);
             this.btn_proceed.MouseLeave += new System.EventHandler(this.btn_register_MouseLeave);
             this.btn_proceed.MouseHover += new System.EventHandler(this.btn_register_MouseHover);
             // 
