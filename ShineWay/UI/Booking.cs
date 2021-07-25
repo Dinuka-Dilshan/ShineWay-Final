@@ -23,12 +23,12 @@ namespace ShineWay.UI
         public Booking()
         {
             InitializeComponent();
-            date_startingDate.MinDate = DateTime.Now;
-            date_endDate.MinDate = DateTime.Now;
-            setDataToGrid();
+           // date_startingDate.MinDate = DateTime.Now;
+           // date_endDate.MinDate = DateTime.Now;
+            //setDataToGrid();
         }
 
-        public void setDataToGrid()
+        /*public void setDataToGrid()
         {
 
             try
@@ -45,8 +45,10 @@ namespace ShineWay.UI
                     Booking.License_Number = reader1[3].ToString();
                     Booking.Start_Date = reader1[4].ToString();
                     Booking.Start_Odometer = reader1[5].ToString();
-                  
+                    //
                     Booking.Package_Type = reader1[6].ToString();
+                    //
+                    //
                     Booking.Description = reader1[7].ToString();
                     
                     
@@ -55,13 +57,13 @@ namespace ShineWay.UI
             }
             catch (Exception ex)
             {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                CustomMessage submitmessege = new CustomMessage("meken tmi awla enne", "error", ShineWay.Properties.Resources.error, DialogResult.OK);
                 submitmessege.convertToOkButton();
                 submitmessege.ShowDialog();
             }
 
             dgv_Booking.DataSource = bookings;
-        }
+        }*/
 
         private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -69,17 +71,17 @@ namespace ShineWay.UI
             {
                 DataGridViewRow row = this.dgv_Booking.Rows[e.RowIndex];
 
-                txt_bookingId.Text = row.Cells["Booking_ID"].Value.ToString();
-                txt_vehicleRegNumber.Text = row.Cells["Vehicle_Number"].Value.ToString();
-                txt_customerNic.Text = row.Cells["Customer_NIC"].Value.ToString();
-                txt_licenseNumber.Text = row.Cells["License_Number"].Value.ToString();
-                date_startingDate.Text = row.Cells["Start_Date"].Value.ToString();
-                txt_startingOdometer.Text = row.Cells["Start_Odometer"].Value.ToString();
+                txt_bookingId.Text = dgv_Booking.CurrentRow.Cells[0].Value.ToString();
+                txt_vehicleRegNumber.Text = dgv_Booking.CurrentRow.Cells[1].Value.ToString();
+                txt_customerNic.Text = dgv_Booking.CurrentRow.Cells[2].Value.ToString();
+                txt_licenseNumber.Text = dgv_Booking.CurrentRow.Cells[3].Value.ToString();
+                date_startingDate.Text = dgv_Booking.CurrentRow.Cells[4].Value.ToString();
+                txt_startingOdometer.Text = dgv_Booking.CurrentRow.Cells[5].Value.ToString();
                 // date_endDate.Text = row.Cells[""].Value.ToString();
-               combo_packageType.Text = row.Cells["Package_Type"].Value.ToString();
-                //
-                //
-                txt_description.Text = row.Cells["Description"].Value.ToString();
+               combo_packageType.Text = dgv_Booking.CurrentRow.Cells[6].Value.ToString();
+                //deposite amount
+                //advanced payment
+                txt_description.Text = dgv_Booking.CurrentRow.Cells[7].Value.ToString();
             }
         }
 
@@ -193,7 +195,7 @@ namespace ShineWay.UI
 
                     MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
 
-                    setDataToGrid();
+                    //setDataToGrid();
                 }
                 catch (Exception ex)
                 {
@@ -233,9 +235,11 @@ namespace ShineWay.UI
                     txt_customerNic.Text != "" &&
                     txt_startingOdometer.Text != "" &&
                     combo_packageType.Text != "" &&
-                    txt_depositAmount.Text != ""
+                    txt_depositAmount.Text != "" &&
+                    date_startingDate.MinDate == DateTime.Now  &&
+                    date_endDate.MinDate == DateTime.Now
 
-                    
+
                 )
             {
                 try
@@ -247,11 +251,11 @@ namespace ShineWay.UI
                     MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
                     MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "');");
 
-                    setDataToGrid();
+                    //setDataToGrid();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Test for error");
                 }
             }
             else
@@ -511,6 +515,24 @@ namespace ShineWay.UI
             /////////////////////  
         }
 
-        
+        private void Booking_Load(object sender, EventArgs e)
+        {
+            dgv_Booking.BorderStyle = BorderStyle.None;
+            //this.dataGridView1.GridColor = Color.BlueViolet;
+            dgv_Booking.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgv_Booking.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            // dgv_Booking.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26, 139, 9);
+            dgv_Booking.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgv_Booking.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Booking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
+            dgv_Booking.EnableHeadersVisualStyles = false;
+            dgv_Booking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv_Booking.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic bold", 12);
+            dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
+            dgv_Booking.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgv_Booking.DefaultCellStyle.Font = new Font("Century Gothic", 12);
+            dgv_Booking.RowHeadersVisible = false;
+            dgv_Booking.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor;
+        }
     }
 }
