@@ -73,5 +73,10 @@ namespace ShineWay.Messages
         {
 
         }
+
+        public void setWidth(int width)
+        {
+            this.Width = width;
+        }
     }
 }
