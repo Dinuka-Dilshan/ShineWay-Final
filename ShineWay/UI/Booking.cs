@@ -57,7 +57,7 @@ namespace ShineWay.UI
             }
             catch (Exception ex)
             {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                CustomMessage submitmessege = new CustomMessage("meken tmi awla enne", "error", ShineWay.Properties.Resources.error, DialogResult.OK);
                 submitmessege.convertToOkButton();
                 submitmessege.ShowDialog();
             }
@@ -255,7 +255,7 @@ namespace ShineWay.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Test for error");
                 }
             }
             else

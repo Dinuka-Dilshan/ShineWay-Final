@@ -185,6 +185,7 @@ namespace ShineWay.UI
             this.label_forgotPassword.Size = new System.Drawing.Size(118, 16);
             this.label_forgotPassword.TabIndex = 11;
             this.label_forgotPassword.Text = "forgot password?";
+            this.label_forgotPassword.Click += new System.EventHandler(this.label_forgotPassword_Click);
             this.label_forgotPassword.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label_forgotPassword_MouseClick);
             this.label_forgotPassword.MouseLeave += new System.EventHandler(this.label_forgotPassword_MouseLeave);
             this.label_forgotPassword.MouseHover += new System.EventHandler(this.label_forgotPassword_MouseHover);
