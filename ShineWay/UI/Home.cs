@@ -13,17 +13,23 @@ namespace ShineWay.UI
 {
     public partial class Home : Form
     {
-        
+        string userType;
 
         public Home(String userType, String userName)
         {
             InitializeComponent();
             setUserControl(homeControl1, btn_Home);
             label_userType.Text = userType;
+            this.userType = userType;
+            if (userType.Equals("User"))
+            {
+                btnUsers.Enabled = false;
+            }
             Welcome message =new Welcome("Nice to see yoo " + userName.Split(" ")[0] + "!");
             message.hideCloseButton();
             message.Show();
             StartTimer();
+
         }
 
         private void btn_ownerPayments_Click(object sender, EventArgs e)

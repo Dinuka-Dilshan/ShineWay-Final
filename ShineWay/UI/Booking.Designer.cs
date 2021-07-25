@@ -31,6 +31,7 @@ namespace ShineWay.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_Refresh = new System.Windows.Forms.PictureBox();
             this.dgv_Booking = new System.Windows.Forms.DataGridView();
             this.pb_btnUpdatePrint = new System.Windows.Forms.Label();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
@@ -101,6 +102,7 @@ namespace ShineWay.UI
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Booking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -131,6 +133,7 @@ namespace ShineWay.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_Refresh);
             this.panel2.Controls.Add(this.dgv_Booking);
             this.panel2.Controls.Add(this.pb_btnUpdatePrint);
             this.panel2.Controls.Add(this.pictureBox17);
@@ -143,17 +146,33 @@ namespace ShineWay.UI
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 27;
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_Refresh.Image")));
+            this.btn_Refresh.Location = new System.Drawing.Point(74, 137);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(44, 40);
+            this.btn_Refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_Refresh.TabIndex = 17;
+            this.btn_Refresh.TabStop = false;
+            this.btn_Refresh.Visible = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // dgv_Booking
             // 
+            this.dgv_Booking.AllowUserToAddRows = false;
+            this.dgv_Booking.AllowUserToDeleteRows = false;
             this.dgv_Booking.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Booking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Booking.Location = new System.Drawing.Point(74, 186);
             this.dgv_Booking.Name = "dgv_Booking";
+            this.dgv_Booking.ReadOnly = true;
             this.dgv_Booking.RowHeadersVisible = false;
             this.dgv_Booking.RowHeadersWidth = 51;
             this.dgv_Booking.RowTemplate.Height = 29;
             this.dgv_Booking.Size = new System.Drawing.Size(750, 516);
             this.dgv_Booking.TabIndex = 15;
+            this.dgv_Booking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Booking_CellContentClick);
             // 
             // pb_btnUpdatePrint
             // 
@@ -1024,6 +1043,7 @@ namespace ShineWay.UI
             this.Size = new System.Drawing.Size(1800, 900);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Booking)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1127,5 +1147,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label lbl_licenseNumberCorrect;
         private System.Windows.Forms.Label lbl_customerNICCorrect;
         private System.Windows.Forms.Label lbl_vehicleNumberCorrect;
+        private System.Windows.Forms.PictureBox btn_Refresh;
     }
 }
