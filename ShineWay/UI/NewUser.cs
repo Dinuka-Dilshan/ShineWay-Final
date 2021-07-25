@@ -10,6 +10,9 @@ namespace ShineWay.UI
 {
     public partial class NewUser : Form
     {
+        bool isPasswordHideClicked = true;
+        bool isConfirmPasswordHideClicked = true;
+
         System.Drawing.Color closeBtnColor;
         string passwordPattern = "[a-zA-Z]+[0-9]+";
         string userName;
@@ -110,6 +113,39 @@ namespace ShineWay.UI
                 }
             }
             
+        }
+
+        private void btn_showPassword_Click(object sender, EventArgs e)
+        {
+            if (isPasswordHideClicked)
+            {
+                btn_showPassword.Image = ShineWay.Properties.Resources.hideEye;
+                txt_newPassword.UseSystemPasswordChar = false;
+                isPasswordHideClicked = false;
+            }
+            else
+            {
+                btn_showPassword.Image = ShineWay.Properties.Resources.eye;
+                txt_newPassword.UseSystemPasswordChar = true;
+                isPasswordHideClicked = true;
+            }
+            
+        }
+
+        private void btn_sowConfirmPassword_Click(object sender, EventArgs e)
+        {
+            if (isConfirmPasswordHideClicked)
+            {
+                btn_sowConfirmPassword.Image = ShineWay.Properties.Resources.hideEye;
+                txt_confirmPassword.UseSystemPasswordChar = false;
+                isConfirmPasswordHideClicked = false;
+            }
+            else
+            {
+                btn_sowConfirmPassword.Image = ShineWay.Properties.Resources.eye;
+                txt_confirmPassword.UseSystemPasswordChar = true;
+                isConfirmPasswordHideClicked = true;
+            }
         }
     }
 }

@@ -42,6 +42,8 @@ namespace ShineWay.UI
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_showPassword = new System.Windows.Forms.Button();
+            this.btn_sowConfirmPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -76,8 +78,9 @@ namespace ShineWay.UI
             this.txt_newPassword.Location = new System.Drawing.Point(230, 315);
             this.txt_newPassword.Margin = new System.Windows.Forms.Padding(0);
             this.txt_newPassword.Name = "txt_newPassword";
-            this.txt_newPassword.Size = new System.Drawing.Size(324, 29);
+            this.txt_newPassword.Size = new System.Drawing.Size(304, 29);
             this.txt_newPassword.TabIndex = 1;
+            this.txt_newPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -110,8 +113,9 @@ namespace ShineWay.UI
             this.txt_confirmPassword.Location = new System.Drawing.Point(230, 404);
             this.txt_confirmPassword.Margin = new System.Windows.Forms.Padding(0);
             this.txt_confirmPassword.Name = "txt_confirmPassword";
-            this.txt_confirmPassword.Size = new System.Drawing.Size(324, 29);
+            this.txt_confirmPassword.Size = new System.Drawing.Size(304, 29);
             this.txt_confirmPassword.TabIndex = 2;
+            this.txt_confirmPassword.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -196,12 +200,46 @@ namespace ShineWay.UI
             this.label3.TabIndex = 23;
             this.label3.Text = "You Must Change Your Temporary Password.";
             // 
+            // btn_showPassword
+            // 
+            this.btn_showPassword.BackColor = System.Drawing.Color.White;
+            this.btn_showPassword.FlatAppearance.BorderSize = 0;
+            this.btn_showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_showPassword.Image = global::ShineWay.Properties.Resources.eye;
+            this.btn_showPassword.Location = new System.Drawing.Point(537, 312);
+            this.btn_showPassword.Name = "btn_showPassword";
+            this.btn_showPassword.Size = new System.Drawing.Size(31, 32);
+            this.btn_showPassword.TabIndex = 24;
+            this.btn_showPassword.TabStop = false;
+            this.btn_showPassword.UseVisualStyleBackColor = false;
+            this.btn_showPassword.Click += new System.EventHandler(this.btn_showPassword_Click);
+            // 
+            // btn_sowConfirmPassword
+            // 
+            this.btn_sowConfirmPassword.BackColor = System.Drawing.Color.White;
+            this.btn_sowConfirmPassword.FlatAppearance.BorderSize = 0;
+            this.btn_sowConfirmPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btn_sowConfirmPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_sowConfirmPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sowConfirmPassword.Image = global::ShineWay.Properties.Resources.eye;
+            this.btn_sowConfirmPassword.Location = new System.Drawing.Point(537, 404);
+            this.btn_sowConfirmPassword.Name = "btn_sowConfirmPassword";
+            this.btn_sowConfirmPassword.Size = new System.Drawing.Size(31, 32);
+            this.btn_sowConfirmPassword.TabIndex = 25;
+            this.btn_sowConfirmPassword.TabStop = false;
+            this.btn_sowConfirmPassword.UseVisualStyleBackColor = false;
+            this.btn_sowConfirmPassword.Click += new System.EventHandler(this.btn_sowConfirmPassword_Click);
+            // 
             // NewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 596);
+            this.Controls.Add(this.btn_sowConfirmPassword);
+            this.Controls.Add(this.btn_showPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label_welcome);
@@ -240,5 +278,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_showPassword;
+        private System.Windows.Forms.Button btn_sowConfirmPassword;
     }
 }
