@@ -25,10 +25,10 @@ namespace ShineWay.UI
             InitializeComponent();
            // date_startingDate.MinDate = DateTime.Now;
            // date_endDate.MinDate = DateTime.Now;
-            setDataToGrid();
+            //setDataToGrid();
         }
 
-        public void setDataToGrid()
+        /*public void setDataToGrid()
         {
 
             try
@@ -57,13 +57,13 @@ namespace ShineWay.UI
             }
             catch (Exception ex)
             {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                CustomMessage submitmessege = new CustomMessage("meken tmi awla enne", "error", ShineWay.Properties.Resources.error, DialogResult.OK);
                 submitmessege.convertToOkButton();
                 submitmessege.ShowDialog();
             }
 
             dgv_Booking.DataSource = bookings;
-        }
+        }*/
 
         private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -195,7 +195,7 @@ namespace ShineWay.UI
 
                     MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
 
-                    setDataToGrid();
+                    //setDataToGrid();
                 }
                 catch (Exception ex)
                 {
@@ -251,11 +251,11 @@ namespace ShineWay.UI
                     MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
                     MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "');");
 
-                    setDataToGrid();
+                    //setDataToGrid();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Test for error");
                 }
             }
             else
