@@ -27,7 +27,17 @@ namespace ShineWay.UI
            // getNextBookingID();
         }
 
-      
+        private void getNextBookingID()
+        {
+            MySqlDataReader getfinalid = DbConnection.Read("SELECT MAX(Booking_ID) FROM booking");
+            while (getfinalid.Read())
+            {
+                string LastBookingID = getfinalid[0].ToString();
+                int NewBookingID = Int32.Parse(LastBookingID) + 1;
+                txt_bookingId.Text = NewBookingID.ToString();
+            }
+        }
+
 
 
         private void btn_Refresh_Click(object sender, EventArgs e)
