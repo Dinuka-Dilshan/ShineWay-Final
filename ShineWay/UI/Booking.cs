@@ -31,6 +31,7 @@ namespace ShineWay.UI
         {
                 dgv_Booking.Rows.Clear();
                 dgv_Booking.Refresh();
+                
             try
             {
                 MySqlDataReader reader1 = DbConnection.Read("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
@@ -52,7 +53,7 @@ namespace ShineWay.UI
                     dgv_Booking.Rows[x].Cells[10].Value = reader1.GetString("Discription");
                 }
             }
-            catch(Exception e)
+            catch(Exception e) { 
 
                 MessageBox.Show(e.Message);
             }
