@@ -35,8 +35,7 @@ namespace ShineWay.UI
         public Vehicles()
         {
             InitializeComponent();
-            combo_type.SelectedIndex = 0;
-            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
+            setDataToGrid();
         }
 
 
@@ -116,41 +115,57 @@ namespace ShineWay.UI
           
         }
    
-        public void setDataToGrid(string query)
+       public void setDataToGrid()
         {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            
-          
 
-                MySqlDataReader reader = DbConnection.Read(query);
-
-            while (reader.Read())
+            try
             {
-                int x = dataGridView1.Rows.Add();
-                dataGridView1.Rows[x].Cells[0].Value = reader.GetString("Vehicle_num");
-                dataGridView1.Rows[x].Cells[1].Value = reader.GetString("Brand");
-                dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Model");
-                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Type");
-                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Engine_Num");
-                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Chassis_Num");
-                dataGridView1.Rows[x].Cells[6].Value = reader.GetString("Owner_NIC");
-                dataGridView1.Rows[x].Cells[7].Value = reader.GetString("Reg_Date");
-                dataGridView1.Rows[x].Cells[8].Value = reader.GetString("Owner_Condi");
-                dataGridView1.Rows[x].Cells[9].Value = reader.GetString("Daily_price");
-                dataGridView1.Rows[x].Cells[10].Value = reader.GetString("Daliy_KM");
-                dataGridView1.Rows[x].Cells[11].Value = reader.GetString("Weekly_price");
-                dataGridView1.Rows[x].Cells[12].Value = reader.GetString("Weekly_KM");
-                dataGridView1.Rows[x].Cells[13].Value = reader.GetString("Monthly_price");
-                dataGridView1.Rows[x].Cells[14].Value = reader.GetString("Monthy_KM");
-                dataGridView1.Rows[x].Cells[15].Value = reader.GetString("Owner_payment");
-                dataGridView1.Rows[x].Cells[16].Value = reader.GetString("Starting_odo");
-                dataGridView1.Rows[x].Cells[17].Value = reader.GetString("OverallView");
-                dataGridView1.Rows[x].Cells[18].Value = reader.GetString("InsideView");
+
+                MySqlDataReader reader = DbConnection.Read("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
+
+                while (reader.Read())
+                {
+                    Vehicle veh = new Vehicle();
+                    veh.vehNumber = reader[0].ToString();
+                    veh.Brand = reader[1].ToString();
+                    veh.model = reader[2].ToString();
+                    veh.type = reader[3].ToString();
+                    veh.engineNumber = reader[4].ToString();
+                    veh.chassisNumber = reader[5].ToString();
+
+                    veh.ownerNic = reader[6].ToString();
+                    veh.registerDate = reader[7].ToString();
+                    veh.ownerCondition = reader[8].ToString();
+                    veh.dailyPrice = reader[9].ToString();
+
+                    veh.weeklyPrice = reader[10].ToString();
+                    veh.monthlyPrice = reader[11].ToString();
+
+                   // veh.extraKMPrice = reader[12].ToString();
+                    veh.dailyKm = reader[12].ToString();
+                    veh.weeklyKm = reader[13].ToString();
+                    veh.monthlyKm = reader[14].ToString();
+
+                    veh.ownerPayment = reader[15].ToString();
+                    veh.startingOdometer = reader[16].ToString();
+
+                    veh.overallView = reader[17].ToString();
+                    veh.insideView = reader[18].ToString();
+
+                    vehicles.Add(veh);
 
 
+                }
             }
-        }
+            catch (Exception ex)
+            {
+                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+
+            dataGridView1.DataSource = vehicles;
+       }
 
         private void txt_DailyPrice_TextChanged(object sender, EventArgs e)
         {
@@ -196,16 +211,16 @@ namespace ShineWay.UI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          // Byte[] img = (Byte[])dataGridView1.CurrentRow.Cells[17].Value;
-        //   Byte[] img1 = (Byte[])dataGridView1.CurrentRow.Cells[18].Value;
+       //    Byte[] img = (Byte[])dataGridView1.CurrentRow.Cells[17].Value;
+       ////    Byte[] img1 = (Byte[])dataGridView1.CurrentRow.Cells[18].Value;
 
-          //  MemoryStream ms = new MemoryStream(img);
-          //  MemoryStream ms1 = new MemoryStream(img1);
+        //    MemoryStream ms = new MemoryStream(img);
+         //   MemoryStream ms1 = new MemoryStream(img1);
 
-        //    pb_overallViewimg.Image = Image.FromStream(ms);
+         //   pb_overallViewimg.Image = Image.FromStream(ms);
          //   pb_InsideViewimg.Image = Image.FromStream(ms1);
 
-            msktxt_vehicleRegNumber.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+          msktxt_vehicleRegNumber.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txt_brand.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txt_model.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             combo_type.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
@@ -222,7 +237,7 @@ namespace ShineWay.UI
             txt_Monthlykm.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
             txt_OwnerPayment.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
             msktxt_startingOdo.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
-
+         
 
         }
 
@@ -685,7 +700,8 @@ namespace ShineWay.UI
 
         private void Vehicles_Load(object sender, EventArgs e)
         {
-            setDataToGrid("");
+         //   setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
+            //  setDataToGrid("");
             dataGridView1.BorderStyle = BorderStyle.None;
             //this.dataGridView1.GridColor = Color.BlueViolet;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
@@ -709,9 +725,9 @@ namespace ShineWay.UI
             // setDataToGrid(textBox1.Text);
 
             //  string query = $"SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\" OR `email` LIKE \"%{txt_search.Text}%\"";
-            string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`" +
+         /*   string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`" +
                 $"WHERE `Vehicle_num` LIKE \"% {textBox1.Text}%\" "; 
-            setDataToGrid(query);
+            setDataToGrid(query);*/
         }
     }
 }
