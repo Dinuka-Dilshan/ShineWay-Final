@@ -488,7 +488,22 @@ namespace ShineWay.UI
             txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
             combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            
+            //to reset warnings
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+            label_nicError.Visible = false;
+            pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+            label_telError.Visible = false;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
+            label_addressError.Visible = false;
+            label_telTick.Visible = false;
+            label_tickAddress.Visible = false;
+            label_tickNIC.Visible = false;
+            label_tickName.Visible = false;
+            label_tickEmail.Visible = false;
+            label_emailError.Visible = false;
+            label_nameError.Visible = false;
 
         }
     }
