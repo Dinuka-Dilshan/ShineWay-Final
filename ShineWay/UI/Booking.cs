@@ -23,18 +23,18 @@ namespace ShineWay.UI
         public Booking()
         {
             InitializeComponent();
-            setDataToGrid();
+            setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
 
         }
 
-        public void setDataToGrid()
+        public void setDataToGrid(string query)
         {
                 dgv_Booking.Rows.Clear();
                 dgv_Booking.Refresh();
-                
+                MySqlDataReader reader = DbConnection.Read(query);
             try
             {
-                MySqlDataReader reader1 = DbConnection.Read("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
+                MySqlDataReader reader1 = DbConnection.Read(query);
 
                 while (reader1.Read())
                 {
@@ -184,9 +184,10 @@ namespace ShineWay.UI
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
-                 //   MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
-
-                    //setDataToGrid();
+                    MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
+                    MySqlDataReader reader2 = DbConnection.Read("UPDATE `payment` SET `Cust_NIC`='"+txt_customerNic.Text.Trim()+"',`Vehicle_num`='"+txt_vehicleRegNumber.Text.Trim()+"',`End_date`='"+date_endDate.Text+"',`Deposite_Amount`='"+txt_depositAmount.Text.Trim()+"',`Advance_Payment`='"+txt_advancedPayment.Text.Trim()+ "' WHERE `payment`.`Booking_ID` = '"+txt_bookingId.Text.Trim()+"'     ");
+                    
+                    setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
                 }
                 catch (Exception ex)
                 {
@@ -227,8 +228,8 @@ namespace ShineWay.UI
                     txt_startingOdometer.Text != "" &&
                     combo_packageType.Text != "" &&
                     txt_depositAmount.Text != "" &&
-                    date_startingDate.MinDate == DateTime.Now  &&
-                    date_endDate.MinDate == DateTime.Now
+                    date_startingDate.Value >= DateTime.Now  &&
+                    date_endDate.Value >= DateTime.Now
 
 
                 )
@@ -239,14 +240,14 @@ namespace ShineWay.UI
                     submitmessege.convertToOkButton();
                     submitmessege.ShowDialog();
 
-                   // MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
-                   // MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "');");
+                    MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                    MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`,`Deposite_Amount`,`Advance_Payment`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "','"+txt_depositAmount.Text.Trim()+"','"+txt_advancedPayment.Text.Trim()+"');");
 
-                    //setDataToGrid();
+                    setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
                 }
-                catch (Exception ex)
+                catch (Exception exce)
                 {
-                    MessageBox.Show("Test for error");
+                    MessageBox.Show(exce.Message);
                 }
             }
             else
