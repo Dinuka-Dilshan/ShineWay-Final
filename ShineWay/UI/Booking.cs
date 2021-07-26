@@ -72,9 +72,10 @@ namespace ShineWay.UI
         {
                 dgv_Booking.Rows.Clear();
                 dgv_Booking.Refresh();
-                MySqlDataReader reader = DbConnection.Read(query);
             try
             {
+                MySqlDataReader reader = DbConnection.Read(query);
+            
                 MySqlDataReader reader1 = DbConnection.Read(query);
 
                 while (reader1.Read())
