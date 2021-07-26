@@ -36,7 +36,7 @@ namespace ShineWay.Validation
 
 
         public static string validateAmount = "^[0-9]{0,10}[.]{1}[0-9]{2}$";
-        public static string validateDescription = "^[A-Za-z0-9&-_= +]{0,160}$";
+        public static string validateDescription = "^[A-Za-z0-9&-_= +!@#$%^&*()-<>?'/:;{}[]|~`]{0,160}$";
 
 
         public static bool ValidEmail(string email)

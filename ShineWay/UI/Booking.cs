@@ -23,66 +23,100 @@ namespace ShineWay.UI
         public Booking()
         {
             InitializeComponent();
-           // date_startingDate.MinDate = DateTime.Now;
-           // date_endDate.MinDate = DateTime.Now;
-            //setDataToGrid();
+            setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
+            getNextBookingID();
+           
+
         }
 
-        /*public void setDataToGrid()
+        private void getNextBookingID()                                                                     // autmatically update the next booking ID
         {
+            MySqlDataReader getfinalid = DbConnection.Read("SELECT MAX(Booking_ID) FROM booking");
+            while (getfinalid.Read())
+            {
+                string LastBookingID = getfinalid[0].ToString();
+                int NewBookingID = Int16.Parse(LastBookingID) + 1;
+                txt_bookingId.Text = NewBookingID.ToString();
+            }
+        }
+        
+       /*
+        
+        public void selectPackageType()                                                                     // prevent entering a incorrect package type
+        {
+            int dateDifference =Convert.ToInt16((date_endDate.Value - date_startingDate.Value).TotalDays);
+            
+            //txt_advancedPayment.Text = datedif.ToString();
 
+            if (dateDifference >= 30)
+            {
+                combo_packageType.Items.Add("Monthly Basis");
+            }
+            if(dateDifference >= 7){
+                combo_packageType.Items.Add("Weekly Basis");
+            }
+            if (dateDifference > 0) {
+                combo_packageType.Items.Add("Daily Basis");
+            }
+
+           
+        }*/
+       
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            combo_packageType.Items.Add("Monthly Basis");//selectPackageType();/////
+        }
+
+        public void setDataToGrid(string query)
+        {
+                dgv_Booking.Rows.Clear();
+                dgv_Booking.Refresh();
+                MySqlDataReader reader = DbConnection.Read(query);
             try
             {
-                MySqlDataReader reader1 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`, `Start_ODO`,`Package_Type`,`Discription` FROM `booking`");
-              //  MySqlDataReader reader2 = DbConnection.Read("SELECT `Booking_ID`,`Vehicle_num`,`Cus_NIC`,`Licen_num`,`Start_date`,`Package_Type`,`Discription` FROM `booking`");
+                MySqlDataReader reader1 = DbConnection.Read(query);
 
                 while (reader1.Read())
                 {
-                    Booking1 Booking = new Booking1();
-                    Booking.Booking_ID = reader1[0].ToString();
-                    Booking.Vehicle_Number = reader1[1].ToString();
-                    Booking.Customer_NIC = reader1[2].ToString();
-                    Booking.License_Number = reader1[3].ToString();
-                    Booking.Start_Date = reader1[4].ToString();
-                    Booking.Start_Odometer = reader1[5].ToString();
-                    //
-                    Booking.Package_Type = reader1[6].ToString();
-                    //
-                    //
-                    Booking.Description = reader1[7].ToString();
-                    
-                    
-                    bookings.Add(Booking);
+                    int x = dgv_Booking.Rows.Add();
+
+                    dgv_Booking.Rows[x].Cells[0].Value = reader1.GetString("Booking_ID");
+                    dgv_Booking.Rows[x].Cells[1].Value = reader1.GetString("Vehicle_num");
+                    dgv_Booking.Rows[x].Cells[2].Value = reader1.GetString("Cus_NIC");
+                    dgv_Booking.Rows[x].Cells[3].Value = reader1.GetString("Licen_num");
+                    dgv_Booking.Rows[x].Cells[4].Value = reader1.GetString("Start_date");
+                    dgv_Booking.Rows[x].Cells[5].Value = reader1.GetString("Start_ODO");
+                    dgv_Booking.Rows[x].Cells[6].Value = reader1.GetString("End_date");
+                    dgv_Booking.Rows[x].Cells[7].Value = reader1.GetString("Package_Type");
+                    dgv_Booking.Rows[x].Cells[8].Value = reader1.GetString("Deposite_Amount");
+                    dgv_Booking.Rows[x].Cells[9].Value = reader1.GetString("Advance_Payment");
+                    dgv_Booking.Rows[x].Cells[10].Value = reader1.GetString("Discription");
                 }
             }
-            catch (Exception ex)
-            {
-                CustomMessage submitmessege = new CustomMessage("meken tmi awla enne", "error", ShineWay.Properties.Resources.error, DialogResult.OK);
-                submitmessege.convertToOkButton();
-                submitmessege.ShowDialog();
-            }
+            catch(Exception e) { 
 
-            dgv_Booking.DataSource = bookings;
-        }*/
+                MessageBox.Show(e.Message);
+            }
+            
+        }
+
 
         private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dgv_Booking.Rows[e.RowIndex];
+                txt_bookingId.Text = dgv_Booking.SelectedRows[0].Cells[0].Value.ToString();
+                txt_vehicleRegNumber.Text = dgv_Booking.SelectedRows[0].Cells[1].Value.ToString();
+                txt_customerNic.Text = dgv_Booking.SelectedRows[0].Cells[2].Value.ToString();
+                txt_licenseNumber.Text = dgv_Booking.SelectedRows[0].Cells[3].Value.ToString();
+                date_startingDate.Text = dgv_Booking.SelectedRows[0].Cells[4].Value.ToString();
+                txt_startingOdometer.Text = dgv_Booking.SelectedRows[0].Cells[5].Value.ToString();
+                date_endDate.Text = dgv_Booking.SelectedRows[0].Cells[6].Value.ToString();
+                combo_packageType.Text = dgv_Booking.SelectedRows[0].Cells[7].Value.ToString();
+                txt_depositAmount.Text = dgv_Booking.SelectedRows[0].Cells[8].Value.ToString();
+                txt_advancedPayment.Text = dgv_Booking.SelectedRows[0].Cells[9].Value.ToString();
+                txt_description.Text = dgv_Booking.SelectedRows[0].Cells[10].Value.ToString();
 
-                txt_bookingId.Text = dgv_Booking.CurrentRow.Cells[0].Value.ToString();
-                txt_vehicleRegNumber.Text = dgv_Booking.CurrentRow.Cells[1].Value.ToString();
-                txt_customerNic.Text = dgv_Booking.CurrentRow.Cells[2].Value.ToString();
-                txt_licenseNumber.Text = dgv_Booking.CurrentRow.Cells[3].Value.ToString();
-                date_startingDate.Text = dgv_Booking.CurrentRow.Cells[4].Value.ToString();
-                txt_startingOdometer.Text = dgv_Booking.CurrentRow.Cells[5].Value.ToString();
-                // date_endDate.Text = row.Cells[""].Value.ToString();
-               combo_packageType.Text = dgv_Booking.CurrentRow.Cells[6].Value.ToString();
-                //deposite amount
-                //advanced payment
-                txt_description.Text = dgv_Booking.CurrentRow.Cells[7].Value.ToString();
-            }
+                isEndDatevalid();
         }
 
 
@@ -96,6 +130,8 @@ namespace ShineWay.UI
         {
 
         }
+
+        
 
         // ++++++++++++++++ hoverings ++++++++++++++++
 
@@ -163,7 +199,8 @@ namespace ShineWay.UI
             lbl_advancedPayementError.Visible = false;
             lbl_discriptionError.Visible = false;
 
-
+            getNextBookingID();
+           
         }
 
         private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
@@ -189,17 +226,39 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updates", ShineWay.Properties.Resources.tick, DialogResult.OK);
-                    submitmessege.convertToOkButton();
-                    submitmessege.ShowDialog();
-
-                    MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
-
-                    //setDataToGrid();
+                    
+                    try
+                    {
+                        MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
+                        try
+                        {
+                            MySqlDataReader reader2 = DbConnection.Read("UPDATE `payment` SET `Cust_NIC`='" + txt_customerNic.Text.Trim() + "',`Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`End_date`='" + date_endDate.Text + "',`Deposite_Amount`='" + txt_depositAmount.Text.Trim() + "',`Advance_Payment`='" + txt_advancedPayment.Text.Trim() + "' WHERE `payment`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "'     ");
+                            try
+                            {
+                                CustomMessage submitmessege = new CustomMessage("Update Successfull!", "Updates", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                                submitmessege.convertToOkButton();
+                                submitmessege.ShowDialog();
+                            }
+                            catch (Exception ex0)
+                            {
+                                MessageBox.Show(ex0.Message);
+                            }
+                        }
+                        catch (Exception ex1)
+                        {
+                            MessageBox.Show(ex1.Message);
+                        }
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.Message);
+                    }
+                    
+                    setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
                 }
-                catch (Exception ex)
+                catch (Exception ex3)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex3.Message);
                 }
             }
             else
@@ -213,7 +272,7 @@ namespace ShineWay.UI
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
             // check package type selected
-            btn_Refresh.Visible = true;
+          
             
             if (combo_packageType.Text == "")
             {
@@ -236,26 +295,48 @@ namespace ShineWay.UI
                     txt_startingOdometer.Text != "" &&
                     combo_packageType.Text != "" &&
                     txt_depositAmount.Text != "" &&
-                    date_startingDate.MinDate == DateTime.Now  &&
-                    date_endDate.MinDate == DateTime.Now
+                    date_startingDate.Value >= DateTime.Now  &&
+                    date_endDate.Value >= date_startingDate.Value
 
 
                 )
             {
                 try
                 {
-                    CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                    submitmessege.convertToOkButton();
-                    submitmessege.ShowDialog();
+                    
+                    try
+                    {
+                        MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
+                        try
+                        {
+                            MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`,`Deposite_Amount`,`Advance_Payment`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" + date_endDate.Text + "','" + txt_depositAmount.Text.Trim() + "','" + txt_advancedPayment.Text.Trim() + "');");
+                            try
+                            {
+                                CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                submitmessege.convertToOkButton();
+                                submitmessege.ShowDialog();
+                            }
+                            catch (Exception ex0)
+                            {
+                                MessageBox.Show(ex0.Message); 
+                            }
+                        }
+                        catch (Exception ex1)
+                        {
+                            MessageBox.Show(ex1.Message);
+                        }
+                    }
+                    catch(Exception ex2)
+                    {
+                        MessageBox.Show(ex2.Message);
+                    }
 
-                    MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text+ "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
-                    MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" +date_endDate.Text + "');");
 
-                    //setDataToGrid();
+                    setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
                 }
-                catch (Exception ex)
+                catch (Exception ex3)
                 {
-                    MessageBox.Show("Test for error");
+                    MessageBox.Show(ex3.Message);
                 }
             }
             else
@@ -265,19 +346,52 @@ namespace ShineWay.UI
                 errormessege1.ShowDialog();
             }
         }
-
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ++++++++++++++++ search ++++++++++++++++
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-
+            if (txt_search.Text != "") {
+                try
+                {
+                    setDataToGrid("SELECT `Vehicle_num`, `Booking_ID`,`Licen_num`,`Cus_NIC`, `Start_date`, `Start_ODO`  FROM `booking` WHERE `Vehicle_num` LIKE '%" + txt_search.Text + "%' OR `Booking_ID` LIKE '%" + txt_search.Text + "%' OR `Cus_nic` LIKE '%" + txt_search.Text + "%' OR `Licen_num` LIKE '%" + txt_search.Text + "%' OR `Start_date` LIKE '%" + txt_search.Text + "%' OR `Start_ODO` LIKE '%" + txt_search.Text + "%'");
+                }
+                catch (Exception exsearch)
+                {
+                    MessageBox.Show(exsearch.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+                    setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
+                }
+                catch (Exception exsearchnull)
+                {
+                    MessageBox.Show(exsearchnull.Message);
+                }
+            }
         }
 
-        public void searchData(string valueToSearch)
-        {
-           
-        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // ++++++++++++++++ validations ++++++++++++++++
+
+        public void isEndDatevalid()                                                             // avoid entering later starting date than ending date
+        {
+            if (date_startingDate.Value > date_endDate.Value)
+            {
+                try
+                {
+                    date_endDate.Value = date_startingDate.Value; 
+                }
+                catch (Exception invalidenddate)
+                {
+                    MessageBox.Show("End date should be a later date than start date");
+                }
+            }
+        }
 
         private void txt_bookingId_Leave(object sender, EventArgs e)
         {
@@ -448,9 +562,6 @@ namespace ShineWay.UI
             }
         }
 
-
-        
-
         private void combo_packageType_TextChanged(object sender, EventArgs e)
         {
             if(combo_packageType.Text != "")
@@ -488,17 +599,8 @@ namespace ShineWay.UI
 
         private void date_endDate_Leave(object sender, EventArgs e)
         {
-            if (date_startingDate.Value > date_endDate.Value)
-            {
-                /////////////////////////////
-            }
-        }
-
-        private void date_startingDate_Leave(object sender, EventArgs e)
-        {
-            date_endDate.MinDate = date_startingDate.Value;
-          
-        }
+            //selectPackageType();
+        }      
 
         private void combo_packageType_Leave(object sender, EventArgs e)
         {
@@ -510,13 +612,9 @@ namespace ShineWay.UI
 
         }
 
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            /////////////////////  
-        }
-
         private void Booking_Load(object sender, EventArgs e)
         {
+            
             dgv_Booking.BorderStyle = BorderStyle.None;
             //this.dataGridView1.GridColor = Color.BlueViolet;
             dgv_Booking.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
@@ -533,6 +631,38 @@ namespace ShineWay.UI
             dgv_Booking.DefaultCellStyle.Font = new Font("Century Gothic", 12);
             dgv_Booking.RowHeadersVisible = false;
             dgv_Booking.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor;
+
+            
+        }
+
+        private void date_startingDate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            isEndDatevalid(); ;
+        }
+
+        private void date_startingDate_MouseLeave(object sender, EventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void date_startingDate_Leave(object sender, EventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void date_startingDate_MouseMove(object sender, MouseEventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void dgv_Booking_MouseEnter(object sender, EventArgs e)
+        {
+            isEndDatevalid();
+        }
+
+        private void combo_packageType_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
