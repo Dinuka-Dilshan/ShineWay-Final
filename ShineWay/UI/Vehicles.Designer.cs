@@ -30,12 +30,37 @@ namespace ShineWay.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vehicles));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle165 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle166 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle167 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle168 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox31 = new System.Windows.Forms.Label();
             this.pb_BtnBrowseOverallView = new System.Windows.Forms.Label();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
             this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pb_overallViewimg = new System.Windows.Forms.PictureBox();
             this.pb_InsideViewimg = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -48,7 +73,6 @@ namespace ShineWay.UI
             this.label_tickrentPrice = new System.Windows.Forms.Label();
             this.label_rentPriceError = new System.Windows.Forms.Label();
             this.label_tickVehType = new System.Windows.Forms.Label();
-            this.label_VehicleTypeError = new System.Windows.Forms.Label();
             this.label_StartingOdoError = new System.Windows.Forms.Label();
             this.label_ownerPaymentError = new System.Windows.Forms.Label();
             this.label_chassisNoError = new System.Windows.Forms.Label();
@@ -135,6 +159,7 @@ namespace ShineWay.UI
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -173,6 +198,7 @@ namespace ShineWay.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.pictureBox31);
             this.panel2.Controls.Add(this.pb_BtnBrowseOverallView);
             this.panel2.Controls.Add(this.pictureBox32);
@@ -188,7 +214,16 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 27;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(715, 322);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(116, 106);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 20;
+            this.pictureBox9.TabStop = false;
             // 
             // pictureBox31
             // 
@@ -209,7 +244,6 @@ namespace ShineWay.UI
             this.pb_BtnBrowseOverallView.Size = new System.Drawing.Size(147, 46);
             this.pb_BtnBrowseOverallView.TabIndex = 18;
             this.pb_BtnBrowseOverallView.Click += new System.EventHandler(this.pb_BtnBrowseOverallView_Click);
-            this.pb_BtnBrowseOverallView.MouseHover += new System.EventHandler(this.pb_BtnBrowseOverallView_MouseHover_1);
             // 
             // pictureBox32
             // 
@@ -235,15 +269,256 @@ namespace ShineWay.UI
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle165.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle165;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle166.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle166.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle166.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle166.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle166.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle166.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle166.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle166.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle166;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column18,
+            this.Column19,
+            this.Column20});
+            dataGridViewCellStyle167.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle167.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle167.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle167.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle167.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(139)))), ((int)(((byte)(9)))));
+            dataGridViewCellStyle167.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle167.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle167;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(75, 447);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle168.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle168.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle168.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle168.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle168.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle168.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle168.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle168;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.dataGridView1.RowTemplate.Height = 40;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(727, 328);
             this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Vehicle No";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Brand";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Model";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Type";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column4.Width = 130;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Owner NIC";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column5.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Engine No";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Chassis No";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Reg Date";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Owner Condition";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Daily Price";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Visible = false;
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Daily Km";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            this.Column11.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Weekly Price ";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            this.Column12.Width = 125;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Weekly km";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
+            this.Column13.Width = 125;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Monthly Price";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
+            this.Column14.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Monthly km";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            this.Column15.Width = 125;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Extra km price";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Visible = false;
+            this.Column16.Width = 125;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Owner Paayment";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Visible = false;
+            this.Column17.Width = 125;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "Starting Odo";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Visible = false;
+            this.Column18.Width = 125;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "Overall View";
+            this.Column19.MinimumWidth = 6;
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Visible = false;
+            this.Column19.Width = 125;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "Inside view";
+            this.Column20.MinimumWidth = 6;
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            this.Column20.Visible = false;
+            this.Column20.Width = 125;
             // 
             // pb_overallViewimg
             // 
@@ -272,7 +547,7 @@ namespace ShineWay.UI
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 25);
             this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // pictureBox16
             // 
@@ -305,7 +580,6 @@ namespace ShineWay.UI
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox17.TabIndex = 2;
             this.pictureBox17.TabStop = false;
-            this.pictureBox17.Click += new System.EventHandler(this.pictureBox31_Click);
             // 
             // panel1
             // 
@@ -315,7 +589,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.label_tickrentPrice);
             this.panel1.Controls.Add(this.label_rentPriceError);
             this.panel1.Controls.Add(this.label_tickVehType);
-            this.panel1.Controls.Add(this.label_VehicleTypeError);
             this.panel1.Controls.Add(this.label_StartingOdoError);
             this.panel1.Controls.Add(this.label_ownerPaymentError);
             this.panel1.Controls.Add(this.label_chassisNoError);
@@ -405,7 +678,6 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label_validKmError
             // 
@@ -461,20 +733,6 @@ namespace ShineWay.UI
             this.label_tickVehType.Size = new System.Drawing.Size(23, 22);
             this.label_tickVehType.TabIndex = 116;
             this.label_tickVehType.Visible = false;
-            // 
-            // label_VehicleTypeError
-            // 
-            this.label_VehicleTypeError.AutoSize = true;
-            this.label_VehicleTypeError.BackColor = System.Drawing.Color.Transparent;
-            this.label_VehicleTypeError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_VehicleTypeError.ForeColor = System.Drawing.Color.Red;
-            this.label_VehicleTypeError.Location = new System.Drawing.Point(399, 215);
-            this.label_VehicleTypeError.Margin = new System.Windows.Forms.Padding(0);
-            this.label_VehicleTypeError.Name = "label_VehicleTypeError";
-            this.label_VehicleTypeError.Size = new System.Drawing.Size(232, 18);
-            this.label_VehicleTypeError.TabIndex = 115;
-            this.label_VehicleTypeError.Text = "Please select the Vehicle Type";
-            this.label_VehicleTypeError.Visible = false;
             // 
             // label_StartingOdoError
             // 
@@ -691,7 +949,7 @@ namespace ShineWay.UI
             this.pb_btnDelete.Name = "pb_btnDelete";
             this.pb_btnDelete.Size = new System.Drawing.Size(147, 46);
             this.pb_btnDelete.TabIndex = 85;
-            this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click);
+            this.pb_btnDelete.Click += new System.EventHandler(this.pb_btnDelete_Click_1);
             this.pb_btnDelete.MouseLeave += new System.EventHandler(this.pb_btnDelete_MouseLeave);
             this.pb_btnDelete.MouseHover += new System.EventHandler(this.pb_btnDelete_MouseHover);
             // 
@@ -703,7 +961,7 @@ namespace ShineWay.UI
             this.pb_btnUpdate.Name = "pb_btnUpdate";
             this.pb_btnUpdate.Size = new System.Drawing.Size(147, 46);
             this.pb_btnUpdate.TabIndex = 84;
-            this.pb_btnUpdate.Click += new System.EventHandler(this.pb_btnUpdate_Click);
+            this.pb_btnUpdate.Click += new System.EventHandler(this.pb_btnUpdate_Click_1);
             this.pb_btnUpdate.MouseLeave += new System.EventHandler(this.pb_btnUpdate_MouseLeave);
             this.pb_btnUpdate.MouseHover += new System.EventHandler(this.pb_btnUpdate_MouseHover);
             // 
@@ -885,7 +1143,6 @@ namespace ShineWay.UI
             this.txt_ExtrakmPrice.PlaceholderText = "  Extra Km";
             this.txt_ExtrakmPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_ExtrakmPrice.TabIndex = 12;
-            this.txt_ExtrakmPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_ExtrakmPrice_KeyPress);
             this.txt_ExtrakmPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ExtrakmPrice_KeyUp);
             // 
             // txt_MonthlyPrice
@@ -898,7 +1155,6 @@ namespace ShineWay.UI
             this.txt_MonthlyPrice.PlaceholderText = "  Monthly";
             this.txt_MonthlyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_MonthlyPrice.TabIndex = 11;
-            this.txt_MonthlyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_MonthlyPrice_KeyPress);
             this.txt_MonthlyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_MonthlyPrice_KeyUp);
             // 
             // txt_WeeklyPrice
@@ -911,7 +1167,6 @@ namespace ShineWay.UI
             this.txt_WeeklyPrice.PlaceholderText = "    Weekly";
             this.txt_WeeklyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_WeeklyPrice.TabIndex = 10;
-            this.txt_WeeklyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_WeeklyPrice_KeyPress);
             this.txt_WeeklyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_WeeklyPrice_KeyUp);
             // 
             // msktxt_vehicleRegNumber
@@ -926,7 +1181,6 @@ namespace ShineWay.UI
             this.msktxt_vehicleRegNumber.PromptChar = ' ';
             this.msktxt_vehicleRegNumber.Size = new System.Drawing.Size(430, 23);
             this.msktxt_vehicleRegNumber.TabIndex = 0;
-            this.msktxt_vehicleRegNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             this.msktxt_vehicleRegNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.msktxt_vehicleRegNumber_KeyUp);
             // 
             // date_registeredDate
@@ -937,7 +1191,7 @@ namespace ShineWay.UI
             this.date_registeredDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_registeredDate.Location = new System.Drawing.Point(369, 411);
             this.date_registeredDate.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
-            this.date_registeredDate.MinDate = new System.DateTime(2021, 7, 12, 0, 0, 0, 0);
+            this.date_registeredDate.MinDate = new System.DateTime(1800, 7, 12, 0, 0, 0, 0);
             this.date_registeredDate.Name = "date_registeredDate";
             this.date_registeredDate.Size = new System.Drawing.Size(369, 32);
             this.date_registeredDate.TabIndex = 7;
@@ -957,7 +1211,6 @@ namespace ShineWay.UI
             this.combo_type.Name = "combo_type";
             this.combo_type.Size = new System.Drawing.Size(151, 29);
             this.combo_type.TabIndex = 3;
-            this.combo_type.TextChanged += new System.EventHandler(this.combo_type_TextChanged);
             // 
             // label13
             // 
@@ -1106,8 +1359,6 @@ namespace ShineWay.UI
             this.txt_DailyPrice.PlaceholderText = "    Daily";
             this.txt_DailyPrice.Size = new System.Drawing.Size(101, 23);
             this.txt_DailyPrice.TabIndex = 9;
-            this.txt_DailyPrice.TextChanged += new System.EventHandler(this.txt_DailyPrice_TextChanged);
-            this.txt_DailyPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_DailyPrice_KeyPress_1);
             this.txt_DailyPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_DailyPrice_KeyUp);
             // 
             // pictureBox25
@@ -1234,7 +1485,6 @@ namespace ShineWay.UI
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label6
             // 
@@ -1471,7 +1721,6 @@ namespace ShineWay.UI
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
-            this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
             // 
             // Vehicles
             // 
@@ -1481,11 +1730,11 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "Vehicles";
             this.Size = new System.Drawing.Size(1800, 900);
-            this.Load += new System.EventHandler(this.Vehicles_Load);
             this.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
             this.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1626,10 +1875,30 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_StartingOdoError;
         private System.Windows.Forms.Label label_ownerPaymentError;
         private System.Windows.Forms.Label label_tickVehType;
-        private System.Windows.Forms.Label label_VehicleTypeError;
         private System.Windows.Forms.Label label_rentPriceError;
         private System.Windows.Forms.Label label_tickrentPrice;
         private System.Windows.Forms.Label label_tickKm;
         private System.Windows.Forms.Label label_validKmError;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
     }
 }
