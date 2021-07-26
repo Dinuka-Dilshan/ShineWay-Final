@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
+using System.ComponentModel;
 
 namespace ShineWay.UI
 {
@@ -42,6 +42,19 @@ namespace ShineWay.UI
         bool isModelValidForUpdate = true;
         bool isVehTypeValidForUpdate = true;
 
+
+        private void DisplayImagesAndSaveAsPath()
+        {
+            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            MySqlCommand cmd;
+            con.Open();
+            string displayimg, filepath;
+            String folderpath = @"C:\ShineWay\img\";
+            OpenFileDialog open = new OpenFileDialog();
+          
+            
+            con.Close();
+        }
 
         List<Vehicle> vehicles = new List<Vehicle>();
 
@@ -101,7 +114,8 @@ namespace ShineWay.UI
                  
                 // add button code goes here
                 Cursor = Cursors.WaitCursor;
-
+            try
+            {
                 MemoryStream ms = new MemoryStream();
                 pb_overallViewimg.Image.Save(ms, pb_overallViewimg.Image.RawFormat);
                 pb_InsideViewimg.Image.Save(ms, pb_InsideViewimg.Image.RawFormat);
@@ -109,7 +123,7 @@ namespace ShineWay.UI
 
                 MySqlDataReader reader;
 
-                if (msktxt_vehicleRegNumber.Text == "" || txt_brand.Text.Trim() == "" || txt_model.Text.Trim() == "" || combo_type.Text.Trim() == "" || txt_engineNumber.Text.Trim() == "" || txt_chasisNumber.Text.Trim() == "" || txt_ownerNIC.Text.Trim() == "" || date_registeredDate.Text.Trim() == "" || txt_ownerCondition.Text.Trim() == "" || txt_DailyPrice.Text.Trim() == "" || txt_WeeklyPrice.Text.Trim() == ""|| txt_MonthlyPrice.Text.Trim() == "" || txt_ExtrakmPrice.Text.Trim() == "" || txt_Dailykm.Text.Trim() == "" || txt_Weeklykm.Text.Trim() == "" || txt_Monthlykm.Text.Trim() == "" || txt_OwnerPayment.Text.Trim() == "" || msktxt_startingOdo.Text == "" || pb_overallViewimg.Image == null || pb_InsideViewimg.Image == null)
+                if (msktxt_vehicleRegNumber.Text == "" || txt_brand.Text.Trim() == "" || txt_model.Text.Trim() == "" || combo_type.Text.Trim() == "" || txt_engineNumber.Text.Trim() == "" || txt_chasisNumber.Text.Trim() == "" || txt_ownerNIC.Text.Trim() == "" || date_registeredDate.Text.Trim() == "" || txt_ownerCondition.Text.Trim() == "" || txt_DailyPrice.Text.Trim() == "" || txt_WeeklyPrice.Text.Trim() == "" || txt_MonthlyPrice.Text.Trim() == "" || txt_ExtrakmPrice.Text.Trim() == "" || txt_Dailykm.Text.Trim() == "" || txt_Weeklykm.Text.Trim() == "" || txt_Monthlykm.Text.Trim() == "" || txt_OwnerPayment.Text.Trim() == "" || msktxt_startingOdo.Text == "" || pb_overallViewimg.Image == null || pb_InsideViewimg.Image == null)
                 {
                     CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                     submitmessege.convertToOkButton();
@@ -122,11 +136,11 @@ namespace ShineWay.UI
                     {
                         try
                         {
-                            reader = DbConnection.Read("SELECT COUNT(`Vehicle_num`) FROM `vehicle`");
-                            while (reader.Read())
-                            {
+                            /*  reader = DbConnection.Read("SELECT COUNT(`Vehicle_num`) FROM `vehicle`");
+                               while (reader.Read())
+                               {
 
-                            }
+                               }*/
 
 
                             try
@@ -147,7 +161,7 @@ namespace ShineWay.UI
                                 new CustomMessage("Connot insert!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
                             }
                         }
-                      catch (Exception exe)
+                        catch (Exception exe)
                         {
                             new CustomMessage("Unable to connect!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
                         }
@@ -166,7 +180,10 @@ namespace ShineWay.UI
                 setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC`, `Engine_Num`, `Chassis_Num`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
                 Cursor = Cursors.Arrow;
 
-            
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             }
 
         void setDataToGrid(string query)
@@ -207,10 +224,7 @@ namespace ShineWay.UI
             }
        }
 
-        private void txt_DailyPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
@@ -224,7 +238,12 @@ namespace ShineWay.UI
 
             if (opf.ShowDialog() == DialogResult.OK)
             {
+                
                 pb_overallViewimg.Image = Image.FromFile(opf.FileName);
+                opf.FileName = Path.GetFileName(opf.FileName);
+              //  Path = Path.GetDirectoryName(opf.FileName);
+              //  extension  = Path.GetExtension(opf.FileName);
+                
             }
         }
 
@@ -265,6 +284,7 @@ namespace ShineWay.UI
         {
           if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
             e.Handled = true;
+            isValidOwnerPayment = true;
         }
 
         private void txt_DailyPrice_KeyPress(object sender, KeyPressEventArgs e)
@@ -299,11 +319,13 @@ namespace ShineWay.UI
             {
                 e.Handled = true;
                label_validKmError.Visible = true;
+                isValidDailykm = false;
             }
             else
             {
                 label_validKmError.Visible = false;
                 label_tickKm.Visible = true;
+                isValidDailykm = true;
             }
                
         }
@@ -314,11 +336,13 @@ namespace ShineWay.UI
             {
                 e.Handled = true;
                 label_validKmError.Visible = true;
+                isValidWeeklykm = false;
             }
             else
             {
                 label_validKmError.Visible = false;
                 label_tickKm.Visible = true;
+                isValidWeeklykm = true;
             }
                 
         }
@@ -329,11 +353,13 @@ namespace ShineWay.UI
             {
                 e.Handled = true;
                 label_validKmError.Visible = true;
+                isValidMonthlykm = false;
             }
             else
             {
                 label_validKmError.Visible = false;
                 label_tickKm.Visible = true;
+                isValidMonthlykm = false;
             }
               
         }
@@ -344,11 +370,13 @@ namespace ShineWay.UI
             {
                 e.Handled = true;
                 label_StartingOdoError.Visible = true;
+                isValidStartingOdo = false;
             }
             else
             {
                 label_StartingOdoError.Visible = false;
                 label_tickStartOdo.Visible = true;
+                isValidStartingOdo = false;
             }
 
 
@@ -632,12 +660,14 @@ namespace ShineWay.UI
             if (isValidDailyPrice == false)
             {
                 label_rentPriceError.Visible = true;
+                isValidDailyPrice = false;
 
             }
             else
             {
                 label_rentPriceError.Visible = false;
                 label_tickrentPrice.Visible = true;
+                isValidDailyPrice = true;
             }
         }
 
@@ -647,12 +677,14 @@ namespace ShineWay.UI
             if (isValidWeeklyPrice == false)
             {
                 label_rentPriceError.Visible = true;
+                isValidWeeklyPrice = false;
 
             }
             else
             {
                 label_rentPriceError.Visible = false;
                 label_tickrentPrice.Visible = true;
+                isValidWeeklyPrice = true;
             }
         }
 
@@ -662,12 +694,14 @@ namespace ShineWay.UI
             if (isValidMonthlyPrice == false)
             {
                 label_rentPriceError.Visible = true;
+                isValidMonthlyPrice = false;
 
             }
             else
             {
                 label_rentPriceError.Visible = false;
                 label_tickrentPrice.Visible = true;
+                isValidMonthlyPrice = true;
             }
         }
 
@@ -678,12 +712,14 @@ namespace ShineWay.UI
             if (isValidExtrakmPrice == false)
             {
                 label_rentPriceError.Visible = true;
+                isValidExtrakmPrice = false;
 
             }
             else
             {
                 label_rentPriceError.Visible = false;
                 label_tickrentPrice.Visible = true;
+                isValidExtrakmPrice = true;
             }
         }
 
@@ -693,11 +729,13 @@ namespace ShineWay.UI
             if (isValidOwnerPayment == false)
             {
                 label_ownerPaymentError.Visible = true;
+                isValidOwnerPayment = false;
             }
             else
             {
                 label_ownerPaymentError.Visible = false;
                 label_tickOwnerPayment.Visible = true;
+                isValidOwnerPayment = true;
             }
         }
 

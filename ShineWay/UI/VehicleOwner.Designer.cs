@@ -31,6 +31,12 @@ namespace ShineWay.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleOwner));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -75,6 +81,7 @@ namespace ShineWay.UI
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -96,6 +103,7 @@ namespace ShineWay.UI
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.pictureBox17);
             this.panel2.Controls.Add(this.pictureBox8);
             this.panel2.Controls.Add(this.textBox1);
@@ -105,6 +113,69 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(875, 827);
             this.panel2.TabIndex = 27;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(111, 211);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(666, 508);
+            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Owner NIC";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 160;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Owner Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 160;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Telephone No";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 160;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Email Address";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 200;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Address";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            this.Column5.Width = 150;
             // 
             // pictureBox17
             // 
@@ -136,6 +207,7 @@ namespace ShineWay.UI
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 25);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox16
             // 
@@ -361,7 +433,7 @@ namespace ShineWay.UI
             this.txt_address.PromptChar = ' ';
             this.txt_address.Size = new System.Drawing.Size(410, 23);
             this.txt_address.TabIndex = 4;
-            this.txt_address.Leave += new System.EventHandler(this.txt_address_Leave);
+            this.txt_address.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_address_KeyUp);
             // 
             // txt_email
             // 
@@ -387,19 +459,19 @@ namespace ShineWay.UI
             this.txt_telephone.Size = new System.Drawing.Size(407, 23);
             this.txt_telephone.TabIndex = 2;
             this.txt_telephone.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_telephone_KeyUp);
-            this.txt_telephone.Leave += new System.EventHandler(this.txt_telephone_Leave);
             // 
             // txt_ownerName
             // 
             this.txt_ownerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_ownerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_ownerName.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_ownerName.Location = new System.Drawing.Point(473, 291);
+            this.txt_ownerName.Location = new System.Drawing.Point(513, 291);
             this.txt_ownerName.Mask = ">L<????????????????????????????????????????????????????????????";
             this.txt_ownerName.Name = "txt_ownerName";
             this.txt_ownerName.PromptChar = ' ';
-            this.txt_ownerName.Size = new System.Drawing.Size(320, 23);
+            this.txt_ownerName.Size = new System.Drawing.Size(280, 23);
             this.txt_ownerName.TabIndex = 1;
+            this.txt_ownerName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ownerName_KeyUp);
             this.txt_ownerName.Leave += new System.EventHandler(this.txt_ownerName_Leave);
             // 
             // txt_nicNumber
@@ -413,6 +485,7 @@ namespace ShineWay.UI
             this.txt_nicNumber.PromptChar = ' ';
             this.txt_nicNumber.Size = new System.Drawing.Size(410, 23);
             this.txt_nicNumber.TabIndex = 0;
+            this.txt_nicNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_nicNumber_KeyUp);
             this.txt_nicNumber.Leave += new System.EventHandler(this.txt_nicNumber_Leave);
             // 
             // pb_btnAdd
@@ -456,7 +529,7 @@ namespace ShineWay.UI
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
-            this.label1.Location = new System.Drawing.Point(104, 203);
+            this.label1.Location = new System.Drawing.Point(104, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 27);
             this.label1.TabIndex = 4;
@@ -477,7 +550,7 @@ namespace ShineWay.UI
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(53, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(33, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -638,8 +711,10 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "VehicleOwner";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.VehicleOwner_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -708,5 +783,11 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_tickOwnerName;
         private System.Windows.Forms.Label label_AddressError;
         private System.Windows.Forms.Label label_EmailError;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
