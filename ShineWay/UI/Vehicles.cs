@@ -1,32 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ShineWay.DataBase;
-using MySql.Data.MySqlClient;
-using System.IO;
-using ShineWay.Validation;
-using ShineWay.Messages;
+﻿using MySql.Data.MySqlClient;
 using ShineWay.Classes;
+using ShineWay.DataBase;
+using ShineWay.Messages;
+using ShineWay.Validation;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+
 
 namespace ShineWay.UI
 {
     public partial class Vehicles : UserControl
 
     {
-        bool isValidVehicleRegNo = false;
-        bool isNICValid = false;
-        bool isOwnerConditionValid = false;
-        bool isBrandValid = false;
         bool isVehRegNoValid = false;
+        bool isNICValid = false;
+        bool isBrandValid = false;
         bool isModelValid = false;
+        bool isVehicleTypeValid = false;
+        bool isOwnerConditionValid = false;
         bool isEngineNoValid = false;
         bool isChassisNoValid = false;
+        bool isValidDailyPrice = false;
+        bool isValidWeeklyPrice = false;
+        bool isValidMonthlyPrice = false;
+        bool isValidExtrakmPrice = false;
+        bool isValidDailykm = false;
+        bool isValidWeeklykm = false;
+        bool isValidMonthlykm = false;
+        bool isValidOwnerPayment = false;
+        bool isValidStartingOdo = false;
+        
+
+
+
+        bool isVehRegNoValidForUpdate = true;
+        bool isNICValidForUpdate = true;
+        bool isBrandValidForUpdate = true;
+        bool isModelValidForUpdate = true;
+        bool isVehTypeValidForUpdate = true;
 
 
         List<Vehicle> vehicles = new List<Vehicle>();
@@ -35,7 +49,8 @@ namespace ShineWay.UI
         public Vehicles()
         {
             InitializeComponent();
-            setDataToGrid();
+            combo_type.SelectedIndex = 0;
+            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC`, `Engine_Num`, `Chassis_Num`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
         }
 
 
@@ -81,90 +96,115 @@ namespace ShineWay.UI
 
 
         //Insert Button
-        private void pb_btnAdd_Click(object sender, EventArgs e)
+        private async void pb_btnAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
+                 
+                // add button code goes here
+                Cursor = Cursors.WaitCursor;
+
                 MemoryStream ms = new MemoryStream();
                 pb_overallViewimg.Image.Save(ms, pb_overallViewimg.Image.RawFormat);
                 pb_InsideViewimg.Image.Save(ms, pb_InsideViewimg.Image.RawFormat);
                 Byte[] img = ms.ToArray();
 
-                MySqlDataReader rd1 = DbConnection.Read("INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`," +
-                    " `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`," +
-                    " `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) VALUES ('" + msktxt_vehicleRegNumber.Text + "','" + txt_brand.Text + "','" + txt_model.Text + "'," +
-                    "'" + combo_type.Text + "','" + txt_engineNumber.Text + "','" + txt_chasisNumber.Text + "','" + txt_ownerNIC.Text + "','" + date_registeredDate.Text + "','" + txt_ownerCondition.Text + "'" +
-                    ",'" + txt_DailyPrice.Text + "','" + txt_Dailykm.Text + "','" + txt_WeeklyPrice.Text + "','" + txt_Weeklykm.Text + "','" + txt_MonthlyPrice.Text + "'," +
-                    "'" + txt_Monthlykm.Text + "','" + txt_OwnerPayment.Text + "','" + msktxt_startingOdo.Text + "','" + pb_InsideViewimg.Image + "','" + pb_overallViewimg.Image + "')");
+                MySqlDataReader reader;
 
-           
+                if (msktxt_vehicleRegNumber.Text == "" || txt_brand.Text.Trim() == "" || txt_model.Text.Trim() == "" || combo_type.Text.Trim() == "" || txt_engineNumber.Text.Trim() == "" || txt_chasisNumber.Text.Trim() == "" || txt_ownerNIC.Text.Trim() == "" || date_registeredDate.Text.Trim() == "" || txt_ownerCondition.Text.Trim() == "" || txt_DailyPrice.Text.Trim() == "" || txt_WeeklyPrice.Text.Trim() == ""|| txt_MonthlyPrice.Text.Trim() == "" || txt_ExtrakmPrice.Text.Trim() == "" || txt_Dailykm.Text.Trim() == "" || txt_Weeklykm.Text.Trim() == "" || txt_Monthlykm.Text.Trim() == "" || txt_OwnerPayment.Text.Trim() == "" || msktxt_startingOdo.Text == "" || pb_overallViewimg.Image == null || pb_InsideViewimg.Image == null)
+                {
+                    CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+                }
+                else
+                {
 
-                //  MessageBox.Show("Added Successfullly!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CustomMessage addmsg = new CustomMessage("Vehicle Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                addmsg.convertToOkButton();
-                addmsg.ShowDialog();
+                    if (isAllValid())
+                    {
+                        try
+                        {
+                            reader = DbConnection.Read("SELECT COUNT(`Vehicle_num`) FROM `vehicle`");
+                            while (reader.Read())
+                            {
+
+                            }
+
+
+                            try
+                            {
+
+                                String addQuery = $"INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView`) VALUES (  \"{msktxt_vehicleRegNumber}\",  \"{txt_brand}\",  \"{txt_model.Text}\",   \"{combo_type.Text}\",   \"{txt_engineNumber.Text}\",   \"{txt_chasisNumber.Text}\",  \"{date_registeredDate.Text}\",  \"{txt_ownerCondition.Text}\",  \"{txt_DailyPrice.Text}\",   \"{txt_Dailykm.Text}\",   \"{txt_WeeklyPrice.Text}\",   \"{txt_Weeklykm.Text}\",  \"{txt_MonthlyPrice.Text}\",  \"{txt_Monthlykm.Text}\",  \"{txt_ExtrakmPrice.Text}\",   \"{txt_OwnerPayment.Text}\",   \"{msktxt_startingOdo.Text}\",   \"{pb_overallViewimg.Image}\",  \"{pb_InsideViewimg.Image}\")";
+
+
+                                DbConnection.Write(addQuery);
+                                CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                message.convertToOkButton();
+                                message.ShowDialog();
+                                pb_btnReset_Click(sender, e);
+
+                            }
+                            catch (Exception exe)
+                            {
+                                new CustomMessage("Connot insert!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
+                            }
+                        }
+                      catch (Exception exe)
+                        {
+                            new CustomMessage("Unable to connect!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
+                        }
+
+
+                    }
+                    else
+                    {
+                        CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before submit!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                        submitmessege.convertToOkButton();
+                        submitmessege.ShowDialog();
+                    }
+
+                }
+
+                setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC`, `Engine_Num`, `Chassis_Num`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
+                Cursor = Cursors.Arrow;
+
+            
             }
 
-            catch (Exception ex)
-            {
-                // MessageBox.Show("Vehicle not added!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CustomMessage addmsgerr = new CustomMessage("Vehicle not added!", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
-                addmsgerr.convertToOkButton();
-                addmsgerr.ShowDialog();
-            }
-          
-        }
-   
-       public void setDataToGrid()
+        void setDataToGrid(string query)
         {
-
-            try
-            {
-
-                MySqlDataReader reader = DbConnection.Read("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            try { 
+            MySqlDataReader reader = DbConnection.Read(query);
 
                 while (reader.Read())
                 {
-                    Vehicle veh = new Vehicle();
-                    veh.vehNumber = reader[0].ToString();
-                    veh.Brand = reader[1].ToString();
-                    veh.model = reader[2].ToString();
-                    veh.type = reader[3].ToString();
-                    veh.engineNumber = reader[4].ToString();
-                    veh.chassisNumber = reader[5].ToString();
-
-                    veh.ownerNic = reader[6].ToString();
-                    veh.registerDate = reader[7].ToString();
-                    veh.ownerCondition = reader[8].ToString();
-                    veh.dailyPrice = reader[9].ToString();
-
-                    veh.weeklyPrice = reader[10].ToString();
-                    veh.monthlyPrice = reader[11].ToString();
-
-                   // veh.extraKMPrice = reader[12].ToString();
-                    veh.dailyKm = reader[12].ToString();
-                    veh.weeklyKm = reader[13].ToString();
-                    veh.monthlyKm = reader[14].ToString();
-
-                    veh.ownerPayment = reader[15].ToString();
-                    veh.startingOdometer = reader[16].ToString();
-
-                    veh.overallView = reader[17].ToString();
-                    veh.insideView = reader[18].ToString();
-
-                    vehicles.Add(veh);
-
-
+                    int x = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[x].Cells[0].Value = reader.GetString("Vehicle_num");
+                    dataGridView1.Rows[x].Cells[1].Value = reader.GetString("Brand");
+                    dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Model");
+                    dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Type");
+                    dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Owner_NIC");
+                    dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Engine_Num");
+                    dataGridView1.Rows[x].Cells[6].Value = reader.GetString("Chassis_Num");
+                    dataGridView1.Rows[x].Cells[7].Value = reader.GetString("Reg_Date");
+                    dataGridView1.Rows[x].Cells[8].Value = reader.GetString("Owner_Condi");
+                    dataGridView1.Rows[x].Cells[9].Value = reader.GetString("Daily_price");
+                    dataGridView1.Rows[x].Cells[10].Value = reader.GetString("Daliy_KM");
+                    dataGridView1.Rows[x].Cells[11].Value = reader.GetString("Weekly_price");
+                    dataGridView1.Rows[x].Cells[12].Value = reader.GetString("Weekly_KM");
+                    dataGridView1.Rows[x].Cells[13].Value = reader.GetString("Monthly_price");
+                    dataGridView1.Rows[x].Cells[14].Value = reader.GetString("Monthy_KM");
+                    dataGridView1.Rows[x].Cells[15].Value = reader.GetString("Extrakm_price");
+                    dataGridView1.Rows[x].Cells[16].Value = reader.GetString("Owner_payment");
+                    dataGridView1.Rows[x].Cells[17].Value = reader.GetString("Starting_odo");
+                    dataGridView1.Rows[x].Cells[18].Value = reader.GetString("OverallView");
+                    dataGridView1.Rows[x].Cells[19].Value = reader.GetString("InsideView");
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                CustomMessage submitmessege = new CustomMessage(ex.Message, "error", ShineWay.Properties.Resources.error, DialogResult.OK);
-                submitmessege.convertToOkButton();
-                submitmessege.ShowDialog();
+                MessageBox.Show(ex.Message);
             }
-
-            dataGridView1.DataSource = vehicles;
        }
 
         private void txt_DailyPrice_TextChanged(object sender, EventArgs e)
@@ -209,39 +249,17 @@ namespace ShineWay.UI
            // pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.Leftbrowse;
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private bool isAllValid()
         {
-       //    Byte[] img = (Byte[])dataGridView1.CurrentRow.Cells[17].Value;
-       ////    Byte[] img1 = (Byte[])dataGridView1.CurrentRow.Cells[18].Value;
-
-        //    MemoryStream ms = new MemoryStream(img);
-         //   MemoryStream ms1 = new MemoryStream(img1);
-
-         //   pb_overallViewimg.Image = Image.FromStream(ms);
-         //   pb_InsideViewimg.Image = Image.FromStream(ms1);
-
-          msktxt_vehicleRegNumber.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txt_brand.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txt_model.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            combo_type.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            txt_engineNumber.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            txt_chasisNumber.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            txt_ownerNIC.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-            date_registeredDate.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            txt_ownerCondition.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-            txt_DailyPrice.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-            txt_Dailykm.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-            txt_WeeklyPrice.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-            txt_Weeklykm.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
-            txt_MonthlyPrice.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-            txt_Monthlykm.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
-            txt_OwnerPayment.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
-            msktxt_startingOdo.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
-         
-
+            return (isVehRegNoValid && isNICValid && isBrandValid && isModelValid  && isEngineNoValid && isChassisNoValid && isOwnerConditionValid && isValidDailyPrice && isValidWeeklyPrice && isValidMonthlyPrice && isValidExtrakmPrice && isValidDailykm && isValidWeeklykm && isValidMonthlykm && isValidOwnerPayment && isValidStartingOdo);
         }
 
       
+        private bool isAllValidForUpdate()
+        {
+            return (isVehRegNoValidForUpdate && isNICValidForUpdate && isBrandValidForUpdate && isModelValidForUpdate && isVehTypeValidForUpdate);
+        }
 
         private void txt_OwnerPayment_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -355,7 +373,7 @@ namespace ShineWay.UI
             label_tickBrand.Visible = false;
             label_modelError.Visible = false;
             label_tickModel.Visible = false;
-            label_VehicleTypeError.Visible = false;
+         //   label_VehicleTypeError.Visible = false;
             label_tickVehType.Visible = false;
             label_engineNoError.Visible = false;
             label_tickEngineNO.Visible = false;
@@ -593,10 +611,6 @@ namespace ShineWay.UI
         }
 
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void label21_Click(object sender, EventArgs e)
         {
@@ -607,7 +621,7 @@ namespace ShineWay.UI
         {
             if (combo_type.Text != "")
             {
-                label_VehicleTypeError.Visible = false;
+              //  label_VehicleTypeError.Visible = false;
                 label_tickVehType.Visible = true;
             }
         }
@@ -700,8 +714,6 @@ namespace ShineWay.UI
 
         private void Vehicles_Load(object sender, EventArgs e)
         {
-         //   setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`");
-            //  setDataToGrid("");
             dataGridView1.BorderStyle = BorderStyle.None;
             //this.dataGridView1.GridColor = Color.BlueViolet;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
@@ -720,14 +732,128 @@ namespace ShineWay.UI
             dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = dataGridView1.ColumnHeadersDefaultCellStyle.BackColor;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            // setDataToGrid(textBox1.Text);
+      
 
-            //  string query = $"SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\" OR `email` LIKE \"%{txt_search.Text}%\"";
-         /*   string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Owner_payment`, `Starting_odo`, `OverallView`, `InsideView` FROM `vehicle`" +
-                $"WHERE `Vehicle_num` LIKE \"% {textBox1.Text}%\" "; 
-            setDataToGrid(query);*/
+        private void pb_btnDelete_Click_1(object sender, EventArgs e)
+        {
+            CustomMessage submitmessege = new CustomMessage("Are you sure to Delete ?", "Warning", ShineWay.Properties.Resources.question, DialogResult.Yes);
+            DialogResult result = submitmessege.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                string query = $"DELETE FROM `vehicle` WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
+                try
+                {
+                    DbConnection.Delete(query);
+                    CustomMessage m = new CustomMessage("successfully Deleted!", "Deleted", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    m.convertToOkButton();
+                    m.ShowDialog();
+                    setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle`");
+
+                }
+                catch (Exception exc)
+                {
+                    CustomMessage messege = new CustomMessage("Unable to Delete!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                    messege.convertToOkButton();
+                    messege.ShowDialog();
+                }
+            }
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle` WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\"";
+
+            setDataToGrid(query);
+        }
+
+        private void pb_btnUpdate_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0] == null)
+            {
+                CustomMessage submitmessege = new CustomMessage("Select a row before update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+            else
+            {
+                if (msktxt_vehicleRegNumber.Text == "" || txt_brand.Text.Trim() == "" || txt_model.Text.Trim() == "" || combo_type.Text.Trim() == "" || txt_engineNumber.Text.Trim() == "" || txt_chasisNumber.Text.Trim() == "" || txt_ownerNIC.Text.Trim() == "" || date_registeredDate.Text.Trim() == "" || txt_ownerCondition.Text.Trim() == "" || txt_DailyPrice.Text.Trim() == "" || txt_WeeklyPrice.Text.Trim() == "" || txt_ExtrakmPrice.Text.Trim() == "" || txt_Dailykm.Text.Trim() == "" || txt_Weeklykm.Text.Trim() == "" || txt_Monthlykm.Text.Trim() == "" || txt_OwnerPayment.Text.Trim() == "" || msktxt_startingOdo.Text == "")
+                {
+                    CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+                }
+                else
+                {
+
+                    if (isAllValidForUpdate())
+                    {
+
+                        string query = $"UPDATE `users` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\", `Brand`= \"{txt_brand.Text}\", `Model`= \"{txt_model.Text}\", `Type`= \"{combo_type.Text}\", `Engine_Num`= \"{txt_engineNumber.Text}\", `Chassis_Num`= \"{txt_chasisNumber.Text}\", `Owner_NIC`= \"{txt_ownerNIC.Text}\", `Reg_Date`= \"{date_registeredDate.Text}\", `Owner_Condi`= \"{txt_ownerCondition.Text}\", `Daily_price`= \"{txt_DailyPrice.Text}\", `Daliy_KM`= \"{txt_Dailykm.Text}\", `Weekly_price`= \"{txt_WeeklyPrice.Text}\", `Weekly_KM`= \"{txt_Weeklykm.Text}\", `Monthly_price`= \"{txt_MonthlyPrice.Text}\", `Monthy_KM`= \"{txt_Monthlykm.Text}\", `Extrakm_price`= \"{txt_ExtrakmPrice.Text}\", `Owner_payment`= \"{txt_OwnerPayment.Text}\", `Starting_odo`= \"{msktxt_startingOdo.Text}\", `OverallView`= \"{pb_overallViewimg.Text}\", `InsideView`= \"{pb_InsideViewimg.Text}\" =  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
+                        
+                        try
+                        {
+                            DbConnection.Update(query);
+                            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle`");
+                            CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                            submitmessege.convertToOkButton();
+                            submitmessege.ShowDialog();
+
+                        }
+                        catch (Exception exc)
+                        {
+                            CustomMessage submitmessege = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                            submitmessege.convertToOkButton();
+                            submitmessege.ShowDialog();
+                        }
+
+
+                    }
+                    else
+                    {
+                        CustomMessage submitmessege = new CustomMessage("All fields must be corrected\nbefore Update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                        submitmessege.convertToOkButton();
+                        submitmessege.ShowDialog();
+                    }
+
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+           /* isVehRegNoValid = true;
+            isNICValid = true;
+            isBrandValid = true;
+            isModelValid = true;
+            isVehicleTypeValid = true;*/
+
+            msktxt_vehicleRegNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_brand.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_model.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            combo_type.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txt_ownerNIC.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txt_engineNumber.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            txt_chasisNumber.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+            date_registeredDate.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+            txt_ownerCondition.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+            txt_DailyPrice.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+            txt_Dailykm.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
+            txt_WeeklyPrice.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+            txt_Weeklykm.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+            txt_MonthlyPrice.Text = dataGridView1.SelectedRows[0].Cells[13].Value.ToString();
+            txt_Monthlykm.Text = dataGridView1.SelectedRows[0].Cells[14].Value.ToString();
+            txt_ExtrakmPrice.Text = dataGridView1.SelectedRows[0].Cells[15].Value.ToString();
+            txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
+            msktxt_startingOdo.Text = dataGridView1.SelectedRows[0].Cells[17].Value.ToString();
+        //    pb_overallViewimg.Image= dataGridView1.SelectedRows[0].Cells[18].Value.ToString();
+        //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
+           
+        }
+
+        private void msktxt_startingOdo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
