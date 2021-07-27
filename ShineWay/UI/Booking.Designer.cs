@@ -166,7 +166,6 @@ namespace ShineWay.UI
             this.btn_Refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Refresh.TabIndex = 17;
             this.btn_Refresh.TabStop = false;
-            this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // dgv_Booking
@@ -197,6 +196,7 @@ namespace ShineWay.UI
             this.dgv_Booking.Size = new System.Drawing.Size(750, 516);
             this.dgv_Booking.TabIndex = 15;
             this.dgv_Booking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Booking_CellContentClick);
+            this.dgv_Booking.MouseEnter += new System.EventHandler(this.dgv_Booking_MouseEnter);
             // 
             // Column1
             // 
@@ -418,7 +418,6 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lbl_packageTypeCorrect
             // 
@@ -501,9 +500,9 @@ namespace ShineWay.UI
             this.lbl_packageTypeError.Location = new System.Drawing.Point(385, 530);
             this.lbl_packageTypeError.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_packageTypeError.Name = "lbl_packageTypeError";
-            this.lbl_packageTypeError.Size = new System.Drawing.Size(228, 18);
+            this.lbl_packageTypeError.Size = new System.Drawing.Size(268, 18);
             this.lbl_packageTypeError.TabIndex = 114;
-            this.lbl_packageTypeError.Text = "Please select a Package Type";
+            this.lbl_packageTypeError.Text = "Please select a valid Package Type";
             this.lbl_packageTypeError.Visible = false;
             // 
             // lbl_discriptionError
@@ -691,7 +690,6 @@ namespace ShineWay.UI
             this.txt_startingOdometer.PromptChar = ' ';
             this.txt_startingOdometer.Size = new System.Drawing.Size(417, 23);
             this.txt_startingOdometer.TabIndex = 5;
-            this.txt_startingOdometer.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_startingOdometer_MaskInputRejected);
             this.txt_startingOdometer.Leave += new System.EventHandler(this.txt_startingOdometer_Leave);
             // 
             // txt_licenseNumber
@@ -705,7 +703,6 @@ namespace ShineWay.UI
             this.txt_licenseNumber.PromptChar = ' ';
             this.txt_licenseNumber.Size = new System.Drawing.Size(415, 23);
             this.txt_licenseNumber.TabIndex = 3;
-            this.txt_licenseNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_licenseNumber_MaskInputRejected);
             this.txt_licenseNumber.Leave += new System.EventHandler(this.txt_licenseNumber_Leave);
             // 
             // txt_customerNic
@@ -719,7 +716,6 @@ namespace ShineWay.UI
             this.txt_customerNic.PromptChar = ' ';
             this.txt_customerNic.Size = new System.Drawing.Size(417, 23);
             this.txt_customerNic.TabIndex = 2;
-            this.txt_customerNic.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_customerNic_MaskInputRejected);
             this.txt_customerNic.Leave += new System.EventHandler(this.txt_customerNic_Leave);
             // 
             // txt_vehicleRegNumber
@@ -733,21 +729,22 @@ namespace ShineWay.UI
             this.txt_vehicleRegNumber.PromptChar = ' ';
             this.txt_vehicleRegNumber.Size = new System.Drawing.Size(417, 23);
             this.txt_vehicleRegNumber.TabIndex = 1;
-            this.txt_vehicleRegNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_vehicleRegNumber_MaskInputRejected);
             this.txt_vehicleRegNumber.Leave += new System.EventHandler(this.txt_vehicleRegNumber_Leave);
             // 
             // txt_bookingId
             // 
+            this.txt_bookingId.AllowPromptAsInput = false;
             this.txt_bookingId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_bookingId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_bookingId.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txt_bookingId.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_bookingId.Location = new System.Drawing.Point(385, 66);
             this.txt_bookingId.Mask = "99999999999999999999999999999999999999999999999999999999999999999";
             this.txt_bookingId.Name = "txt_bookingId";
             this.txt_bookingId.PromptChar = ' ';
+            this.txt_bookingId.ReadOnly = true;
             this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
             this.txt_bookingId.TabIndex = 0;
-            this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
             this.txt_bookingId.Leave += new System.EventHandler(this.txt_bookingId_Leave);
             // 
             // combo_packageType
@@ -766,7 +763,6 @@ namespace ShineWay.UI
             this.combo_packageType.Size = new System.Drawing.Size(169, 29);
             this.combo_packageType.TabIndex = 7;
             this.combo_packageType.TextChanged += new System.EventHandler(this.combo_packageType_TextChanged);
-            this.combo_packageType.Leave += new System.EventHandler(this.combo_packageType_Leave);
             // 
             // date_endDate
             // 
@@ -777,7 +773,7 @@ namespace ShineWay.UI
             this.date_endDate.Location = new System.Drawing.Point(367, 440);
             this.date_endDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_endDate.Name = "date_endDate";
-            this.date_endDate.Size = new System.Drawing.Size(450, 30);
+            this.date_endDate.Size = new System.Drawing.Size(169, 30);
             this.date_endDate.TabIndex = 6;
             this.date_endDate.Leave += new System.EventHandler(this.date_endDate_Leave);
             // 
@@ -790,9 +786,12 @@ namespace ShineWay.UI
             this.date_startingDate.Location = new System.Drawing.Point(367, 315);
             this.date_startingDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_startingDate.Name = "date_startingDate";
-            this.date_startingDate.Size = new System.Drawing.Size(450, 30);
+            this.date_startingDate.Size = new System.Drawing.Size(169, 30);
             this.date_startingDate.TabIndex = 4;
+            this.date_startingDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.date_startingDate_KeyPress);
             this.date_startingDate.Leave += new System.EventHandler(this.date_startingDate_Leave);
+            this.date_startingDate.MouseLeave += new System.EventHandler(this.date_startingDate_MouseLeave);
+            this.date_startingDate.MouseMove += new System.Windows.Forms.MouseEventHandler(this.date_startingDate_MouseMove);
             // 
             // pictureBox1
             // 
