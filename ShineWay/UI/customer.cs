@@ -486,5 +486,33 @@ namespace ShineWay.UI
         {
             return (isNICValid && isEmailValid && isTelNumValid && isCusNameValid && isLicensenumberValid && isAddressValid);
         }
+
+        /*void setDataToTable(string query)
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
+            MySqlDataReader reader = DbConnection.Read(query);
+
+            while (reader.Read())
+            {
+                int x = dataGridView1.Rows.Add();
+                dataGridView1.Rows[x].Cells[0].Value = reader.GetString("NIC_Number");
+                dataGridView1.Rows[x].Cells[1].Value = reader.GetString("License_Number");
+                dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Customer_Name");
+                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Tele_Number");
+                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email_Address");
+                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Address");
+                
+
+            }
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            string query = $"SELECT  'Cus_NIC' , 'Licen_num', 'Cus_name', 'Tel_num', 'Email', 'Cus_Address' FROM `customer` WHERE `Cus_NIC` LIKE \"%{txt_search.Text}%\" OR `Licen_num` LIKE \"%{txt_search.Text}%\" OR `Cus_name` LIKE \"%{txt_search.Text}%\"  OR `Tel_num` LIKE \"%{txt_search.Text}%\" OR `Email` LIKE \"%{txt_search.Text}%\" OR `Cus_Address` LIKE \"%{txt_search.Text}%\"";
+            setDataToTable(query);
+            
+        }*/
     }
 }
