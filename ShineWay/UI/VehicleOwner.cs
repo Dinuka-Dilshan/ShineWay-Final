@@ -36,7 +36,7 @@ namespace ShineWay.UI
         public VehicleOwner()
         {
             InitializeComponent();
-            setDataToDGV("SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address` FROM `owner`");
+            setDataToDGV("SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner`");
         }
 
 
@@ -108,6 +108,8 @@ namespace ShineWay.UI
                     dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Tel_num");
                     dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Owner_Email");
                     dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Owner_Address");
+                    dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Salute");
+                    dataGridView1.Rows[x].Cells[6].Value = reader.GetString("ID");
                     
                 }
             }
@@ -179,43 +181,17 @@ namespace ShineWay.UI
 
         }
 
-        private void txt_ownerName_Leave(object sender, EventArgs e)
-        {
-            
-            bool validname = Validates.ValidName(txt_ownerName.Text);
-           
+      
 
-            if (validname == false)
-            {
-                txt_ownerName.ForeColor = Color.Red;
-            }
-            else
-            {
-                txt_ownerName.ForeColor = Color.Green;
-            }
-            
-        }
+  
 
-        private void txt_telephone_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_email_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_address_Leave(object sender, EventArgs e)
-        {
-
-        }
 
 
         //Reset Button
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             txt_nicNumber.Text = "";
+            lbl_salutation.Text = "--";
             txt_ownerName.Text = "";
             txt_telephone.Text = "";
             txt_email.Text = "";
@@ -269,7 +245,7 @@ namespace ShineWay.UI
                 {
                     try
                     {
-                        reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `users`");
+                        reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `owner`");
                         while (reader.Read())
                         {
 
@@ -279,7 +255,7 @@ namespace ShineWay.UI
                         try
                         {
                             
-                            String addQuery = $"INSERT INTO `owner`(`Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`) VALUES (  \"{txt_nicNumber}\",  \"{txt_ownerName}\",  \"{txt_telephone.Text}\",   \"{txt_email.Text}\",   \"{txt_address.Text}\")";
+                            String addQuery = $"INSERT INTO `owner`(`Owner_NIC`, `Salute`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`) VALUES   (  \"{txt_nicNumber}\",\"{lbl_salutation}\"  \"{txt_ownerName}\",  \"{txt_telephone.Text}\",   \"{txt_email.Text}\",   \"{txt_address.Text}\")";
 
                             DbConnection.Write(addQuery);
                             CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
@@ -310,7 +286,7 @@ namespace ShineWay.UI
 
             }
 
-            setDataToDGV("SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address` FROM `owner`");
+            setDataToDGV("SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner`");
             Cursor = Cursors.Arrow;
 
         }
@@ -338,7 +314,7 @@ namespace ShineWay.UI
                     CustomMessage m = new CustomMessage("successfully Deleted!", "Deleted", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     m.convertToOkButton();
                     m.ShowDialog();
-                    setDataToDGV("SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address` FROM `owner`");
+                    setDataToDGV("SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner`");
 
                 }
                 catch (Exception exc)
@@ -499,6 +475,8 @@ namespace ShineWay.UI
             txt_telephone.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txt_email.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txt_address.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            lbl_salutation.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
 
             //to reset warnings
             pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
@@ -522,7 +500,7 @@ namespace ShineWay.UI
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string query = $"SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address` FROM `owner` WHERE `Owner_NIC` LIKE \"%{txt_nicNumber.Text}%\" OR `Owner_name` LIKE \"%{txt_ownerName.Text}%\" OR `Tel_num` LIKE \"%{txt_telephone.Text}%\"  OR `Owner_Email` LIKE \"%{txt_email.Text}%\" OR `Owner_Address` LIKE \"%{txt_address.Text}%\"";
+            string query = $"SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner` WHERE `Owner_NIC` LIKE \"%{txt_nicNumber.Text}%\" OR `Owner_name` LIKE \"%{txt_ownerName.Text}%\" OR `Tel_num` LIKE \"%{txt_telephone.Text}%\"  OR `Owner_Email` LIKE \"%{txt_email.Text}%\" OR `Owner_Address` LIKE \"%{txt_address.Text}%\"";
 
             setDataToDGV(query);
         }
