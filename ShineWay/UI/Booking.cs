@@ -19,6 +19,7 @@ namespace ShineWay.UI
     {
 
         List<Booking1> bookings = new List<Booking1>();
+        bool IsValidPackagetype = false;
 
         public Booking()
         {
@@ -28,6 +29,8 @@ namespace ShineWay.UI
            
 
         }
+
+        //////++++++methods+++++++
 
         private void getNextBookingID()                                                                     // autmatically update the next booking ID
         {
@@ -40,35 +43,52 @@ namespace ShineWay.UI
             }
         }
         
-       /*
+       
         
         public void selectPackageType()                                                                     // prevent entering a incorrect package type
         {
             int dateDifference =Convert.ToInt16((date_endDate.Value - date_startingDate.Value).TotalDays);
-            
-            //txt_advancedPayment.Text = datedif.ToString();
 
-            if (dateDifference >= 30)
+            if (dateDifference < 30 && (combo_packageType.Text == "Monthly Basis" || combo_packageType.Text == ""))
             {
-                combo_packageType.Items.Add("Monthly Basis");
+                lbl_packageTypeError.Visible = true;
+                IsValidPackagetype = false;
             }
-            if(dateDifference >= 7){
-                combo_packageType.Items.Add("Weekly Basis");
+            else
+            {
+                lbl_advancedPayementError.Visible = false;
+                IsValidPackagetype = true;
             }
-            if (dateDifference > 0) {
-                combo_packageType.Items.Add("Daily Basis");
-            }
-
            
-        }*/
+            if(dateDifference < 6 && (combo_packageType.Text == "Monthly Basis" || combo_packageType.Text == "Weekly Basis" || combo_packageType.Text == ""))
+            {
+                lbl_packageTypeError.Visible = true;
+                IsValidPackagetype = false;
+            }
+            else
+            {
+                lbl_advancedPayementError.Visible = false;
+                IsValidPackagetype = true;
+            }
+            
+            if (dateDifference < 0 && (combo_packageType.Text == "Monthly Basis" || combo_packageType.Text == "Weekly Basis" || combo_packageType.Text == "Daily Basis" || combo_packageType.Text == "")) {
+                lbl_packageTypeError.Visible = true;
+                IsValidPackagetype = false;
+            }
+            else
+            {
+                lbl_advancedPayementError.Visible = false;
+                IsValidPackagetype = true;
+            }
+        }
        
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            combo_packageType.Items.Add("Monthly Basis");//selectPackageType();/////
+           // selectPackageType();
         }
 
-        public void setDataToGrid(string query)
+        public void setDataToGrid(string query)                                     // det data to datagridview
         {
                 dgv_Booking.Rows.Clear();
                 dgv_Booking.Refresh();
@@ -102,7 +122,7 @@ namespace ShineWay.UI
         }
 
 
-        private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Booking_CellContentClick(object sender, DataGridViewCellEventArgs e)                       //set data to relevant columns in datagrd view
         {
                 txt_bookingId.Text = dgv_Booking.SelectedRows[0].Cells[0].Value.ToString();
                 txt_vehicleRegNumber.Text = dgv_Booking.SelectedRows[0].Cells[1].Value.ToString();
@@ -120,16 +140,6 @@ namespace ShineWay.UI
         }
 
 
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txt_depositAmount_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
 
         
 
@@ -169,7 +179,7 @@ namespace ShineWay.UI
 
         // ++++++++++++++++ button actions ++++++++++++++++
 
-        private void pb_btnReset_Click(object sender, EventArgs e)
+        private void pb_btnReset_Click(object sender, EventArgs e)                          ////reset button actions
         {
             txt_bookingId.Text = "";
             txt_vehicleRegNumber.Text = "";
@@ -203,10 +213,8 @@ namespace ShineWay.UI
            
         }
 
-        private void pb_btnUpdatePrint_Click(object sender, EventArgs e)
+        private void pb_btnUpdatePrint_Click(object sender, EventArgs e)                        // update button actions
         {
-            // update actions
-
             if (lbl_bookingIDError.Visible == false &&
                     lbl_vehicleNumberError.Visible == false &&
                     lbl_customerNICError.Visible == false &&
@@ -220,7 +228,8 @@ namespace ShineWay.UI
                     txt_customerNic.Text != "" &&
                     txt_startingOdometer.Text != "" &&
                     combo_packageType.Text != "" &&
-                    txt_depositAmount.Text != ""
+                    txt_depositAmount.Text != "" &&
+                    IsValidPackagetype == true
 
                )
             {
@@ -269,18 +278,15 @@ namespace ShineWay.UI
             }
         }
 
-        private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
-        {
-            // check package type selected
-          
-            
-            if (combo_packageType.Text == "")
+        private void pb_btnSubmitPrint_Click(object sender, EventArgs e)                           // sumbit button actions
+        {           
+            if (combo_packageType.Text == "")                   // check package type selected
             {
                 lbl_packageTypeError.Visible = true;
                 lbl_packageTypeCorrect.Visible = false;
             }
             
-
+                                                                // actions
             if (    lbl_bookingIDError.Visible == false &&
                     lbl_vehicleNumberError.Visible == false &&
                     lbl_customerNICError.Visible == false &&
@@ -296,7 +302,8 @@ namespace ShineWay.UI
                     combo_packageType.Text != "" &&
                     txt_depositAmount.Text != "" &&
                     date_startingDate.Value >= DateTime.Now  &&
-                    date_endDate.Value >= date_startingDate.Value
+                    date_endDate.Value >= date_startingDate.Value &&
+                    IsValidPackagetype == true
 
 
                 )
@@ -354,7 +361,7 @@ namespace ShineWay.UI
             if (txt_search.Text != "") {
                 try
                 {
-                    setDataToGrid("SELECT `Vehicle_num`, `Booking_ID`,`Licen_num`,`Cus_NIC`, `Start_date`, `Start_ODO`  FROM `booking` WHERE `Vehicle_num` LIKE '%" + txt_search.Text + "%' OR `Booking_ID` LIKE '%" + txt_search.Text + "%' OR `Cus_nic` LIKE '%" + txt_search.Text + "%' OR `Licen_num` LIKE '%" + txt_search.Text + "%' OR `Start_date` LIKE '%" + txt_search.Text + "%' OR `Start_ODO` LIKE '%" + txt_search.Text + "%'");
+                    setDataToGrid("SELECT `booking`.`Vehicle_num`, `booking`.`Booking_ID`,`booking`.`Licen_num`,`booking`.`Cus_NIC`, `Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription`  FROM `booking`,`payment` WHERE `booking`.`Vehicle_num` LIKE '%" + txt_search.Text + "%' OR `booking`.`Booking_ID` LIKE '%" + txt_search.Text + "%' OR `booking`.`Cus_nic` LIKE '%" + txt_search.Text + "%' OR `booking`.`Licen_num` LIKE '%" + txt_search.Text + "%' OR `Start_date` LIKE '%" + txt_search.Text + "%' OR `Start_ODO` LIKE '%" + txt_search.Text + "%'");
                 }
                 catch (Exception exsearch)
                 {
@@ -567,45 +574,16 @@ namespace ShineWay.UI
             if(combo_packageType.Text != "")
             {
                 lbl_packageTypeError.Visible = false;
-                lbl_packageTypeCorrect.Visible = true;
+                // lbl_packageTypeCorrect.Visible = true;
+                selectPackageType();
             }
-            
-        }
-
-        private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void txt_vehicleRegNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void txt_customerNic_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void txt_licenseNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void txt_startingOdometer_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
             
         }
 
         private void date_endDate_Leave(object sender, EventArgs e)
         {
-            //selectPackageType();
+            selectPackageType();
         }      
-
-        private void combo_packageType_Leave(object sender, EventArgs e)
-        {
-           
-        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -658,11 +636,6 @@ namespace ShineWay.UI
         private void dgv_Booking_MouseEnter(object sender, EventArgs e)
         {
             isEndDatevalid();
-        }
-
-        private void combo_packageType_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }
