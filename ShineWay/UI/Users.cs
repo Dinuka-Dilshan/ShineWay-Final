@@ -62,10 +62,10 @@ namespace ShineWay.UI
             //reset button code goes here
         }
 
-        private void pb_btnAdd_Click(object sender, EventArgs e)
+        private async void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
-            
+            Cursor = Cursors.WaitCursor;
             MySqlDataReader reader;
 
             if(txt_NIC.Text.Trim() == "" || txt_name.Text.Trim() == "" || txt_telephoneNumber.Text.Trim() == "" || txt_address.Text.Trim() == "" || txt_email.Text.Trim() == "")
@@ -97,7 +97,7 @@ namespace ShineWay.UI
                             string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to login!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
                             Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
 
-
+                            
 
                             DbConnection.Write(addQuery);
                             CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
@@ -128,7 +128,7 @@ namespace ShineWay.UI
             }
 
             setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
-
+            Cursor = Cursors.Arrow;
         }
 
         private void pb_btnUpdate_Click(object sender, EventArgs e)
@@ -476,12 +476,35 @@ namespace ShineWay.UI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+            isNameValid = true;
+            isNICValid = true;
+            isTelephoneNumberValid = true;
+            isAddressValid = true;
+            isEmailValid = true;
             txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
             combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            //to reset warnings
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+            label_nicError.Visible = false;
+            pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+            label_telError.Visible = false;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
+            label_addressError.Visible = false;
+            label_telTick.Visible = false;
+            label_tickAddress.Visible = false;
+            label_tickNIC.Visible = false;
+            label_tickName.Visible = false;
+            label_tickEmail.Visible = false;
+            label_emailError.Visible = false;
+            label_nameError.Visible = false;
+
         }
     }
 }

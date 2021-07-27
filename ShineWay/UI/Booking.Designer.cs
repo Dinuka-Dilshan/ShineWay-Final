@@ -33,6 +33,17 @@ namespace ShineWay.UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Refresh = new System.Windows.Forms.PictureBox();
             this.dgv_Booking = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pb_btnUpdatePrint = new System.Windows.Forms.Label();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -155,7 +166,6 @@ namespace ShineWay.UI
             this.btn_Refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_Refresh.TabIndex = 17;
             this.btn_Refresh.TabStop = false;
-            this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // dgv_Booking
@@ -164,15 +174,117 @@ namespace ShineWay.UI
             this.dgv_Booking.AllowUserToDeleteRows = false;
             this.dgv_Booking.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Booking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Booking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11});
             this.dgv_Booking.Location = new System.Drawing.Point(74, 186);
             this.dgv_Booking.Name = "dgv_Booking";
             this.dgv_Booking.ReadOnly = true;
             this.dgv_Booking.RowHeadersVisible = false;
             this.dgv_Booking.RowHeadersWidth = 51;
             this.dgv_Booking.RowTemplate.Height = 29;
+            this.dgv_Booking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Booking.Size = new System.Drawing.Size(750, 516);
             this.dgv_Booking.TabIndex = 15;
             this.dgv_Booking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Booking_CellContentClick);
+            this.dgv_Booking.MouseEnter += new System.EventHandler(this.dgv_Booking_MouseEnter);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Booking ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Vehicle Number";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Customer ID";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "License Number";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Start Date";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Start Odometer";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "End date";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Package Type";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Deposite Amount";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Advance Payment";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Description";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 125;
             // 
             // pb_btnUpdatePrint
             // 
@@ -306,7 +418,6 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lbl_packageTypeCorrect
             // 
@@ -389,9 +500,9 @@ namespace ShineWay.UI
             this.lbl_packageTypeError.Location = new System.Drawing.Point(385, 530);
             this.lbl_packageTypeError.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_packageTypeError.Name = "lbl_packageTypeError";
-            this.lbl_packageTypeError.Size = new System.Drawing.Size(228, 18);
+            this.lbl_packageTypeError.Size = new System.Drawing.Size(268, 18);
             this.lbl_packageTypeError.TabIndex = 114;
-            this.lbl_packageTypeError.Text = "Please select a Package Type";
+            this.lbl_packageTypeError.Text = "Please select a valid Package Type";
             this.lbl_packageTypeError.Visible = false;
             // 
             // lbl_discriptionError
@@ -579,7 +690,6 @@ namespace ShineWay.UI
             this.txt_startingOdometer.PromptChar = ' ';
             this.txt_startingOdometer.Size = new System.Drawing.Size(417, 23);
             this.txt_startingOdometer.TabIndex = 5;
-            this.txt_startingOdometer.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_startingOdometer_MaskInputRejected);
             this.txt_startingOdometer.Leave += new System.EventHandler(this.txt_startingOdometer_Leave);
             // 
             // txt_licenseNumber
@@ -593,7 +703,6 @@ namespace ShineWay.UI
             this.txt_licenseNumber.PromptChar = ' ';
             this.txt_licenseNumber.Size = new System.Drawing.Size(415, 23);
             this.txt_licenseNumber.TabIndex = 3;
-            this.txt_licenseNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_licenseNumber_MaskInputRejected);
             this.txt_licenseNumber.Leave += new System.EventHandler(this.txt_licenseNumber_Leave);
             // 
             // txt_customerNic
@@ -607,7 +716,6 @@ namespace ShineWay.UI
             this.txt_customerNic.PromptChar = ' ';
             this.txt_customerNic.Size = new System.Drawing.Size(417, 23);
             this.txt_customerNic.TabIndex = 2;
-            this.txt_customerNic.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_customerNic_MaskInputRejected);
             this.txt_customerNic.Leave += new System.EventHandler(this.txt_customerNic_Leave);
             // 
             // txt_vehicleRegNumber
@@ -621,21 +729,22 @@ namespace ShineWay.UI
             this.txt_vehicleRegNumber.PromptChar = ' ';
             this.txt_vehicleRegNumber.Size = new System.Drawing.Size(417, 23);
             this.txt_vehicleRegNumber.TabIndex = 1;
-            this.txt_vehicleRegNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_vehicleRegNumber_MaskInputRejected);
             this.txt_vehicleRegNumber.Leave += new System.EventHandler(this.txt_vehicleRegNumber_Leave);
             // 
             // txt_bookingId
             // 
+            this.txt_bookingId.AllowPromptAsInput = false;
             this.txt_bookingId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.txt_bookingId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_bookingId.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txt_bookingId.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_bookingId.Location = new System.Drawing.Point(385, 66);
             this.txt_bookingId.Mask = "99999999999999999999999999999999999999999999999999999999999999999";
             this.txt_bookingId.Name = "txt_bookingId";
             this.txt_bookingId.PromptChar = ' ';
+            this.txt_bookingId.ReadOnly = true;
             this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
             this.txt_bookingId.TabIndex = 0;
-            this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
             this.txt_bookingId.Leave += new System.EventHandler(this.txt_bookingId_Leave);
             // 
             // combo_packageType
@@ -654,7 +763,6 @@ namespace ShineWay.UI
             this.combo_packageType.Size = new System.Drawing.Size(169, 29);
             this.combo_packageType.TabIndex = 7;
             this.combo_packageType.TextChanged += new System.EventHandler(this.combo_packageType_TextChanged);
-            this.combo_packageType.Leave += new System.EventHandler(this.combo_packageType_Leave);
             // 
             // date_endDate
             // 
@@ -665,7 +773,7 @@ namespace ShineWay.UI
             this.date_endDate.Location = new System.Drawing.Point(367, 440);
             this.date_endDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_endDate.Name = "date_endDate";
-            this.date_endDate.Size = new System.Drawing.Size(450, 30);
+            this.date_endDate.Size = new System.Drawing.Size(169, 30);
             this.date_endDate.TabIndex = 6;
             this.date_endDate.Leave += new System.EventHandler(this.date_endDate_Leave);
             // 
@@ -678,9 +786,12 @@ namespace ShineWay.UI
             this.date_startingDate.Location = new System.Drawing.Point(367, 315);
             this.date_startingDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_startingDate.Name = "date_startingDate";
-            this.date_startingDate.Size = new System.Drawing.Size(450, 30);
+            this.date_startingDate.Size = new System.Drawing.Size(169, 30);
             this.date_startingDate.TabIndex = 4;
+            this.date_startingDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.date_startingDate_KeyPress);
             this.date_startingDate.Leave += new System.EventHandler(this.date_startingDate_Leave);
+            this.date_startingDate.MouseLeave += new System.EventHandler(this.date_startingDate_MouseLeave);
+            this.date_startingDate.MouseMove += new System.Windows.Forms.MouseEventHandler(this.date_startingDate_MouseMove);
             // 
             // pictureBox1
             // 
@@ -1041,6 +1152,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "Booking";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.Booking_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).EndInit();
@@ -1148,5 +1260,16 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label lbl_customerNICCorrect;
         private System.Windows.Forms.Label lbl_vehicleNumberCorrect;
         private System.Windows.Forms.PictureBox btn_Refresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }
