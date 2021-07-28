@@ -123,7 +123,10 @@ namespace ShineWay.UI
         private void btn_login_Click(object sender, EventArgs e)
         {
 
-            String userName = txt_userName.Text.Trim();
+            String userName = txt_userName.Text.Trim().Split("'")[0];
+            userName = txt_userName.Text.Trim().Split("#")[0];
+            userName = txt_userName.Text.Trim().Split(";")[0];
+            userName = txt_userName.Text.Trim().Split("--")[0];
             String password = Encrypt.encryption(txt_password.Text.Trim());
             bool isPasswordCorrect = false;
 
