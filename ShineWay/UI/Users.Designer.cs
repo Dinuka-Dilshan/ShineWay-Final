@@ -40,6 +40,7 @@ namespace ShineWay.UI
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
@@ -85,7 +86,6 @@ namespace ShineWay.UI
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
@@ -216,6 +216,15 @@ namespace ShineWay.UI
             this.Column6.Visible = false;
             this.Column6.Width = 125;
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "ID";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            this.Column7.Width = 125;
+            // 
             // pictureBox18
             // 
             this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
@@ -235,6 +244,7 @@ namespace ShineWay.UI
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(230, 25);
             this.txt_search.TabIndex = 3;
+            //this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
             // 
             // pictureBox16
@@ -774,15 +784,6 @@ namespace ShineWay.UI
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "ID";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            this.Column7.Width = 125;
             // 
             // Users
             // 

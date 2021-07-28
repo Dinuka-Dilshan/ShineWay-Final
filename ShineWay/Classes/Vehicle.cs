@@ -5,28 +5,14 @@ namespace ShineWay.Classes
     class Vehicle
     {
 
-       public String vehNumber { get; set; }
-        public string Brand { get; set; }
-        public String model { get; set; }
-        public string type { get; set; }
-        public String engineNumber { get; set; }
-        public String chassisNumber { get; set; }
-        public string ownerNic { get; set; }
-        public String registerDate { get; set; }
-        public string ownerCondition { get; set; }
-        public String dailyPrice { get; set; }
-        public String weeklyPrice { get; set; }
-        public String monthlyPrice { get; set; }
-        public String extraKMPrice { get; set; }
-        public String dailyKm { get; set; }
-        public String weeklyKm { get; set; }
-        public String monthlyKm { get; set; }
-        public String ownerPayment { get; set; }
-        public String startingOdometer { get; set; }
-        public String overallView { get; set; }
-        public String insideView { get; set; }
+        public String Model { get; set; }
+        public string Type { get; set; }
+        public String OwnerNIC { get; set; }
+        public string EngineNo { get; set; }
+       // public String Type { get; set; }
 
-         private String vehicleNumber;
+
+        private String vehicleNumber;
           private String brand;
           private String dailyRental;
           private String weeklyRental;

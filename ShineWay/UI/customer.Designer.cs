@@ -30,6 +30,10 @@ namespace ShineWay.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(customer));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -76,9 +80,15 @@ namespace ShineWay.UI
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NIC_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.License_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tele_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email_Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -319,7 +329,6 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-
             this.panel1.Controls.Add(this.label_tickAddress);
             this.panel1.Controls.Add(this.label_tickEmail);
             this.panel1.Controls.Add(this.label_tickTelNum);
@@ -333,7 +342,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.pictureBox19);
             this.panel1.Controls.Add(this.label_licenseError);
             this.panel1.Controls.Add(this.label_nicError);
-
             this.panel1.Controls.Add(this.txt_telephoneNumber);
             this.panel1.Controls.Add(this.txt_address);
             this.panel1.Controls.Add(this.txt_licenseNumber);
@@ -371,7 +379,7 @@ namespace ShineWay.UI
             // label_tickAddress
             // 
             this.label_tickAddress.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickAddress.Location = new System.Drawing.Point(823, 632);
+            this.label_tickAddress.Location = new System.Drawing.Point(783, 632);
             this.label_tickAddress.Name = "label_tickAddress";
             this.label_tickAddress.Size = new System.Drawing.Size(23, 22);
             this.label_tickAddress.TabIndex = 106;
@@ -380,7 +388,7 @@ namespace ShineWay.UI
             // label_tickEmail
             // 
             this.label_tickEmail.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickEmail.Location = new System.Drawing.Point(823, 541);
+            this.label_tickEmail.Location = new System.Drawing.Point(783, 541);
             this.label_tickEmail.Name = "label_tickEmail";
             this.label_tickEmail.Size = new System.Drawing.Size(23, 22);
             this.label_tickEmail.TabIndex = 105;
@@ -389,7 +397,7 @@ namespace ShineWay.UI
             // label_tickTelNum
             // 
             this.label_tickTelNum.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickTelNum.Location = new System.Drawing.Point(823, 460);
+            this.label_tickTelNum.Location = new System.Drawing.Point(783, 458);
             this.label_tickTelNum.Name = "label_tickTelNum";
             this.label_tickTelNum.Size = new System.Drawing.Size(23, 22);
             this.label_tickTelNum.TabIndex = 104;
@@ -398,7 +406,7 @@ namespace ShineWay.UI
             // label_tickName
             // 
             this.label_tickName.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickName.Location = new System.Drawing.Point(823, 379);
+            this.label_tickName.Location = new System.Drawing.Point(783, 379);
             this.label_tickName.Name = "label_tickName";
             this.label_tickName.Size = new System.Drawing.Size(23, 22);
             this.label_tickName.TabIndex = 103;
@@ -407,7 +415,7 @@ namespace ShineWay.UI
             // label_tickLicenseNum
             // 
             this.label_tickLicenseNum.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickLicenseNum.Location = new System.Drawing.Point(823, 291);
+            this.label_tickLicenseNum.Location = new System.Drawing.Point(783, 291);
             this.label_tickLicenseNum.Name = "label_tickLicenseNum";
             this.label_tickLicenseNum.Size = new System.Drawing.Size(23, 22);
             this.label_tickLicenseNum.TabIndex = 102;
@@ -416,7 +424,7 @@ namespace ShineWay.UI
             // label_tickNIC
             // 
             this.label_tickNIC.Image = global::ShineWay.Properties.Resources.tick1;
-            this.label_tickNIC.Location = new System.Drawing.Point(823, 196);
+            this.label_tickNIC.Location = new System.Drawing.Point(783, 195);
             this.label_tickNIC.Name = "label_tickNIC";
             this.label_tickNIC.Size = new System.Drawing.Size(23, 22);
             this.label_tickNIC.TabIndex = 101;
@@ -431,9 +439,9 @@ namespace ShineWay.UI
             this.label_addressError.Location = new System.Drawing.Point(397, 658);
             this.label_addressError.Margin = new System.Windows.Forms.Padding(0);
             this.label_addressError.Name = "label_addressError";
-            this.label_addressError.Size = new System.Drawing.Size(214, 18);
+            this.label_addressError.Size = new System.Drawing.Size(245, 18);
             this.label_addressError.TabIndex = 100;
-            this.label_addressError.Text = "Please enter a valid Address";
+            this.label_addressError.Text = "Exceeded the Word Limit (0-150)";
             this.label_addressError.Visible = false;
             // 
             // label_emailError
@@ -626,7 +634,6 @@ namespace ShineWay.UI
             this.txt_nicNumber.Size = new System.Drawing.Size(430, 23);
             this.txt_nicNumber.TabIndex = 0;
             this.txt_nicNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_nicNumber_KeyUp);
-
             this.txt_nicNumber.Validated += new System.EventHandler(this.txt_nicNumber_Validated);
             // 
             // pictureBox2
@@ -666,7 +673,7 @@ namespace ShineWay.UI
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.pictureBox17);
             this.panel2.Controls.Add(this.pictureBox18);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txt_search);
             this.panel2.Controls.Add(this.pictureBox16);
             this.panel2.Controls.Add(this.pictureBox15);
             this.panel2.Location = new System.Drawing.Point(900, 15);
@@ -676,13 +683,103 @@ namespace ShineWay.UI
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.ForestGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(100, 182);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NIC_Number,
+            this.License_Number,
+            this.Customer_Name,
+            this.Tele_Number,
+            this.Email_Address,
+            this.Address});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.ForestGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(110, 195);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.ForestGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.ForestGreen;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(688, 560);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(666, 531);
             this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // NIC_Number
+            // 
+            this.NIC_Number.DataPropertyName = "Cus_NIC";
+            this.NIC_Number.HeaderText = "NIC Number";
+            this.NIC_Number.MinimumWidth = 6;
+            this.NIC_Number.Name = "NIC_Number";
+            this.NIC_Number.Width = 125;
+            // 
+            // License_Number
+            // 
+            this.License_Number.DataPropertyName = "Licen_num";
+            this.License_Number.HeaderText = "License Number";
+            this.License_Number.MinimumWidth = 6;
+            this.License_Number.Name = "License_Number";
+            this.License_Number.Width = 125;
+            // 
+            // Customer_Name
+            // 
+            this.Customer_Name.DataPropertyName = "Cus_name";
+            this.Customer_Name.HeaderText = "Customer Name";
+            this.Customer_Name.MinimumWidth = 6;
+            this.Customer_Name.Name = "Customer_Name";
+            this.Customer_Name.Width = 125;
+            // 
+            // Tele_Number
+            // 
+            this.Tele_Number.DataPropertyName = "Tel_num";
+            this.Tele_Number.HeaderText = "Telephone Number";
+            this.Tele_Number.MinimumWidth = 6;
+            this.Tele_Number.Name = "Tele_Number";
+            this.Tele_Number.Width = 125;
+            // 
+            // Email_Address
+            // 
+            this.Email_Address.DataPropertyName = "Email";
+            this.Email_Address.HeaderText = "Email Address";
+            this.Email_Address.MinimumWidth = 6;
+            this.Email_Address.Name = "Email_Address";
+            this.Email_Address.Width = 125;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Cus_Address";
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.Width = 125;
             // 
             // pictureBox17
             // 
@@ -705,15 +802,15 @@ namespace ShineWay.UI
             this.pictureBox18.TabIndex = 5;
             this.pictureBox18.TabStop = false;
             // 
-            // textBox1
+            // txt_search
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(165, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 25);
-            this.textBox1.TabIndex = 3;
+            this.txt_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_search.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_search.Location = new System.Drawing.Point(165, 76);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(230, 25);
+            this.txt_search.TabIndex = 3;
             // 
             // pictureBox16
             // 
@@ -744,6 +841,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel1);
             this.Name = "customer";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.customer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -803,7 +901,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pb_btnDelete;
@@ -830,5 +928,11 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_tickName;
         private System.Windows.Forms.Label label_tickLicenseNum;
         private System.Windows.Forms.Label label_tickAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NIC_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn License_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tele_Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email_Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
     }
 }

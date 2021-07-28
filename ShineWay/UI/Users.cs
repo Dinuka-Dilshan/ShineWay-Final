@@ -97,7 +97,7 @@ namespace ShineWay.UI
                             string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to login!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
                             Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
 
-
+                            
 
                             DbConnection.Write(addQuery);
                             CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
@@ -506,5 +506,7 @@ namespace ShineWay.UI
             label_nameError.Visible = false;
 
         }
+
+        
     }
 }
