@@ -506,5 +506,7 @@ namespace ShineWay.UI
             label_nameError.Visible = false;
 
         }
+
+        
     }
 }
