@@ -5,6 +5,7 @@ using ShineWay.DataBase;
 using MySql.Data.MySqlClient;
 using ShineWay.Messages;
 using ShineWay.Classes;
+using ShineWay.Validation;
 
 namespace ShineWay.UI
 {
@@ -12,6 +13,7 @@ namespace ShineWay.UI
     {
         bool isSelectedToShowPassword = false;
         System.Drawing.Color closeBtnColor;
+        bool isUserNameValid = false;
 
         public form_Login()
         {
@@ -123,10 +125,15 @@ namespace ShineWay.UI
         private void btn_login_Click(object sender, EventArgs e)
         {
 
-            String userName = txt_userName.Text.Trim().Split("'")[0];
-            userName = txt_userName.Text.Trim().Split("#")[0];
-            userName = txt_userName.Text.Trim().Split(";")[0];
-            userName = txt_userName.Text.Trim().Split("--")[0];
+            String userName = txt_userName.Text.Trim();
+            if (Validates.validateUserNameForLogin(userName)){
+                isUserNameValid = true;
+            }
+            else
+            {
+                userName = "";
+            }
+            
             String password = Encrypt.encryption(txt_password.Text.Trim());
             bool isPasswordCorrect = false;
 
@@ -145,13 +152,23 @@ namespace ShineWay.UI
             }
             else if (userName.Equals(""))
             {
-                CustomMessage message = new CustomMessage(" Username is empty!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
-                message.convertToOkButton();
-                message.ShowDialog();
+                if (isUserNameValid)
+                {
+                    CustomMessage message = new CustomMessage(" Username is empty!", "Error Dialog", ShineWay.Properties.Resources.error, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+                }
+                else
+                {
+                    CustomMessage message = new CustomMessage(" Username includes non \n allowable characters!", "Warning", ShineWay.Properties.Resources.warning, DialogResult.OK);
+                    message.convertToOkButton();
+                    message.ShowDialog();
+                }
+                
             }
             else
-            {
-                string query = " SELECT `username`,`user_type` ,`name` , `isFirstTimeUser` FROM `users`   WHERE username = '" + userName + "' AND password = '" + password + "';";
+            {   
+                string query = " SELECT `username`,`user_type` ,`name` , `isFirstTimeUser` FROM `users`   WHERE username = '" +userName + "' AND password = '" + password + "';";
 
                 try
                 {

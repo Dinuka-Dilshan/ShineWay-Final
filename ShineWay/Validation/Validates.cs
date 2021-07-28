@@ -6,6 +6,7 @@ namespace ShineWay.Validation
     class Validates
     {
         public static string validateName = "^[A-Za-z ]{3,}$";
+        private static string validateUserName = "^[A-Za-z0-9]+$";
         public static string validateNEWCustomerNIC = "^[0-9]{4}[01235678]{1}[0-9]{7}$";
 
         public static string validateMobileNumber = "^[0]{1}[0-9]{9}$";
@@ -164,7 +165,10 @@ namespace ShineWay.Validation
             return Regex.IsMatch(discount2, validateDiscount2);
         }
 
-
+        public static bool validateUserNameForLogin(string userName)
+        {
+            return Regex.IsMatch(userName,validateUserName);
+        }
 
     }
 }
