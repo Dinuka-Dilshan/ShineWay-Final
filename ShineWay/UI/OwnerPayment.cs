@@ -343,11 +343,11 @@ namespace ShineWay.UI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_paymentID.Text = dataGridView1.Rows[e.RowIndex].Cells["Payment_ID"].Value.ToString();
-            txt_ownerNIC.Text = dataGridView1.Rows[e.RowIndex].Cells["Owner_NIC"].Value.ToString();
-            txt_VehicleNumber.Text = dataGridView1.Rows[e.RowIndex].Cells["vechicle_Num"].Value.ToString();
-            txt_OwnerPayment.Text = dataGridView1.Rows[e.RowIndex].Cells["Owner_pay_Amount"].Value.ToString();
-            dateTimePicker1.Text= dataGridView1.Rows[e.RowIndex].Cells["payment_date"].Value.ToString();
+            txt_paymentID.Text = dataGridView1.SelectedRows[0].Cells["Payment_ID"].Value.ToString();
+            txt_ownerNIC.Text = dataGridView1.SelectedRows[0].Cells["Owner_NIC"].Value.ToString();
+            txt_VehicleNumber.Text = dataGridView1.SelectedRows[0].Cells["vechicle_Num"].Value.ToString();
+            txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells["Owner_pay_Amount"].Value.ToString();
+            dateTimePicker1.Text= dataGridView1.SelectedRows[0].Cells["payment_date"].Value.ToString();
 
         }
 

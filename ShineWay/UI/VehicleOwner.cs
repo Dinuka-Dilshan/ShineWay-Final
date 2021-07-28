@@ -245,17 +245,17 @@ namespace ShineWay.UI
                 {
                     try
                     {
-                        reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `owner`");
+                        /*reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `owner`");
                         while (reader.Read())
                         {
 
-                        }
+                        }*/
 
 
                         try
                         {
                             
-                            String addQuery = $"INSERT INTO `owner`(`Owner_NIC`, `Salute`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`) VALUES   (  \"{txt_nicNumber}\",\"{lbl_salutation}\"  \"{txt_ownerName}\",  \"{txt_telephone.Text}\",   \"{txt_email.Text}\",   \"{txt_address.Text}\")";
+                            String addQuery = $"INSERT INTO `owner`( `Owner_NIC`, `Salute`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`) VALUES   (  \"{txt_nicNumber.Text}\",\"{lbl_salutation.Text}\" , \"{txt_ownerName.Text}\",  \"{txt_telephone.Text}\",   \"{txt_email.Text}\",   \"{txt_address.Text}\")";
 
                             DbConnection.Write(addQuery);
                             CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
