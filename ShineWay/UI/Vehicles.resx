@@ -1906,7 +1906,7 @@
   <data name="pictureBox31.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKoAAABICAYAAABm+m4LAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAG1hJREFUeF7tnUuMXcdxhu9whsN5cUjxOXyJFEm9KJKiItmUYMemjCQIJRmmbQnI
+        EAAACxABrSO9dQAAG1hJREFUeF7tnUuMXcdxhu9whsN5cUjxOXyJFEm9KJKiItmUYMemjCQIJRmmbQnI
         IkAUBJYXSRAlTuy8ZHCZnbXMzt4l0EZeJEh2ChAD3gRQdl5qmaWEJECWN/9Xqr9dt+fc4ZCcoSXwNvCz
         qquqq/uc8986fc7cGY5mbdZmbdZmbdZmbdZ2v83xz3g8bnrKgOxN79H7MgctfM6ZcU233X3r0/pG6bPe
         wfgpaPFbgDaRL3XatBg39xuIScTcZYx1WrOXmNbqmC3gVvXPT9NBWvok0J27ffv2HmQ9Cei2V1uV1mu/
@@ -2029,7 +2029,7 @@
   <data name="pb_BtnBrowseOverallView.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKoAAABICAYAAABm+m4LAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAG11JREFUeF7tnUuMXcdxhu9whsMhZzik+By+RIqkXpRIU5FsSbBjU0YShJYMy7YE
+        EAAACxABrSO9dQAAG11JREFUeF7tnUuMXcdxhu9whsMhZzik+By+RIqkXpRIU5FsSbBjU0YShJYMy7YE
         ZBEgCgIriySIEid2XjK4zM5aZmfvEnhjLxIkOwWIAW8CKDsvtczSRhIgy5v/K9XfrtNz7nA4nKGl8Dbw
         s6qrqqv7nPOfOo9773Ayb/M2b/M2b/M2b/O2922Bf6bTadNTBmRveo/elzlo4XPOjGu67e5bn9U3Sp/1
         jsbPQIvfArRBvtRps2Lc3G8gJhFzlzHWac1eYlqrY7aAW9U/OU0baemdQHfhzp07+5B1J6DbXm1VWq/9
@@ -2201,12 +2201,6 @@
     <value>True</value>
   </metadata>
   <metadata name="Column18.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column19.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column20.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="pictureBox16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
