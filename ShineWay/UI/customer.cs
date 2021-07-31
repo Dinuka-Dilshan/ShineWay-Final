@@ -496,15 +496,23 @@ namespace ShineWay.UI
             return (isNICValid && isEmailValid && isTelNumValid && isCusNameValid && isLicensenumberValid && isAddressValid);
         }
 
-       
 
-        /*private void txt_search_KeyUp(object sender, KeyEventArgs e)
+        private void txt_search_KeyUp(object sender, KeyEventArgs e)
         {
-            string query = $"SELECT  'Cus_NIC' , 'Licen_num', 'Cus_name', 'Tel_num', 'Email', 'Cus_Address' FROM `customer` WHERE `Cus_NIC` LIKE \"%{txt_search.Text}%\" OR `Licen_num` LIKE \"%{txt_search.Text}%\" OR `Cus_name` LIKE \"%{txt_search.Text}%\"  OR `Tel_num` LIKE \"%{txt_search.Text}%\" OR `Email` LIKE \"%{txt_search.Text}%\" OR `Cus_Address` LIKE \"%{txt_search.Text}%\"";
-            setDataToTable(query);
-            
+            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            con.Open();
+            MySqlDataAdapter adapt = new MySqlDataAdapter("SELECT  `Cus_NIC`, `Licen_num`, `Cus_name`, `Tel_num`,`Email`, `Cus_Address`  FROM `customer` WHERE `Cus_NIC` LIKE \"%{txt_search.Text}%\" OR `Licen_num` LIKE \"%{txt_search.Text}%\" OR `Cus_name` LIKE \"%{txt_search.Text}%\"  OR `Tel_num` LIKE \"%{txt_search.Text}%\" OR `Email` LIKE \"%{txt_search.Text}%\" OR `Cus_Address` LIKE \"%{txt_search.Text}%\"", con);
+            DataTable dt = new DataTable();
+            adapt.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
         }
 
+
+
+
+
+        /*
         void setDataToTable(string query)
         {
             dataGridView1.Rows.Clear();
