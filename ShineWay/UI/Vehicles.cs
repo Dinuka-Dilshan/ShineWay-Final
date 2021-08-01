@@ -16,13 +16,12 @@ namespace ShineWay.UI
 
     {
         bool isVehRegNoValid = false;
-        bool isNICValid = false;
         bool isBrandValid = false;
         bool isModelValid = false;
-        bool isVehicleTypeValid = false;
-        bool isOwnerConditionValid = false;
         bool isEngineNoValid = false;
         bool isChassisNoValid = false;
+        bool isNICValid = false;
+        bool isOwnerConditionValid = false;
         bool isValidDailyPrice = false;
         bool isValidWeeklyPrice = false;
         bool isValidMonthlyPrice = false;
@@ -40,7 +39,9 @@ namespace ShineWay.UI
         bool isNICValidForUpdate = true;
         bool isBrandValidForUpdate = true;
         bool isModelValidForUpdate = true;
-        bool isVehTypeValidForUpdate = true;
+        bool isEngineNoValidForUpdate = true;
+
+
 
 
         private void DisplayImagesAndSaveAsPath()
@@ -56,7 +57,9 @@ namespace ShineWay.UI
             con.Close();
         }
 
+
         List<Vehicle> vehicles = new List<Vehicle>();
+
 
 
         public Vehicles()
@@ -67,6 +70,8 @@ namespace ShineWay.UI
         }
 
 
+
+        //.........................Button Hovering......................
         private void pb_btnReset_MouseHover(object sender, EventArgs e)
         {
             pb_btnReset.Image = ShineWay.Properties.Resources.resetHover;
@@ -108,7 +113,8 @@ namespace ShineWay.UI
         }
 
 
-        //Insert Button
+
+        //.....................................Insert Button.........................................................................
         private async void pb_btnAdd_Click(object sender, EventArgs e)
         {
                  
@@ -180,6 +186,9 @@ namespace ShineWay.UI
             }
             }
 
+
+
+        //........................Set Data to datagrid view.................................................
         void setDataToGrid(string query)
         {
             dataGridView1.Rows.Clear();
@@ -223,6 +232,8 @@ namespace ShineWay.UI
 
         }
 
+
+        //......................................Images......................................................
         private void pb_BtnBrowseOverallView_Click(object sender, EventArgs e)
         {
             OpenFileDialog opf = new OpenFileDialog();
@@ -257,7 +268,7 @@ namespace ShineWay.UI
 
         private void pb_BtnBrowseOverallView_MouseHover(object sender, EventArgs e)
         {
-         //  pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.hbl;
+        pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.hbl;
         }
 
 
@@ -269,7 +280,7 @@ namespace ShineWay.UI
       
         private bool isAllValidForUpdate()
         {
-            return (isVehRegNoValidForUpdate && isNICValidForUpdate && isBrandValidForUpdate && isModelValidForUpdate && isVehTypeValidForUpdate);
+            return (isVehRegNoValidForUpdate && isNICValidForUpdate && isBrandValidForUpdate && isModelValidForUpdate && isEngineNoValidForUpdate);
         }
 
         private void txt_OwnerPayment_KeyPress(object sender, KeyPressEventArgs e)
@@ -382,7 +393,7 @@ namespace ShineWay.UI
 
 
 
-        //Restet Button
+        //......................................................Restet Button......................................................
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
             msktxt_vehicleRegNumber.Text = txt_brand.Text = txt_model.Text = txt_engineNumber.Text = txt_chasisNumber.Text = txt_ownerNIC.Text = txt_ownerCondition.Text= txt_DailyPrice.Text = txt_WeeklyPrice.Text = txt_MonthlyPrice.Text = txt_ExtrakmPrice.Text = txt_Dailykm.Text = txt_Weeklykm.Text = txt_Monthlykm.Text = txt_OwnerPayment.Text = msktxt_startingOdo.Text  = string.Empty;
@@ -425,17 +436,11 @@ namespace ShineWay.UI
 
 
 
-        //Update Button
-        private void pb_btnUpdate_Click(object sender, EventArgs e)
-        {
-            CustomMessage addmsg = new CustomMessage("Vehicle Updated Successfully!", "Updated", ShineWay.Properties.Resources.tick, DialogResult.OK);
-            addmsg.convertToOkButton();
-            addmsg.ShowDialog();
-        }
+      
 
 
 
-        //Delete Button
+        //........................................................Delete Button....................................................................
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             CustomMessage addmsg = new CustomMessage("Vehicle Deleted Successfully!", "Deleted", ShineWay.Properties.Resources.tick, DialogResult.OK);
@@ -452,6 +457,7 @@ namespace ShineWay.UI
                 label_nicError.Visible = false;
                 label_tickNIC.Visible = true;
                 isNICValid = true;
+                isNICValidForUpdate = true;
 
             }
             else
@@ -460,6 +466,7 @@ namespace ShineWay.UI
                 label_nicError.Visible = true;
                 label_tickNIC.Visible = false;
                 isNICValid = false;
+                isNICValidForUpdate = false;
             }
         }
 
@@ -505,6 +512,7 @@ namespace ShineWay.UI
                 label_VehicleRegNoError.Visible = false;
                 label_tickVehicleRegNo.Visible = true;
                 isVehRegNoValid = true;
+                isVehRegNoValidForUpdate = true;
 
             }
             else
@@ -513,6 +521,7 @@ namespace ShineWay.UI
                 label_VehicleRegNoError.Visible = true;
                 label_tickVehicleRegNo.Visible = false;
                 isVehRegNoValid = false;
+                isVehRegNoValidForUpdate = false;
             }
         }
 
@@ -542,6 +551,7 @@ namespace ShineWay.UI
                 label_brandError.Visible = true;
                 label_tickBrand.Visible = false;
                 isBrandValid = false;
+                isBrandValidForUpdate = false;
             }
             else
             {
@@ -549,6 +559,7 @@ namespace ShineWay.UI
                 label_brandError.Visible = false;
                 label_tickBrand.Visible = true;
                 isBrandValid = true;
+                isBrandValidForUpdate = true;
             }
         }
 
@@ -568,6 +579,7 @@ namespace ShineWay.UI
                 label_modelError.Visible = true;
                 label_tickModel.Visible = false;
                 isModelValid = false;
+                isModelValidForUpdate = false;
             }
             else
             {
@@ -575,6 +587,7 @@ namespace ShineWay.UI
                 label_modelError.Visible = false;
                 label_tickModel.Visible = true;
                 isModelValid = true;
+                isModelValidForUpdate = true;
             }
         }
 
@@ -594,6 +607,7 @@ namespace ShineWay.UI
                 label_engineNoError.Visible = true;
                 label_tickEngineNO.Visible = false;
                 isEngineNoValid = false;
+                isEngineNoValidForUpdate = false;
             }
             else
             {
@@ -601,6 +615,7 @@ namespace ShineWay.UI
                 label_engineNoError.Visible = false;
                 label_tickEngineNO.Visible = true;
                 isEngineNoValid = true;
+                isEngineNoValidForUpdate = true;
             }
         }
 
@@ -792,11 +807,12 @@ namespace ShineWay.UI
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
-            string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle` WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\"";
-
+           // string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle` WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\"";
+            string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`  WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Engine_Num` LIKE \"%{textBox1.Text}%\" OR `Chassis_Num` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\" OR `Reg_Date` LIKE \"%{textBox1.Text}%\" OR `Owner_Condi` LIKE \"%{textBox1.Text}%\" OR `Daily_price` LIKE \"%{textBox1.Text}%\" OR `Daliy_KM` LIKE \"%{textBox1.Text}%\" OR `Weekly_price` LIKE \"%{textBox1.Text}%\" OR `Weekly_KM` LIKE \"%{textBox1.Text}%\" OR `Monthly_price` LIKE \"%{textBox1.Text}%\" OR `Monthy_KM` LIKE \"%{textBox1.Text}%\" OR `Extrakm_price` LIKE \"%{textBox1.Text}%\" OR `Owner_payment` LIKE \"%{textBox1.Text}%\"OR `Starting_odo` LIKE \"%{textBox1.Text}%\"";
             setDataToGrid(query);
         }
 
+        //........................................Update button............................................................
         private void pb_btnUpdate_Click_1(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows[0] == null)
@@ -807,7 +823,7 @@ namespace ShineWay.UI
             }
             else
             {
-                if (msktxt_vehicleRegNumber.Text == "" || txt_brand.Text.Trim() == "" || txt_model.Text.Trim() == "" || combo_type.Text.Trim() == "" || txt_engineNumber.Text.Trim() == "" || txt_chasisNumber.Text.Trim() == "" || txt_ownerNIC.Text.Trim() == "" || date_registeredDate.Text.Trim() == "" || txt_ownerCondition.Text.Trim() == "" || txt_DailyPrice.Text.Trim() == "" || txt_WeeklyPrice.Text.Trim() == "" || txt_ExtrakmPrice.Text.Trim() == "" || txt_Dailykm.Text.Trim() == "" || txt_Weeklykm.Text.Trim() == "" || txt_Monthlykm.Text.Trim() == "" || txt_OwnerPayment.Text.Trim() == "" || msktxt_startingOdo.Text == "")
+                if (msktxt_vehicleRegNumber.Text == "" || txt_brand.Text.Trim() == "" || txt_model.Text.Trim() == "" || combo_type.Text.Trim() == "" || txt_engineNumber.Text.Trim() == "" || txt_chasisNumber.Text.Trim() == "" || txt_ownerNIC.Text.Trim() == "" || date_registeredDate.Text.Trim() == "" || txt_ownerCondition.Text.Trim() == "" || txt_DailyPrice.Text.Trim() == "" || txt_WeeklyPrice.Text.Trim() == "" || txt_MonthlyPrice.Text.Trim()=="" || txt_ExtrakmPrice.Text.Trim() == "" || txt_Dailykm.Text.Trim() == "" || txt_Weeklykm.Text.Trim() == "" || txt_Monthlykm.Text.Trim() == "" || txt_OwnerPayment.Text.Trim() == "" || msktxt_startingOdo.Text == "")
                 {
                     CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                     submitmessege.convertToOkButton();
@@ -819,12 +835,11 @@ namespace ShineWay.UI
                     if (isAllValidForUpdate())
                     {
 
-                        string query = $"UPDATE `users` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\", `Brand`= \"{txt_brand.Text}\", `Model`= \"{txt_model.Text}\", `Type`= \"{combo_type.Text}\", `Engine_Num`= \"{txt_engineNumber.Text}\", `Chassis_Num`= \"{txt_chasisNumber.Text}\", `Owner_NIC`= \"{txt_ownerNIC.Text}\", `Reg_Date`= \"{date_registeredDate.Text}\", `Owner_Condi`= \"{txt_ownerCondition.Text}\", `Daily_price`= \"{txt_DailyPrice.Text}\", `Daliy_KM`= \"{txt_Dailykm.Text}\", `Weekly_price`= \"{txt_WeeklyPrice.Text}\", `Weekly_KM`= \"{txt_Weeklykm.Text}\", `Monthly_price`= \"{txt_MonthlyPrice.Text}\", `Monthy_KM`= \"{txt_Monthlykm.Text}\", `Extrakm_price`= \"{txt_ExtrakmPrice.Text}\", `Owner_payment`= \"{txt_OwnerPayment.Text}\", `Starting_odo`= \"{msktxt_startingOdo.Text}\", `OverallView`= \"{pb_overallViewimg.Text}\", `InsideView`= \"{pb_InsideViewimg.Text}\" =  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
-                        
+                        string query = $"UPDATE `vehicle` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\",`Brand`= \"{txt_brand.Text}\",`Model`= \"{txt_brand.Text}\",`Type`= \"{combo_type.Text}\",`Engine_Num`= \"{txt_engineNumber.Text}\",`Chassis_Num`= \"{txt_chasisNumber.Text}\",`Owner_NIC`= \"{txt_ownerNIC.Text}\",`Reg_Date`= \"{date_registeredDate.Text}\",`Owner_Condi`= \"{txt_ownerCondition.Text}\",`Daily_price`= \"{txt_DailyPrice.Text}\",`Daliy_KM`= \"{txt_Dailykm.Text}\",`Weekly_price`= \"{txt_WeeklyPrice.Text}\",`Weekly_KM`= \"{txt_Weeklykm.Text}\",`Monthly_price`= \"{txt_MonthlyPrice.Text}\",`Monthy_KM`= \"{txt_Monthlykm.Text}\",`Extrakm_price`= \"{txt_ExtrakmPrice.Text}\",`Owner_payment`= \"{txt_OwnerPayment.Text}\",`Starting_odo`= \"{msktxt_startingOdo.Text}\"  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
                         try
                         {
                             DbConnection.Update(query);
-                            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle`");
+                            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
                             CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             submitmessege.convertToOkButton();
                             submitmessege.ShowDialog();
@@ -884,6 +899,21 @@ namespace ShineWay.UI
         private void msktxt_startingOdo_KeyPress_1(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void pictureBox31_MouseHover(object sender, EventArgs e)
+        {
+            pictureBox31.Image = ShineWay.Properties.Resources.hbr;
+        }
+
+        private void pb_BtnBrowseOverallView_MouseLeave(object sender, EventArgs e)
+        {
+            pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.bl;
+        }
+
+        private void pictureBox31_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox31.Image = ShineWay.Properties.Resources.br;
         }
     }
 }
