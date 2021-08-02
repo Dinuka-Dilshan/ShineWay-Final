@@ -308,9 +308,7 @@ namespace ShineWay.UI
             this.Column16,
             this.Column17,
 
-            this.Column18,
-            this.Column19,
-            this.Column20});
+            this.Column18,});
 
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
