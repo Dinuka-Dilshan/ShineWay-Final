@@ -76,6 +76,7 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             dateTimePicker1.MaxDate = DateTime.Now;
+            dataGridView1.EnableHeadersVisualStyles = false;
 
         }
 

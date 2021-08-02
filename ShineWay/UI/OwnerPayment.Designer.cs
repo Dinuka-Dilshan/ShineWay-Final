@@ -68,15 +68,15 @@ namespace ShineWay.UI
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Owner_NIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vechicle_Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Owner_pay_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payment_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.Owner_NIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vechicle_Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Owner_pay_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payment_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -529,7 +529,7 @@ namespace ShineWay.UI
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -567,6 +567,38 @@ namespace ShineWay.UI
             this.dataGridView1.Size = new System.Drawing.Size(801, 599);
             this.dataGridView1.TabIndex = 31;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Owner_NIC
+            // 
+            this.Owner_NIC.DataPropertyName = "Owner_NIC";
+            this.Owner_NIC.HeaderText = "Owner NIC";
+            this.Owner_NIC.MinimumWidth = 6;
+            this.Owner_NIC.Name = "Owner_NIC";
+            this.Owner_NIC.Width = 200;
+            // 
+            // vechicle_Num
+            // 
+            this.vechicle_Num.DataPropertyName = "vechicle_Num";
+            this.vechicle_Num.HeaderText = "Vehicle Number";
+            this.vechicle_Num.MinimumWidth = 6;
+            this.vechicle_Num.Name = "vechicle_Num";
+            this.vechicle_Num.Width = 200;
+            // 
+            // Owner_pay_Amount
+            // 
+            this.Owner_pay_Amount.DataPropertyName = "Owner_pay_Amount";
+            this.Owner_pay_Amount.HeaderText = "Amount";
+            this.Owner_pay_Amount.MinimumWidth = 6;
+            this.Owner_pay_Amount.Name = "Owner_pay_Amount";
+            this.Owner_pay_Amount.Width = 200;
+            // 
+            // payment_date
+            // 
+            this.payment_date.DataPropertyName = "payment_date";
+            this.payment_date.HeaderText = "Date";
+            this.payment_date.MinimumWidth = 6;
+            this.payment_date.Name = "payment_date";
+            this.payment_date.Width = 200;
             // 
             // pictureBox17
             // 
@@ -618,38 +650,6 @@ namespace ShineWay.UI
             this.pictureBox15.Size = new System.Drawing.Size(863, 811);
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
-            // 
-            // Owner_NIC
-            // 
-            this.Owner_NIC.DataPropertyName = "Owner_NIC";
-            this.Owner_NIC.HeaderText = "Owner NIC";
-            this.Owner_NIC.MinimumWidth = 6;
-            this.Owner_NIC.Name = "Owner_NIC";
-            this.Owner_NIC.Width = 200;
-            // 
-            // vechicle_Num
-            // 
-            this.vechicle_Num.DataPropertyName = "vechicle_Num";
-            this.vechicle_Num.HeaderText = "Vehicle Number";
-            this.vechicle_Num.MinimumWidth = 6;
-            this.vechicle_Num.Name = "vechicle_Num";
-            this.vechicle_Num.Width = 200;
-            // 
-            // Owner_pay_Amount
-            // 
-            this.Owner_pay_Amount.DataPropertyName = "Owner_pay_Amount";
-            this.Owner_pay_Amount.HeaderText = "Amount";
-            this.Owner_pay_Amount.MinimumWidth = 6;
-            this.Owner_pay_Amount.Name = "Owner_pay_Amount";
-            this.Owner_pay_Amount.Width = 200;
-            // 
-            // payment_date
-            // 
-            this.payment_date.DataPropertyName = "payment_date";
-            this.payment_date.HeaderText = "Date";
-            this.payment_date.MinimumWidth = 6;
-            this.payment_date.Name = "payment_date";
-            this.payment_date.Width = 200;
             // 
             // OwnerPayment
             // 
