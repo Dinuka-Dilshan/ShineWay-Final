@@ -59,8 +59,6 @@ namespace ShineWay.UI
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pb_overallViewimg = new System.Windows.Forms.PictureBox();
             this.pb_InsideViewimg = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -234,6 +232,8 @@ namespace ShineWay.UI
             this.pictureBox31.Size = new System.Drawing.Size(147, 46);
             this.pictureBox31.TabIndex = 19;
             this.pictureBox31.Click += new System.EventHandler(this.pictureBox31_Click);
+            this.pictureBox31.MouseLeave += new System.EventHandler(this.pictureBox31_MouseLeave);
+            this.pictureBox31.MouseHover += new System.EventHandler(this.pictureBox31_MouseHover);
             // 
             // pb_BtnBrowseOverallView
             // 
@@ -244,6 +244,7 @@ namespace ShineWay.UI
             this.pb_BtnBrowseOverallView.Size = new System.Drawing.Size(147, 46);
             this.pb_BtnBrowseOverallView.TabIndex = 18;
             this.pb_BtnBrowseOverallView.Click += new System.EventHandler(this.pb_BtnBrowseOverallView_Click);
+            this.pb_BtnBrowseOverallView.MouseLeave += new System.EventHandler(this.pb_BtnBrowseOverallView_MouseLeave);
             this.pb_BtnBrowseOverallView.MouseHover += new System.EventHandler(this.pb_BtnBrowseOverallView_MouseHover);
             // 
             // pictureBox32
@@ -306,14 +307,18 @@ namespace ShineWay.UI
             this.Column15,
             this.Column16,
             this.Column17,
+
             this.Column18,
             this.Column19,
             this.Column20});
+
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
@@ -502,24 +507,6 @@ namespace ShineWay.UI
             this.Column18.ReadOnly = true;
             this.Column18.Visible = false;
             this.Column18.Width = 125;
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "Overall View";
-            this.Column19.MinimumWidth = 6;
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.Visible = false;
-            this.Column19.Width = 125;
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "Inside view";
-            this.Column20.MinimumWidth = 6;
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            this.Column20.Visible = false;
-            this.Column20.Width = 125;
             // 
             // pb_overallViewimg
             // 
@@ -1901,7 +1888,5 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
     }
 }

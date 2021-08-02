@@ -249,32 +249,39 @@ namespace ShineWay.UI
 
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
-            if (txt_ownerNIC.Text != "")
+            //delete code
+            CustomMessage submitmessege = new CustomMessage("Are you sure to Delete ?", "Warning", ShineWay.Properties.Resources.question, DialogResult.Yes);
+            DialogResult result = submitmessege.ShowDialog();
+
+            if (result == DialogResult.Yes)
             {
-
-                try
+                if (txt_ownerNIC.Text != "")
                 {
-                    DbConnection.Read("delete from owner_payment where Owner_NIC='" + txt_ownerNIC.Text + "'");
+                    try
+                    {
+                        DbConnection.Read("delete from owner_payment where Owner_NIC='" + txt_ownerNIC.Text + "'");
 
-                    CustomMessage message = new CustomMessage("Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                    message.convertToOkButton();
-                    message.ShowDialog();
+                        CustomMessage message = new CustomMessage("Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                        message.convertToOkButton();
+                        message.ShowDialog();
 
-                    DisplayData();
-                    ClearData();
+                        DisplayData();
+                        ClearData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    CustomMessage submitmessage = new CustomMessage("Please Select Record to Delete!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    submitmessage.convertToOkButton();
+                    submitmessage.ShowDialog();
+
                 }
             }
-            else
-            {
-                MessageBox.Show("Please Select Record to Delete");
-            }
-            
-
-                //delete code
+                
         }
 
         private void txt_OwnerPayment_Enter(object sender, EventArgs e)
