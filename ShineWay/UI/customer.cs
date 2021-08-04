@@ -308,27 +308,36 @@ namespace ShineWay.UI
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
             //delete button code goes here
-            if (txt_nicNumber.Text != "")
+            CustomMessage submitmessege = new CustomMessage("Are you sure to Delete ?", "Warning", ShineWay.Properties.Resources.question, DialogResult.Yes);
+            DialogResult result = submitmessege.ShowDialog();
+
+            if (result == DialogResult.Yes)
             {
-
-                try
+                if (txt_nicNumber.Text != "")
                 {
-                    DbConnection.Read("delete from customer where Cus_NIC='" + txt_nicNumber.Text + "'");
 
-                    CustomMessage message = new CustomMessage("User Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                    try
+                    {
+                        DbConnection.Read("delete from customer where Cus_NIC='" + txt_nicNumber.Text + "'");
+
+                        CustomMessage message = new CustomMessage("User Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                        message.convertToOkButton();
+                        message.ShowDialog();
+
+                        DisplayData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    CustomMessage message = new CustomMessage("Please Select Record to Delete", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
                     message.convertToOkButton();
                     message.ShowDialog();
 
-                    DisplayData();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please Select Record to Delete");
             }
         }
 
@@ -487,7 +496,16 @@ namespace ShineWay.UI
             return (isNICValid && isEmailValid && isTelNumValid && isCusNameValid && isLicensenumberValid && isAddressValid);
         }
 
-        /*void setDataToTable(string query)
+       
+
+        /*private void txt_search_KeyUp(object sender, KeyEventArgs e)
+        {
+            string query = $"SELECT  'Cus_NIC' , 'Licen_num', 'Cus_name', 'Tel_num', 'Email', 'Cus_Address' FROM `customer` WHERE `Cus_NIC` LIKE \"%{txt_search.Text}%\" OR `Licen_num` LIKE \"%{txt_search.Text}%\" OR `Cus_name` LIKE \"%{txt_search.Text}%\"  OR `Tel_num` LIKE \"%{txt_search.Text}%\" OR `Email` LIKE \"%{txt_search.Text}%\" OR `Cus_Address` LIKE \"%{txt_search.Text}%\"";
+            setDataToTable(query);
+            
+        }
+
+        void setDataToTable(string query)
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
@@ -497,22 +515,15 @@ namespace ShineWay.UI
             while (reader.Read())
             {
                 int x = dataGridView1.Rows.Add();
-                dataGridView1.Rows[x].Cells[0].Value = reader.GetString("NIC_Number");
-                dataGridView1.Rows[x].Cells[1].Value = reader.GetString("License_Number");
-                dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Customer_Name");
-                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Tele_Number");
-                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email_Address");
-                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Address");
-                
+                dataGridView1.Rows[x].Cells[0].Value = reader.GetString("Cus_NIC");
+                dataGridView1.Rows[x].Cells[1].Value = reader.GetString("Licen_num");
+                dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Cus_name");
+                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Tel_num");
+                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
+                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Cus_Address");
+
 
             }
-        }
-
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-            string query = $"SELECT  'Cus_NIC' , 'Licen_num', 'Cus_name', 'Tel_num', 'Email', 'Cus_Address' FROM `customer` WHERE `Cus_NIC` LIKE \"%{txt_search.Text}%\" OR `Licen_num` LIKE \"%{txt_search.Text}%\" OR `Cus_name` LIKE \"%{txt_search.Text}%\"  OR `Tel_num` LIKE \"%{txt_search.Text}%\" OR `Email` LIKE \"%{txt_search.Text}%\" OR `Cus_Address` LIKE \"%{txt_search.Text}%\"";
-            setDataToTable(query);
-            
         }*/
     }
 }
