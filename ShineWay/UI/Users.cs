@@ -427,6 +427,33 @@ namespace ShineWay.UI
             string query = $"SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\" OR `email` LIKE \"%{txt_search.Text}%\"";
             
             setDataToTable(query);
+            isNameValid = true;
+            isNICValid = true;
+            isTelephoneNumberValid = true;
+            isAddressValid = true;
+            isEmailValid = true;
+            txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            //to reset warnings
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+            label_nicError.Visible = false;
+            pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+            label_telError.Visible = false;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
+            label_addressError.Visible = false;
+            label_telTick.Visible = false;
+            label_tickAddress.Visible = false;
+            label_tickNIC.Visible = false;
+            label_tickName.Visible = false;
+            label_tickEmail.Visible = false;
+            label_emailError.Visible = false;
+            label_nameError.Visible = false;
         }
 
         private void Users_Load(object sender, EventArgs e)
