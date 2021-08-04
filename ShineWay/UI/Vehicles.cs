@@ -848,6 +848,16 @@ namespace ShineWay.UI
                         {
                             DbConnection.Update(query);
                             setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
+                            try
+                            {
+                                //save images
+                                pb_overallViewimg.Image.Save(@"C:\ShineWay\img\" + msktxt_vehicleRegNumber.Text + "-overall.jpg", ImageFormat.Jpeg);
+                                pb_InsideViewimg.Image.Save(@"C:\ShineWay\img\" + msktxt_vehicleRegNumber.Text + "-inside.jpg", ImageFormat.Jpeg);
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
                             CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             submitmessege.convertToOkButton();
                             submitmessege.ShowDialog();
@@ -899,9 +909,22 @@ namespace ShineWay.UI
             txt_ExtrakmPrice.Text = dataGridView1.SelectedRows[0].Cells[15].Value.ToString();
             txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
             msktxt_startingOdo.Text = dataGridView1.SelectedRows[0].Cells[17].Value.ToString();
-        //    pb_overallViewimg.Image= dataGridView1.SelectedRows[0].Cells[18].Value.ToString();
-        //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
-           
+            //    pb_overallViewimg.Image= dataGridView1.SelectedRows[0].Cells[18].Value.ToString();
+            //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
+            try
+            {
+                pb_overallViewimg.Image = Image.FromFile(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-overall.jpg");
+                pb_InsideViewimg.Image = Image.FromFile(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-inside.jpg");
+
+            }
+            catch (Exception exc)
+            {
+                pb_overallViewimg.Image = ShineWay.Properties.Resources.noImage;
+                pb_InsideViewimg.Image = ShineWay.Properties.Resources.noImage;
+
+            }
+
+
         }
 
         private void msktxt_startingOdo_KeyPress_1(object sender, KeyPressEventArgs e)
