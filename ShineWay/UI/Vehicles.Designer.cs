@@ -226,7 +226,7 @@ namespace ShineWay.UI
             // pictureBox31
             // 
             this.pictureBox31.BackColor = System.Drawing.Color.White;
-            this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
+            this.pictureBox31.Image = global::ShineWay.Properties.Resources.BrowseLeft;
             this.pictureBox31.Location = new System.Drawing.Point(360, 179);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(147, 46);
@@ -238,7 +238,7 @@ namespace ShineWay.UI
             // pb_BtnBrowseOverallView
             // 
             this.pb_BtnBrowseOverallView.BackColor = System.Drawing.Color.White;
-            this.pb_BtnBrowseOverallView.Image = ((System.Drawing.Image)(resources.GetObject("pb_BtnBrowseOverallView.Image")));
+            this.pb_BtnBrowseOverallView.Image = global::ShineWay.Properties.Resources.BrowseLeft;
             this.pb_BtnBrowseOverallView.Location = new System.Drawing.Point(360, 64);
             this.pb_BtnBrowseOverallView.Name = "pb_BtnBrowseOverallView";
             this.pb_BtnBrowseOverallView.Size = new System.Drawing.Size(147, 46);
@@ -312,12 +312,12 @@ namespace ShineWay.UI
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(139)))), ((int)(((byte)(9)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(75, 447);
+            this.dataGridView1.Location = new System.Drawing.Point(71, 447);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -335,7 +335,7 @@ namespace ShineWay.UI
             this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.dataGridView1.RowTemplate.Height = 40;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(727, 328);
+            this.dataGridView1.Size = new System.Drawing.Size(735, 328);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
@@ -1714,6 +1714,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.panel2);
             this.Name = "Vehicles";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.Vehicles_Load_1);
             this.MouseLeave += new System.EventHandler(this.pb_btnAdd_MouseLeave);
             this.MouseHover += new System.EventHandler(this.pb_btnAdd_MouseHover);
             this.panel2.ResumeLayout(false);

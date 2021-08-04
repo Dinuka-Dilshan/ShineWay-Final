@@ -29,9 +29,9 @@ namespace ShineWay.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_Refresh = new System.Windows.Forms.PictureBox();
             this.dgv_Booking = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,7 +113,6 @@ namespace ShineWay.UI
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Booking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -144,7 +143,6 @@ namespace ShineWay.UI
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btn_Refresh);
             this.panel2.Controls.Add(this.dgv_Booking);
             this.panel2.Controls.Add(this.pb_btnUpdatePrint);
             this.panel2.Controls.Add(this.pictureBox17);
@@ -156,17 +154,6 @@ namespace ShineWay.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(876, 827);
             this.panel2.TabIndex = 27;
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_Refresh.Image")));
-            this.btn_Refresh.Location = new System.Drawing.Point(74, 137);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(44, 40);
-            this.btn_Refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_Refresh.TabIndex = 17;
-            this.btn_Refresh.TabStop = false;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // dgv_Booking
             // 
@@ -186,14 +173,23 @@ namespace ShineWay.UI
             this.Column9,
             this.Column10,
             this.Column11});
-            this.dgv_Booking.Location = new System.Drawing.Point(74, 186);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Booking.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Booking.Location = new System.Drawing.Point(36, 181);
             this.dgv_Booking.Name = "dgv_Booking";
             this.dgv_Booking.ReadOnly = true;
             this.dgv_Booking.RowHeadersVisible = false;
             this.dgv_Booking.RowHeadersWidth = 51;
             this.dgv_Booking.RowTemplate.Height = 29;
             this.dgv_Booking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Booking.Size = new System.Drawing.Size(750, 516);
+            this.dgv_Booking.Size = new System.Drawing.Size(819, 548);
             this.dgv_Booking.TabIndex = 15;
             this.dgv_Booking.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Booking_CellContentClick);
             this.dgv_Booking.MouseEnter += new System.EventHandler(this.dgv_Booking_MouseEnter);
@@ -1155,7 +1151,6 @@ namespace ShineWay.UI
             this.Load += new System.EventHandler(this.Booking_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Refresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Booking)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -1259,7 +1254,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label lbl_licenseNumberCorrect;
         private System.Windows.Forms.Label lbl_customerNICCorrect;
         private System.Windows.Forms.Label lbl_vehicleNumberCorrect;
-        private System.Windows.Forms.PictureBox btn_Refresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
