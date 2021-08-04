@@ -598,7 +598,7 @@ namespace ShineWay.UI
             //this.dataGridView1.GridColor = Color.BlueViolet;
             dgv_Booking.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dgv_Booking.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            // dgv_Booking.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26, 139, 9);
+             dgv_Booking.DefaultCellStyle.SelectionBackColor = Color.FromArgb(33, 150, 243);
             dgv_Booking.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dgv_Booking.BackgroundColor = Color.FromArgb(255, 255, 255);
             dgv_Booking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional

@@ -19,7 +19,7 @@ namespace ShineWay.UI
         bool isNICValid = false;
         bool isVehhicleNumValid = false;
         bool isAmountValid = false;
-        bool isPaymentIDValid = false;
+        //bool isPaymentIDValid = false;
 
         private void DisplayData()
         {
@@ -34,10 +34,49 @@ namespace ShineWay.UI
             con.Close();
         }
 
+        private void ClearData()
+        {
+            txt_paymentID.Text = "";
+            txt_ownerNIC.Text = "";
+            txt_VehicleNumber.Text = "";
+            txt_OwnerPayment.Text = "";
+            label_nicError.Visible = false;
+            label_tickNIC.Visible = false;
+            label_nicVehicleNum.Visible = false;
+            label_AmountError.Visible = false;
+            label_tickAmount.Visible = false;
+            label_tickVehicleNum.Visible = false;
+        }
+
+
+        private void getNextPaymentID()
+        {
+            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT MAX(Payment_ID) FROM owner_payment", con);
+            
+
+            int id;
+                Object o = cmd.ExecuteScalar();
+                if (o == null)
+                {
+
+                    id = Convert.ToInt32(o);
+                }
+                else
+                {
+                    id = Convert.ToInt32(cmd.ExecuteScalar());
+                    int result = (id + 1);
+                txt_paymentID.Text = result.ToString();
+                }
+            }
+        
+
         public OwnerPayment()
         {
             InitializeComponent();
             dateTimePicker1.MaxDate = DateTime.Now;
+            dataGridView1.EnableHeadersVisualStyles = false;
 
         }
 
@@ -86,19 +125,6 @@ namespace ShineWay.UI
 
         }
 
-        private void txt_paymentID_Leave(object sender, EventArgs e)
-        {
-
-            bool validpaymentID = Validates.ValidBookingID(txt_paymentID.Text);
-            if (validpaymentID == false)
-            {
-                txt_paymentID.ForeColor = Color.Red;
-            }
-            else
-            {
-                txt_paymentID.ForeColor = Color.Green;
-            }
-        }
 
         private void txt_ownerNIC_Leave(object sender, EventArgs e)
         {
@@ -152,19 +178,8 @@ namespace ShineWay.UI
 
         private void pb_btnReset_Click_1(object sender, EventArgs e)
         {
-            txt_paymentID.Text = "";
-            txt_ownerNIC.Text = "";
-            txt_VehicleNumber.Text = "";
-            txt_OwnerPayment.Text = "";
-            //dateTimePicker1.Value = DateTime.Now;
-            label_nicError.Visible = false;
-            label_tickNIC.Visible = false;
-            label_nicVehicleNum.Visible = false;
-            label_AmountError.Visible = false;
-            label_tickAmount.Visible = false;
-            label_tickVehicleNum.Visible = false;
-            label_tickPaymentID.Visible = false;
-            //dateTimePicker1.Value = DateTime.Now;
+            ClearData(); 
+            getNextPaymentID();
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
@@ -173,7 +188,7 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    DataBase.DbConnection.Read("insert into owner_payment (Owner_NIC , payment_date, Payament_ID, payment_ODO, Owner_pay_Amount) Values" +
+                    DataBase.DbConnection.Read("insert into owner_payment (Owner_NIC , payment_date,Payment_ID, vechicle_Num, Owner_pay_Amount) Values" +
                     "('" + txt_ownerNIC.Text + "','" + dateTimePicker1.Text + "','" + txt_paymentID.Text + "','" + txt_VehicleNumber.Text + "','"
                     + txt_OwnerPayment.Text + "')");
 
@@ -181,6 +196,8 @@ namespace ShineWay.UI
                     message.convertToOkButton();
                     message.ShowDialog();
                     DisplayData();
+                    ClearData();
+                    getNextPaymentID();
 
                 }
                 catch (Exception ex)
@@ -204,13 +221,14 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    DbConnection.Read("UPDATE owner_payment set Payament_ID='" + txt_paymentID.Text + "', payment_date='" + dateTimePicker1.Text + "', payment_ODO='"
+                    DbConnection.Read("UPDATE owner_payment set Payment_ID='" + txt_paymentID.Text + "', payment_date='" + dateTimePicker1.Text + "', vechicle_Num='"
                     + txt_VehicleNumber.Text + "' , Owner_pay_Amount='" + txt_OwnerPayment.Text + "' where Owner_NIC='" + txt_ownerNIC.Text + "'");
 
                     CustomMessage message = new CustomMessage("Update Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     message.convertToOkButton();
                     message.ShowDialog();
                     DisplayData();
+                    ClearData();
 
                 }
                 catch (Exception ex)
@@ -231,31 +249,39 @@ namespace ShineWay.UI
 
         private void pb_btnDelete_Click(object sender, EventArgs e)
         {
-            if (txt_ownerNIC.Text != "")
+            //delete code
+            CustomMessage submitmessege = new CustomMessage("Are you sure to Delete ?", "Warning", ShineWay.Properties.Resources.question, DialogResult.Yes);
+            DialogResult result = submitmessege.ShowDialog();
+
+            if (result == DialogResult.Yes)
             {
-
-                try
+                if (txt_ownerNIC.Text != "")
                 {
-                    DbConnection.Read("delete from owner_payment where Owner_NIC='" + txt_ownerNIC.Text + "'");
+                    try
+                    {
+                        DbConnection.Read("delete from owner_payment where Owner_NIC='" + txt_ownerNIC.Text + "'");
 
-                    CustomMessage message = new CustomMessage("Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                    message.convertToOkButton();
-                    message.ShowDialog();
+                        CustomMessage message = new CustomMessage("Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                        message.convertToOkButton();
+                        message.ShowDialog();
 
-                    DisplayData();
+                        DisplayData();
+                        ClearData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    CustomMessage submitmessage = new CustomMessage("Please Select Record to Delete!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    submitmessage.convertToOkButton();
+                    submitmessage.ShowDialog();
+
                 }
             }
-            else
-            {
-                MessageBox.Show("Please Select Record to Delete");
-            }
-            
-
-                //delete code
+                
         }
 
         private void txt_OwnerPayment_Enter(object sender, EventArgs e)
@@ -263,24 +289,7 @@ namespace ShineWay.UI
             txt_OwnerPayment.TextAlign = HorizontalAlignment.Left;
         }
 
-        private void txt_paymentID_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (Validates.ValidBookingID(txt_paymentID.Text))
-            {
-                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
-                label_PaymentIDError.Visible = false;
-                label_tickPaymentID.Visible = true;
-                isPaymentIDValid = true;
-
-            }
-            else
-            {
-                pictureBox5.Image = ShineWay.Properties.Resources.errorinput;
-                label_PaymentIDError.Visible = true;
-                label_tickPaymentID.Visible = false;
-                isPaymentIDValid = false;
-            }
-        }
+       
 
         private void txt_ownerNIC_KeyUp(object sender, KeyEventArgs e)
         {
@@ -342,22 +351,23 @@ namespace ShineWay.UI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_paymentID.Text = dataGridView1.Rows[e.RowIndex].Cells["Payament_ID"].Value.ToString();
-            txt_ownerNIC.Text = dataGridView1.Rows[e.RowIndex].Cells["Owner_NIC"].Value.ToString();
-            txt_VehicleNumber.Text = dataGridView1.Rows[e.RowIndex].Cells["payment_ODO"].Value.ToString();
-            txt_OwnerPayment.Text = dataGridView1.Rows[e.RowIndex].Cells["Owner_pay_Amount"].Value.ToString();
-            dateTimePicker1.Text= dataGridView1.Rows[e.RowIndex].Cells["payment_date"].Value.ToString();
+            txt_paymentID.Text = dataGridView1.SelectedRows[0].Cells["Payment_ID"].Value.ToString();
+            txt_ownerNIC.Text = dataGridView1.SelectedRows[0].Cells["Owner_NIC"].Value.ToString();
+            txt_VehicleNumber.Text = dataGridView1.SelectedRows[0].Cells["vechicle_Num"].Value.ToString();
+            txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells["Owner_pay_Amount"].Value.ToString();
+            dateTimePicker1.Text= dataGridView1.SelectedRows[0].Cells["payment_date"].Value.ToString();
 
         }
 
         private void OwnerPayment_Load(object sender, EventArgs e)
         {
             DisplayData();
+            getNextPaymentID();
         }
 
         private bool isAllValid()
         {
-            return (isNICValid && isAmountValid && isVehhicleNumValid && isPaymentIDValid);
+            return (isNICValid && isAmountValid && isVehhicleNumValid);
         }
     }
 

@@ -152,7 +152,7 @@ namespace ShineWay.UI
 
             if (validcustomernic1 == true || validcustomernic2 == true)
             {
-                txt_nicNumber.ForeColor = Color.Green;
+                txt_nicNumber.ForeColor = Color.Black;
             }
             else
             {
@@ -223,7 +223,11 @@ namespace ShineWay.UI
         {
             return (isOwnerNICValid && isOwnerNameValid && isTelephoneNumberValid && isOwnerEmailValid && isAddressValid);
         }
-
+       
+        private bool isAllValidForUpdate()
+        {
+            return (isNICValidForUpdate && isOwnerNameValidForUpdate && isTelephoneNumberValidForUpdate && isAddressValidForUpdate && isEmailValidForUpdate);
+        }
         //Add Button
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
@@ -245,17 +249,17 @@ namespace ShineWay.UI
                 {
                     try
                     {
-                        reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `owner`");
+                        /*reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `owner`");
                         while (reader.Read())
                         {
 
-                        }
+                        }*/
 
 
                         try
                         {
                             
-                            String addQuery = $"INSERT INTO `owner`(`Owner_NIC`, `Salute`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`) VALUES   (  \"{txt_nicNumber}\",\"{lbl_salutation}\"  \"{txt_ownerName}\",  \"{txt_telephone.Text}\",   \"{txt_email.Text}\",   \"{txt_address.Text}\")";
+                            String addQuery = $"INSERT INTO `owner`( `Owner_NIC`, `Salute`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`) VALUES   (  \"{txt_nicNumber.Text}\",\"{lbl_salutation.Text}\" , \"{txt_ownerName.Text}\",  \"{txt_telephone.Text}\",   \"{txt_email.Text}\",   \"{txt_address.Text}\")";
 
                             DbConnection.Write(addQuery);
                             CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
@@ -296,6 +300,57 @@ namespace ShineWay.UI
         private void pb_btnUpdate_Click(object sender, EventArgs e)
         {
 
+            if (dataGridView1.SelectedRows[0] == null)
+            {
+                CustomMessage submitmessege = new CustomMessage("Select a row before update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                submitmessege.convertToOkButton();
+                submitmessege.ShowDialog();
+            }
+            else
+            {
+                if (txt_nicNumber.Text.Trim() == "" || lbl_salutation.Text.Trim() == "" || txt_ownerName.Text.Trim() == "" || txt_telephone.Text.Trim() == "" || txt_email.Text.Trim() == "" || txt_address.Text.Trim()=="")
+                {
+                    CustomMessage submitmessege = new CustomMessage("Please fill all the fields!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    submitmessege.convertToOkButton();
+                    submitmessege.ShowDialog();
+                }
+                else
+                {
+
+                    if (isAllValidForUpdate())
+                    {
+
+                        string query = $"UPDATE `owner` SET `Owner_NIC`= \"{txt_nicNumber.Text}\",`Salute`= \"{lbl_salutation.Text}\" ,`Owner_name`= \"{txt_ownerName.Text}\", `Tel_num`= \"{txt_telephone.Text}\", `Owner_Email`= \"{txt_email.Text}\", `Owner_Address`= \"{txt_address.Text}\" WHERE `ID`= \"{dataGridView1.SelectedRows[0].Cells[6].Value}\"";
+
+                        try
+                        {
+                            DbConnection.Update(query);
+                            setDataToDGV("SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner`");
+                            CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                            submitmessege.convertToOkButton();
+                            submitmessege.ShowDialog();
+
+                        }
+                        catch (Exception exc)
+                        {
+                            MessageBox.Show(exc.Message);
+                            CustomMessage submitmessege = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                            submitmessege.convertToOkButton();
+                            submitmessege.ShowDialog();
+                        }
+
+
+                    }
+                    else
+                    {
+                        CustomMessage submitmessege = new CustomMessage("All fields must be corrected\nbefore Update!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                        submitmessege.convertToOkButton();
+                        submitmessege.ShowDialog();
+                    }
+
+                }
+            }
+
         }
 
        // Delete  Button
@@ -333,7 +388,7 @@ namespace ShineWay.UI
         {
             if (Validates.ValidEmail(txt_email.Text.Trim()))
             {
-                pictureBox1.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
                 label_EmailError.Visible = false;
                 label_tickEmail.Visible = true;
                 isOwnerEmailValid = true;
@@ -342,7 +397,7 @@ namespace ShineWay.UI
             }
             else
             {
-                pictureBox1.Image = ShineWay.Properties.Resources.errorinput;
+                pictureBox11.Image = ShineWay.Properties.Resources.errorinput;
                 label_EmailError.Visible = true;
                 label_tickEmail.Visible = false;
 
@@ -447,7 +502,7 @@ namespace ShineWay.UI
             //this.dataGridView1.GridColor = Color.BlueViolet;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26, 139, 9);
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(33, 150, 243);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
@@ -500,7 +555,7 @@ namespace ShineWay.UI
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string query = $"SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner` WHERE `Owner_NIC` LIKE \"%{txt_nicNumber.Text}%\" OR `Owner_name` LIKE \"%{txt_ownerName.Text}%\" OR `Tel_num` LIKE \"%{txt_telephone.Text}%\"  OR `Owner_Email` LIKE \"%{txt_email.Text}%\" OR `Owner_Address` LIKE \"%{txt_address.Text}%\"";
+            string query = $"SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner` WHERE `Owner_NIC` LIKE \"%{txt_nicNumber.Text}%\" OR `Owner_name` LIKE \"%{txt_ownerName.Text}%\" OR `Tel_num` LIKE \"%{txt_telephone.Text}%\"  OR `Owner_Email` LIKE \"%{txt_email.Text}%\" OR `Owner_Address` LIKE \"%{txt_address.Text}%\" OR `Salute` LIKE \"%{lbl_salutation.Text}%\"";
 
             setDataToDGV(query);
         }
