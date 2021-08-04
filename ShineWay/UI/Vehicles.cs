@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.Drawing.Imaging;
 
 namespace ShineWay.UI
 {
@@ -153,10 +154,20 @@ namespace ShineWay.UI
                             {
 
                                 String addQuery = $"INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo`) VALUES (  \"{msktxt_vehicleRegNumber.Text}\",  \"{txt_brand.Text}\",  \"{txt_model.Text}\",   \"{combo_type.Text}\",   \"{txt_engineNumber.Text}\",   \"{txt_chasisNumber.Text}\",  \"{txt_ownerNIC.Text}\",  \"{date_registeredDate.Text}\",  \"{txt_ownerCondition.Text}\",  \"{txt_DailyPrice.Text}\",   \"{txt_Dailykm.Text}\",   \"{txt_WeeklyPrice.Text}\",   \"{txt_Weeklykm.Text}\",  \"{txt_MonthlyPrice.Text}\",  \"{txt_Monthlykm.Text}\",  \"{txt_ExtrakmPrice.Text}\",   \"{txt_OwnerPayment.Text}\",   \"{msktxt_startingOdo.Text}\")";
-
-
+                                
                                 DbConnection.Write(addQuery);
-                                CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+
+                            try{
+                                //save images
+                                pb_overallViewimg.Image.Save(@"C:\ShineWay\img\"+ msktxt_vehicleRegNumber.Text+ "-overall.jpg", ImageFormat.Jpeg);
+                                pb_InsideViewimg.Image.Save(@"C:\ShineWay\img\" + msktxt_vehicleRegNumber.Text + "-inside.jpg", ImageFormat.Jpeg);
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+
+                            CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
                                 message.convertToOkButton();
                                 message.ShowDialog();
                                 pb_btnReset_Click(sender, e);
@@ -243,10 +254,7 @@ namespace ShineWay.UI
             {
                 
                 pb_overallViewimg.Image = Image.FromFile(opf.FileName);
-                opf.FileName = Path.GetFileName(opf.FileName);
-              //  Path = Path.GetDirectoryName(opf.FileName);
-              //  extension  = Path.GetExtension(opf.FileName);
-                
+
             }
         }
 
@@ -840,6 +848,16 @@ namespace ShineWay.UI
                         {
                             DbConnection.Update(query);
                             setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
+                            try
+                            {
+                                //save images
+                                pb_overallViewimg.Image.Save(@"C:\ShineWay\img\" + msktxt_vehicleRegNumber.Text + "-overall.jpg", ImageFormat.Jpeg);
+                                pb_InsideViewimg.Image.Save(@"C:\ShineWay\img\" + msktxt_vehicleRegNumber.Text + "-inside.jpg", ImageFormat.Jpeg);
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
                             CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             submitmessege.convertToOkButton();
                             submitmessege.ShowDialog();
@@ -891,9 +909,22 @@ namespace ShineWay.UI
             txt_ExtrakmPrice.Text = dataGridView1.SelectedRows[0].Cells[15].Value.ToString();
             txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
             msktxt_startingOdo.Text = dataGridView1.SelectedRows[0].Cells[17].Value.ToString();
-        //    pb_overallViewimg.Image= dataGridView1.SelectedRows[0].Cells[18].Value.ToString();
-        //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
-           
+            //    pb_overallViewimg.Image= dataGridView1.SelectedRows[0].Cells[18].Value.ToString();
+            //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
+            try
+            {
+                pb_overallViewimg.Image = Image.FromFile(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-overall.jpg");
+                pb_InsideViewimg.Image = Image.FromFile(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-inside.jpg");
+
+            }
+            catch (Exception exc)
+            {
+                pb_overallViewimg.Image = ShineWay.Properties.Resources.noImage;
+                pb_InsideViewimg.Image = ShineWay.Properties.Resources.noImage;
+
+            }
+
+
         }
 
         private void msktxt_startingOdo_KeyPress_1(object sender, KeyPressEventArgs e)
