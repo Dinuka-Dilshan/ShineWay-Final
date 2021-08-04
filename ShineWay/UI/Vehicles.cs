@@ -35,7 +35,6 @@ namespace ShineWay.UI
         
 
 
-
         bool isVehRegNoValidForUpdate = true;
         bool isNICValidForUpdate = true;
         bool isBrandValidForUpdate = true;
@@ -252,10 +251,11 @@ namespace ShineWay.UI
 
             if (opf.ShowDialog() == DialogResult.OK)
             {
-                
-                pb_overallViewimg.Image = Image.FromFile(opf.FileName);
+                pb_overallViewimg.Image.Dispose();
+                pb_overallViewimg.Image = LoadBitmapNolock(opf.FileName);
 
             }
+
         }
 
         private void pictureBox31_Click(object sender, EventArgs e)
@@ -265,7 +265,8 @@ namespace ShineWay.UI
 
             if (opf.ShowDialog() == DialogResult.OK)
             {
-                pb_InsideViewimg.Image = Image.FromFile(opf.FileName);
+                pb_InsideViewimg.Image.Dispose();
+                pb_InsideViewimg.Image = LoadBitmapNolock(opf.FileName);
             }
         }
 
@@ -850,13 +851,15 @@ namespace ShineWay.UI
                             setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
                             try
                             {
+                                
                                 //save images
                                 pb_overallViewimg.Image.Save(@"C:\ShineWay\img\" + msktxt_vehicleRegNumber.Text + "-overall.jpg", ImageFormat.Jpeg);
                                 pb_InsideViewimg.Image.Save(@"C:\ShineWay\img\" + msktxt_vehicleRegNumber.Text + "-inside.jpg", ImageFormat.Jpeg);
+                                
                             }
                             catch (Exception ex)
                             {
-
+                                MessageBox.Show(ex.Message);
                             }
                             CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             submitmessege.convertToOkButton();
@@ -913,8 +916,9 @@ namespace ShineWay.UI
             //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
             try
             {
-                pb_overallViewimg.Image = Image.FromFile(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-overall.jpg");
-                pb_InsideViewimg.Image = Image.FromFile(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-inside.jpg");
+                    pb_overallViewimg.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-overall.jpg");
+                    pb_InsideViewimg.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-inside.jpg");
+
 
             }
             catch (Exception exc)
@@ -945,6 +949,19 @@ namespace ShineWay.UI
         private void pictureBox31_MouseLeave(object sender, EventArgs e)
         {
             pictureBox31.Image = ShineWay.Properties.Resources.br;
+        }
+
+        public static Bitmap LoadBitmapNolock(string path)
+        {
+            using (var img = Image.FromFile(path))
+            {
+                Bitmap src =  new Bitmap(img);
+                Bitmap target = new Bitmap(src.Size.Width, src.Size.Height);
+                Graphics g = Graphics.FromImage(target);
+                g.Clear(Color.White);
+                g.DrawImage(src, 0, 0);
+                return target;
+            }
         }
     }
 }
