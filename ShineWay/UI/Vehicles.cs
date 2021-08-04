@@ -819,6 +819,39 @@ namespace ShineWay.UI
            // string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle` WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\"";
             string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`  WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Engine_Num` LIKE \"%{textBox1.Text}%\" OR `Chassis_Num` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\" OR `Reg_Date` LIKE \"%{textBox1.Text}%\" OR `Owner_Condi` LIKE \"%{textBox1.Text}%\" OR `Daily_price` LIKE \"%{textBox1.Text}%\" OR `Daliy_KM` LIKE \"%{textBox1.Text}%\" OR `Weekly_price` LIKE \"%{textBox1.Text}%\" OR `Weekly_KM` LIKE \"%{textBox1.Text}%\" OR `Monthly_price` LIKE \"%{textBox1.Text}%\" OR `Monthy_KM` LIKE \"%{textBox1.Text}%\" OR `Extrakm_price` LIKE \"%{textBox1.Text}%\" OR `Owner_payment` LIKE \"%{textBox1.Text}%\"OR `Starting_odo` LIKE \"%{textBox1.Text}%\"";
             setDataToGrid(query);
+            msktxt_vehicleRegNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_brand.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_model.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            combo_type.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txt_ownerNIC.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txt_engineNumber.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            txt_chasisNumber.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+            date_registeredDate.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+            txt_ownerCondition.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+            txt_DailyPrice.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+            txt_Dailykm.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
+            txt_WeeklyPrice.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+            txt_Weeklykm.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+            txt_MonthlyPrice.Text = dataGridView1.SelectedRows[0].Cells[13].Value.ToString();
+            txt_Monthlykm.Text = dataGridView1.SelectedRows[0].Cells[14].Value.ToString();
+            txt_ExtrakmPrice.Text = dataGridView1.SelectedRows[0].Cells[15].Value.ToString();
+            txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
+            msktxt_startingOdo.Text = dataGridView1.SelectedRows[0].Cells[17].Value.ToString();
+            //    pb_overallViewimg.Image= dataGridView1.SelectedRows[0].Cells[18].Value.ToString();
+            //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
+            try
+            {
+                pb_overallViewimg.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-overall.jpg");
+                pb_InsideViewimg.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-inside.jpg");
+
+
+            }
+            catch (Exception exc)
+            {
+                pb_overallViewimg.Image = ShineWay.Properties.Resources.noImage;
+                pb_InsideViewimg.Image = ShineWay.Properties.Resources.noImage;
+
+            }
         }
 
         //........................................Update button............................................................
