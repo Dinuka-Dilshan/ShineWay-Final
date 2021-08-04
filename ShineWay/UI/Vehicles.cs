@@ -996,5 +996,42 @@ namespace ShineWay.UI
                 return target;
             }
         }
+
+        private void Vehicles_Load_1(object sender, EventArgs e)
+        {
+            msktxt_vehicleRegNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_brand.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_model.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            combo_type.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txt_ownerNIC.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txt_engineNumber.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            txt_chasisNumber.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+            date_registeredDate.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+            txt_ownerCondition.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
+            txt_DailyPrice.Text = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+            txt_Dailykm.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
+            txt_WeeklyPrice.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+            txt_Weeklykm.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
+            txt_MonthlyPrice.Text = dataGridView1.SelectedRows[0].Cells[13].Value.ToString();
+            txt_Monthlykm.Text = dataGridView1.SelectedRows[0].Cells[14].Value.ToString();
+            txt_ExtrakmPrice.Text = dataGridView1.SelectedRows[0].Cells[15].Value.ToString();
+            txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
+            msktxt_startingOdo.Text = dataGridView1.SelectedRows[0].Cells[17].Value.ToString();
+            //    pb_overallViewimg.Image= dataGridView1.SelectedRows[0].Cells[18].Value.ToString();
+            //    pb_InsideViewimg.Image = dataGridView1.SelectedRows[0].Cells[19].Value.ToString();
+            try
+            {
+                pb_overallViewimg.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-overall.jpg");
+                pb_InsideViewimg.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + "-inside.jpg");
+
+
+            }
+            catch (Exception exc)
+            {
+                pb_overallViewimg.Image = ShineWay.Properties.Resources.noImage;
+                pb_InsideViewimg.Image = ShineWay.Properties.Resources.noImage;
+
+            }
+        }
     }
 }
