@@ -277,7 +277,7 @@ namespace ShineWay.UI
 
         private void pb_BtnBrowseOverallView_MouseHover(object sender, EventArgs e)
         {
-        pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.hbl;
+        pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.Ovviewlight;
         }
 
 
@@ -995,17 +995,17 @@ namespace ShineWay.UI
 
         private void pictureBox31_MouseHover(object sender, EventArgs e)
         {
-            pictureBox31.Image = ShineWay.Properties.Resources.hbr;
+            pictureBox31.Image = ShineWay.Properties.Resources.Inviewlight;
         }
 
         private void pb_BtnBrowseOverallView_MouseLeave(object sender, EventArgs e)
         {
-            pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.bl;
+            pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.BrowseOvDark;
         }
 
         private void pictureBox31_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox31.Image = ShineWay.Properties.Resources.br;
+            pictureBox31.Image = ShineWay.Properties.Resources.BrowseInViewdark;
         }
 
         public static Bitmap LoadBitmapNolock(string path)
