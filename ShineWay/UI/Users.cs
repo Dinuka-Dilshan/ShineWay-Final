@@ -105,27 +105,42 @@ namespace ShineWay.UI
                             }
                             else
                             {
-                                String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
-                                string temporaryPassword = randomString();
-                                String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address` , `isFirstTimeUser`,`email`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\", 1,\"{txt_email.Text}\")";
-
-                                string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to login!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
-                                Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
-
-
-                                try
+                                MySqlDataReader reader2 = DbConnection.Read("SELECT `NIC` FROM users WHERE `NIC`=\"" + txt_NIC.Text + "\";");
+                                reader2.Read();
+                                
+                                
+                                if (reader2[0].ToString().Equals(txt_NIC.Text))
                                 {
-                                    DbConnection.Write(addQuery);
-                                    CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                                    message.convertToOkButton();
-                                    message.ShowDialog();
-                                    pb_btnReset_Click_1(sender, e);
+                                    CustomMessage submitmessege = new CustomMessage("Id number already exists!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                                    submitmessege.convertToOkButton();
+                                    submitmessege.ShowDialog();
                                 }
-                                catch (Exception ex)
+                                else
                                 {
-                                    new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
+                                    String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
+                                    string temporaryPassword = randomString();
+                                    String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address` , `isFirstTimeUser`,`email`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\", 1,\"{txt_email.Text}\")";
 
+                                    string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to login!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
+                                    Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
+
+
+                                    try
+                                    {
+                                        DbConnection.Write(addQuery);
+                                        CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                        message.convertToOkButton();
+                                        message.ShowDialog();
+                                        pb_btnReset_Click_1(sender, e);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
+
+                                    }
                                 }
+                                
+                                
                                 
                             }
                             
