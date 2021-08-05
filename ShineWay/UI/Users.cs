@@ -82,28 +82,68 @@ namespace ShineWay.UI
                     try
                     {
                         reader = DbConnection.Read("SELECT COUNT(`ID`) FROM `users`");
-                        while (reader.Read())
-                        {
 
+                        if (reader.Equals(null))
+                        {
+                            new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
                         }
+                        else
+                        {
+                            while (reader.Read())
+                            {
+
+                            }
+                        }
+                        
 
 
                         try
                         {
-                            String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
-                            string temporaryPassword = randomString();
-                            String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address` , `isFirstTimeUser`,`email`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\", 1,\"{txt_email.Text}\")";
+                            if (reader.Equals(null))
+                            {
+                                new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
+                            }
+                            else
+                            {
+                                MySqlDataReader reader2 = DbConnection.Read("SELECT `NIC` FROM users WHERE `NIC`=\"" + txt_NIC.Text + "\";");
+                                reader2.Read();
+                                
+                                
+                                if (reader2[0].ToString().Equals(txt_NIC.Text))
+                                {
+                                    CustomMessage submitmessege = new CustomMessage("Id number already exists!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                                    submitmessege.convertToOkButton();
+                                    submitmessege.ShowDialog();
+                                }
+                                else
+                                {
+                                    String tempUserName = txt_name.Text.Trim().Split(" ")[0] + (Int32.Parse(reader[0].ToString()) + 1);
+                                    string temporaryPassword = randomString();
+                                    String addQuery = $"INSERT INTO `users`(`username`, `password`, `NIC`, `name`, `user_type`, `Telephone`, `Address` , `isFirstTimeUser`,`email`) VALUES (  \"{tempUserName}\",  \"{Encrypt.encryption(temporaryPassword)}\",  \"{txt_NIC.Text}\",   \"{txt_name.Text}\",   \"{combo_userType.Text}\",   \"{txt_telephoneNumber.Text}\",  \"{txt_address.Text}\", 1,\"{txt_email.Text}\")";
 
-                            string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to login!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
-                            Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
+                                    string emailMessage = $"Welcome to Shineway rental!\nShineWay Rental Admin has added you to the system.Please use the Username and the temporary password to login!\n\nUsername:  {tempUserName} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
+                                    Emails.sendEmail(txt_email.Text.Trim(), "Welcome to ShineWay!", emailMessage);
 
+
+                                    try
+                                    {
+                                        DbConnection.Write(addQuery);
+                                        CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                        message.convertToOkButton();
+                                        message.ShowDialog();
+                                        pb_btnReset_Click_1(sender, e);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
+
+                                    }
+                                }
+                                
+                                
+                                
+                            }
                             
-
-                            DbConnection.Write(addQuery);
-                            CustomMessage message = new CustomMessage("User Added Successfully!", "Added", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                            message.convertToOkButton();
-                            message.ShowDialog();
-                            pb_btnReset_Click_1(sender, e);
 
                         }
                         catch (Exception exe)
@@ -427,6 +467,42 @@ namespace ShineWay.UI
             string query = $"SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users` WHERE `NIC` LIKE \"%{txt_search.Text}%\" OR `name` LIKE \"%{txt_search.Text}%\" OR `user_type` LIKE \"%{txt_search.Text}%\"  OR `Telephone` LIKE \"%{txt_search.Text}%\" OR `Address` LIKE \"%{txt_search.Text}%\" OR `email` LIKE \"%{txt_search.Text}%\"";
             
             setDataToTable(query);
+
+            try
+            {
+                isNameValid = true;
+                isNICValid = true;
+                isTelephoneNumberValid = true;
+                isAddressValid = true;
+                isEmailValid = true;
+                txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                //to reset warnings
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicError.Visible = false;
+                pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+                label_telError.Visible = false;
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
+                label_addressError.Visible = false;
+                label_telTick.Visible = false;
+                label_tickAddress.Visible = false;
+                label_tickNIC.Visible = false;
+                label_tickName.Visible = false;
+                label_tickEmail.Visible = false;
+                label_emailError.Visible = false;
+                label_nameError.Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -435,7 +511,7 @@ namespace ShineWay.UI
             //this.dataGridView1.GridColor = Color.BlueViolet;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26,139,9);
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(33, 150, 243);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
@@ -448,6 +524,42 @@ namespace ShineWay.UI
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = dataGridView1.ColumnHeadersDefaultCellStyle.BackColor;
 
+            try
+            {
+                //to set the already selected row details to fields
+                isNameValid = true;
+                isNICValid = true;
+                isTelephoneNumberValid = true;
+                isAddressValid = true;
+                isEmailValid = true;
+                txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                //to reset warnings
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicError.Visible = false;
+                pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+                label_telError.Visible = false;
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
+                label_addressError.Visible = false;
+                label_telTick.Visible = false;
+                label_tickAddress.Visible = false;
+                label_tickNIC.Visible = false;
+                label_tickName.Visible = false;
+                label_tickEmail.Visible = false;
+                label_emailError.Visible = false;
+                label_nameError.Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
 
 
@@ -456,54 +568,79 @@ namespace ShineWay.UI
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
 
-            MySqlDataReader reader = DbConnection.Read(query);
-
-            while (reader.Read())
+            try
             {
-                int x = dataGridView1.Rows.Add();
-                dataGridView1.Rows[x].Cells[0].Value = reader.GetString("NIC");
-                dataGridView1.Rows[x].Cells[1].Value = reader.GetString("name");
-                dataGridView1.Rows[x].Cells[2].Value = reader.GetString("user_type");
-                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Telephone");
-                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
-                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Address");
-                dataGridView1.Rows[x].Cells[6].Value = reader.GetString("ID");
+                MySqlDataReader reader = DbConnection.Read(query);
+                if (reader.Equals(null))
+                {
+                    CustomMessage messege = new CustomMessage("Unable to Connect!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                    messege.convertToOkButton();
+                    messege.ShowDialog();
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        int x = dataGridView1.Rows.Add();
+                        dataGridView1.Rows[x].Cells[0].Value = reader.GetString("NIC");
+                        dataGridView1.Rows[x].Cells[1].Value = reader.GetString("name");
+                        dataGridView1.Rows[x].Cells[2].Value = reader.GetString("user_type");
+                        dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Telephone");
+                        dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
+                        dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Address");
+                        dataGridView1.Rows[x].Cells[6].Value = reader.GetString("ID");
 
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+
+                new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
+            }
+
+            
         }
 
        
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                isNameValid = true;
+                isNICValid = true;
+                isTelephoneNumberValid = true;
+                isAddressValid = true;
+                isEmailValid = true;
+                txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                //to reset warnings
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                label_nicError.Visible = false;
+                pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+                label_telError.Visible = false;
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
+                label_addressError.Visible = false;
+                label_telTick.Visible = false;
+                label_tickAddress.Visible = false;
+                label_tickNIC.Visible = false;
+                label_tickName.Visible = false;
+                label_tickEmail.Visible = false;
+                label_emailError.Visible = false;
+                label_nameError.Visible = false;
+            }
+            catch (Exception ex)
+            {
+
+            }
             
-            isNameValid = true;
-            isNICValid = true;
-            isTelephoneNumberValid = true;
-            isAddressValid = true;
-            isEmailValid = true;
-            txt_NIC.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            txt_name.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-            combo_userType.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            //to reset warnings
-            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
-            pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
-            label_nicError.Visible = false;
-            pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
-            label_telError.Visible = false;
-            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
-            pictureBox3.Image = ShineWay.Properties.Resources.correctInput;
-            label_addressError.Visible = false;
-            label_telTick.Visible = false;
-            label_tickAddress.Visible = false;
-            label_tickNIC.Visible = false;
-            label_tickName.Visible = false;
-            label_tickEmail.Visible = false;
-            label_emailError.Visible = false;
-            label_nameError.Visible = false;
 
         }
 
