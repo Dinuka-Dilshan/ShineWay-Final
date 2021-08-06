@@ -235,5 +235,48 @@ namespace ShineWay.UI
             }
            
         }
+
+        private void HomeControl_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                String queryForCarCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Car\"; ";
+                MySqlDataReader reader = DbConnection.Read(queryForCarCount);
+                reader.Read();
+                label_carCount.Text = "AVAILABLE : " + reader[0].ToString();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+
+
+            try
+            {
+                String queryForVanCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Van\"; ";
+                MySqlDataReader reader = DbConnection.Read(queryForVanCount);
+                reader.Read();
+                label_vanCount.Text = "AVAILABLE : " + reader[0].ToString();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+
+
+            try
+            {
+                String queryForBikeCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Bike\"; ";
+                MySqlDataReader reader = DbConnection.Read(queryForBikeCount);
+                reader.Read();
+                label_bikeCount.Text = "AVAILABLE : " + reader[0].ToString();
+                
+                
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
