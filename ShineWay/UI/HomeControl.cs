@@ -43,7 +43,7 @@ namespace ShineWay.UI
 
                 try
                 {
-                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + ".jpg");
+                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
                 }
                 catch (Exception ex)
                 {
@@ -90,7 +90,7 @@ namespace ShineWay.UI
                 label_weeklyRental.Text = vehicles[vehicleIndex].getWeeklyRental();
                 try
                 {
-                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + ".jpg");
+                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
                 }
                 catch (Exception ex)
                 {
