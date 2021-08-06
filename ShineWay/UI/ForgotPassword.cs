@@ -56,7 +56,7 @@ namespace ShineWay.UI
             {
                 
                 string userName = txt_username.Text.Trim();
-                string queryForExistence = $"SELECT `username`, `name`, `email` FROM `users` WHERE `username` = \"{userName}\"";
+                string queryForExistence = $"SELECT `username`, `name`, `email` FROM `users` WHERE `username` = \"{userName}\" OR `email` = \"{userName}\";" ;
 
                 MySqlDataReader reader = null;
 
@@ -67,7 +67,7 @@ namespace ShineWay.UI
                     while (reader.Read())
                     {
 
-                        if (reader[0].ToString().Equals(userName))
+                        if (reader[0].ToString().Equals(userName)|| reader[2].ToString().Equals(userName))
                         {
 
                             try
@@ -77,7 +77,7 @@ namespace ShineWay.UI
                                 DbConnection.Update(query);
                                 string emailMessage = $"Dear {reader[1].ToString()},\nYour Password Has been Reset!.Please use the Username and the temporary password given below to login!\n\nUsername:  {reader[0].ToString()} \nTemporary password:  {temporaryPassword} \n\nThank you.\nShineWay Rental 2021";
                                 Emails.sendEmail(reader[2].ToString(), "ShineWay Password Reset!", emailMessage);
-                                CustomMessage message = new CustomMessage("Successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                CustomMessage message = new CustomMessage("Please Check Your Email!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
                                 message.convertToOkButton();
                                 message.ShowDialog();
                                 btn_Close.PerformClick();
@@ -100,7 +100,7 @@ namespace ShineWay.UI
                         }
 
                     }
-                    CustomMessage message3 = new CustomMessage("Username Does Not Exist!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    CustomMessage message3 = new CustomMessage("Username or Email Does \nNot Exist!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                     message3.convertToOkButton();
                     message3.ShowDialog();
 
@@ -108,11 +108,24 @@ namespace ShineWay.UI
                 }
                 catch (Exception exc)
                 {
-                    reader.Close();
+                    if (reader == null)
+                    {
+                        CustomMessage message3 = new CustomMessage("Cannot connect to the \nDatabase!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                        message3.convertToOkButton();
+                        message3.ShowDialog();
+                    }
+                    else
+                    {
+                        reader.Close();
+                    }
+                    
                 }
 
-
-                reader.Close();
+                if(!(reader == null))
+                {
+                    reader.Close();
+                }
+                
             }
             Cursor = Cursors.Arrow;
         }
