@@ -94,7 +94,7 @@ namespace ShineWay.UI
                 dgv_Booking.Refresh();
             try
             {
-                MySqlDataReader reader = DbConnection.Read(query);
+               // MySqlDataReader reader = DbConnection.Read(query);
             
                 MySqlDataReader reader1 = DbConnection.Read(query);
 
@@ -317,7 +317,7 @@ namespace ShineWay.UI
                         MySqlDataReader reader3 = DbConnection.Read("INSERT INTO `booking` (`Vehicle_num`, `Booking_ID`, `Licen_num`, `Start_date`, `Start_ODO`, `Package_Type`, `Cus_NIC`, `Discription`) VALUES ('" + txt_vehicleRegNumber.Text.Trim() + "', '" + txt_bookingId.Text.Trim() + "', '" + txt_licenseNumber.Text + "', '" + date_startingDate.Text + "', '" + txt_startingOdometer.Text + "', '" + combo_packageType.Text + "', '" + txt_customerNic.Text + "', '" + txt_description.Text + "');");
                         try
                         {
-                            MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`,`Deposite_Amount`,`Advance_Payment`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" + date_endDate.Text + "','" + txt_depositAmount.Text.Trim() + "','" + txt_advancedPayment.Text.Trim() + "');");
+                            MySqlDataReader reader4 = DbConnection.Read("INSERT INTO `payment` ( `Booking_ID`, `Cust_NIC`,`Vehicle_num`,`Status`, `End_date`,`Deposite_Amount`,`Advance_Payment`,`End_ODO`,`Amount`,`Discount`,`Sub_Amount`) VALUES ('" + txt_bookingId.Text.Trim() + "', '" + txt_customerNic.Text.Trim() + "', '" + txt_vehicleRegNumber.Text.Trim() + "', 'Ongoing', '" + date_endDate.Text + "','" + txt_depositAmount.Text.Trim() + "','" + txt_advancedPayment.Text.Trim() + "','0','0','0','0');");
                             try
                             {
                                 CustomMessage submitmessege = new CustomMessage("Booking Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
