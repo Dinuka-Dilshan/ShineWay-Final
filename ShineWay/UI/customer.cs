@@ -313,8 +313,8 @@ namespace ShineWay.UI
                     {
                         try
                         {
-                            DbConnection.Read("UPDATE customer set Licen_num='" + txt_licenseNumber.Text + "', Cus_name='" + txt_customerName.Text + "' , Tel_num='" + txt_telephoneNumber.Text + "', Email='"
-                            + txt_email.Text + "' , Cus_Address='" + txt_address.Text + "' where Cus_NIC='" + txt_nicNumber.Text + "'");
+                         //   $"UPDATE `customer` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\",`Brand`= \"{txt_brand.Text}\",`Model`= \"{txt_model.Text}\",`Type`= \"{combo_type.Text}\",`Engine_Num`= \"{txt_engineNumber.Text}\",`Chassis_Num`= \"{txt_chasisNumber.Text}\",`Owner_NIC`= \"{txt_ownerNIC.Text}\",`Reg_Date`= \"{date_registeredDate.Text}\",`Owner_Condi`= \"{txt_ownerCondition.Text}\",`Daily_price`= \"{txt_DailyPrice.Text}\",`Daliy_KM`= \"{txt_Dailykm.Text}\",`Weekly_price`= \"{txt_WeeklyPrice.Text}\",`Weekly_KM`= \"{txt_Weeklykm.Text}\",`Monthly_price`= \"{txt_MonthlyPrice.Text}\",`Monthy_KM`= \"{txt_Monthlykm.Text}\",`Extrakm_price`= \"{txt_ExtrakmPrice.Text}\",`Owner_payment`= \"{txt_OwnerPayment.Text}\",`Starting_odo`= \"{msktxt_startingOdo.Text}\"  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
+                            DbConnection.Read($"UPDATE `customer` SET Licen_num= \"{txt_licenseNumber.Text}\", Cus_name=\"{txt_customerName.Text}\" , Tel_num=\"{txt_telephoneNumber.Text}\", Email=\"{txt_email.Text}\" , Cus_Address=\"{txt_address.Text}\" where Cus_NIC=\"{dataGridView1.SelectedRows[0].Cells[0].Value}\"");
 
                             CustomMessage message = new CustomMessage("Customer Updated Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             message.convertToOkButton();
@@ -329,6 +329,7 @@ namespace ShineWay.UI
                     }
                     else
                     {
+                
                         CustomMessage submitmessege = new CustomMessage("All fields must be corrected\n before Updated!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                         submitmessege.convertToOkButton();
                         submitmessege.ShowDialog();
@@ -374,12 +375,6 @@ namespace ShineWay.UI
         }
 
         
-
-        private void txt_nicNumber_Validated(object sender, EventArgs e)
-        {
-            
-           
-        }
 
         private void ValidCustomerOldNIC(object sender, EventArgs e)
         {
@@ -507,17 +502,6 @@ namespace ShineWay.UI
             }
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_nicNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txt_licenseNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txt_customerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txt_telephoneNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txt_email.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txt_address.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            
-        }
-
         private void customer_Load(object sender, EventArgs e)
         {
             setDataToTable("Select * from customer");
@@ -611,6 +595,26 @@ namespace ShineWay.UI
                 new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
             }
             }
+
+        private void txt_licenseNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_nicNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_licenseNumber.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_customerName.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
     
 }

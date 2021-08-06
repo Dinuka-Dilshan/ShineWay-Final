@@ -156,7 +156,7 @@ namespace ShineWay.UI
             }
             else
             {
-                txt_nicNumber.ForeColor = Color.Red;
+               // txt_nicNumber.ForeColor = Color.Red;
             }
 
             //Salutation
@@ -500,7 +500,7 @@ namespace ShineWay.UI
         {
             dataGridView1.BorderStyle = BorderStyle.None;
             //this.dataGridView1.GridColor = Color.BlueViolet;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+          //  dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(33, 150, 243);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
@@ -553,11 +553,12 @@ namespace ShineWay.UI
             label_tickAddress.Visible = false;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
-            string query = $"SELECT `Owner_NIC`, `Owner_name`, `Tel_num`, `Owner_Email`, `Owner_Address`, `Salute`, `ID` FROM `owner` WHERE `Owner_NIC` LIKE \"%{txt_nicNumber.Text}%\" OR `Owner_name` LIKE \"%{txt_ownerName.Text}%\" OR `Tel_num` LIKE \"%{txt_telephone.Text}%\"  OR `Owner_Email` LIKE \"%{txt_email.Text}%\" OR `Owner_Address` LIKE \"%{txt_address.Text}%\" OR `Salute` LIKE \"%{lbl_salutation.Text}%\"";
-
+            string query = $"SELECT  `ID`, `Owner_NIC`, `Salute`, `Owner_name`,`Tel_num`, `Owner_Email` ,`Owner_Address` FROM `owner` WHERE `Owner_NIC` LIKE \"%{textBox1.Text}%\" OR `Salute` LIKE \"%{textBox1.Text}%\" OR `Owner_name` LIKE \"%{textBox1.Text}%\"  OR `Tel_num` LIKE \"%{textBox1.Text}%\" OR `Owner_Email` LIKE \"%{textBox1.Text}%\" OR `Owner_Address` LIKE \"%{textBox1.Text}%\"";
+          
             setDataToDGV(query);
+
         }
     }
 }
