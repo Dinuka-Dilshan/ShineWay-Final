@@ -302,7 +302,7 @@ namespace ShineWay.UI
                     txt_startingOdometer.Text != "" &&
                     combo_packageType.Text != "" &&
                     txt_depositAmount.Text != "" &&
-                    date_startingDate.Value >= DateTime.Now  &&
+                    date_startingDate.Value >= DateTime.Today &&
                     date_endDate.Value >= date_startingDate.Value &&
                     IsValidPackagetype == true
 
