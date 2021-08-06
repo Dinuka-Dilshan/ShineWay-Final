@@ -72,6 +72,7 @@ namespace ShineWay.UI
             this.label_carCount = new System.Windows.Forms.Label();
             this.label_vanCount = new System.Windows.Forms.Label();
             this.label_bikeCount = new System.Windows.Forms.Label();
+            this.checkBox_ignoreOngoing = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -585,10 +586,27 @@ namespace ShineWay.UI
             this.label_bikeCount.TabIndex = 60;
             this.label_bikeCount.Text = "AVAILABLE :";
             // 
+            // checkBox_ignoreOngoing
+            // 
+            this.checkBox_ignoreOngoing.AutoSize = true;
+            this.checkBox_ignoreOngoing.BackColor = System.Drawing.Color.White;
+            this.checkBox_ignoreOngoing.FlatAppearance.BorderSize = 0;
+            this.checkBox_ignoreOngoing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.checkBox_ignoreOngoing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.checkBox_ignoreOngoing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox_ignoreOngoing.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBox_ignoreOngoing.Location = new System.Drawing.Point(1279, 644);
+            this.checkBox_ignoreOngoing.Name = "checkBox_ignoreOngoing";
+            this.checkBox_ignoreOngoing.Size = new System.Drawing.Size(168, 26);
+            this.checkBox_ignoreOngoing.TabIndex = 61;
+            this.checkBox_ignoreOngoing.Text = "Ignore Ongoing";
+            this.checkBox_ignoreOngoing.UseVisualStyleBackColor = false;
+            // 
             // HomeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBox_ignoreOngoing);
             this.Controls.Add(this.label_bikeCount);
             this.Controls.Add(this.label_vanCount);
             this.Controls.Add(this.label_carCount);
@@ -705,5 +723,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label_carCount;
         private System.Windows.Forms.Label label_vanCount;
         private System.Windows.Forms.Label label_bikeCount;
+        private System.Windows.Forms.CheckBox checkBox_ignoreOngoing;
     }
 }

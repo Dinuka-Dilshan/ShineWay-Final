@@ -23,7 +23,16 @@ namespace ShineWay.UI
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             String searchKeyValue = txt_search.Text;
-            String query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
+            String query = "";
+            if (checkBox_ignoreOngoing.Checked)
+            {
+                query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price, payment.End_date FROM vehicle INNER JOIN payment ON NOT payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND(vehicle.BrandLIKE '%" + searchKeyValue + "%' OR vehicle.Model LIKE '%" + searchKeyValue + "%' OR vehicle.Daily_price LIKE '%" + searchKeyValue + "%' OR vehicle.Type LIKE '%" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '%" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '%" + searchKeyValue + "%' ); ";
+            }
+            else
+            {
+                query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR `Model` LIKE '%" + searchKeyValue + "%' OR `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
+
+            }
             vehicles.Clear();
 
             try
@@ -240,7 +249,7 @@ namespace ShineWay.UI
         {
             try
             {
-                String queryForCarCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Car\"; ";
+                String queryForCarCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON NOT payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Car\"; ";
                 MySqlDataReader reader = DbConnection.Read(queryForCarCount);
                 reader.Read();
                 label_carCount.Text = "AVAILABLE : " + reader[0].ToString();
@@ -253,7 +262,7 @@ namespace ShineWay.UI
 
             try
             {
-                String queryForVanCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Van\"; ";
+                String queryForVanCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON NOT payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Van\"; ";
                 MySqlDataReader reader = DbConnection.Read(queryForVanCount);
                 reader.Read();
                 label_vanCount.Text = "AVAILABLE : " + reader[0].ToString();
@@ -266,7 +275,7 @@ namespace ShineWay.UI
 
             try
             {
-                String queryForBikeCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Bike\"; ";
+                String queryForBikeCount = "SELECT COUNT(vehicle.Vehicle_num) FROM vehicle INNER JOIN payment ON NOT payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND vehicle.Type = \"Bike\"; ";
                 MySqlDataReader reader = DbConnection.Read(queryForBikeCount);
                 reader.Read();
                 label_bikeCount.Text = "AVAILABLE : " + reader[0].ToString();
