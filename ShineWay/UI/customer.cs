@@ -593,9 +593,9 @@ namespace ShineWay.UI
                          dataGridView1.Rows[x].Cells[0].Value = reader.GetString("Cus_NIC");
                          dataGridView1.Rows[x].Cells[1].Value = reader.GetString("Licen_num");
                          dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Cus_name");
-                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Tel_num");
-                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
-                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Cus_Address");
+                         dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Tel_num");
+                         dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
+                         dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Cus_Address");
 
                     }
                 }
