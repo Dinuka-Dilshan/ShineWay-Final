@@ -741,6 +741,7 @@ namespace ShineWay.UI
             this.txt_bookingId.ReadOnly = true;
             this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
             this.txt_bookingId.TabIndex = 0;
+            this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
             this.txt_bookingId.Leave += new System.EventHandler(this.txt_bookingId_Leave);
             // 
             // combo_packageType
@@ -1212,7 +1213,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.DateTimePicker date_startingDate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.Label label11;
@@ -1227,7 +1227,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.TextBox txt_description;
         private System.Windows.Forms.MaskedTextBox txt_advancedPayment;
         private System.Windows.Forms.MaskedTextBox txt_depositAmount;
-        private System.Windows.Forms.MaskedTextBox txt_startingOdometer;
         private System.Windows.Forms.MaskedTextBox txt_licenseNumber;
         private System.Windows.Forms.MaskedTextBox txt_customerNic;
         private System.Windows.Forms.MaskedTextBox txt_vehicleRegNumber;
@@ -1265,5 +1264,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        public System.Windows.Forms.DateTimePicker date_startingDate;
+        public System.Windows.Forms.MaskedTextBox txt_startingOdometer;
     }
 }
