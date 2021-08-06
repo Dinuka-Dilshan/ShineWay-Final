@@ -226,7 +226,7 @@ namespace ShineWay.UI
             // pictureBox31
             // 
             this.pictureBox31.BackColor = System.Drawing.Color.White;
-            this.pictureBox31.Image = global::ShineWay.Properties.Resources.BrowseLeft;
+            this.pictureBox31.Image = global::ShineWay.Properties.Resources.BrowseInViewdark;
             this.pictureBox31.Location = new System.Drawing.Point(360, 179);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(147, 46);
@@ -238,7 +238,7 @@ namespace ShineWay.UI
             // pb_BtnBrowseOverallView
             // 
             this.pb_BtnBrowseOverallView.BackColor = System.Drawing.Color.White;
-            this.pb_BtnBrowseOverallView.Image = global::ShineWay.Properties.Resources.BrowseLeft;
+            this.pb_BtnBrowseOverallView.Image = global::ShineWay.Properties.Resources.BrowseOvDark;
             this.pb_BtnBrowseOverallView.Location = new System.Drawing.Point(360, 64);
             this.pb_BtnBrowseOverallView.Name = "pb_BtnBrowseOverallView";
             this.pb_BtnBrowseOverallView.Size = new System.Drawing.Size(147, 46);
@@ -722,7 +722,7 @@ namespace ShineWay.UI
             this.label_StartingOdoError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.label_StartingOdoError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_StartingOdoError.ForeColor = System.Drawing.Color.Red;
-            this.label_StartingOdoError.Location = new System.Drawing.Point(429, 725);
+            this.label_StartingOdoError.Location = new System.Drawing.Point(415, 725);
             this.label_StartingOdoError.Margin = new System.Windows.Forms.Padding(0);
             this.label_StartingOdoError.Name = "label_StartingOdoError";
             this.label_StartingOdoError.Size = new System.Drawing.Size(230, 18);
@@ -869,7 +869,7 @@ namespace ShineWay.UI
             this.label_VehicleRegNoError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.label_VehicleRegNoError.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_VehicleRegNoError.ForeColor = System.Drawing.Color.Red;
-            this.label_VehicleRegNoError.Location = new System.Drawing.Point(399, 55);
+            this.label_VehicleRegNoError.Location = new System.Drawing.Point(389, 64);
             this.label_VehicleRegNoError.Margin = new System.Windows.Forms.Padding(0);
             this.label_VehicleRegNoError.Name = "label_VehicleRegNoError";
             this.label_VehicleRegNoError.Size = new System.Drawing.Size(391, 18);
@@ -1159,7 +1159,7 @@ namespace ShineWay.UI
             this.msktxt_vehicleRegNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.msktxt_vehicleRegNumber.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.msktxt_vehicleRegNumber.ForeColor = System.Drawing.Color.Black;
-            this.msktxt_vehicleRegNumber.Location = new System.Drawing.Point(378, 29);
+            this.msktxt_vehicleRegNumber.Location = new System.Drawing.Point(378, 25);
             this.msktxt_vehicleRegNumber.Mask = ">AAC#0000";
             this.msktxt_vehicleRegNumber.Name = "msktxt_vehicleRegNumber";
             this.msktxt_vehicleRegNumber.PromptChar = ' ';
@@ -1497,7 +1497,7 @@ namespace ShineWay.UI
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(58, 19);
+            this.pictureBox4.Location = new System.Drawing.Point(58, 14);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(42, 42);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -1532,7 +1532,7 @@ namespace ShineWay.UI
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(172)))), ((int)(((byte)(251)))));
-            this.label1.Location = new System.Drawing.Point(106, 34);
+            this.label1.Location = new System.Drawing.Point(106, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 27);
             this.label1.TabIndex = 4;

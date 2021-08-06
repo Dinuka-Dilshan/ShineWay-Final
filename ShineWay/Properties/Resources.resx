@@ -292,4 +292,22 @@
   <data name="searchgreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\searchgreen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BrowseInViewdark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BrowseInViewdark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BrowseOvDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BrowseOvDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BrowseOviewDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BrowseOviewDark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Inviewlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inviewlight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ovviewlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ovviewlight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorInputVehicle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ErrorInputVehicle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

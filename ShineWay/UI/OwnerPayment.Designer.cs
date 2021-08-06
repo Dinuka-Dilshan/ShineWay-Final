@@ -72,6 +72,7 @@ namespace ShineWay.UI
             this.vechicle_Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Owner_pay_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payment_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -273,9 +274,7 @@ namespace ShineWay.UI
             this.txt_OwnerPayment.PromptChar = ' ';
             this.txt_OwnerPayment.Size = new System.Drawing.Size(415, 23);
             this.txt_OwnerPayment.TabIndex = 3;
-            this.txt_OwnerPayment.Enter += new System.EventHandler(this.txt_OwnerPayment_Enter);
             this.txt_OwnerPayment.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_OwnerPayment_KeyUp);
-            this.txt_OwnerPayment.Leave += new System.EventHandler(this.txt_OwnerPayment_Leave);
             // 
             // txt_VehicleNumber
             // 
@@ -289,7 +288,6 @@ namespace ShineWay.UI
             this.txt_VehicleNumber.Size = new System.Drawing.Size(415, 23);
             this.txt_VehicleNumber.TabIndex = 2;
             this.txt_VehicleNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_VehicleNumber_KeyUp);
-            this.txt_VehicleNumber.Leave += new System.EventHandler(this.txt_VehicleNumber_Leave);
             // 
             // txt_ownerNIC
             // 
@@ -303,7 +301,6 @@ namespace ShineWay.UI
             this.txt_ownerNIC.Size = new System.Drawing.Size(415, 23);
             this.txt_ownerNIC.TabIndex = 1;
             this.txt_ownerNIC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_ownerNIC_KeyUp);
-            this.txt_ownerNIC.Leave += new System.EventHandler(this.txt_ownerNIC_Leave);
             // 
             // txt_paymentID
             // 
@@ -524,6 +521,7 @@ namespace ShineWay.UI
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -542,7 +540,8 @@ namespace ShineWay.UI
             this.Owner_NIC,
             this.vechicle_Num,
             this.Owner_pay_Amount,
-            this.payment_date});
+            this.payment_date,
+            this.pid});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -554,6 +553,7 @@ namespace ShineWay.UI
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(38, 178);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -579,6 +579,7 @@ namespace ShineWay.UI
             this.Owner_NIC.HeaderText = "Owner NIC";
             this.Owner_NIC.MinimumWidth = 6;
             this.Owner_NIC.Name = "Owner_NIC";
+            this.Owner_NIC.ReadOnly = true;
             this.Owner_NIC.Width = 200;
             // 
             // vechicle_Num
@@ -587,6 +588,7 @@ namespace ShineWay.UI
             this.vechicle_Num.HeaderText = "Vehicle Number";
             this.vechicle_Num.MinimumWidth = 6;
             this.vechicle_Num.Name = "vechicle_Num";
+            this.vechicle_Num.ReadOnly = true;
             this.vechicle_Num.Width = 200;
             // 
             // Owner_pay_Amount
@@ -595,6 +597,7 @@ namespace ShineWay.UI
             this.Owner_pay_Amount.HeaderText = "Amount";
             this.Owner_pay_Amount.MinimumWidth = 6;
             this.Owner_pay_Amount.Name = "Owner_pay_Amount";
+            this.Owner_pay_Amount.ReadOnly = true;
             this.Owner_pay_Amount.Width = 200;
             // 
             // payment_date
@@ -603,7 +606,18 @@ namespace ShineWay.UI
             this.payment_date.HeaderText = "Date";
             this.payment_date.MinimumWidth = 6;
             this.payment_date.Name = "payment_date";
+            this.payment_date.ReadOnly = true;
             this.payment_date.Width = 200;
+            // 
+            // pid
+            // 
+            this.pid.DataPropertyName = "payment_id";
+            this.pid.HeaderText = "Column1";
+            this.pid.MinimumWidth = 6;
+            this.pid.Name = "pid";
+            this.pid.ReadOnly = true;
+            this.pid.Visible = false;
+            this.pid.Width = 125;
             // 
             // pictureBox17
             // 
@@ -635,6 +649,7 @@ namespace ShineWay.UI
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 25);
             this.textBox1.TabIndex = 3;
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // pictureBox16
             // 
@@ -735,5 +750,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn vechicle_Num;
         private System.Windows.Forms.DataGridViewTextBoxColumn Owner_pay_Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn payment_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pid;
     }
 }
