@@ -226,7 +226,7 @@ namespace ShineWay.UI
             // pictureBox31
             // 
             this.pictureBox31.BackColor = System.Drawing.Color.White;
-            this.pictureBox31.Image = global::ShineWay.Properties.Resources.BrowseLeft;
+            this.pictureBox31.Image = global::ShineWay.Properties.Resources.BrowseInViewdark;
             this.pictureBox31.Location = new System.Drawing.Point(360, 179);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(147, 46);
@@ -238,7 +238,7 @@ namespace ShineWay.UI
             // pb_BtnBrowseOverallView
             // 
             this.pb_BtnBrowseOverallView.BackColor = System.Drawing.Color.White;
-            this.pb_BtnBrowseOverallView.Image = global::ShineWay.Properties.Resources.BrowseLeft;
+            this.pb_BtnBrowseOverallView.Image = global::ShineWay.Properties.Resources.BrowseOvDark;
             this.pb_BtnBrowseOverallView.Location = new System.Drawing.Point(360, 64);
             this.pb_BtnBrowseOverallView.Name = "pb_BtnBrowseOverallView";
             this.pb_BtnBrowseOverallView.Size = new System.Drawing.Size(147, 46);

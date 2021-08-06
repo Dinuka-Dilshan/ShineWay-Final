@@ -833,6 +833,7 @@ namespace ShineWay.UI
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(230, 25);
             this.txt_search.TabIndex = 3;
+            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
             // 
             // pictureBox16
             // 
