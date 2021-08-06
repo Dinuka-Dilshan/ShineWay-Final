@@ -8,7 +8,7 @@ namespace ShineWay.DataBase
     class DbConnection
     {
         private static string connectionString = "datasource=localhost; username=root; password=; database=shineway";
-
+        
         public static MySqlDataReader Read(string query)
         {
 

@@ -135,9 +135,9 @@ namespace ShineWay.UI
             this.label1.Location = new System.Drawing.Point(238, 307);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 22);
+            this.label1.Size = new System.Drawing.Size(174, 22);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Username";
+            this.label1.Text = "Username or Email";
             // 
             // pictureBox4
             // 
