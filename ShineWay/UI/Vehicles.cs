@@ -251,7 +251,7 @@ namespace ShineWay.UI
 
             if (opf.ShowDialog() == DialogResult.OK)
             {
-                pb_overallViewimg.Image.Dispose();
+              //  pb_overallViewimg.Image.Dispose();
                 pb_overallViewimg.Image = LoadBitmapNolock(opf.FileName);
 
             }
@@ -265,7 +265,7 @@ namespace ShineWay.UI
 
             if (opf.ShowDialog() == DialogResult.OK)
             {
-                pb_InsideViewimg.Image.Dispose();
+              //  pb_InsideViewimg.Image.Dispose();
                 pb_InsideViewimg.Image = LoadBitmapNolock(opf.FileName);
             }
         }
@@ -277,7 +277,7 @@ namespace ShineWay.UI
 
         private void pb_BtnBrowseOverallView_MouseHover(object sender, EventArgs e)
         {
-        pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.hbl;
+        pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.Ovviewlight;
         }
 
 
@@ -477,6 +477,7 @@ namespace ShineWay.UI
                 isNICValid = false;
                 isNICValidForUpdate = false;
             }
+         
         }
 
         private void txt_ownerCondition_KeyUp(object sender, KeyEventArgs e)
@@ -888,7 +889,7 @@ namespace ShineWay.UI
                         if (isAllValidForUpdate())
                         {
 
-                            string query = $"UPDATE `vehicle` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\",`Brand`= \"{txt_brand.Text}\",`Model`= \"{txt_brand.Text}\",`Type`= \"{combo_type.Text}\",`Engine_Num`= \"{txt_engineNumber.Text}\",`Chassis_Num`= \"{txt_chasisNumber.Text}\",`Owner_NIC`= \"{txt_ownerNIC.Text}\",`Reg_Date`= \"{date_registeredDate.Text}\",`Owner_Condi`= \"{txt_ownerCondition.Text}\",`Daily_price`= \"{txt_DailyPrice.Text}\",`Daliy_KM`= \"{txt_Dailykm.Text}\",`Weekly_price`= \"{txt_WeeklyPrice.Text}\",`Weekly_KM`= \"{txt_Weeklykm.Text}\",`Monthly_price`= \"{txt_MonthlyPrice.Text}\",`Monthy_KM`= \"{txt_Monthlykm.Text}\",`Extrakm_price`= \"{txt_ExtrakmPrice.Text}\",`Owner_payment`= \"{txt_OwnerPayment.Text}\",`Starting_odo`= \"{msktxt_startingOdo.Text}\"  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
+                            string query = $"UPDATE `vehicle` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\",`Brand`= \"{txt_brand.Text}\",`Model`= \"{txt_model.Text}\",`Type`= \"{combo_type.Text}\",`Engine_Num`= \"{txt_engineNumber.Text}\",`Chassis_Num`= \"{txt_chasisNumber.Text}\",`Owner_NIC`= \"{txt_ownerNIC.Text}\",`Reg_Date`= \"{date_registeredDate.Text}\",`Owner_Condi`= \"{txt_ownerCondition.Text}\",`Daily_price`= \"{txt_DailyPrice.Text}\",`Daliy_KM`= \"{txt_Dailykm.Text}\",`Weekly_price`= \"{txt_WeeklyPrice.Text}\",`Weekly_KM`= \"{txt_Weeklykm.Text}\",`Monthly_price`= \"{txt_MonthlyPrice.Text}\",`Monthy_KM`= \"{txt_Monthlykm.Text}\",`Extrakm_price`= \"{txt_ExtrakmPrice.Text}\",`Owner_payment`= \"{txt_OwnerPayment.Text}\",`Starting_odo`= \"{msktxt_startingOdo.Text}\"  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
                             try
                             {
                                 DbConnection.Update(query);
@@ -995,17 +996,17 @@ namespace ShineWay.UI
 
         private void pictureBox31_MouseHover(object sender, EventArgs e)
         {
-            pictureBox31.Image = ShineWay.Properties.Resources.hbr;
+            pictureBox31.Image = ShineWay.Properties.Resources.Inviewlight;
         }
 
         private void pb_BtnBrowseOverallView_MouseLeave(object sender, EventArgs e)
         {
-            pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.bl;
+            pb_BtnBrowseOverallView.Image = ShineWay.Properties.Resources.BrowseOvDark;
         }
 
         private void pictureBox31_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox31.Image = ShineWay.Properties.Resources.br;
+            pictureBox31.Image = ShineWay.Properties.Resources.BrowseInViewdark;
         }
 
         public static Bitmap LoadBitmapNolock(string path)

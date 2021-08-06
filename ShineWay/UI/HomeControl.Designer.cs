@@ -69,9 +69,9 @@ namespace ShineWay.UI
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label_carCount = new System.Windows.Forms.Label();
+            this.label_vanCount = new System.Windows.Forms.Label();
+            this.label_bikeCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -546,52 +546,52 @@ namespace ShineWay.UI
             this.pictureBox21.TabIndex = 57;
             this.pictureBox21.TabStop = false;
             // 
-            // label9
+            // label_carCount
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.Window;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(272, 376);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 22);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "AVAILABLE :";
+            this.label_carCount.AutoSize = true;
+            this.label_carCount.BackColor = System.Drawing.SystemColors.Window;
+            this.label_carCount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_carCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_carCount.Location = new System.Drawing.Point(272, 376);
+            this.label_carCount.Margin = new System.Windows.Forms.Padding(0);
+            this.label_carCount.Name = "label_carCount";
+            this.label_carCount.Size = new System.Drawing.Size(111, 22);
+            this.label_carCount.TabIndex = 58;
+            this.label_carCount.Text = "AVAILABLE :";
             // 
-            // label10
+            // label_vanCount
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.Window;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(780, 376);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 22);
-            this.label10.TabIndex = 59;
-            this.label10.Text = "AVAILABLE :";
+            this.label_vanCount.AutoSize = true;
+            this.label_vanCount.BackColor = System.Drawing.SystemColors.Window;
+            this.label_vanCount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_vanCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_vanCount.Location = new System.Drawing.Point(780, 376);
+            this.label_vanCount.Margin = new System.Windows.Forms.Padding(0);
+            this.label_vanCount.Name = "label_vanCount";
+            this.label_vanCount.Size = new System.Drawing.Size(111, 22);
+            this.label_vanCount.TabIndex = 59;
+            this.label_vanCount.Text = "AVAILABLE :";
             // 
-            // label13
+            // label_bikeCount
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.SystemColors.Window;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(1297, 376);
-            this.label13.Margin = new System.Windows.Forms.Padding(0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(111, 22);
-            this.label13.TabIndex = 60;
-            this.label13.Text = "AVAILABLE :";
+            this.label_bikeCount.AutoSize = true;
+            this.label_bikeCount.BackColor = System.Drawing.SystemColors.Window;
+            this.label_bikeCount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_bikeCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_bikeCount.Location = new System.Drawing.Point(1297, 376);
+            this.label_bikeCount.Margin = new System.Windows.Forms.Padding(0);
+            this.label_bikeCount.Name = "label_bikeCount";
+            this.label_bikeCount.Size = new System.Drawing.Size(111, 22);
+            this.label_bikeCount.TabIndex = 60;
+            this.label_bikeCount.Text = "AVAILABLE :";
             // 
             // HomeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label_bikeCount);
+            this.Controls.Add(this.label_vanCount);
+            this.Controls.Add(this.label_carCount);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox21);
             this.Controls.Add(this.label7);
@@ -633,6 +633,7 @@ namespace ShineWay.UI
             this.Controls.Add(this.pictureBox7);
             this.Name = "HomeControl";
             this.Size = new System.Drawing.Size(1800, 900);
+            this.Load += new System.EventHandler(this.HomeControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -701,8 +702,8 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox21;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label_carCount;
+        private System.Windows.Forms.Label label_vanCount;
+        private System.Windows.Forms.Label label_bikeCount;
     }
 }

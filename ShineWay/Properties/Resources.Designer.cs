@@ -123,9 +123,39 @@ namespace ShineWay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BrowseInViewdark {
+            get {
+                object obj = ResourceManager.GetObject("BrowseInViewdark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BrowseLeft {
             get {
                 object obj = ResourceManager.GetObject("BrowseLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BrowseOvDark {
+            get {
+                object obj = ResourceManager.GetObject("BrowseOvDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BrowseOviewDark {
+            get {
+                object obj = ResourceManager.GetObject("BrowseOviewDark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,6 +253,16 @@ namespace ShineWay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ErrorInputVehicle {
+            get {
+                object obj = ResourceManager.GetObject("ErrorInputVehicle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye {
             get {
                 object obj = ResourceManager.GetObject("eye", resourceCulture);
@@ -296,6 +336,16 @@ namespace ShineWay.Properties {
         internal static System.Drawing.Bitmap insideLabel {
             get {
                 object obj = ResourceManager.GetObject("insideLabel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Inviewlight {
+            get {
+                object obj = ResourceManager.GetObject("Inviewlight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -416,6 +466,16 @@ namespace ShineWay.Properties {
         internal static System.Drawing.Bitmap Overalllabel {
             get {
                 object obj = ResourceManager.GetObject("Overalllabel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ovviewlight {
+            get {
+                object obj = ResourceManager.GetObject("Ovviewlight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

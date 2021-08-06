@@ -156,7 +156,7 @@ namespace ShineWay.UI
             }
             else
             {
-                txt_nicNumber.ForeColor = Color.Red;
+               // txt_nicNumber.ForeColor = Color.Red;
             }
 
             //Salutation
@@ -500,7 +500,7 @@ namespace ShineWay.UI
         {
             dataGridView1.BorderStyle = BorderStyle.None;
             //this.dataGridView1.GridColor = Color.BlueViolet;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+          //  dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(33, 150, 243);
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
