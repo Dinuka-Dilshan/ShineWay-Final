@@ -88,6 +88,21 @@ namespace ShineWay.UI
            // selectPackageType();
         }
 
+        private void isAvailable(string Check)
+        {
+            MySqlDataReader isDataAvailable = DbConnection.Read("SELECT `v`.`Vehicle_num` FROM `vehicle` `v` WHERE `v`.`Vehicle_num` = "+Check+"");
+
+            if (isDataAvailable == null)
+            {
+                lbl_vehicleUnavailable.Visible = true;
+                
+            }
+            else
+            {
+                lbl_vehicleUnavailable.Visible = false;
+            }
+        }
+
         public void setDataToGrid(string query)                                     // det data to datagridview
         {
                 dgv_Booking.Rows.Clear();
@@ -140,9 +155,7 @@ namespace ShineWay.UI
                 isEndDatevalid();
         }
 
-
-
-        
+       
 
         // ++++++++++++++++ hoverings ++++++++++++++++
 
@@ -425,6 +438,7 @@ namespace ShineWay.UI
             {
                 lbl_vehicleNumberCorrect.Visible = true;
                 lbl_vehicleNumberError.Visible = false;
+               // isAvailable(txt_vehicleRegNumber.Text);
             }
             else
             {
@@ -638,5 +652,8 @@ namespace ShineWay.UI
         {
             isEndDatevalid();
         }
+
+       
+        
     }
 }

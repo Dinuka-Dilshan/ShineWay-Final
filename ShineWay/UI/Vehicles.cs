@@ -66,7 +66,7 @@ namespace ShineWay.UI
         {
             InitializeComponent();
             combo_type.SelectedIndex = 0;
-            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
+            setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daily_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthly_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
         }
 
 
@@ -152,7 +152,7 @@ namespace ShineWay.UI
                             try
                             {
 
-                                String addQuery = $"INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo`) VALUES (  \"{msktxt_vehicleRegNumber.Text}\",  \"{txt_brand.Text}\",  \"{txt_model.Text}\",   \"{combo_type.Text}\",   \"{txt_engineNumber.Text}\",   \"{txt_chasisNumber.Text}\",  \"{txt_ownerNIC.Text}\",  \"{date_registeredDate.Text}\",  \"{txt_ownerCondition.Text}\",  \"{txt_DailyPrice.Text}\",   \"{txt_Dailykm.Text}\",   \"{txt_WeeklyPrice.Text}\",   \"{txt_Weeklykm.Text}\",  \"{txt_MonthlyPrice.Text}\",  \"{txt_Monthlykm.Text}\",  \"{txt_ExtrakmPrice.Text}\",   \"{txt_OwnerPayment.Text}\",   \"{msktxt_startingOdo.Text}\")";
+                                String addQuery = $"INSERT INTO `vehicle`(`Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daily_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthly_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo`) VALUES (  \"{msktxt_vehicleRegNumber.Text}\",  \"{txt_brand.Text}\",  \"{txt_model.Text}\",   \"{combo_type.Text}\",   \"{txt_engineNumber.Text}\",   \"{txt_chasisNumber.Text}\",  \"{txt_ownerNIC.Text}\",  \"{date_registeredDate.Text}\",  \"{txt_ownerCondition.Text}\",  \"{txt_DailyPrice.Text}\",   \"{txt_Dailykm.Text}\",   \"{txt_WeeklyPrice.Text}\",   \"{txt_Weeklykm.Text}\",  \"{txt_MonthlyPrice.Text}\",  \"{txt_Monthlykm.Text}\",  \"{txt_ExtrakmPrice.Text}\",   \"{txt_OwnerPayment.Text}\",   \"{msktxt_startingOdo.Text}\")";
                                 
                                 DbConnection.Write(addQuery);
 
@@ -187,7 +187,7 @@ namespace ShineWay.UI
 
                     }
                     
-                setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
+                setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daily_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthly_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
                 Cursor = Cursors.Arrow;
 
             }catch(Exception ex)
@@ -219,11 +219,11 @@ namespace ShineWay.UI
                     dataGridView1.Rows[x].Cells[7].Value = reader.GetString("Reg_Date");
                     dataGridView1.Rows[x].Cells[8].Value = reader.GetString("Owner_Condi");
                     dataGridView1.Rows[x].Cells[9].Value = reader.GetString("Daily_price");
-                    dataGridView1.Rows[x].Cells[10].Value = reader.GetString("Daliy_KM");
+                    dataGridView1.Rows[x].Cells[10].Value = reader.GetString("Daily_KM");
                     dataGridView1.Rows[x].Cells[11].Value = reader.GetString("Weekly_price");
                     dataGridView1.Rows[x].Cells[12].Value = reader.GetString("Weekly_KM");
                     dataGridView1.Rows[x].Cells[13].Value = reader.GetString("Monthly_price");
-                    dataGridView1.Rows[x].Cells[14].Value = reader.GetString("Monthy_KM");
+                    dataGridView1.Rows[x].Cells[14].Value = reader.GetString("Monthly_KM");
                     dataGridView1.Rows[x].Cells[15].Value = reader.GetString("Extrakm_price");
                     dataGridView1.Rows[x].Cells[16].Value = reader.GetString("Owner_payment");
                     dataGridView1.Rows[x].Cells[17].Value = reader.GetString("Starting_odo");
@@ -804,7 +804,7 @@ namespace ShineWay.UI
                     CustomMessage m = new CustomMessage("successfully Deleted!", "Deleted", ShineWay.Properties.Resources.correct, DialogResult.OK);
                     m.convertToOkButton();
                     m.ShowDialog();
-                    setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
+                    setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daily_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthly_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
 
                 }
                 catch (Exception exc)
@@ -821,7 +821,7 @@ namespace ShineWay.UI
             try
             {
                 // string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Owner_NIC` FROM `vehicle` WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\"";
-                string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`  WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Engine_Num` LIKE \"%{textBox1.Text}%\" OR `Chassis_Num` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\" OR `Reg_Date` LIKE \"%{textBox1.Text}%\" OR `Owner_Condi` LIKE \"%{textBox1.Text}%\" OR `Daily_price` LIKE \"%{textBox1.Text}%\" OR `Daliy_KM` LIKE \"%{textBox1.Text}%\" OR `Weekly_price` LIKE \"%{textBox1.Text}%\" OR `Weekly_KM` LIKE \"%{textBox1.Text}%\" OR `Monthly_price` LIKE \"%{textBox1.Text}%\" OR `Monthy_KM` LIKE \"%{textBox1.Text}%\" OR `Extrakm_price` LIKE \"%{textBox1.Text}%\" OR `Owner_payment` LIKE \"%{textBox1.Text}%\"OR `Starting_odo` LIKE \"%{textBox1.Text}%\"";
+                string query = $"SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daily_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthly_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`  WHERE `Vehicle_num` LIKE \"%{textBox1.Text}%\" OR `Brand` LIKE \"%{textBox1.Text}%\" OR `Model` LIKE \"%{textBox1.Text}%\"  OR `Type` LIKE \"%{textBox1.Text}%\" OR `Engine_Num` LIKE \"%{textBox1.Text}%\" OR `Chassis_Num` LIKE \"%{textBox1.Text}%\" OR `Owner_NIC` LIKE \"%{textBox1.Text}%\" OR `Reg_Date` LIKE \"%{textBox1.Text}%\" OR `Owner_Condi` LIKE \"%{textBox1.Text}%\" OR `Daily_price` LIKE \"%{textBox1.Text}%\" OR `Daliy_KM` LIKE \"%{textBox1.Text}%\" OR `Weekly_price` LIKE \"%{textBox1.Text}%\" OR `Weekly_KM` LIKE \"%{textBox1.Text}%\" OR `Monthly_price` LIKE \"%{textBox1.Text}%\" OR `Monthy_KM` LIKE \"%{textBox1.Text}%\" OR `Extrakm_price` LIKE \"%{textBox1.Text}%\" OR `Owner_payment` LIKE \"%{textBox1.Text}%\"OR `Starting_odo` LIKE \"%{textBox1.Text}%\"";
                 setDataToGrid(query);
                 msktxt_vehicleRegNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 txt_brand.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
@@ -893,7 +893,7 @@ namespace ShineWay.UI
                             try
                             {
                                 DbConnection.Update(query);
-                                setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daliy_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthy_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
+                                setDataToGrid("SELECT `Vehicle_num`, `Brand`, `Model`, `Type`, `Engine_Num`, `Chassis_Num`, `Owner_NIC`, `Reg_Date`, `Owner_Condi`, `Daily_price`, `Daily_KM`, `Weekly_price`, `Weekly_KM`, `Monthly_price`, `Monthly_KM`, `Extrakm_price`, `Owner_payment`, `Starting_odo` FROM `vehicle`");
                                 try
                                 {
 
