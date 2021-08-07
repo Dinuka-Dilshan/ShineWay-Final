@@ -89,9 +89,9 @@ namespace ShineWay.UI
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.txt_search = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -837,6 +837,17 @@ namespace ShineWay.UI
             this.pictureBox18.TabIndex = 5;
             this.pictureBox18.TabStop = false;
             // 
+            // txt_search
+            // 
+            this.txt_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_search.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_search.Location = new System.Drawing.Point(165, 76);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(230, 25);
+            this.txt_search.TabIndex = 6;
+            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
+            // 
             // pictureBox16
             // 
             this.pictureBox16.BackColor = System.Drawing.Color.White;
@@ -856,17 +867,6 @@ namespace ShineWay.UI
             this.pictureBox15.Size = new System.Drawing.Size(863, 811);
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
-            // 
-            // txt_search
-            // 
-            this.txt_search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_search.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_search.Location = new System.Drawing.Point(165, 76);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(230, 25);
-            this.txt_search.TabIndex = 6;
-            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
             // 
             // customer
             // 
