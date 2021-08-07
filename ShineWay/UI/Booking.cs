@@ -94,26 +94,40 @@ namespace ShineWay.UI
                 dgv_Booking.Refresh();
             try
             {
-               // MySqlDataReader reader = DbConnection.Read(query);
+
+                
+
             
                 MySqlDataReader reader1 = DbConnection.Read(query);
-
-                while (reader1.Read())
+                if(reader1 != null)
                 {
-                    int x = dgv_Booking.Rows.Add();
+                    try
+                    {
+                        while (reader1.Read())
+                        {
+                            int x = dgv_Booking.Rows.Add();
 
-                    dgv_Booking.Rows[x].Cells[0].Value = reader1.GetString("Booking_ID");
-                    dgv_Booking.Rows[x].Cells[1].Value = reader1.GetString("Vehicle_num");
-                    dgv_Booking.Rows[x].Cells[2].Value = reader1.GetString("Cus_NIC");
-                    dgv_Booking.Rows[x].Cells[3].Value = reader1.GetString("Licen_num");
-                    dgv_Booking.Rows[x].Cells[4].Value = reader1.GetString("Start_date");
-                    dgv_Booking.Rows[x].Cells[5].Value = reader1.GetString("Start_ODO");
-                    dgv_Booking.Rows[x].Cells[6].Value = reader1.GetString("End_date");
-                    dgv_Booking.Rows[x].Cells[7].Value = reader1.GetString("Package_Type");
-                    dgv_Booking.Rows[x].Cells[8].Value = reader1.GetString("Deposite_Amount");
-                    dgv_Booking.Rows[x].Cells[9].Value = reader1.GetString("Advance_Payment");
-                    dgv_Booking.Rows[x].Cells[10].Value = reader1.GetString("Discription");
+                            dgv_Booking.Rows[x].Cells[0].Value = reader1.GetString("Booking_ID");
+                            dgv_Booking.Rows[x].Cells[1].Value = reader1.GetString("Vehicle_num");
+                            dgv_Booking.Rows[x].Cells[2].Value = reader1.GetString("Cus_NIC");
+                            dgv_Booking.Rows[x].Cells[3].Value = reader1.GetString("Licen_num");
+                            dgv_Booking.Rows[x].Cells[4].Value = reader1.GetString("Start_date");
+                            dgv_Booking.Rows[x].Cells[5].Value = reader1.GetString("Start_ODO");
+                            dgv_Booking.Rows[x].Cells[6].Value = reader1.GetString("End_date");
+                            dgv_Booking.Rows[x].Cells[7].Value = reader1.GetString("Package_Type");
+                            dgv_Booking.Rows[x].Cells[8].Value = reader1.GetString("Deposite_Amount");
+                            dgv_Booking.Rows[x].Cells[9].Value = reader1.GetString("Advance_Payment");
+                            dgv_Booking.Rows[x].Cells[10].Value = reader1.GetString("Discription");
+                        }
+                    }
+                    catch (Exception e)
+                    {
+
+                        MessageBox.Show(e.Message);
+                    }
                 }
+                
+
             }
             catch(Exception e) { 
 
@@ -637,6 +651,11 @@ namespace ShineWay.UI
         private void dgv_Booking_MouseEnter(object sender, EventArgs e)
         {
             isEndDatevalid();
+        }
+
+        private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
