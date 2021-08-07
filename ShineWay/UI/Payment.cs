@@ -17,15 +17,14 @@ namespace ShineWay.UI
 {
     public partial class Payment : UserControl
     {
-        
-        //DataBase.DbConnection ObjDb = new DataBase.DbConnection();
+
         private Booking book = new Booking();
         List<payment> payments = new List<payment>();
         public Payment()
         {
             InitializeComponent();
 
-            setDataToGrid("SELECT payment.Booking_ID, payment.Cust_NIC, payment.Status, payment.End_date, payment.End_ODO,payment.Amount, payment.Discount, payment.Sub_Amount,booking.Start_ODO,booking.Vehicle_num,booking.Package_Type,vehicle.Daily_price,vehicle.Weekly_price, vehicle.Monthly_price, vehicle.Extrakm_price FROM payment, booking, vehicle WHERE payment.Booking_ID = booking.Booking_ID AND booking.Vehicle_num = vehicle.Vehicle_num");
+            setDataToGrid("SELECT payment.Booking_ID, payment.Cust_NIC, payment.Status, payment.End_date,payment.Advance_Payment, payment.End_ODO,payment.Amount, payment.Discount, payment.Sub_Amount,booking.Start_ODO,booking.Vehicle_num,booking.Package_Type,booking.Start_date,vehicle.Daily_price,vehicle.Weekly_price, vehicle.Monthly_price, vehicle.Extrakm_price, vehicle.Daily_KM, vehicle.Weekly_KM, vehicle.Monthly_KM FROM payment, booking, vehicle WHERE payment.Booking_ID = booking.Booking_ID AND booking.Vehicle_num = vehicle.Vehicle_num");
             
         }
 
@@ -37,8 +36,6 @@ namespace ShineWay.UI
             
             try
             {
-                //MySqlDataReader reader = DbConnection.Read(query);
-                
                 MySqlDataReader reader1 = DbConnection.Read(query);
 
                 if (reader1 != null)
@@ -52,30 +49,25 @@ namespace ShineWay.UI
                         dgv_Payment.Rows[x].Cells[2].Value = reader1.GetString("Cust_NIC");
                         dgv_Payment.Rows[x].Cells[3].Value = reader1.GetString("Status");
                         dgv_Payment.Rows[x].Cells[4].Value = reader1.GetString("End_date");
-
-                        if (reader1[4] == null)
-                        {
-                            dgv_Payment.Rows[x].Cells[5].Value = "No";
-                        }
-                        else
-                        {
-                            dgv_Payment.Rows[x].Cells[5].Value = reader1.GetString("End_ODO");
-                        }
+                        dgv_Payment.Rows[x].Cells[5].Value = reader1.GetString("Advance_Payment");
                         if (reader1[5] == null)
                         {
                             dgv_Payment.Rows[x].Cells[6].Value = "No";
                         }
                         else
                         {
-                            dgv_Payment.Rows[x].Cells[6].Value = reader1.GetString("Amount");
+                            dgv_Payment.Rows[x].Cells[6].Value = reader1.GetString("End_ODO");
                         }
+
+                        
+
                         if (reader1[6] == null)
                         {
                             dgv_Payment.Rows[x].Cells[7].Value = "No";
                         }
                         else
                         {
-                            dgv_Payment.Rows[x].Cells[7].Value = reader1.GetString("Discount");
+                            dgv_Payment.Rows[x].Cells[7].Value = reader1.GetString("Amount");
                         }
                         if (reader1[7] == null)
                         {
@@ -83,16 +75,40 @@ namespace ShineWay.UI
                         }
                         else
                         {
-                            dgv_Payment.Rows[x].Cells[8].Value = reader1.GetString("Sub_Amount");
+                            dgv_Payment.Rows[x].Cells[8].Value = reader1.GetString("Discount");
+                        }
+                        if (reader1[8] == null)
+                        {
+                            dgv_Payment.Rows[x].Cells[9].Value = "No";
+                        }
+                        else
+                        {
+                            dgv_Payment.Rows[x].Cells[9].Value = reader1.GetString("Sub_Amount");
                         }
 
 
-                        dgv_Payment.Rows[x].Cells[9].Value = reader1.GetString("Start_ODO");
-                        dgv_Payment.Rows[x].Cells[10].Value = reader1.GetString("Package_Type");
-                        dgv_Payment.Rows[x].Cells[11].Value = reader1.GetString("Daily_price");
-                        dgv_Payment.Rows[x].Cells[12].Value = reader1.GetString("Weekly_price");
-                        dgv_Payment.Rows[x].Cells[13].Value = reader1.GetString("Monthly_price");
-                        dgv_Payment.Rows[x].Cells[14].Value = reader1.GetString("Extrakm_price");
+                        dgv_Payment.Rows[x].Cells[10].Value = reader1.GetString("Start_ODO");
+                        dgv_Payment.Rows[x].Cells[11].Value = reader1.GetString("Package_Type");
+                        dgv_Payment.Rows[x].Cells[12].Value = reader1.GetString("Daily_price");
+                        dgv_Payment.Rows[x].Cells[13].Value = reader1.GetString("Weekly_price");
+                        dgv_Payment.Rows[x].Cells[14].Value = reader1.GetString("Monthly_price");
+                        dgv_Payment.Rows[x].Cells[15].Value = reader1.GetString("Extrakm_price");
+                        dgv_Payment.Rows[x].Cells[16].Value = reader1.GetString("Daily_KM");
+                        dgv_Payment.Rows[x].Cells[17].Value = reader1.GetString("Weekly_KM");
+                        dgv_Payment.Rows[x].Cells[18].Value = reader1.GetString("Monthly_KM");
+                        dgv_Payment.Rows[x].Cells[19].Value = reader1.GetString("Start_date");
+
+                        DateTime d1;
+                        DateTime d2;
+                        for (int i = 0; i <= dgv_Payment.RowCount - 1; i++)
+                        {
+                            d1 = Convert.ToDateTime(dgv_Payment.Rows[i].Cells[4].Value);
+                            d2 = Convert.ToDateTime(dgv_Payment.Rows[i].Cells[19].Value);
+                            TimeSpan ts = d1 - d2;
+                            int days = ts.Days;
+                            dgv_Payment.Rows[i].Cells[20].Value = ts.Days;
+                        }
+
 
 
                     }
@@ -208,11 +224,6 @@ namespace ShineWay.UI
                 errormessege1.convertToOkButton();
                 errormessege1.ShowDialog();
             }*/
-        }
-
-        private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
         }
   
 
@@ -471,145 +482,111 @@ namespace ShineWay.UI
 
         private void Payment_Load(object sender, EventArgs e)
         {
-            /*dgv_Payment.BorderStyle = BorderStyle.None;
-            this.dgv_Payment.GridColor = Color.BlueViolet;
-            dgv_Payment.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgv_Payment.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgv_Payment.DefaultCellStyle.SelectionBackColor = Color.FromArgb(26, 139, 9);
-            dgv_Payment.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgv_Payment.BackgroundColor = Color.FromArgb(255, 255, 255);
-            dgv_Payment.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;//optional
-            dgv_Payment.EnableHeadersVisualStyles = false;
-            dgv_Payment.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgv_Payment.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic bold", 12);
-            dgv_Payment.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
-            dgv_Payment.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            dgv_Payment.DefaultCellStyle.Font = new Font("Century Gothic", 12);
-            dgv_Payment.RowHeadersVisible = false;
-            dgv_Payment.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Payment.ColumnHeadersDefaultCellStyle.BackColor;*/
+            
         }
-
-
         
-
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            /*try
-            {
-                int c;
-                c = dgv_Payment.SelectedRows[0].Cells[9].Value;
-                int a;
-                a = int.Parse(txt_endingOdometer.Text);
-                //b = dgv_Payment.Rows[0].Cells[9].Value;
-                lbl_amount.Text = (a - c).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
-
-            /*try
-            {
-                lbl_amount.Text = (int.Parse(txt_endingOdometer.Text) - int.Parse(book.txt_startingOdometer.Text)).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
-            /*try
-            {
-
-                    string am;
-                    am = book.txt_startingOdometer.Text;
-                    
-                    int a, b;
-                    a = int.Parse(txt_endingOdometer.Text);
-                    b = int.Parse(book.txt_startingOdometer.Text);
-                    lbl_amount.Text = (a - b).ToString();
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
-
-        }
-
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
         {
-            /*try
+            string pt = dgv_Payment.CurrentRow.Cells[11].Value.ToString();
+            decimal amt;
+            int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
+            int end = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[6].Value);
+            decimal ek = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[15].Value);
+            decimal adv = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[5].Value);
+            
+            try
             {
+
                 if (e.KeyCode == Keys.Enter)
-                {
-                    /*int a, b, c;
-                    a = Convert.ToInt32(txt_endingOdometer.Text);
-                    b = Convert.ToInt32(book.txt_startingOdometer.Text);
-                    c = a + b;
-                    lbl_amount.Text = Convert.ToString(c);
+                    {
 
+                    if (pt == "Daily Basis")
+                    {
+  
+                        //int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
+                        //int end = Convert.ToInt32(txt_endingOdometer.Text);
+                        decimal dp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[12].Value);
+                        //decimal ek = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[15].Value);
+                        int dk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[16].Value);
+                        //decimal adv = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[5].Value);
 
-                    int a, b;
-                    a = int.Parse(txt_endingOdometer.Text);
-                    b = int.Parse(lbl_startingODO.Text);
-                    lbl_amount.Text = (a - b).ToString(); 
+                            if ((end - start) <= dk)
+                                {
+                                    amt = ((end - start) * dp) - adv;
+                                    lbl_amount.Text = amt.ToString();
+                                }
+                            else
+                                {
+                                    amt = ((dk*dp) + (((end - start) - dk) * ek)) - adv;
+                                    lbl_amount.Text = Convert.ToString(amt);
+                                }
+                        
+                    }
+                     else if (pt == "Weekly Basis")
+                     {
+                           //int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
+                           //int end = Convert.ToInt32(txt_endingOdometer.Text);
+                           decimal wp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[13].Value);
+                           //int ek = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[15].Value);
+                           int wk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[17].Value);
+                           //int adv = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[5].Value);
+
+                            if ((end - start) <= wk)
+                                {
+                                    amt = ((end - start) * wp) - adv;
+
+                                    lbl_amount.Text = Convert.ToString(amt);
+                                }
+                            else
+                                {
+                                    amt = ((wk * wp) + (((end - start) - wk) * ek)) - adv;
+                                    lbl_amount.Text = Convert.ToString(amt);
+                                }
+                    }
+                     else if (pt == "Monthly Basis")
+                     {
+                            //int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
+                            //int end = Convert.ToInt32(txt_endingOdometer.Text);
+                            decimal mp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[14].Value);
+                            //int ek = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[15].Value);
+                            int mk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[18].Value);
+                            //int adv = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[5].Value);
+
+                            if ((end - start) <= mk)
+                            {
+                                amt = ((end - start) * mp) - adv;
+
+                                lbl_amount.Text = Convert.ToString(amt);
+                            }
+                            else
+                            {
+                                amt = ((mk * mp) + (((end - start) - mk) * ek)) - adv;
+                                lbl_amount.Text = Convert.ToString(amt);
+                            }
+                    }
                 }
+          
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
 
         }
 
         private void txt_discount_TextChanged(object sender, EventArgs e)
         {
-           /* try
-            {
-                int c, d;
-                c = int.Parse(lbl_amount.Text);
-                d = int.Parse(txt_discount.Text);
-                txt_subAmount.Text = (c - d).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
-        }
-
-        private void txt_endingOdometer_Leave_1(object sender, EventArgs e)
-        {
-            /*try
-            {
-                lbl_amount.Text = (int.Parse(txt_endingOdometer.Text) - int.Parse(book.txt_startingOdometer.Text)).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("endingodo");
-            }*/
+          
+            
         }
 
         private void txt_search_KeyUp(object sender, KeyEventArgs e)
         {
-            string query = $"SELECT `payment`.`Booking_ID`, `payment`.`Cust_NIC`, `payment`.`Status`, `payment`.`End_date`, `payment`.`End_ODO`, `payment`.`Amount`, `payment`.`Discount`, `payment`.`Sub_Amount` , `booking`.`Start_ODO` , `booking`.`Package_Type`,`booking`.`Vehicle_num`, `vehicle`.`Daily_price`, `vehicle`.`Weekly_price`, `vehicle`.`Monthly_price`, `vehicle`.`Extrakm_price` FROM `payment`,`booking`,`vehicle` WHERE `payment`.`Booking_ID`=`booking`.`Booking_ID` AND `booking`.`Vehicle_num`=`vehicle`.`Vehicle_num` AND (`payment`.`Booking_ID` LIKE \"%{txt_search.Text}%\" OR `payment`.`Vehicle_num` LIKE \"%{txt_search.Text}%\" OR `payment`.`Cust_NIC` LIKE \"%{txt_search.Text}%\"  OR `payment`.`Status` LIKE \"%{txt_search.Text}%\")";
+            string query = $"SELECT `payment`.`Booking_ID`, `payment`.`Cust_NIC`, `payment`.`Status`,`payment`.`Advance_Payment`, `payment`.`End_date`, `payment`.`End_ODO`, `payment`.`Amount`, `payment`.`Discount`, `payment`.`Sub_Amount` , `booking`.`Start_ODO` , `booking`.`Package_Type`,`booking`.`Vehicle_num`,`booking`.`Start_date`, `vehicle`.`Daily_price`, `vehicle`.`Weekly_price`, `vehicle`.`Monthly_price`, `vehicle`.`Extrakm_price`, `vehicle`.`Daily_KM`, `vehicle`.`Weekly_KM`, `vehicle`.`Monthly_KM` FROM `payment`,`booking`,`vehicle` WHERE `payment`.`Booking_ID`=`booking`.`Booking_ID` AND `booking`.`Vehicle_num`=`vehicle`.`Vehicle_num` AND (`payment`.`Booking_ID` LIKE \"%{txt_search.Text}%\" OR `payment`.`Vehicle_num` LIKE \"%{txt_search.Text}%\" OR `payment`.`Cust_NIC` LIKE \"%{txt_search.Text}%\"  OR `payment`.`Status` LIKE \"%{txt_search.Text}%\")";
 
             setDataToGrid(query);
 
-            /*try
-            {
-
-                txt_bookingId.Text = dgv_Payment.SelectedRows[0].Cells[0].Value.ToString();
-                txt_vehicleRegNumber.Text = dgv_Payment.SelectedRows[0].Cells[1].Value.ToString();
-                txt_customerNic.Text = dgv_Payment.SelectedRows[0].Cells[2].Value.ToString();
-                combo_status.Text = dgv_Payment.SelectedRows[0].Cells[3].Value.ToString();
-                date_endDate.Text = dgv_Payment.SelectedRows[0].Cells[4].Value.ToString();
-                //lbl_startingODO.Text = dgv_Payment.SelectedRows[0].Cells[5].Value.ToString();
-
-            }
-            catch (Exception ex)
-            {
-
-            }*/
         }
 
         private void dgv_Payment_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -627,7 +604,7 @@ namespace ShineWay.UI
                 }
                 else
                 {
-                    lbl_startingODO.Text = dgv_Payment.SelectedRows[0].Cells[5].Value.ToString();
+                    lbl_startingODO.Text = dgv_Payment.SelectedRows[0].Cells[10].Value.ToString();
                 }
                 
             }
@@ -655,13 +632,8 @@ namespace ShineWay.UI
             dgv_Payment.DefaultCellStyle.Font = new Font("Century Gothic", 12);
             dgv_Payment.RowHeadersVisible = false;
             dgv_Payment.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Payment.ColumnHeadersDefaultCellStyle.BackColor;
-
-          
-
-            
+ 
 
         }
-
-        
     }
 }
