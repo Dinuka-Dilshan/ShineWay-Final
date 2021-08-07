@@ -1228,7 +1228,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.DateTimePicker date_startingDate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.Label label11;
@@ -1243,7 +1242,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.TextBox txt_description;
         private System.Windows.Forms.MaskedTextBox txt_advancedPayment;
         private System.Windows.Forms.MaskedTextBox txt_depositAmount;
-        private System.Windows.Forms.MaskedTextBox txt_startingOdometer;
         private System.Windows.Forms.MaskedTextBox txt_licenseNumber;
         private System.Windows.Forms.MaskedTextBox txt_customerNic;
         private System.Windows.Forms.MaskedTextBox txt_vehicleRegNumber;
@@ -1281,6 +1279,11 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+
         private System.Windows.Forms.Label lbl_vehicleUnavailable;
+
+        public System.Windows.Forms.DateTimePicker date_startingDate;
+        public System.Windows.Forms.MaskedTextBox txt_startingOdometer;
+
     }
 }

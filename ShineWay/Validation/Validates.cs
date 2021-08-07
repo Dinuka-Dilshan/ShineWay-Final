@@ -32,8 +32,8 @@ namespace ShineWay.Validation
 
         public static string validateEndOdometer = "^[0-9]{5,6}$";
         public static string validateStatus = "^(Ongoing|Canceled|Completed)$";
-        public static string validateDiscount1 = "^[0-9]{0,6}[.][0-9]{2}$";
-        public static string validateDiscount2 = "^[0-9]{2}[%]$";
+        public static string validateDiscount = "^[0-9]{0,5}[.]{1}[0-9]{2}$";
+        
 
 
         public static string validateAmount = "^[0-9]{0,10}[.]{1}[0-9]{2}$";
@@ -155,15 +155,15 @@ namespace ShineWay.Validation
             return Regex.IsMatch(mobileNo, validateMobileNumber);
         }
 
-        public static bool ValidDiscount1(string discount1)
+        public static bool ValidDiscount(string discount1)
         {
-            return Regex.IsMatch(discount1, validateDiscount1);
+            return Regex.IsMatch(discount1, validateDiscount);
         }
 
-        public static bool ValidDiscount2(string discount2)
+        /*public static bool ValidDiscount2(string discount2)
         {
             return Regex.IsMatch(discount2, validateDiscount2);
-        }
+        }*/
 
         public static bool validateUserNameForLogin(string userName)
         {
