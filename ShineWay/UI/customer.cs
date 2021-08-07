@@ -243,6 +243,15 @@ namespace ShineWay.UI
             label_emailError.Visible = false;
             label_telnumberError.Visible = false;
             label_licenseError.Visible = false;
+
+            pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+
+
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
@@ -548,6 +557,15 @@ namespace ShineWay.UI
                 label_emailError.Visible = false;
                 label_telnumberError.Visible = false;
                 label_licenseError.Visible = false;
+
+                pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+
+
             }
             catch (Exception ex)
             {
@@ -582,9 +600,9 @@ namespace ShineWay.UI
                          dataGridView1.Rows[x].Cells[0].Value = reader.GetString("Cus_NIC");
                          dataGridView1.Rows[x].Cells[1].Value = reader.GetString("Licen_num");
                          dataGridView1.Rows[x].Cells[2].Value = reader.GetString("Cus_name");
-                dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Tel_num");
-                dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
-                dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Cus_Address");
+                         dataGridView1.Rows[x].Cells[3].Value = reader.GetString("Tel_num");
+                         dataGridView1.Rows[x].Cells[4].Value = reader.GetString("Email");
+                         dataGridView1.Rows[x].Cells[5].Value = reader.GetString("Cus_Address");
 
                     }
                 }
