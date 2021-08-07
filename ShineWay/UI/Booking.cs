@@ -653,9 +653,6 @@ namespace ShineWay.UI
             isEndDatevalid();
         }
 
-        private void txt_bookingId_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
 
-        }
     }
 }

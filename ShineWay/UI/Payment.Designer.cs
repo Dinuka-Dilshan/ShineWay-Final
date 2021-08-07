@@ -29,8 +29,8 @@ namespace ShineWay.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.panel2 = new System.Windows.Forms.Panel();
             this.pb_btnUpdatePrint = new System.Windows.Forms.Label();
@@ -62,7 +62,8 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_discount = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txt_endingOdometer = new System.Windows.Forms.TextBox();
             this.lbl_discountCorrect = new System.Windows.Forms.Label();
             this.lbl_endODOCorrect = new System.Windows.Forms.Label();
@@ -174,15 +175,15 @@ namespace ShineWay.UI
             this.dgv_Payment.AllowUserToResizeColumns = false;
             this.dgv_Payment.AllowUserToResizeRows = false;
             this.dgv_Payment.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Payment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Payment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Payment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Payment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -206,15 +207,15 @@ namespace ShineWay.UI
             this.Column19,
             this.Column20,
             this.Column21});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Payment.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Payment.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Payment.Location = new System.Drawing.Point(100, 182);
             this.dgv_Payment.Name = "dgv_Payment";
             this.dgv_Payment.ReadOnly = true;
@@ -450,7 +451,8 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.txt_discount);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.txt_endingOdometer);
             this.panel1.Controls.Add(this.lbl_discountCorrect);
             this.panel1.Controls.Add(this.lbl_endODOCorrect);
@@ -505,16 +507,27 @@ namespace ShineWay.UI
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 29;
             // 
-            // txt_discount
+            // textBox1
             // 
-            this.txt_discount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txt_discount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_discount.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_discount.Location = new System.Drawing.Point(393, 657);
-            this.txt_discount.Name = "txt_discount";
-            this.txt_discount.Size = new System.Drawing.Size(317, 21);
-            this.txt_discount.TabIndex = 3;
-            this.txt_discount.TextChanged += new System.EventHandler(this.txt_discount_TextChanged);
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(393, 660);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(317, 21);
+            this.textBox1.TabIndex = 272;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Image = global::ShineWay.Properties.Resources.update;
+            this.label10.Location = new System.Drawing.Point(689, 481);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 30);
+            this.label10.TabIndex = 2;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txt_endingOdometer
             // 
@@ -524,8 +537,9 @@ namespace ShineWay.UI
             this.txt_endingOdometer.Location = new System.Drawing.Point(393, 540);
             this.txt_endingOdometer.Name = "txt_endingOdometer";
             this.txt_endingOdometer.Size = new System.Drawing.Size(317, 21);
-            this.txt_endingOdometer.TabIndex = 2;
+            this.txt_endingOdometer.TabIndex = 3;
             this.txt_endingOdometer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
+            this.txt_endingOdometer.Leave += new System.EventHandler(this.txt_endingOdometer_Leave_1);
             // 
             // lbl_discountCorrect
             // 
@@ -548,7 +562,7 @@ namespace ShineWay.UI
             // lbl_endDateCorrect
             // 
             this.lbl_endDateCorrect.Image = global::ShineWay.Properties.Resources.tick1;
-            this.lbl_endDateCorrect.Location = new System.Drawing.Point(747, 481);
+            this.lbl_endDateCorrect.Location = new System.Drawing.Point(660, 486);
             this.lbl_endDateCorrect.Name = "lbl_endDateCorrect";
             this.lbl_endDateCorrect.Size = new System.Drawing.Size(23, 22);
             this.lbl_endDateCorrect.TabIndex = 122;
@@ -569,7 +583,7 @@ namespace ShineWay.UI
             this.txt_bookingId.Location = new System.Drawing.Point(393, 192);
             this.txt_bookingId.Name = "txt_bookingId";
             this.txt_bookingId.Size = new System.Drawing.Size(317, 25);
-            this.txt_bookingId.TabIndex = 140;
+            this.txt_bookingId.TabIndex = 267;
             // 
             // txt_vehicleRegNumber
             // 
@@ -577,7 +591,7 @@ namespace ShineWay.UI
             this.txt_vehicleRegNumber.Location = new System.Drawing.Point(393, 258);
             this.txt_vehicleRegNumber.Name = "txt_vehicleRegNumber";
             this.txt_vehicleRegNumber.Size = new System.Drawing.Size(317, 25);
-            this.txt_vehicleRegNumber.TabIndex = 141;
+            this.txt_vehicleRegNumber.TabIndex = 268;
             // 
             // txt_customerNic
             // 
@@ -585,7 +599,7 @@ namespace ShineWay.UI
             this.txt_customerNic.Location = new System.Drawing.Point(393, 326);
             this.txt_customerNic.Name = "txt_customerNic";
             this.txt_customerNic.Size = new System.Drawing.Size(317, 25);
-            this.txt_customerNic.TabIndex = 142;
+            this.txt_customerNic.TabIndex = 269;
             // 
             // lbl_startingODO
             // 
@@ -593,7 +607,7 @@ namespace ShineWay.UI
             this.lbl_startingODO.Location = new System.Drawing.Point(393, 379);
             this.lbl_startingODO.Name = "lbl_startingODO";
             this.lbl_startingODO.Size = new System.Drawing.Size(317, 25);
-            this.lbl_startingODO.TabIndex = 143;
+            this.lbl_startingODO.TabIndex = 270;
             // 
             // label14
             // 
@@ -699,7 +713,7 @@ namespace ShineWay.UI
             this.lbl_amount.Location = new System.Drawing.Point(393, 599);
             this.lbl_amount.Name = "lbl_amount";
             this.lbl_amount.Size = new System.Drawing.Size(317, 25);
-            this.lbl_amount.TabIndex = 7;
+            this.lbl_amount.TabIndex = 271;
             // 
             // pictureBox5
             // 
@@ -736,7 +750,7 @@ namespace ShineWay.UI
             this.date_endDate.Location = new System.Drawing.Point(374, 479);
             this.date_endDate.Margin = new System.Windows.Forms.Padding(0);
             this.date_endDate.Name = "date_endDate";
-            this.date_endDate.Size = new System.Drawing.Size(370, 30);
+            this.date_endDate.Size = new System.Drawing.Size(283, 30);
             this.date_endDate.TabIndex = 1;
             this.date_endDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.date_endDate_KeyDown);
             // 
@@ -1162,7 +1176,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label lbl_endODOCorrect;
         private System.Windows.Forms.Label lbl_endDateCorrect;
         private System.Windows.Forms.Label lbl_statusCorrect;
-        private System.Windows.Forms.TextBox txt_discount;
         private System.Windows.Forms.TextBox txt_endingOdometer;
         public System.Windows.Forms.DataGridView dgv_Payment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -1186,5 +1199,7 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
