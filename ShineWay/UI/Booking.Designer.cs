@@ -741,7 +741,6 @@ namespace ShineWay.UI
             this.txt_bookingId.ReadOnly = true;
             this.txt_bookingId.Size = new System.Drawing.Size(415, 23);
             this.txt_bookingId.TabIndex = 0;
-            this.txt_bookingId.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_bookingId_MaskInputRejected);
             this.txt_bookingId.Leave += new System.EventHandler(this.txt_bookingId_Leave);
             // 
             // combo_packageType
