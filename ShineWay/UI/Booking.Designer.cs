@@ -29,7 +29,7 @@ namespace ShineWay.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking));
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_Booking = new System.Windows.Forms.DataGridView();
@@ -51,6 +51,7 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_vehicleUnavailable = new System.Windows.Forms.Label();
             this.lbl_packageTypeCorrect = new System.Windows.Forms.Label();
             this.lbl_advancedPayementCorrect = new System.Windows.Forms.Label();
             this.lbl_depositeAmountCorrect = new System.Windows.Forms.Label();
@@ -112,7 +113,6 @@ namespace ShineWay.UI
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.lbl_vehicleUnavailable = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Booking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
@@ -174,15 +174,15 @@ namespace ShineWay.UI
             this.Column9,
             this.Column10,
             this.Column11});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Booking.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Booking.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Booking.Location = new System.Drawing.Point(36, 181);
             this.dgv_Booking.Name = "dgv_Booking";
             this.dgv_Booking.ReadOnly = true;
@@ -416,6 +416,20 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
+            // 
+            // lbl_vehicleUnavailable
+            // 
+            this.lbl_vehicleUnavailable.AutoSize = true;
+            this.lbl_vehicleUnavailable.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_vehicleUnavailable.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_vehicleUnavailable.ForeColor = System.Drawing.Color.Red;
+            this.lbl_vehicleUnavailable.Location = new System.Drawing.Point(385, 157);
+            this.lbl_vehicleUnavailable.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_vehicleUnavailable.Name = "lbl_vehicleUnavailable";
+            this.lbl_vehicleUnavailable.Size = new System.Drawing.Size(159, 18);
+            this.lbl_vehicleUnavailable.TabIndex = 123;
+            this.lbl_vehicleUnavailable.Text = "Vehicle Unavailable";
+            this.lbl_vehicleUnavailable.Visible = false;
             // 
             // lbl_packageTypeCorrect
             // 
@@ -1141,20 +1155,6 @@ namespace ShineWay.UI
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox14.TabIndex = 0;
             this.pictureBox14.TabStop = false;
-            // 
-            // lbl_vehicleUnavailable
-            // 
-            this.lbl_vehicleUnavailable.AutoSize = true;
-            this.lbl_vehicleUnavailable.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_vehicleUnavailable.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_vehicleUnavailable.ForeColor = System.Drawing.Color.Red;
-            this.lbl_vehicleUnavailable.Location = new System.Drawing.Point(385, 157);
-            this.lbl_vehicleUnavailable.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl_vehicleUnavailable.Name = "lbl_vehicleUnavailable";
-            this.lbl_vehicleUnavailable.Size = new System.Drawing.Size(159, 18);
-            this.lbl_vehicleUnavailable.TabIndex = 123;
-            this.lbl_vehicleUnavailable.Text = "Vehicle Unavailable";
-            this.lbl_vehicleUnavailable.Visible = false;
             // 
             // Booking
             // 

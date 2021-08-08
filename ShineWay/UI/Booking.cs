@@ -87,22 +87,46 @@ namespace ShineWay.UI
         {
            // selectPackageType();
         }
-
+/*
         private void isAvailable(string Check)
         {
-            MySqlDataReader isDataAvailable = DbConnection.Read("SELECT `v`.`Vehicle_num` FROM `vehicle` `v` WHERE `v`.`Vehicle_num` = "+Check+"");
+            MySqlDataReader isDataAvailable = null;
+            try
+            {
+               isDataAvailable = DbConnection.Read("SELECT Vehicle_num FROM vehicle WHERE Vehicle_num = '" + Check + "'");
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            if (isDataAvailable == null)
+
+            while (isDataAvailable.Read())
             {
-                lbl_vehicleUnavailable.Visible = true;
-                
+                if (isDataAvailable != null)
+                {
+
+                    if (isDataAvailable[0].ToString() == Check)
+                    {
+                        lbl_vehicleUnavailable.Visible = false;
+                        return;
+                    }
+                    else
+                    {
+                        lbl_vehicleUnavailable.Visible = true;
+                        return;
+                    }
+                    
+                }
+                else
+                {
+                    CustomMessage errormessege1 = new CustomMessage("Unable to conncet to \nthe database", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                    errormessege1.convertToOkButton();
+                    errormessege1.ShowDialog();
+                }
             }
-            else
-            {
-                lbl_vehicleUnavailable.Visible = false;
-            }
+            
         }
-
+*/
         public void setDataToGrid(string query)                                     // det data to datagridview
         {
                 dgv_Booking.Rows.Clear();
@@ -452,7 +476,7 @@ namespace ShineWay.UI
             {
                 lbl_vehicleNumberCorrect.Visible = true;
                 lbl_vehicleNumberError.Visible = false;
-               // isAvailable(txt_vehicleRegNumber.Text);
+                isAvailable(txt_vehicleRegNumber.Text);
             }
             else
             {
