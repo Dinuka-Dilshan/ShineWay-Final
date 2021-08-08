@@ -551,12 +551,12 @@ namespace ShineWay.UI
             // 
             this.label_carCount.AutoSize = true;
             this.label_carCount.BackColor = System.Drawing.SystemColors.Window;
-            this.label_carCount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_carCount.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_carCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_carCount.Location = new System.Drawing.Point(272, 376);
+            this.label_carCount.Location = new System.Drawing.Point(272, 374);
             this.label_carCount.Margin = new System.Windows.Forms.Padding(0);
             this.label_carCount.Name = "label_carCount";
-            this.label_carCount.Size = new System.Drawing.Size(111, 22);
+            this.label_carCount.Size = new System.Drawing.Size(142, 27);
             this.label_carCount.TabIndex = 58;
             this.label_carCount.Text = "AVAILABLE :";
             // 
@@ -564,12 +564,12 @@ namespace ShineWay.UI
             // 
             this.label_vanCount.AutoSize = true;
             this.label_vanCount.BackColor = System.Drawing.SystemColors.Window;
-            this.label_vanCount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_vanCount.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_vanCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_vanCount.Location = new System.Drawing.Point(780, 376);
+            this.label_vanCount.Location = new System.Drawing.Point(780, 374);
             this.label_vanCount.Margin = new System.Windows.Forms.Padding(0);
             this.label_vanCount.Name = "label_vanCount";
-            this.label_vanCount.Size = new System.Drawing.Size(111, 22);
+            this.label_vanCount.Size = new System.Drawing.Size(142, 27);
             this.label_vanCount.TabIndex = 59;
             this.label_vanCount.Text = "AVAILABLE :";
             // 
@@ -577,12 +577,12 @@ namespace ShineWay.UI
             // 
             this.label_bikeCount.AutoSize = true;
             this.label_bikeCount.BackColor = System.Drawing.SystemColors.Window;
-            this.label_bikeCount.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_bikeCount.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_bikeCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label_bikeCount.Location = new System.Drawing.Point(1297, 376);
+            this.label_bikeCount.Location = new System.Drawing.Point(1297, 374);
             this.label_bikeCount.Margin = new System.Windows.Forms.Padding(0);
             this.label_bikeCount.Name = "label_bikeCount";
-            this.label_bikeCount.Size = new System.Drawing.Size(111, 22);
+            this.label_bikeCount.Size = new System.Drawing.Size(142, 27);
             this.label_bikeCount.TabIndex = 60;
             this.label_bikeCount.Text = "AVAILABLE :";
             // 
