@@ -127,50 +127,9 @@ namespace ShineWay.UI
         }
 
 
-        private void txt_ownerNIC_Leave(object sender, EventArgs e)
-        {
-            bool validownernic1 = Validates.ValidCustomerOldNIC(txt_ownerNIC.Text);
-            bool validownernic2 = Validates.ValidCustomerNewNIC(txt_ownerNIC.Text);
 
-            if (validownernic1 == true || validownernic2 == true)
-            {
-                txt_ownerNIC.ForeColor = Color.Green;
-            }
-            else
-            {
-                txt_ownerNIC.ForeColor = Color.Red;
-            }
-        }
 
-        private void txt_VehicleNumber_Leave(object sender, EventArgs e)
-        {
-            bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_VehicleNumber.Text);
-            bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_VehicleNumber.Text);
-
-            if (validVehicleNumber1 == true || validVehicleNumber2 == true)
-            {
-                txt_VehicleNumber.ForeColor = Color.Green;
-            }
-            else
-            {
-                txt_VehicleNumber.ForeColor = Color.Red;
-            }
-        }
-
-        private void txt_OwnerPayment_Leave(object sender, EventArgs e)
-        {
-            bool depositeamount = Validates.ValidAmount(txt_OwnerPayment.Text);
-
-            if (depositeamount == false)
-            {
-                txt_OwnerPayment.ForeColor = Color.Red;
-            }
-            else
-            {
-                txt_OwnerPayment.ForeColor = Color.Green;
-                txt_OwnerPayment.TextAlign = HorizontalAlignment.Right;
-            }
-        }
+      
 
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
@@ -312,10 +271,7 @@ namespace ShineWay.UI
                 
         }
 
-        private void txt_OwnerPayment_Enter(object sender, EventArgs e)
-        {
-            txt_OwnerPayment.TextAlign = HorizontalAlignment.Left;
-        }
+      
 
        
 
