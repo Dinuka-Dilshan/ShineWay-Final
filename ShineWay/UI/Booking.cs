@@ -106,53 +106,21 @@ namespace ShineWay.UI
                 }
                 else
                 {
-
+                    
                     return;
                 }
-
+                    
             }
             else
             {
-                CustomMessage errormessege1 = new CustomMessage("Entered Vehicle Number\nis not avilable", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                CustomMessage errormessege1 = new CustomMessage("Vehicle Unavilable", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                 errormessege1.convertToOkButton();
                 errormessege1.ShowDialog();
                 lbl_vehicleUnavailable.Visible = true;
                 lbl_vehicleNumberCorrect.Visible = false;
             }
-
-
-        }
-
-        private void isCustomerAvailable(string CheckCustomer)                                              // check the entered data is available in the databse
-        {
-            MySqlDataReader isCusDataAvailable = DbConnection.Read("SELECT Cus_NIC FROM customer WHERE Cus_NIC = '" + CheckCustomer + "'");
-            isCusDataAvailable.Read();
-
-            if (isCusDataAvailable.HasRows)
-            {
-
-                if (isCusDataAvailable[0].ToString().Equals(CheckCustomer))
-                {
-                    lbl_customerNICError.Visible = false;
-                    return;
-                }
-                else
-                {
-
-                    return;
-                }
-
-            }
-            else
-            {
-                CustomMessage errormessege1 = new CustomMessage("Entered NIC Number is \nnot avilable", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
-                errormessege1.convertToOkButton();
-                errormessege1.ShowDialog();
-                lbl_customerNICError.Visible = true;
-                lbl_customerNICCorrect.Visible = false;
-            }
-
-
+            
+            
         }
 
         public void setDataToGrid(string query)                                     // det data to datagridview
@@ -162,6 +130,9 @@ namespace ShineWay.UI
             try
             {
 
+                
+
+            
                 MySqlDataReader reader1 = DbConnection.Read(query);
                 if(reader1 != null)
                 {
@@ -507,7 +478,7 @@ namespace ShineWay.UI
             bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text.Trim());
 
             isVehicleAvailable(txt_vehicleRegNumber.Text);
-            if (lbl_vehicleUnavailable.Visible == false)
+            if (lbl_vehicleUnavailable.Visible == false) 
             {
                 if (validVehicleNumber1 == true || validVehicleNumber2 == true)
                 {
@@ -525,7 +496,7 @@ namespace ShineWay.UI
             {
                 lbl_vehicleNumberError.Visible = true;
             }
-
+            
         }
 
         private void txt_vehicleRegNumber_TextChanged(object sender, EventArgs e)
@@ -558,24 +529,16 @@ namespace ShineWay.UI
         {
             bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text.Trim());
             bool validcustomernic2 = Validates.ValidCustomerNewNIC(txt_customerNic.Text.Trim());
-            isCustomerAvailable(txt_customerNic.Text.Trim());
 
-            if (lbl_customerNICError.Visible == false)
+            if (validcustomernic1 == true || validcustomernic2 == true)
             {
-                if (validcustomernic1 == true || validcustomernic2 == true)
-                {
-                    lbl_customerNICCorrect.Visible = true;
-                    lbl_customerNICError.Visible = false;
-                }
-                else
-                {
-                    lbl_customerNICError.Visible = true;
-                    lbl_customerNICCorrect.Visible = false;
-                }
+                lbl_customerNICCorrect.Visible = true;
+                lbl_customerNICError.Visible = false;
             }
             else
             {
                 lbl_customerNICError.Visible = true;
+                lbl_customerNICCorrect.Visible = false;
             }
         }
 
@@ -584,22 +547,15 @@ namespace ShineWay.UI
             bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text.Trim());
             bool validcustomernic2 = Validates.ValidCustomerNewNIC(txt_customerNic.Text.Trim());
 
-            if (lbl_customerNICError.Visible == false)
+            if (validcustomernic1 == true || validcustomernic2 == true)
             {
-                if (validcustomernic1 == true || validcustomernic2 == true)
-                {
-                    lbl_customerNICCorrect.Visible = true;
-                    lbl_customerNICError.Visible = false;
-                }
-                else
-                {
-                    lbl_customerNICError.Visible = true;
-                    lbl_customerNICCorrect.Visible = false;
-                }
+                lbl_customerNICCorrect.Visible = true;
+                lbl_customerNICError.Visible = false;
             }
             else
             {
                 lbl_customerNICError.Visible = true;
+                lbl_customerNICCorrect.Visible = false;
             }
         }
 
