@@ -24,6 +24,9 @@ namespace ShineWay.UI
             if (userType.Equals("User"))
             {
                 btnUsers.Enabled = false;
+                btn_ownerPayments.Enabled = false;
+                btn_reports.Enabled = false;
+                btn_vehicleOwner.Enabled = false;
             }
             Welcome message =new Welcome("Nice to see yoo " + userName.Split(" ")[0] + "!");
             message.hideCloseButton();
