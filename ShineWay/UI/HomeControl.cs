@@ -22,22 +22,25 @@ namespace ShineWay.UI
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
+            vehicleIndex = 0;
+            vehicles.Clear();
+            clearText();
             String searchKeyValue = txt_search.Text;
             String query = "";
             if (checkBox_ignoreOngoing.Checked)
             {
                 //query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price, payment.End_date FROM vehicle INNER JOIN payment ON NOT payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND (vehicle.Brand LIKE '%" + searchKeyValue + "%' OR vehicle.Model LIKE '%" + searchKeyValue + "%' OR vehicle.Daily_price LIKE '%" + searchKeyValue + "%' OR vehicle.Type LIKE '%" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '%" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '%" + searchKeyValue + "%' ); ";
-                query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price FROM vehicle WHERE Vehicle.Vehicle_num NOT IN(SELECT payment.Vehicle_num FROM payment WHERE payment.Status = \"Ongoing\")  AND (vehicle.Brand LIKE '%" + searchKeyValue + "%' OR  vehicle.Daily_price LIKE '%" + searchKeyValue + "%' OR vehicle.Type LIKE '%" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '%" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '%" + searchKeyValue + "%'); ";
+                query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price FROM vehicle WHERE Vehicle.Vehicle_num NOT IN (SELECT payment.Vehicle_num FROM payment WHERE payment.Status = \"Ongoing\")  AND (vehicle.Brand LIKE '" + searchKeyValue + "%' OR  vehicle.Daily_price LIKE '" + searchKeyValue + "%' OR vehicle.Type LIKE '" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '" + searchKeyValue + "%'); ";
 
 
             }
             else
             {
-                query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR  `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
+                query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '" + searchKeyValue + "%' OR  `Daily_price` LIKE '" + searchKeyValue + "%' OR `Type` LIKE '" + searchKeyValue + "%' OR `Weekly_price` LIKE '" + searchKeyValue + "%' OR `Monthly_price` LIKE '" + searchKeyValue + "%' ";
 
             }
-            vehicles.Clear();
-
+            /*vehicles.Clear();
+            clearText();*/
             try
             {
                 MySqlDataReader reader = DbConnection.Read(query);
@@ -55,7 +58,8 @@ namespace ShineWay.UI
 
                 try
                 {
-                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
+                    //pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
+                    pb_vehicle.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
                 }
                 catch (Exception ex)
                 {
@@ -66,11 +70,13 @@ namespace ShineWay.UI
                 {
                     clearText();
                     vehicles.Clear();
+                    vehicleIndex = 0;
                 }
             }
             catch (Exception ex)
             {
                 clearText();
+                vehicleIndex = 0;
             }
             
 
@@ -102,7 +108,8 @@ namespace ShineWay.UI
                 label_weeklyRental.Text = vehicles[vehicleIndex].getWeeklyRental();
                 try
                 {
-                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
+                    //pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
+                    pb_vehicle.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
                 }
                 catch (Exception ex)
                 {
@@ -133,7 +140,8 @@ namespace ShineWay.UI
                 label_weeklyRental.Text = vehicles[vehicleIndex].getWeeklyRental();
                 try
                 {
-                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\"+ vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
+                    //pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\"+ vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
+                    pb_vehicle.Image = LoadBitmapNolock(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
                 }
                 catch (Exception ex)
                 {
@@ -165,7 +173,10 @@ namespace ShineWay.UI
 
         private void txt_search_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            /*vehicles.Clear();
+            clearText();
+
+            if (e.KeyCode == Keys.Enter)
             {
 
                 if (txt_search.Text.Equals(""))
@@ -182,17 +193,17 @@ namespace ShineWay.UI
                     if (checkBox_ignoreOngoing.Checked)
                     {
                         //query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price, payment.End_date FROM vehicle INNER JOIN payment ON NOT payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND (vehicle.Brand LIKE '%" + searchKeyValue + "%' OR vehicle.Model LIKE '%" + searchKeyValue + "%' OR vehicle.Daily_price LIKE '%" + searchKeyValue + "%' OR vehicle.Type LIKE '%" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '%" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '%" + searchKeyValue + "%' ); ";
-                        query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price FROM vehicle WHERE Vehicle.Vehicle_num NOT IN(SELECT payment.Vehicle_num FROM payment WHERE payment.Status = \"Ongoing\")  AND (vehicle.Brand LIKE '%" + searchKeyValue + "%' OR  vehicle.Daily_price LIKE '%" + searchKeyValue + "%' OR vehicle.Type LIKE '%" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '%" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '%" + searchKeyValue + "%'); ";
+                        query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price FROM vehicle WHERE Vehicle.Vehicle_num NOT IN (SELECT payment.Vehicle_num FROM payment WHERE payment.Status = \"Ongoing\")  AND (vehicle.Brand LIKE '" + searchKeyValue + "%' OR  vehicle.Daily_price LIKE '" + searchKeyValue + "%' OR vehicle.Type LIKE '" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '" + searchKeyValue + "%'); ";
 
 
                     }
                     else
                     {
-                        query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR  `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
+                        query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '" + searchKeyValue + "%' OR  `Daily_price` LIKE '" + searchKeyValue + "%' OR `Type` LIKE '" + searchKeyValue + "%' OR `Weekly_price` LIKE '" + searchKeyValue + "%' OR `Monthly_price` LIKE '" + searchKeyValue + "%' ";
 
                     }
                     vehicles.Clear();
-
+                    clearText();
                     try
                     {
                         MySqlDataReader reader = DbConnection.Read(query);
@@ -218,7 +229,7 @@ namespace ShineWay.UI
                         clearText();
                     }
                 }
-            }
+            }*/
         }
 
 
@@ -305,58 +316,22 @@ namespace ShineWay.UI
 
         private void checkBox_ignoreOngoing_CheckStateChanged(object sender, EventArgs e)
         {
-            String searchKeyValue = txt_search.Text;
-            String query = "";
-            if (checkBox_ignoreOngoing.Checked)
-            {
-                //query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price, payment.End_date FROM vehicle INNER JOIN payment ON NOT payment.Status = \"Ongoing\" AND payment.Vehicle_num = vehicle.Vehicle_num AND (vehicle.Brand LIKE '%" + searchKeyValue + "%' OR vehicle.Model LIKE '%" + searchKeyValue + "%' OR vehicle.Daily_price LIKE '%" + searchKeyValue + "%' OR vehicle.Type LIKE '%" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '%" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '%" + searchKeyValue + "%' ); ";
-                query = "SELECT vehicle.Vehicle_num, vehicle.Brand, vehicle.Daily_price, vehicle.Weekly_price, vehicle.Monthly_price FROM vehicle WHERE Vehicle.Vehicle_num NOT IN(SELECT payment.Vehicle_num FROM payment WHERE payment.Status = \"Ongoing\")  AND (vehicle.Brand LIKE '%" + searchKeyValue + "%' OR  vehicle.Daily_price LIKE '%" + searchKeyValue + "%' OR vehicle.Type LIKE '%" + searchKeyValue + "%' OR vehicle.Weekly_price LIKE '%" + searchKeyValue + "%' OR vehicle.Monthly_price LIKE '%" + searchKeyValue + "%'); ";
-
-
-            }
-            else
-            {
-                query = "SELECT `Vehicle_num`, `Brand`,`Daily_price`, `Weekly_price`, `Monthly_price`  FROM `vehicle` WHERE `Brand` LIKE '%" + searchKeyValue + "%' OR  `Daily_price` LIKE '%" + searchKeyValue + "%' OR `Type` LIKE '%" + searchKeyValue + "%' OR `Weekly_price` LIKE '%" + searchKeyValue + "%' OR `Monthly_price` LIKE '%" + searchKeyValue + "%' ";
-
-            }
             vehicles.Clear();
+            clearText();
+        }
 
-            try
+
+        public static Bitmap LoadBitmapNolock(string path)
+        {
+            using (var img = Image.FromFile(path))
             {
-                MySqlDataReader reader = DbConnection.Read(query);
-                while (reader.Read())
-                {
-                    vehicles.Add(new Vehicle(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
-
-                }
-
-                label_VehicleNumber.Text = vehicles[0].getVehicleNumber();
-                label_brand.Text = vehicles[0].getBrand();
-                label_dailyRental.Text = vehicles[0].getDailyRental();
-                label_monthlyRental.Text = vehicles[0].getMonthlyRental();
-                label_weeklyRental.Text = vehicles[0].getWeeklyRental();
-
-                try
-                {
-                    pb_vehicle.Image = Image.FromFile(@"C:\ShineWay\img\" + vehicles[vehicleIndex].getVehicleNumber() + "-overall.jpg");
-                }
-                catch (Exception ex)
-                {
-                    pb_vehicle.Image = ShineWay.Properties.Resources.noImage;
-                }
-
-                if (txt_search.Text.Equals(""))
-                {
-                    clearText();
-                    vehicles.Clear();
-                }
+                Bitmap src = new Bitmap(img);
+                Bitmap target = new Bitmap(src.Size.Width, src.Size.Height);
+                Graphics g = Graphics.FromImage(target);
+                g.Clear(Color.White);
+                g.DrawImage(src, 0, 0);
+                return target;
             }
-            catch (Exception ex)
-            {
-                clearText();
-            }
-
-
         }
     }
 }
