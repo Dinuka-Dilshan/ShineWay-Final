@@ -19,13 +19,16 @@ namespace ShineWay.UI
     {
 
         List<Booking1> bookings = new List<Booking1>();
-        bool IsValidPackagetype = false;
+        bool IsValidPackagetype = true;
+
 
         public Booking()
         {
             InitializeComponent();
+           // dgv_Booking.SelectedRows[0] = 0;
             setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
             getNextBookingID();
+            
            
 
         }
@@ -87,46 +90,39 @@ namespace ShineWay.UI
         {
            // selectPackageType();
         }
-/*
-        private void isAvailable(string Check)
+
+        private void isVehicleAvailable(string Check)
         {
-            MySqlDataReader isDataAvailable = null;
-            try
-            {
-               isDataAvailable = DbConnection.Read("SELECT Vehicle_num FROM vehicle WHERE Vehicle_num = '" + Check + "'");
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            MySqlDataReader isDataAvailable = DbConnection.Read("SELECT Vehicle_num FROM vehicle WHERE Vehicle_num = '" + Check + "'");
+            isDataAvailable.Read();
 
-
-            while (isDataAvailable.Read())
+            if (isDataAvailable.HasRows)
             {
-                if (isDataAvailable != null)
+
+                if (isDataAvailable[0].ToString().Equals(Check))
                 {
-
-                    if (isDataAvailable[0].ToString() == Check)
-                    {
-                        lbl_vehicleUnavailable.Visible = false;
-                        return;
-                    }
-                    else
-                    {
-                        lbl_vehicleUnavailable.Visible = true;
-                        return;
-                    }
-                    
+                    lbl_vehicleUnavailable.Visible = false;
+                    return;
                 }
                 else
                 {
-                    CustomMessage errormessege1 = new CustomMessage("Unable to conncet to \nthe database", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
-                    errormessege1.convertToOkButton();
-                    errormessege1.ShowDialog();
+                    
+                    return;
                 }
+                    
+            }
+            else
+            {
+                CustomMessage errormessege1 = new CustomMessage("Vehicle Unavilable", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                errormessege1.convertToOkButton();
+                errormessege1.ShowDialog();
+                lbl_vehicleUnavailable.Visible = true;
+                lbl_vehicleNumberCorrect.Visible = false;
             }
             
+            
         }
-*/
+
         public void setDataToGrid(string query)                                     // det data to datagridview
         {
                 dgv_Booking.Rows.Clear();
@@ -260,6 +256,7 @@ namespace ShineWay.UI
             lbl_advancedPayementCorrect.Visible = false;
             lbl_advancedPayementError.Visible = false;
             lbl_discriptionError.Visible = false;
+            lbl_vehicleUnavailable.Visible = false;
 
             getNextBookingID();
            
@@ -269,6 +266,7 @@ namespace ShineWay.UI
         {
             if (lbl_bookingIDError.Visible == false &&
                     lbl_vehicleNumberError.Visible == false &&
+                    lbl_vehicleUnavailable.Visible == false &&
                     lbl_customerNICError.Visible == false &&
                     lbl_licenseNumberError.Visible == false &&
                     lbl_odomemterError.Visible == false &&
@@ -287,7 +285,7 @@ namespace ShineWay.UI
             {
                 try
                 {
-                    
+                    isEndDatevalid();
                     try
                     {
                         MySqlDataReader reader1 = DbConnection.Read("UPDATE `booking` SET `Vehicle_num`='" + txt_vehicleRegNumber.Text.Trim() + "',`Cus_NIC` = '" + txt_customerNic.Text.Trim() + "',`Licen_num`='" + txt_licenseNumber.Text.Trim() + "',`Start_date`='" + date_startingDate.Text + "',`Start_ODO`='" + txt_startingOdometer.Text.Trim() + "',`Package_Type`='" + combo_packageType.Text + "',`Discription`='" + txt_description.Text.Trim() + "' WHERE `booking`.`Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
@@ -341,6 +339,7 @@ namespace ShineWay.UI
                                                                 // actions
             if (    lbl_bookingIDError.Visible == false &&
                     lbl_vehicleNumberError.Visible == false &&
+                    lbl_vehicleUnavailable.Visible == false &&
                     lbl_customerNICError.Visible == false &&
                     lbl_licenseNumberError.Visible == false &&
                     lbl_odomemterError.Visible == false &&
@@ -355,8 +354,8 @@ namespace ShineWay.UI
                     txt_depositAmount.Text != "" &&
                     date_startingDate.Value >= DateTime.Today &&
                     date_endDate.Value >= date_startingDate.Value &&
-                    IsValidPackagetype == true
-
+                    IsValidPackagetype == true 
+                    
 
                 )
             {
@@ -450,6 +449,10 @@ namespace ShineWay.UI
                     MessageBox.Show("End date should be a later date than start date");
                 }
             }
+            else
+            {
+
+            }
         }
 
         private void txt_bookingId_Leave(object sender, EventArgs e)
@@ -467,25 +470,61 @@ namespace ShineWay.UI
             }
         }
 
+
+
         private void txt_vehicleRegNumber_Leave(object sender, EventArgs e)
         {
             bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text.Trim());
             bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text.Trim());
 
-            if (validVehicleNumber1 == true || validVehicleNumber2 == true)
+            isVehicleAvailable(txt_vehicleRegNumber.Text);
+            if (lbl_vehicleUnavailable.Visible == false) 
             {
-                lbl_vehicleNumberCorrect.Visible = true;
-                lbl_vehicleNumberError.Visible = false;
-                //isAvailable(txt_vehicleRegNumber.Text);
+                if (validVehicleNumber1 == true || validVehicleNumber2 == true)
+                {
+                    lbl_vehicleNumberCorrect.Visible = true;
+                    lbl_vehicleNumberError.Visible = false;
+
+                }
+                else
+                {
+                    lbl_vehicleNumberCorrect.Visible = false;
+                    lbl_vehicleNumberError.Visible = true;
+                }
             }
             else
             {
-                lbl_vehicleNumberCorrect.Visible = false;
+                lbl_vehicleNumberError.Visible = true;
+            }
+            
+        }
+
+        private void txt_vehicleRegNumber_TextChanged(object sender, EventArgs e)
+        {
+            bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text.Trim());
+            bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text.Trim());
+
+            //isAvailable(txt_vehicleRegNumber.Text);
+            if (lbl_vehicleUnavailable.Visible == false)
+            {
+                if (validVehicleNumber1 == true || validVehicleNumber2 == true)
+                {
+                    lbl_vehicleNumberCorrect.Visible = true;
+                    lbl_vehicleNumberError.Visible = false;
+
+                }
+                else
+                {
+                    lbl_vehicleNumberCorrect.Visible = false;
+                    lbl_vehicleNumberError.Visible = true;
+                }
+            }
+            else
+            {
                 lbl_vehicleNumberError.Visible = true;
             }
         }
 
-       
         private void txt_customerNic_Leave(object sender, EventArgs e)
         {
             bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text.Trim());
@@ -503,7 +542,22 @@ namespace ShineWay.UI
             }
         }
 
+        private void txt_customerNic_TextChanged(object sender, EventArgs e)
+        {
+            bool validcustomernic1 = Validates.ValidCustomerOldNIC(txt_customerNic.Text.Trim());
+            bool validcustomernic2 = Validates.ValidCustomerNewNIC(txt_customerNic.Text.Trim());
 
+            if (validcustomernic1 == true || validcustomernic2 == true)
+            {
+                lbl_customerNICCorrect.Visible = true;
+                lbl_customerNICError.Visible = false;
+            }
+            else
+            {
+                lbl_customerNICError.Visible = true;
+                lbl_customerNICCorrect.Visible = false;
+            }
+        }
 
         private void txt_licenseNumber_Leave(object sender, EventArgs e)
         {
@@ -522,8 +576,22 @@ namespace ShineWay.UI
         
         }
 
-    
-    
+        private void txt_licenseNumber_TextChanged(object sender, EventArgs e)
+        {
+            bool licensenumber = Validates.ValidLicensenumber(txt_licenseNumber.Text);
+
+            if (licensenumber == false)
+            {
+                lbl_licenseNumberError.Visible = true;
+                lbl_licenseNumberCorrect.Visible = false;
+            }
+            else
+            {
+                lbl_licenseNumberError.Visible = false;
+                lbl_licenseNumberCorrect.Visible = true;
+            }
+        }
+
         private void txt_startingOdometer_MouseLeave(object sender, EventArgs e)
         {
             bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text);
@@ -557,12 +625,45 @@ namespace ShineWay.UI
             }
         }
 
+        private void txt_startingOdometer_TextChanged(object sender, EventArgs e)
+        {
+            bool startodo = Validates.ValidOdometer(txt_startingOdometer.Text.Trim());
+
+            if (startodo == false)
+            {
+                lbl_odomemterError.Visible = true;
+                lbl_odomemterCorrect.Visible = false;
+            }
+            else
+            {
+                lbl_odomemterError.Visible = false;
+                lbl_odomemterCorrect.Visible = true;
+            }
+        }
+
         private void txt_depositAmount_Enter(object sender, EventArgs e)
         {
             txt_depositAmount.TextAlign = HorizontalAlignment.Left;
         }
 
         private void txt_depositAmount_Leave(object sender, EventArgs e)
+        {
+            bool depositeamount = Validates.ValidAmount(txt_depositAmount.Text.Trim());
+
+            if (depositeamount == false)
+            {
+                lbl_depositeAmountError.Visible = true;
+                lbl_depositeAmountCorrect.Visible = false;
+            }
+            else
+            {
+                lbl_depositeAmountError.Visible = false;
+                lbl_depositeAmountCorrect.Visible = true;
+                txt_depositAmount.TextAlign = HorizontalAlignment.Right;
+            }
+        }
+
+        private void txt_depositAmount_TextChanged(object sender, EventArgs e)
         {
             bool depositeamount = Validates.ValidAmount(txt_depositAmount.Text.Trim());
 
@@ -601,6 +702,23 @@ namespace ShineWay.UI
             }
         }
 
+        private void txt_advancedPayment_TextChanged(object sender, EventArgs e)
+        {
+            bool advanceamount = Validates.ValidAmount(txt_advancedPayment.Text.Trim());
+            if (advanceamount == false)
+            {
+                lbl_advancedPayementError.Visible = true;
+                lbl_advancedPayementCorrect.Visible = false;
+
+            }
+            else
+            {
+                lbl_advancedPayementError.Visible = false;
+                lbl_advancedPayementCorrect.Visible = true;
+                txt_advancedPayment.TextAlign = HorizontalAlignment.Right;
+            }
+        }
+
         private void txt_description_Leave(object sender, EventArgs e)
         {
             bool description = Validates.ValidateDescription(txt_description.Text);
@@ -622,6 +740,27 @@ namespace ShineWay.UI
             }
         }
 
+        private void txt_description_TextChanged(object sender, EventArgs e)
+        {
+            bool description = Validates.ValidateDescription(txt_description.Text);
+
+            if (description == false)
+            {
+                lbl_depositeAmountError.Visible = true;
+                lbl_depositeAmountCorrect.Visible = false;
+
+                //  MessageBox.Show("Maxium lenght of description is 150 charcters", "Too long", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //  CustomMessage errormessege = new CustomMessage("Maxium lenght of description is\n 150 charcters", "Too long", ShineWay.Properties.Resources.error, DialogResult.OK);
+                //  errormessege.convertToOkButton();
+                //  errormessege.ShowDialog();
+            }
+            else
+            {
+                lbl_depositeAmountError.Visible = false;
+                lbl_depositeAmountCorrect.Visible = true;
+            }
+        }
+
         private void combo_packageType_TextChanged(object sender, EventArgs e)
         {
             if(combo_packageType.Text != "")
@@ -632,6 +771,8 @@ namespace ShineWay.UI
             }
             
         }
+
+
 
         private void date_endDate_Leave(object sender, EventArgs e)
         {
@@ -663,7 +804,7 @@ namespace ShineWay.UI
             dgv_Booking.RowHeadersVisible = false;
             dgv_Booking.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv_Booking.ColumnHeadersDefaultCellStyle.BackColor;
 
-            
+            //lbl_packageTypeError.Visible = false;
         }
 
         private void date_startingDate_KeyPress(object sender, KeyPressEventArgs e)
@@ -691,6 +832,14 @@ namespace ShineWay.UI
             isEndDatevalid();
         }
 
+        private void date_endDate_VisibleChanged(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void date_endDate_ValueChanged(object sender, EventArgs e)
+        {
+            selectPackageType();
+        }
     }
 }
