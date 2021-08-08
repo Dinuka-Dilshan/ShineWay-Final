@@ -51,6 +51,7 @@ namespace ShineWay.UI
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_vehicleUnavailable = new System.Windows.Forms.Label();
             this.lbl_packageTypeCorrect = new System.Windows.Forms.Label();
             this.lbl_advancedPayementCorrect = new System.Windows.Forms.Label();
             this.lbl_depositeAmountCorrect = new System.Windows.Forms.Label();
@@ -349,6 +350,7 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lbl_vehicleUnavailable);
             this.panel1.Controls.Add(this.lbl_packageTypeCorrect);
             this.panel1.Controls.Add(this.lbl_advancedPayementCorrect);
             this.panel1.Controls.Add(this.lbl_depositeAmountCorrect);
@@ -414,6 +416,20 @@ namespace ShineWay.UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(891, 827);
             this.panel1.TabIndex = 28;
+            // 
+            // lbl_vehicleUnavailable
+            // 
+            this.lbl_vehicleUnavailable.AutoSize = true;
+            this.lbl_vehicleUnavailable.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_vehicleUnavailable.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_vehicleUnavailable.ForeColor = System.Drawing.Color.Red;
+            this.lbl_vehicleUnavailable.Location = new System.Drawing.Point(385, 157);
+            this.lbl_vehicleUnavailable.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_vehicleUnavailable.Name = "lbl_vehicleUnavailable";
+            this.lbl_vehicleUnavailable.Size = new System.Drawing.Size(159, 18);
+            this.lbl_vehicleUnavailable.TabIndex = 123;
+            this.lbl_vehicleUnavailable.Text = "Vehicle Unavailable";
+            this.lbl_vehicleUnavailable.Visible = false;
             // 
             // lbl_packageTypeCorrect
             // 
@@ -594,9 +610,9 @@ namespace ShineWay.UI
             this.lbl_vehicleNumberError.Location = new System.Drawing.Point(385, 157);
             this.lbl_vehicleNumberError.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_vehicleNumberError.Name = "lbl_vehicleNumberError";
-            this.lbl_vehicleNumberError.Size = new System.Drawing.Size(391, 18);
+            this.lbl_vehicleNumberError.Size = new System.Drawing.Size(401, 18);
             this.lbl_vehicleNumberError.TabIndex = 107;
-            this.lbl_vehicleNumberError.Text = "Please enter a valid Vehicle Numbr (eg :- ABC-1234)";
+            this.lbl_vehicleNumberError.Text = "Please enter a valid Vehicle Number (eg :- ABC-1234)";
             this.lbl_vehicleNumberError.Visible = false;
             // 
             // lbl_bookingIDError
@@ -608,9 +624,9 @@ namespace ShineWay.UI
             this.lbl_bookingIDError.Location = new System.Drawing.Point(385, 94);
             this.lbl_bookingIDError.Margin = new System.Windows.Forms.Padding(0);
             this.lbl_bookingIDError.Name = "lbl_bookingIDError";
-            this.lbl_bookingIDError.Size = new System.Drawing.Size(196, 18);
+            this.lbl_bookingIDError.Size = new System.Drawing.Size(141, 18);
             this.lbl_bookingIDError.TabIndex = 106;
-            this.lbl_bookingIDError.Text = "Please enter a valid Email";
+            this.lbl_bookingIDError.Text = "Invalid Booking ID";
             this.lbl_bookingIDError.Visible = false;
             // 
             // pb_btnSubmitPrint
@@ -1212,7 +1228,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.DateTimePicker date_startingDate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.Label label11;
@@ -1227,7 +1242,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.TextBox txt_description;
         private System.Windows.Forms.MaskedTextBox txt_advancedPayment;
         private System.Windows.Forms.MaskedTextBox txt_depositAmount;
-        private System.Windows.Forms.MaskedTextBox txt_startingOdometer;
         private System.Windows.Forms.MaskedTextBox txt_licenseNumber;
         private System.Windows.Forms.MaskedTextBox txt_customerNic;
         private System.Windows.Forms.MaskedTextBox txt_vehicleRegNumber;
@@ -1265,5 +1279,11 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+
+        private System.Windows.Forms.Label lbl_vehicleUnavailable;
+
+        public System.Windows.Forms.DateTimePicker date_startingDate;
+        public System.Windows.Forms.MaskedTextBox txt_startingOdometer;
+
     }
 }

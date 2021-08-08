@@ -243,6 +243,15 @@ namespace ShineWay.UI
             label_emailError.Visible = false;
             label_telnumberError.Visible = false;
             label_licenseError.Visible = false;
+
+            pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+            pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+
+
         }
 
         private void pb_btnAdd_Click(object sender, EventArgs e)
@@ -502,17 +511,6 @@ namespace ShineWay.UI
             }
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txt_nicNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txt_licenseNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txt_customerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txt_telephoneNumber.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txt_email.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txt_address.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            
-        }
-
         private void customer_Load(object sender, EventArgs e)
         {
             setDataToTable("Select * from customer");
@@ -559,6 +557,15 @@ namespace ShineWay.UI
                 label_emailError.Visible = false;
                 label_telnumberError.Visible = false;
                 label_licenseError.Visible = false;
+
+                pictureBox2.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox5.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox7.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox9.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox11.Image = ShineWay.Properties.Resources.correctInput;
+                pictureBox13.Image = ShineWay.Properties.Resources.correctInput;
+
+
             }
             catch (Exception ex)
             {
@@ -608,6 +615,21 @@ namespace ShineWay.UI
             }
 
         private void txt_licenseNumber_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_nicNumber.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txt_licenseNumber.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txt_customerName.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

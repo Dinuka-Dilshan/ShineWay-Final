@@ -754,7 +754,7 @@ namespace ShineWay.UI
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(828, 602);
             this.dataGridView1.TabIndex = 27;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // NIC_Number
             // 
@@ -862,9 +862,9 @@ namespace ShineWay.UI
             // pictureBox15
             // 
             this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
-            this.pictureBox15.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox15.Location = new System.Drawing.Point(16, 13);
             this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(863, 811);
+            this.pictureBox15.Size = new System.Drawing.Size(860, 804);
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
             // 
@@ -936,7 +936,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pb_btnDelete;
@@ -970,5 +969,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Tele_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email_Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.TextBox txt_search;
     }
 }
