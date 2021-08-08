@@ -330,6 +330,7 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txt_licenseNumber);
             this.panel1.Controls.Add(this.txt_nicNumber);
             this.panel1.Controls.Add(this.label_tickAddress);
@@ -357,7 +358,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
             this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txt_customerName);
             this.panel1.Controls.Add(this.pictureBox13);
             this.panel1.Controls.Add(this.label3);
@@ -656,7 +656,7 @@ namespace ShineWay.UI
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(56, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(53, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
