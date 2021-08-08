@@ -590,15 +590,19 @@ namespace ShineWay.UI
             // 
             this.checkBox_ignoreOngoing.AutoSize = true;
             this.checkBox_ignoreOngoing.BackColor = System.Drawing.Color.White;
+            this.checkBox_ignoreOngoing.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.checkBox_ignoreOngoing.FlatAppearance.BorderSize = 0;
+            this.checkBox_ignoreOngoing.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
             this.checkBox_ignoreOngoing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.checkBox_ignoreOngoing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.checkBox_ignoreOngoing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox_ignoreOngoing.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBox_ignoreOngoing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.checkBox_ignoreOngoing.Location = new System.Drawing.Point(1279, 644);
             this.checkBox_ignoreOngoing.Name = "checkBox_ignoreOngoing";
             this.checkBox_ignoreOngoing.Size = new System.Drawing.Size(168, 26);
-            this.checkBox_ignoreOngoing.TabIndex = 61;
+            this.checkBox_ignoreOngoing.TabIndex = 0;
+            this.checkBox_ignoreOngoing.TabStop = false;
             this.checkBox_ignoreOngoing.Text = "Ignore Ongoing";
             this.checkBox_ignoreOngoing.UseVisualStyleBackColor = false;
             // 
