@@ -219,24 +219,34 @@ namespace ShineWay.UI
 
                     if (isAllValidForUpdate())
                     {
-
-                        string query = $"UPDATE `users` SET `NIC`= \"{txt_NIC.Text}\", `name`= \"{txt_name.Text}\", `user_type`= \"{combo_userType.Text}\", `email`= \"{txt_email.Text}\", `Telephone`= \"{txt_telephoneNumber.Text}\", `Address`= \"{txt_address.Text}\"  WHERE `ID`= \"{dataGridView1.SelectedRows[0].Cells[6].Value}\"";
-
-                        try
+                       /* if (NIC_Count(txt_NIC.Text)>1)
                         {
-                            DbConnection.Update(query);
-                            setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
-                            CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                            submitmessege.convertToOkButton();
-                            submitmessege.ShowDialog();
-
-                        }
-                        catch (Exception exc)
-                        {
-                            CustomMessage submitmessege = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                            CustomMessage submitmessege = new CustomMessage("NIC already available!", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                             submitmessege.convertToOkButton();
                             submitmessege.ShowDialog();
                         }
+                        else
+                        {*/
+                            string query = $"UPDATE `users` SET `NIC`= \"{txt_NIC.Text}\", `name`= \"{txt_name.Text}\", `user_type`= \"{combo_userType.Text}\", `email`= \"{txt_email.Text}\", `Telephone`= \"{txt_telephoneNumber.Text}\", `Address`= \"{txt_address.Text}\"  WHERE `ID`= \"{dataGridView1.SelectedRows[0].Cells[6].Value}\"";
+
+                            try
+                            {
+                                DbConnection.Update(query);
+                                setDataToTable("SELECT  `NIC`, `name`, `user_type`, `email`,`Telephone`, `Address` ,`ID` FROM `users`");
+                                CustomMessage submitmessege = new CustomMessage("successfully Updated!", "Update", ShineWay.Properties.Resources.correct, DialogResult.OK);
+                                submitmessege.convertToOkButton();
+                                submitmessege.ShowDialog();
+
+                            }
+                            catch (Exception exc)
+                            {
+                                CustomMessage submitmessege = new CustomMessage("Unable to Update!", "Error", ShineWay.Properties.Resources.error, DialogResult.OK);
+                                submitmessege.convertToOkButton();
+                                submitmessege.ShowDialog();
+                            }
+                        /*}*/
+
+                        
 
 
                     }
@@ -679,6 +689,22 @@ namespace ShineWay.UI
             }
 
             
+        }
+
+
+        private int NIC_Count(string NIC)
+        {
+            MySqlDataReader reader = DbConnection.Read("SELECT COUNT(`NIC`) FROM users WHERE `NIC`=\"" + NIC + "\";");
+            reader.Read();
+
+            if (reader.HasRows)
+            {
+               return Int32.Parse(reader[0].ToString());
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
