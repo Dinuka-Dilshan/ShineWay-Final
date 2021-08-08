@@ -46,7 +46,7 @@ namespace ShineWay.UI
 
         private void DisplayImagesAndSaveAsPath()
         {
-            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
+            MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway1.3");
             MySqlCommand cmd;
             con.Open();
             string displayimg, filepath;
