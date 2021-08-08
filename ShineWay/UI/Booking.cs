@@ -91,7 +91,7 @@ namespace ShineWay.UI
            // selectPackageType();
         }
 
-        private void isAvailable(string Check)
+        private void isVehicleAvailable(string Check)
         {
             MySqlDataReader isDataAvailable = DbConnection.Read("SELECT Vehicle_num FROM vehicle WHERE Vehicle_num = '" + Check + "'");
             isDataAvailable.Read();
@@ -106,16 +106,18 @@ namespace ShineWay.UI
                 }
                 else
                 {
-                    lbl_vehicleUnavailable.Visible = true;
+                    
                     return;
                 }
                     
             }
             else
             {
-                CustomMessage errormessege1 = new CustomMessage("Unable to conncet to \nthe database", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
+                CustomMessage errormessege1 = new CustomMessage("Vehicle Unavilable", "Error", ShineWay.Properties.Resources.information, DialogResult.OK);
                 errormessege1.convertToOkButton();
                 errormessege1.ShowDialog();
+                lbl_vehicleUnavailable.Visible = true;
+                lbl_vehicleNumberCorrect.Visible = false;
             }
             
             
@@ -254,6 +256,7 @@ namespace ShineWay.UI
             lbl_advancedPayementCorrect.Visible = false;
             lbl_advancedPayementError.Visible = false;
             lbl_discriptionError.Visible = false;
+            lbl_vehicleUnavailable.Visible = false;
 
             getNextBookingID();
            
@@ -263,6 +266,7 @@ namespace ShineWay.UI
         {
             if (lbl_bookingIDError.Visible == false &&
                     lbl_vehicleNumberError.Visible == false &&
+                    lbl_vehicleUnavailable.Visible == false &&
                     lbl_customerNICError.Visible == false &&
                     lbl_licenseNumberError.Visible == false &&
                     lbl_odomemterError.Visible == false &&
@@ -335,6 +339,7 @@ namespace ShineWay.UI
                                                                 // actions
             if (    lbl_bookingIDError.Visible == false &&
                     lbl_vehicleNumberError.Visible == false &&
+                    lbl_vehicleUnavailable.Visible == false &&
                     lbl_customerNICError.Visible == false &&
                     lbl_licenseNumberError.Visible == false &&
                     lbl_odomemterError.Visible == false &&
@@ -349,8 +354,8 @@ namespace ShineWay.UI
                     txt_depositAmount.Text != "" &&
                     date_startingDate.Value >= DateTime.Today &&
                     date_endDate.Value >= date_startingDate.Value &&
-                    IsValidPackagetype == true
-
+                    IsValidPackagetype == true 
+                    
 
                 )
             {
@@ -472,17 +477,26 @@ namespace ShineWay.UI
             bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text.Trim());
             bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text.Trim());
 
-            if (validVehicleNumber1 == true || validVehicleNumber2 == true)
+            isVehicleAvailable(txt_vehicleRegNumber.Text);
+            if (lbl_vehicleUnavailable.Visible == false) 
             {
-                lbl_vehicleNumberCorrect.Visible = true;
-                lbl_vehicleNumberError.Visible = false;
-                isAvailable(txt_vehicleRegNumber.Text);
+                if (validVehicleNumber1 == true || validVehicleNumber2 == true)
+                {
+                    lbl_vehicleNumberCorrect.Visible = true;
+                    lbl_vehicleNumberError.Visible = false;
+
+                }
+                else
+                {
+                    lbl_vehicleNumberCorrect.Visible = false;
+                    lbl_vehicleNumberError.Visible = true;
+                }
             }
             else
             {
-                lbl_vehicleNumberCorrect.Visible = false;
                 lbl_vehicleNumberError.Visible = true;
             }
+            
         }
 
         private void txt_vehicleRegNumber_TextChanged(object sender, EventArgs e)
@@ -490,15 +504,23 @@ namespace ShineWay.UI
             bool validVehicleNumber1 = Validates.ValidVehiclenumber1(txt_vehicleRegNumber.Text.Trim());
             bool validVehicleNumber2 = Validates.ValidVehiclenumber2(txt_vehicleRegNumber.Text.Trim());
 
-            if (validVehicleNumber1 == true || validVehicleNumber2 == true)
+            //isAvailable(txt_vehicleRegNumber.Text);
+            if (lbl_vehicleUnavailable.Visible == false)
             {
-                lbl_vehicleNumberCorrect.Visible = true;
-                lbl_vehicleNumberError.Visible = false;
-                isAvailable(txt_vehicleRegNumber.Text);
+                if (validVehicleNumber1 == true || validVehicleNumber2 == true)
+                {
+                    lbl_vehicleNumberCorrect.Visible = true;
+                    lbl_vehicleNumberError.Visible = false;
+
+                }
+                else
+                {
+                    lbl_vehicleNumberCorrect.Visible = false;
+                    lbl_vehicleNumberError.Visible = true;
+                }
             }
             else
             {
-                lbl_vehicleNumberCorrect.Visible = false;
                 lbl_vehicleNumberError.Visible = true;
             }
         }
