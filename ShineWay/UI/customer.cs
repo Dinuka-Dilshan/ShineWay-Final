@@ -33,7 +33,7 @@ namespace ShineWay.UI
         bool isEmailValidForUpdate = false;
 
         DbConnection db = new DbConnection();
-
+        /*
         private void DisplayData()
         {
             MySqlConnection con = new MySqlConnection("datasource=localhost; username=root; password=; database=shineway");
@@ -46,7 +46,7 @@ namespace ShineWay.UI
             dataGridView1.DataSource = dt;
             con.Close();
         }
-
+    */
         public customer()
         {
             InitializeComponent();
@@ -264,7 +264,7 @@ namespace ShineWay.UI
         private void pb_btnAdd_Click(object sender, EventArgs e)
         {
             // add button code goes here
-            Cursor = Cursors.WaitCursor;
+            
             MySqlDataReader reader;
 
             if (txt_nicNumber.Text.Trim() == "" || txt_licenseNumber.Text.Trim() == "" || txt_customerName.Text.Trim() == "" || txt_telephoneNumber.Text.Trim() == "" || txt_email.Text.Trim() == "" || txt_address.Text.Trim() == "")
@@ -332,8 +332,8 @@ namespace ShineWay.UI
                         try
                         {
                          //   $"UPDATE `customer` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\",`Brand`= \"{txt_brand.Text}\",`Model`= \"{txt_model.Text}\",`Type`= \"{combo_type.Text}\",`Engine_Num`= \"{txt_engineNumber.Text}\",`Chassis_Num`= \"{txt_chasisNumber.Text}\",`Owner_NIC`= \"{txt_ownerNIC.Text}\",`Reg_Date`= \"{date_registeredDate.Text}\",`Owner_Condi`= \"{txt_ownerCondition.Text}\",`Daily_price`= \"{txt_DailyPrice.Text}\",`Daliy_KM`= \"{txt_Dailykm.Text}\",`Weekly_price`= \"{txt_WeeklyPrice.Text}\",`Weekly_KM`= \"{txt_Weeklykm.Text}\",`Monthly_price`= \"{txt_MonthlyPrice.Text}\",`Monthy_KM`= \"{txt_Monthlykm.Text}\",`Extrakm_price`= \"{txt_ExtrakmPrice.Text}\",`Owner_payment`= \"{txt_OwnerPayment.Text}\",`Starting_odo`= \"{msktxt_startingOdo.Text}\"  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
-                            DbConnection.Read($"UPDATE `customer` SET Licen_num= \"{txt_licenseNumber.Text}\", Cus_name=\"{txt_customerName.Text}\" , Tel_num=\"{txt_telephoneNumber.Text}\", Email=\"{txt_email.Text}\" , Cus_Address=\"{txt_address.Text}\" where Cus_NIC=\"{dataGridView1.SelectedRows[0].Cells[0].Value}\"");
-
+                            DbConnection.Update($"UPDATE `customer` SET Licen_num= \"{txt_licenseNumber.Text}\", Cus_name=\"{txt_customerName.Text}\" , Tel_num=\"{txt_telephoneNumber.Text}\", Email=\"{txt_email.Text}\" , Cus_Address=\"{txt_address.Text}\" where Cus_NIC=\"{dataGridView1.SelectedRows[0].Cells[0].Value}\"");
+                            
                             CustomMessage message = new CustomMessage("Customer Updated Successfully!", "Updated", ShineWay.Properties.Resources.correct, DialogResult.OK);
                             message.convertToOkButton();
                             message.ShowDialog();
@@ -369,7 +369,7 @@ namespace ShineWay.UI
 
                     try
                     {
-                        DbConnection.Read("delete from customer where Cus_NIC='" + txt_nicNumber.Text + "'");
+                        DbConnection.Delete("delete from customer where Cus_NIC='" + txt_nicNumber.Text + "'");
 
                         CustomMessage message = new CustomMessage("User Deleted Successfully!", "Saved", ShineWay.Properties.Resources.correct, DialogResult.OK);
                         message.convertToOkButton();
@@ -628,7 +628,6 @@ namespace ShineWay.UI
             }
             catch (Exception ex)
             {
-
                 new CustomMessage("Unable to connect !", "Error", ShineWay.Properties.Resources.error, DialogResult.OK).ShowDialog();
             }
             }
