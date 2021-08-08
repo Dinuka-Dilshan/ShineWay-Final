@@ -476,7 +476,7 @@ namespace ShineWay.UI
             {
                 lbl_vehicleNumberCorrect.Visible = true;
                 lbl_vehicleNumberError.Visible = false;
-                isAvailable(txt_vehicleRegNumber.Text);
+                //isAvailable(txt_vehicleRegNumber.Text);
             }
             else
             {
