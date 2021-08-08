@@ -605,6 +605,7 @@ namespace ShineWay.UI
             this.checkBox_ignoreOngoing.TabStop = false;
             this.checkBox_ignoreOngoing.Text = "Ignore Ongoing";
             this.checkBox_ignoreOngoing.UseVisualStyleBackColor = false;
+            this.checkBox_ignoreOngoing.CheckStateChanged += new System.EventHandler(this.checkBox_ignoreOngoing_CheckStateChanged);
             // 
             // HomeControl
             // 
