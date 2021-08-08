@@ -663,6 +663,7 @@ namespace ShineWay.UI
             this.txt_description.Name = "txt_description";
             this.txt_description.Size = new System.Drawing.Size(417, 27);
             this.txt_description.TabIndex = 10;
+            this.txt_description.TextChanged += new System.EventHandler(this.txt_description_TextChanged);
             this.txt_description.Leave += new System.EventHandler(this.txt_description_Leave);
             // 
             // txt_advancedPayment
@@ -675,6 +676,7 @@ namespace ShineWay.UI
             this.txt_advancedPayment.PromptChar = ' ';
             this.txt_advancedPayment.Size = new System.Drawing.Size(368, 23);
             this.txt_advancedPayment.TabIndex = 9;
+            this.txt_advancedPayment.TextChanged += new System.EventHandler(this.txt_advancedPayment_TextChanged);
             this.txt_advancedPayment.Enter += new System.EventHandler(this.txt_advancedPayment_Enter);
             this.txt_advancedPayment.Leave += new System.EventHandler(this.txt_advancedPayment_Leave);
             // 
@@ -688,6 +690,7 @@ namespace ShineWay.UI
             this.txt_depositAmount.PromptChar = ' ';
             this.txt_depositAmount.Size = new System.Drawing.Size(366, 23);
             this.txt_depositAmount.TabIndex = 8;
+            this.txt_depositAmount.TextChanged += new System.EventHandler(this.txt_depositAmount_TextChanged);
             this.txt_depositAmount.Enter += new System.EventHandler(this.txt_depositAmount_Enter);
             this.txt_depositAmount.Leave += new System.EventHandler(this.txt_depositAmount_Leave);
             // 
@@ -702,6 +705,7 @@ namespace ShineWay.UI
             this.txt_startingOdometer.PromptChar = ' ';
             this.txt_startingOdometer.Size = new System.Drawing.Size(417, 23);
             this.txt_startingOdometer.TabIndex = 5;
+            this.txt_startingOdometer.TextChanged += new System.EventHandler(this.txt_startingOdometer_TextChanged);
             this.txt_startingOdometer.Leave += new System.EventHandler(this.txt_startingOdometer_Leave);
             // 
             // txt_licenseNumber
@@ -715,6 +719,7 @@ namespace ShineWay.UI
             this.txt_licenseNumber.PromptChar = ' ';
             this.txt_licenseNumber.Size = new System.Drawing.Size(415, 23);
             this.txt_licenseNumber.TabIndex = 3;
+            this.txt_licenseNumber.TextChanged += new System.EventHandler(this.txt_licenseNumber_TextChanged);
             this.txt_licenseNumber.Leave += new System.EventHandler(this.txt_licenseNumber_Leave);
             // 
             // txt_customerNic
@@ -728,6 +733,7 @@ namespace ShineWay.UI
             this.txt_customerNic.PromptChar = ' ';
             this.txt_customerNic.Size = new System.Drawing.Size(417, 23);
             this.txt_customerNic.TabIndex = 2;
+            this.txt_customerNic.TextChanged += new System.EventHandler(this.txt_customerNic_TextChanged);
             this.txt_customerNic.Leave += new System.EventHandler(this.txt_customerNic_Leave);
             // 
             // txt_vehicleRegNumber
@@ -741,6 +747,7 @@ namespace ShineWay.UI
             this.txt_vehicleRegNumber.PromptChar = ' ';
             this.txt_vehicleRegNumber.Size = new System.Drawing.Size(417, 23);
             this.txt_vehicleRegNumber.TabIndex = 1;
+            this.txt_vehicleRegNumber.TextChanged += new System.EventHandler(this.txt_vehicleRegNumber_TextChanged);
             this.txt_vehicleRegNumber.Leave += new System.EventHandler(this.txt_vehicleRegNumber_Leave);
             // 
             // txt_bookingId
@@ -787,6 +794,7 @@ namespace ShineWay.UI
             this.date_endDate.Name = "date_endDate";
             this.date_endDate.Size = new System.Drawing.Size(169, 30);
             this.date_endDate.TabIndex = 6;
+            this.date_endDate.ValueChanged += new System.EventHandler(this.date_endDate_ValueChanged);
             this.date_endDate.Leave += new System.EventHandler(this.date_endDate_Leave);
             // 
             // date_startingDate
