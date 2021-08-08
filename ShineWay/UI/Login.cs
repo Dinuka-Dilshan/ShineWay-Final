@@ -14,6 +14,7 @@ namespace ShineWay.UI
         bool isSelectedToShowPassword = false;
         System.Drawing.Color closeBtnColor;
         bool isUserNameValid = false;
+        bool isPassWordValid = false;
 
         public form_Login()
         {
@@ -132,9 +133,21 @@ namespace ShineWay.UI
             else
             {
                 userName = "";
+            } 
+
+            String password = txt_password.Text.Trim();
+
+            if (Validates.validateUserNameForLogin(password))
+            {
+                isPassWordValid = true;
             }
-            
-            String password = Encrypt.encryption(txt_password.Text.Trim());
+            else
+            {
+                password = "";
+            }
+
+            password = Encrypt.encryption(password);
+
             bool isPasswordCorrect = false;
 
 
