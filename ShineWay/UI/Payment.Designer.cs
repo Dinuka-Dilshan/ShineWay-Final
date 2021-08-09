@@ -29,8 +29,8 @@ namespace ShineWay.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.panel2 = new System.Windows.Forms.Panel();
             this.pb_btnUpdatePrint = new System.Windows.Forms.Label();
@@ -93,7 +93,6 @@ namespace ShineWay.UI
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pb_btnSubmitPrint = new System.Windows.Forms.PictureBox();
             this.pb_btnReset = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -128,7 +127,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnSubmitPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -175,15 +173,15 @@ namespace ShineWay.UI
             this.dgv_Payment.AllowUserToResizeColumns = false;
             this.dgv_Payment.AllowUserToResizeRows = false;
             this.dgv_Payment.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Payment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Payment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Payment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Payment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -207,15 +205,15 @@ namespace ShineWay.UI
             this.Column19,
             this.Column20,
             this.Column21});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Payment.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Payment.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_Payment.Location = new System.Drawing.Point(100, 182);
             this.dgv_Payment.Name = "dgv_Payment";
             this.dgv_Payment.ReadOnly = true;
@@ -482,7 +480,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox18);
             this.panel1.Controls.Add(this.pictureBox19);
-            this.panel1.Controls.Add(this.pb_btnSubmitPrint);
             this.panel1.Controls.Add(this.pb_btnReset);
             this.panel1.Controls.Add(this.pictureBox9);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -516,6 +513,7 @@ namespace ShineWay.UI
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(317, 21);
             this.textBox1.TabIndex = 272;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
@@ -538,6 +536,7 @@ namespace ShineWay.UI
             this.txt_endingOdometer.Name = "txt_endingOdometer";
             this.txt_endingOdometer.Size = new System.Drawing.Size(317, 21);
             this.txt_endingOdometer.TabIndex = 3;
+            this.txt_endingOdometer.TextChanged += new System.EventHandler(this.txt_endingOdometer_TextChanged);
             this.txt_endingOdometer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
             this.txt_endingOdometer.Leave += new System.EventHandler(this.txt_endingOdometer_Leave_1);
             // 
@@ -845,19 +844,6 @@ namespace ShineWay.UI
             this.pictureBox19.TabIndex = 32;
             this.pictureBox19.TabStop = false;
             // 
-            // pb_btnSubmitPrint
-            // 
-            this.pb_btnSubmitPrint.Image = global::ShineWay.Properties.Resources.submit_print;
-            this.pb_btnSubmitPrint.Location = new System.Drawing.Point(501, 764);
-            this.pb_btnSubmitPrint.Name = "pb_btnSubmitPrint";
-            this.pb_btnSubmitPrint.Size = new System.Drawing.Size(146, 42);
-            this.pb_btnSubmitPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_btnSubmitPrint.TabIndex = 30;
-            this.pb_btnSubmitPrint.TabStop = false;
-            this.pb_btnSubmitPrint.Click += new System.EventHandler(this.pb_btnSubmitPrint_Click);
-            this.pb_btnSubmitPrint.MouseLeave += new System.EventHandler(this.pb_btnSubmitPrint_MouseLeave);
-            this.pb_btnSubmitPrint.MouseHover += new System.EventHandler(this.pb_btnSubmitPrint_MouseHover);
-            // 
             // pb_btnReset
             // 
             this.pb_btnReset.Image = ((System.Drawing.Image)(resources.GetObject("pb_btnReset.Image")));
@@ -1100,7 +1086,6 @@ namespace ShineWay.UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_btnSubmitPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_btnReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1136,7 +1121,6 @@ namespace ShineWay.UI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.PictureBox pb_btnSubmitPrint;
         private System.Windows.Forms.PictureBox pb_btnReset;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox2;
