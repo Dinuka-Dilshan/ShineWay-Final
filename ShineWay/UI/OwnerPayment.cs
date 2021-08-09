@@ -337,7 +337,16 @@ namespace ShineWay.UI
             txt_ownerNIC.Text = dataGridView1.SelectedRows[0].Cells["Owner_NIC"].Value.ToString();
             txt_VehicleNumber.Text = dataGridView1.SelectedRows[0].Cells["vechicle_Num"].Value.ToString();
             txt_OwnerPayment.Text = dataGridView1.SelectedRows[0].Cells["Owner_pay_Amount"].Value.ToString();
-            dateTimePicker1.Text= dataGridView1.SelectedRows[0].Cells["payment_date"].Value.ToString();       
+            dateTimePicker1.Text= dataGridView1.SelectedRows[0].Cells["payment_date"].Value.ToString();
+
+            isNICValid = true;
+            isVehhicleNumValid = true;
+            isAmountValid = true;
+
+            label_nicError.Visible = false;                 
+            label_AmountError.Visible = false;
+            label_nicVehicleNum.Visible = false;
+
         }
 
         private void OwnerPayment_Load(object sender, EventArgs e)
