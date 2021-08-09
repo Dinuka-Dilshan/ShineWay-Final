@@ -114,16 +114,6 @@ namespace ShineWay.UI
             pb_btnReset.Image = ShineWay.Properties.Resources.reset;
         }
 
-        private void pb_btnSubmitPrint_MouseHover(object sender, EventArgs e)
-        {
-            pb_btnSubmitPrint.Image = ShineWay.Properties.Resources.submit_printHover;
-        }
-
-        private void pb_btnSubmitPrint_MouseLeave(object sender, EventArgs e)
-        {
-            pb_btnSubmitPrint.Image = ShineWay.Properties.Resources.submit_print;
-        }
-
 
         private void pb_btnReset_Click(object sender, EventArgs e)
         {
@@ -139,70 +129,14 @@ namespace ShineWay.UI
             lbl_amount.Text = "";
             txt_subAmount.Text = "";
             txt_search.Text = "";
+            lbl_statusError.Visible = false;
+            lbl_statusCorrect.Visible = false;
+
         }
 
         private void pb_btnSubmitPrint_Click(object sender, EventArgs e)
         {
-            //submit & reset button code goes here
-            /*if (combo_status.Text == "")                   // check package type selected
-            {
-                lbl_statusError.Visible = true;
-                lbl_statusCorrect.Visible = false;
-            }
-
-            // actions
-            if (    lbl_endODOError.Visible == false &&
-                    lbl_discountError.Visible == false &&
-                    txt_vehicleRegNumber.Text != "" &&
-                    txt_customerNic.Text != "" &&
-                    txt_endingOdometer.Text != "" &&
-                    combo_status.Text != "" &&
-                    textBox1.Text != "" &&
-                    date_endDate.Value >= DateTime.Now == true
-
-                )
-            {
-                try
-                {
-
-                    try
-                    {
-                        
-                        //MySqlDataReader reader = DbConnection.Read("INSERT INTO `payment`(`Booking_ID`, `Cust_NIC`, `Vehicle_num`, `Status`, `End_date`, `End_ODO`, `Amount`, `Discount`, `Sub_Amount`) VALUES ('" + txt_bookingId.Text + "','" + txt_vehicleRegNumber.Text + "','" + txt_customerNic.Text + "','" + combo_status.Text + "','" + date_endDate.Text + "','" + txt_endingOdometer.Text + "','" + lbl_amount.Text + "','" + textBox1.Text + "','" + txt_subAmount.Text + "')");
-                        MySqlDataReader reader = DbConnection.Read("INSERT INTO `payment`(`Booking_ID`, `Cust_NIC`, `Vehicle_num`, `Status`, `End_date`, `End_ODO`, `Amount`, `Discount`, `Sub_Amount`) VALUES ('" + txt_bookingId.Text + "','" + txt_customerNic.Text + "','" + txt_vehicleRegNumber.Text + "','" + combo_status.Text + "','" + date_endDate.Text + "','" + txt_endingOdometer.Text + "','" + lbl_amount.Text + "','" + textBox1.Text + "','" + txt_subAmount.Text + "')");
-
-                        try
-                        {
-                            CustomMessage submitmessege = new CustomMessage("Payment Successfull!", "Inserted", ShineWay.Properties.Resources.correct, DialogResult.OK);
-                            submitmessege.convertToOkButton();
-                            submitmessege.ShowDialog();
-                        }
-                        catch (Exception ex0)
-                        {
-                            MessageBox.Show(ex0.Message);
-                        }
-                    }
-                    catch (Exception ex1)
-                    {
-                        MessageBox.Show(ex1.Message);
-                    }
-                    setDataToGrid("SELECT payment.Booking_ID, payment.Cust_NIC, payment.Status, payment.End_date,payment.Advance_Payment, payment.End_ODO,payment.Amount, payment.Discount, payment.Sub_Amount,booking.Start_ODO,booking.Vehicle_num,booking.Package_Type,booking.Start_date,vehicle.Daily_price,vehicle.Weekly_price, vehicle.Monthly_price, vehicle.Extrakm_price, vehicle.Daily_KM, vehicle.Weekly_KM, vehicle.Monthly_KM FROM payment, booking, vehicle WHERE payment.Booking_ID = booking.Booking_ID AND booking.Vehicle_num = vehicle.Vehicle_num");
-
-                    //setDataToGrid("SELECT `Booking_ID`, `Cust_NIC`, `Vehicle_num`, `Status`, `End_date`, `End_ODO`, `Amount`, `Discount`, `Sub_Amount` FROM `payment` WHERE 1");
-                    //setDataToGrid("SELECT `Booking_ID`, `Cust_NIC`, `Vehicle_num`, `Status`, `End_date`, `End_ODO`, `Deposite_Amount`, `Amount`, `Advance_Payment`, `Discount`, `Sub_Amount` FROM `payment` WHERE 1");
-                    //setDataToGrid("SELECT `booking`.`Booking_ID`,`booking`.`Vehicle_num`,`booking`.`Cus_NIC`,`booking`.`Licen_num`,`Start_date`, `Start_ODO`,`End_date`,`Package_Type`,`Deposite_Amount`,`Advance_Payment`,`Discription` FROM `booking`, `payment` WHERE `booking`.`Booking_ID`=`payment`.`Booking_ID`");
-                }
-                catch (Exception ex2)
-                {
-                    MessageBox.Show(ex2.Message);
-                }
-            }
-            else
-            {
-                CustomMessage errormessege1 = new CustomMessage("Payment Unsuccessfull!\n\n Enter correct values", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
-                errormessege1.convertToOkButton();
-                errormessege1.ShowDialog();
-            }*/
+            
         }
   
 
@@ -226,7 +160,43 @@ namespace ShineWay.UI
 
                     try
                     {
+                        
                         MySqlDataReader reader1 = DbConnection.Read("UPDATE `payment` SET `Status`='" + combo_status.Text.Trim() + "',`End_date`='" + date_endDate.Text + "' ,`End_ODO`= '" + txt_endingOdometer.Text.Trim() + "' ,`Amount`='" + lbl_amount.Text.Trim() + "',`Discount`='" + textBox1.Text.Trim() + "' ,`Sub_Amount`= '" + txt_subAmount.Text.Trim() + "' WHERE `Booking_ID` = '"+ txt_bookingId.Text.Trim() +"';");
+
+                        try
+                        {
+                            CustomMessage submitmessege = new CustomMessage("Succussfully Updated!", "Updates", ShineWay.Properties.Resources.tick, DialogResult.OK);
+                            submitmessege.convertToOkButton();
+                            submitmessege.ShowDialog();
+                        }
+                        catch (Exception ex0)
+                        {
+                            MessageBox.Show(ex0.Message);
+                        }
+
+                    }
+                    catch (Exception ex2)
+                    {
+                        MessageBox.Show(ex2.Message);
+                    }
+
+                    setDataToGrid("SELECT payment.Booking_ID, payment.Cust_NIC, payment.Status, payment.End_date,payment.Advance_Payment, payment.End_ODO,payment.Amount, payment.Discount, payment.Sub_Amount,booking.Start_ODO,booking.Vehicle_num,booking.Package_Type,booking.Start_date,vehicle.Daily_price,vehicle.Weekly_price, vehicle.Monthly_price, vehicle.Extrakm_price, vehicle.Daily_KM, vehicle.Weekly_KM, vehicle.Monthly_KM FROM payment, booking, vehicle WHERE payment.Booking_ID = booking.Booking_ID AND booking.Vehicle_num = vehicle.Vehicle_num");
+
+                }
+                catch (Exception ex3)
+                {
+                    MessageBox.Show(ex3.Message);
+                }
+            }
+            else if (combo_status.Text == "Canceled")
+            {
+                try
+                {
+
+                    try
+                    {
+
+                        MySqlDataReader reader1 = DbConnection.Read("UPDATE `payment` SET `Status`='" + combo_status.Text.Trim() + "',`End_date`='" + date_endDate.Text + "'  WHERE `Booking_ID` = '" + txt_bookingId.Text.Trim() + "';");
 
                         try
                         {
@@ -398,72 +368,76 @@ namespace ShineWay.UI
             {
                 if (e.KeyCode == Keys.Enter)
                     {
-
-                    if (pt == "Daily Basis")
+                    int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
+                    int end = Convert.ToInt32(txt_endingOdometer.Text);
+                    if (end > start)
                     {
-  
-                        int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
-                        int end = Convert.ToInt32(txt_endingOdometer.Text);
-                        decimal dp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[12].Value);
-                        decimal ek = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[15].Value);
-                        int dk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[16].Value);
-                        decimal adv = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[5].Value);
-                        int days = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[20].Value);
-
-                        if ((end - start) <= (dk*days))
-                             {
-                               amt = (dp*days) - adv;
-                               lbl_amount.Text = amt.ToString();
-                             }
-                        else
-                             {
-                               amt = ((dp*days) + (((end - start) - dk) * ek)) - adv;
-                               lbl_amount.Text = amt.ToString();
-                              }  
-                    }
-
-                     else if (pt == "Weekly Basis")
-                     {
-                           int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
-                           int end = Convert.ToInt32(txt_endingOdometer.Text);
-                           decimal wp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[13].Value);
-                           decimal ek = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[15].Value);
-                           int wk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[17].Value);
-                           decimal adv = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[5].Value);
+                        if (pt == "Daily Basis")
+                        {
+                            decimal dp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[12].Value);
+                            decimal ek = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[15].Value);
+                            int dk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[16].Value);
+                            decimal adv = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[5].Value);
                             int days = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[20].Value);
 
-                        if ((end - start) <= (wk * days))
-                        {
-                            amt = (wp * days) - adv;
-                            lbl_amount.Text = amt.ToString();
+                            if ((end - start) <= (dk * days))
+                            {
+                                amt = (dp * days) - adv;
+                                lbl_amount.Text = amt.ToString();
+                            }
+                            else
+                            {
+                                amt = ((dp * days) + (((end - start) - dk) * ek)) - adv;
+                                lbl_amount.Text = amt.ToString();
+                            }
                         }
-                        else
+
+                        else if (pt == "Weekly Basis")
                         {
-                            amt = ((wp * days) + (((end - start) - wk )* ek)) - adv;
-                            lbl_amount.Text = amt.ToString();
+                            decimal wp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[13].Value);
+                            decimal ek = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[15].Value);
+                            int wk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[17].Value);
+                            decimal adv = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[5].Value);
+                            int days = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[20].Value);
+
+                            if ((end - start) <= (wk * days))
+                            {
+                                amt = (wp * days) - adv;
+                                lbl_amount.Text = amt.ToString();
+                            }
+                            else
+                            {
+                                amt = ((wp * days) + (((end - start) - wk) * ek)) - adv;
+                                lbl_amount.Text = amt.ToString();
+                            }
                         }
-                     }
-                     else if (pt == "Monthly Basis")
-                     {
-                            int start = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[10].Value);
-                            int end = Convert.ToInt32(txt_endingOdometer.Text);
+                        else if (pt == "Monthly Basis")
+                        {
                             decimal mp = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[14].Value);
                             decimal ek = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[15].Value);
                             int mk = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[18].Value);
                             decimal adv = Convert.ToDecimal(dgv_Payment.CurrentRow.Cells[5].Value);
                             int days = Convert.ToInt32(dgv_Payment.CurrentRow.Cells[20].Value);
 
-                        if ((end - start) <= (mk * days))
-                        {
-                            amt = (mp * days) - adv;
-                            lbl_amount.Text = amt.ToString();
-                        }
-                        else
-                        {
-                            amt = ((mp * days) + (((end - start) - mk )* ek)) - adv;
-                            lbl_amount.Text = amt.ToString();
+                            if ((end - start) <= (mk * days))
+                            {
+                                amt = (mp * days) - adv;
+                                lbl_amount.Text = amt.ToString();
+                            }
+                            else
+                            {
+                                amt = ((mp * days) + (((end - start) - mk) * ek)) - adv;
+                                lbl_amount.Text = amt.ToString();
+                            }
                         }
                     }
+                    else
+                    {
+                        CustomMessage errormessege1 = new CustomMessage("Enter Valid Value!\n\n Enter correct values", "Error", ShineWay.Properties.Resources.wrong, DialogResult.OK);
+                        errormessege1.convertToOkButton();
+                        errormessege1.ShowDialog();
+                    }
+                    
                 }
           
             }
@@ -499,11 +473,13 @@ namespace ShineWay.UI
         private void label10_Click(object sender, EventArgs e)
         {
             DateTime d1;
-            DateTime d2;
+            DateTime d2, d3;
 
-            d1 = Convert.ToDateTime(date_endDate.Text);
-            d2 = Convert.ToDateTime(dgv_Payment.CurrentRow.Cells[19].Value);
-            if (d1 > d2)
+
+            d1 = Convert.ToDateTime(date_endDate.Text); //d1 = Actual end date
+            d2 = Convert.ToDateTime(dgv_Payment.CurrentRow.Cells[19].Value);   //d2 = Starting date 
+            d3 = Convert.ToDateTime(dgv_Payment.CurrentRow.Cells[4].Value);    // d3 = Expected end date
+            if (d1 > d2 && d1 >= d3) 
             {
                 TimeSpan ts = d1 - d2;
                 int days = ts.Days;
@@ -574,6 +550,35 @@ namespace ShineWay.UI
 
         }
 
+        private void txt_endingOdometer_TextChanged(object sender, EventArgs e)
+        {
+            bool endodo = Validates.ValidOdometer(txt_endingOdometer.Text);
+            if (endodo == false)
+            {
+                lbl_endODOError.Visible = true;
+                lbl_endODOCorrect.Visible = false;
+            }
+            else
+            {
+                lbl_endODOCorrect.Visible = true;
+                lbl_endODOError.Visible = false;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            bool discount = Validates.ValidDiscount(textBox1.Text);
+            if (discount == false)
+            {
+                lbl_discountError.Visible = true;
+                lbl_discountCorrect.Visible = false;
+            }
+            else
+            {
+                lbl_discountCorrect.Visible = true;
+                lbl_discountError.Visible = false;
+            }
+        }
     }
     
 }
