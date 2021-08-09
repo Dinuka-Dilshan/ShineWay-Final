@@ -25,6 +25,13 @@ namespace ShineWay.UI
         bool isTelNumValid = false;
         bool isEmailValid = false;
         bool isAddressValid = false;
+        bool isNICValidForUpdate = false;
+        bool isAddressValidForUpdate=false;
+        bool isLicensenumberValidForUpdate=false;
+        bool isCusNameValidForUpdate = false;
+        bool isTelNumValidForUpdate = false;
+        bool isEmailValidForUpdate = false;
+
         DbConnection db = new DbConnection();
 
         private void DisplayData()
@@ -318,8 +325,10 @@ namespace ShineWay.UI
                 }
                 else
                 {
-                    if (isAllValid())
+                    if (isAllValidForUpdate())
                     {
+                        string query = $"UPDATE `customer` SET Licen_num= \"{txt_licenseNumber.Text}\", Cus_name=\"{txt_customerName.Text}\" , Tel_num=\"{txt_telephoneNumber.Text}\", Email=\"{txt_email.Text}\" , Cus_Address=\"{txt_address.Text}\" where Cus_NIC=\"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
+                        
                         try
                         {
                          //   $"UPDATE `customer` SET `Vehicle_num`= \"{msktxt_vehicleRegNumber.Text}\",`Brand`= \"{txt_brand.Text}\",`Model`= \"{txt_model.Text}\",`Type`= \"{combo_type.Text}\",`Engine_Num`= \"{txt_engineNumber.Text}\",`Chassis_Num`= \"{txt_chasisNumber.Text}\",`Owner_NIC`= \"{txt_ownerNIC.Text}\",`Reg_Date`= \"{date_registeredDate.Text}\",`Owner_Condi`= \"{txt_ownerCondition.Text}\",`Daily_price`= \"{txt_DailyPrice.Text}\",`Daliy_KM`= \"{txt_Dailykm.Text}\",`Weekly_price`= \"{txt_WeeklyPrice.Text}\",`Weekly_KM`= \"{txt_Weeklykm.Text}\",`Monthly_price`= \"{txt_MonthlyPrice.Text}\",`Monthy_KM`= \"{txt_Monthlykm.Text}\",`Extrakm_price`= \"{txt_ExtrakmPrice.Text}\",`Owner_payment`= \"{txt_OwnerPayment.Text}\",`Starting_odo`= \"{msktxt_startingOdo.Text}\"  WHERE `Vehicle_num`= \"{dataGridView1.SelectedRows[0].Cells[0].Value}\"";
@@ -405,7 +414,7 @@ namespace ShineWay.UI
                 label_nicError.Visible = false;
                 label_tickNIC.Visible = true;
                 isNICValid = true;
-
+                isNICValidForUpdate = true;
             }
             else
             {
@@ -413,6 +422,7 @@ namespace ShineWay.UI
                 label_nicError.Visible = true;
                 label_tickNIC.Visible = false;
                 isNICValid = false;
+                isNICValidForUpdate = false;
             }
         }
 
@@ -424,7 +434,7 @@ namespace ShineWay.UI
                 label_licenseError.Visible = false;
                 label_tickLicenseNum.Visible = true;
                 isLicensenumberValid = true;
-
+                isLicensenumberValidForUpdate = true;
             }
             else
             {
@@ -432,6 +442,7 @@ namespace ShineWay.UI
                 label_licenseError.Visible = true;
                 label_tickLicenseNum.Visible = false;
                 isLicensenumberValid = false;
+                isLicensenumberValidForUpdate = false;
             }
         }
 
@@ -443,7 +454,7 @@ namespace ShineWay.UI
                 label_nameError.Visible = false;
                 label_tickName.Visible = true;
                 isCusNameValid = true;
-
+                isCusNameValidForUpdate = true;
             }
             else
             {
@@ -451,6 +462,7 @@ namespace ShineWay.UI
                 label_nameError.Visible = true;
                 label_tickName.Visible = false;
                 isCusNameValid = false;
+                isCusNameValidForUpdate = false;
             }
         }
 
@@ -462,7 +474,7 @@ namespace ShineWay.UI
                 label_telnumberError.Visible = false;
                 label_tickTelNum.Visible = true;
                 isTelNumValid = true;
-
+                isTelNumValidForUpdate = true;
             }
             else
             {
@@ -470,6 +482,7 @@ namespace ShineWay.UI
                 label_telnumberError.Visible = true;
                 label_tickTelNum.Visible = false;
                 isTelNumValid = false;
+                isTelNumValidForUpdate = false;
             }
         }
 
@@ -481,7 +494,7 @@ namespace ShineWay.UI
                 label_emailError.Visible = false;
                 label_tickEmail.Visible = true;
                 isEmailValid = true;
-
+                isEmailValidForUpdate = true;
             }
             else
             {
@@ -489,6 +502,7 @@ namespace ShineWay.UI
                 label_emailError.Visible = true;
                 label_tickEmail.Visible = false;
                 isEmailValid = false;
+                isEmailValidForUpdate = false;
             }
         }
 
@@ -500,7 +514,7 @@ namespace ShineWay.UI
                 label_addressError.Visible = false;
                 label_tickAddress.Visible = true;
                 isAddressValid = true;
-
+                isAddressValidForUpdate = true;
             }
             else
             {
@@ -508,6 +522,7 @@ namespace ShineWay.UI
                 label_addressError.Visible = true;
                 label_tickAddress.Visible = false;
                 isAddressValid = false;
+                isAddressValidForUpdate = false;
             }
         }
 
@@ -521,6 +536,10 @@ namespace ShineWay.UI
             return (isNICValid && isEmailValid && isTelNumValid && isCusNameValid && isLicensenumberValid && isAddressValid);
         }
 
+        private bool isAllValidForUpdate()
+        {
+            return (isNICValidForUpdate && isEmailValidForUpdate && isTelNumValidForUpdate && isCusNameValidForUpdate && isLicensenumberValidForUpdate && isAddressValidForUpdate);
+        }
 
         private void txt_search_KeyUp(object sender, KeyEventArgs e)
         {
@@ -627,6 +646,22 @@ namespace ShineWay.UI
             txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
+            isNICValid = true;
+            isEmailValid = true;
+            isCusNameValid = true;
+            isTelNumValid = true;
+            isLicensenumberValid = true;
+            isAddressValid = true;
+
+             isNICValidForUpdate = true;
+             isAddressValidForUpdate = true;
+             isLicensenumberValidForUpdate = true;
+             isCusNameValidForUpdate = true;
+             isTelNumValidForUpdate = true;
+             isEmailValidForUpdate = true;
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

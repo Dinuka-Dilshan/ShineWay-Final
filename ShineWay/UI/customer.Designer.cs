@@ -330,6 +330,7 @@ namespace ShineWay.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txt_licenseNumber);
             this.panel1.Controls.Add(this.txt_nicNumber);
             this.panel1.Controls.Add(this.label_tickAddress);
@@ -357,7 +358,6 @@ namespace ShineWay.UI
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.pictureBox12);
             this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txt_customerName);
             this.panel1.Controls.Add(this.pictureBox13);
             this.panel1.Controls.Add(this.label3);
@@ -656,7 +656,9 @@ namespace ShineWay.UI
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(56, 6);
+
+            this.pictureBox1.Location = new System.Drawing.Point(56, 14);
+
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -830,7 +832,7 @@ namespace ShineWay.UI
             // pictureBox18
             // 
             this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
-            this.pictureBox18.Location = new System.Drawing.Point(588, 6);
+            this.pictureBox18.Location = new System.Drawing.Point(588, 16);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(200, 200);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -864,7 +866,7 @@ namespace ShineWay.UI
             this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
             this.pictureBox15.Location = new System.Drawing.Point(16, 13);
             this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(860, 804);
+            this.pictureBox15.Size = new System.Drawing.Size(860, 814);
             this.pictureBox15.TabIndex = 0;
             this.pictureBox15.TabStop = false;
             // 
