@@ -646,6 +646,22 @@ namespace ShineWay.UI
             txt_telephoneNumber.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txt_email.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             txt_address.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
+            isNICValid = true;
+            isEmailValid = true;
+            isCusNameValid = true;
+            isTelNumValid = true;
+            isLicensenumberValid = true;
+            isAddressValid = true;
+
+             isNICValidForUpdate = true;
+             isAddressValidForUpdate = true;
+             isLicensenumberValidForUpdate = true;
+             isCusNameValidForUpdate = true;
+             isTelNumValidForUpdate = true;
+             isEmailValidForUpdate = true;
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
